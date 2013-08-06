@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<Index Version="1" Minor="0">
+	<Repository value="/root/NetFPGA-10G-VC709/projects/nf10_input_arbiter_v1_00_a">
+	</Repository>
+	<IP>
+		<VLNV value="NetFPGA:nf10:nf10_input_arbiter:1.0">
+		</VLNV>
+		<DisplayName value="nf10_input_arbiter_v1_0">
+		</DisplayName>
+		<Description value="nf10_input_arbiter_v1_0">
+		</Description>
+		<SupportsRdiCustomization value="true">
+		</SupportsRdiCustomization>
+		<SupportsRdiGeneration value="true">
+		</SupportsRdiGeneration>
+		<NativeOnly value="true">
+		</NativeOnly>
+		<ComponentPath value="component.xml">
+		</ComponentPath>
+		<Families>
+			<Family name="virtex7">
+				<Part status="Production" name="ALL">
+				</Part>
+			</Family>
+		</Families>
+		<Taxonomies>
+			<Taxonomy value="/BaseIP">
+			</Taxonomy>
+		</Taxonomies>
+		<Interfaces>
+			<Interface value="AXI4-Stream">
+			</Interface>
+		</Interfaces>
+		<VendorDisplayName value="NetFPGA">
+		</VendorDisplayName>
+	</IP>
+</Index>
+

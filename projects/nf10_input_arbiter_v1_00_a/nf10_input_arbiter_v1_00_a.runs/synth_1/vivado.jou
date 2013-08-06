@@ -1,0 +1,9 @@
+#-----------------------------------------------------------
+# Vivado v2013.1 (64-bit)
+# Build 248050 by xbuild on Wed Mar 27 17:11:51 MDT 2013
+# Start of session at: Tue Aug  6 14:05:31 2013
+# Process ID: 19465
+# Log file: /root/NetFPGA-10G-VC709/projects/nf10_input_arbiter_v1_00_a/nf10_input_arbiter_v1_00_a.runs/synth_1/nf10_input_arbiter.rds
+# Journal file: /root/NetFPGA-10G-VC709/projects/nf10_input_arbiter_v1_00_a/nf10_input_arbiter_v1_00_a.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source nf10_input_arbiter.tcl

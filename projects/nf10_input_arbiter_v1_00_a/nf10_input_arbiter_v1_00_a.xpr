@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--Product Version: Vivado v2013.1 (64-bit)-->
+<Project Version="6" Minor="9" Path="/root/NetFPGA-10G-VC709/projects/nf10_input_arbiter_v1_00_a/nf10_input_arbiter_v1_00_a.xpr">
+	<FileSet Dir="sources_1" File="fileset.xml"/>
+	<FileSet Dir="sim_1" File="fileset.xml"/>
+	<FileSet Dir="nf10_input_arbiter_constrs" File="fileset.xml"/>
+	<RunSet Dir="runs" File="runs.xml"/>
+	<DefaultLaunch Dir="$PRUNDIR"/>
+	<Config>
+		<Option Name="Id" Val="815177b107a84c7899886c1c3be6ee19"/>
+		<Option Name="Part" Val="xc7vx690tffg1761-2"/>
+		<Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
+		<Option Name="Board" Val=""/>
+		<Option Name="ActiveSimSet" Val="sim_1"/>
+	</Config>
+</Project>
+
