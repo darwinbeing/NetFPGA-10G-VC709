@@ -1,0 +1,9 @@
+#-----------------------------------------------------------
+# Vivado v2013.2 (64-bit)
+# Build 272601 by xbuild on Sat Jun 15 11:11:11 MDT 2013
+# Start of session at: Mon Sep 30 15:54:15 2013
+# Process ID: 11367
+# Log file: /root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.runs/impl_1/vc709_reference_nic.rdi
+# Journal file: /root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source vc709_reference_nic.tcl -notrace

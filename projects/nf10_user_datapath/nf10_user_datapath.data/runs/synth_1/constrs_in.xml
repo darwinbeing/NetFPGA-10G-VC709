@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DARoots Version="1" Minor="30">
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PDATADIR/constrs_1/designprops.xml">
+      <FileInfo SFType="CompatPartsDb">
+        <Attr Name="ImportPath" Val="$PPRDIR/../vc709_reference_nic/vc709_reference_nic.data/constrs_1/designprops.xml"/>
+        <Attr Name="ImportTime" Val="1379667703"/>
+      </FileInfo>
+    </File>
+    <File Path="$PDATADIR/constrs_1/usercols.xml">
+      <FileInfo SFType="UserColsDb">
+        <Attr Name="ImportPath" Val="$PPRDIR/../vc709_reference_nic/vc709_reference_nic.data/constrs_1/usercols.xml"/>
+        <Attr Name="ImportTime" Val="1379667703"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+</DARoots>

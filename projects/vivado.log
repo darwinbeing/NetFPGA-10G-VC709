@@ -1,0 +1,152 @@
+#-----------------------------------------------------------
+# Vivado v2013.2 (64-bit)
+# Build 272601 by xbuild on Sat Jun 15 11:11:11 MDT 2013
+# Start of session at: Mon Aug 19 09:48:01 2013
+# Process ID: 2396
+# Log file: /root/NetFPGA-10G-VC709/projects/vivado.log
+# Journal file: /root/NetFPGA-10G-VC709/projects/vivado.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: Implementation
+INFO: [Common 17-86] Your Implementation license expires in 24 day(s)
+INFO: [Common 17-81] Feature available: Implementation
+INFO: [Common 17-78] Attempting to get a license: Synthesis
+INFO: [Common 17-86] Your Synthesis license expires in 24 day(s)
+INFO: [Common 17-81] Feature available: Synthesis
+INFO: [Device 21-36] Loading parts and site information from /opt/Xilinx/Vivado/2013.2/data/parts/arch.xml
+Parsing RTL primitives file [/opt/Xilinx/Vivado/2013.2/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [/opt/Xilinx/Vivado/2013.2/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+INFO: [Common 17-362] Using Tcl App repository from '/opt/Xilinx/Vivado/2013.2/data/XilinxTclStore'.
+INFO: [Common 17-364] Updating Tcl app persistent manifest '/root/.Xilinx/Vivado/tclapp/manifest.tcl'
+start_gui
+open_project /root/NetFPGA-10G-VC709/projects/nf10_10g_interface/nf10_10g_interface.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado repository '/opt/Xilinx/Vivado/2013.2/data/ip'.
+create_ip -name ten_gig_eth_mac -version 12.0 -vendor xilinx.com -library ip -module_name ten_gig_eth_mac_0
+generate_target instantiation_template [get_files  /root/NetFPGA-10G-VC709/projects/nf10_10g_interface/nf10_10g_interface.srcs/sources_1/ip/ten_gig_eth_mac_0/ten_gig_eth_mac_0.xci] -force
+Generating IP 'ten_gig_eth_mac_0'...
+Delivering 'Verilog Instantiation Template' file for IP 'ten_gig_eth_mac_0'.
+update_compile_order -fileset sources_1
+generate_target all [get_files  /root/NetFPGA-10G-VC709/projects/nf10_10g_interface/nf10_10g_interface.srcs/sources_1/ip/ten_gig_eth_mac_0/ten_gig_eth_mac_0.xci]
+Generating IP 'ten_gig_eth_mac_0'...
+INFO: [IP_Flow 19-1706] Not generating up to date 'Instantiation Template' target for IP 'ten_gig_eth_mac_0'.
+INFO: [IP_Flow 19-120] Not generating up to date IP 'ten_gig_eth_mac_0'
+Generating IP 'ten_gig_eth_mac_0'...
+Delivering 'Synthesis' files for IP 'ten_gig_eth_mac_0'.
+WARNING: [IP_Flow 19-650] IP license key 'ten_gig_eth_mac@2013.03' is enabled with a Hardware_Evaluation license.
+WARNING: [IP_Flow 19-650] IP license key 'ten_gig_eth_mac@2013.03' is enabled with a Hardware_Evaluation license.
+Generating IP 'ten_gig_eth_mac_0'...
+Delivering 'Simulation' files for IP 'ten_gig_eth_mac_0'.
+WARNING: [IP_Flow 19-650] IP license key 'ten_gig_eth_mac@2013.03' is enabled with a Hardware_Evaluation license.
+WARNING: [IP_Flow 19-650] IP license key 'ten_gig_eth_mac@2013.03' is enabled with a Hardware_Evaluation license.
+Generating IP 'ten_gig_eth_mac_0'...
+Delivering 'Examples' files for IP 'ten_gig_eth_mac_0'.
+Delivering 'Examples Simulation' files for IP 'ten_gig_eth_mac_0'.
+Delivering 'Any Language Examples Script' files for IP 'ten_gig_eth_mac_0'.
+generate_target: Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 3809.223 ; gain = 0.000
+create_ip -name ten_gig_eth_pcs_pma -version 3.0 -vendor xilinx.com -library ip -module_name ten_gig_eth_pcs_pma_0
+set_property -dict [list CONFIG.base_kr {BASE-R}] [get_ips ten_gig_eth_pcs_pma_0]
+generate_target instantiation_template [get_files  /root/NetFPGA-10G-VC709/projects/nf10_10g_interface/nf10_10g_interface.srcs/sources_1/ip/ten_gig_eth_pcs_pma_0/ten_gig_eth_pcs_pma_0.xci] -force
+Generating IP 'ten_gig_eth_pcs_pma_0'...
+Delivering 'Verilog Instantiation Template' file for IP 'ten_gig_eth_pcs_pma_0'.
+update_compile_order -fileset sources_1
+generate_target all [get_files  /root/NetFPGA-10G-VC709/projects/nf10_10g_interface/nf10_10g_interface.srcs/sources_1/ip/ten_gig_eth_pcs_pma_0/ten_gig_eth_pcs_pma_0.xci]
+Generating IP 'ten_gig_eth_pcs_pma_0'...
+INFO: [IP_Flow 19-1706] Not generating up to date 'Instantiation Template' target for IP 'ten_gig_eth_pcs_pma_0'.
+INFO: [IP_Flow 19-120] Not generating up to date IP 'ten_gig_eth_pcs_pma_0'
+Generating IP 'ten_gig_eth_pcs_pma_0'...
+Delivering 'Synthesis' files for IP 'ten_gig_eth_pcs_pma_0'.
+CRITICAL WARNING: [IP_Flow 19-651] IP license key 'ten_gig_eth_pcs_pma_basekr@2013.03' is unlicensed.
+CRITICAL WARNING: [IP_Flow 19-651] IP license key 'ten_gig_eth_pcs_pma_basekr@2013.03' is unlicensed.
+CRITICAL WARNING: [IP_Flow 19-651] IP license key 'ten_gig_eth_pcs_pma_basekr@2013.03' is unlicensed.
+CRITICAL WARNING: [IP_Flow 19-651] IP license key 'ten_gig_eth_pcs_pma_basekr@2013.03' is unlicensed.
+Generating IP 'ten_gig_eth_pcs_pma_0'...
+Delivering 'Simulation' files for IP 'ten_gig_eth_pcs_pma_0'.
+CRITICAL WARNING: [IP_Flow 19-651] IP license key 'ten_gig_eth_pcs_pma_basekr@2013.03' is unlicensed.
+CRITICAL WARNING: [IP_Flow 19-651] IP license key 'ten_gig_eth_pcs_pma_basekr@2013.03' is unlicensed.
+CRITICAL WARNING: [IP_Flow 19-651] IP license key 'ten_gig_eth_pcs_pma_basekr@2013.03' is unlicensed.
+CRITICAL WARNING: [IP_Flow 19-651] IP license key 'ten_gig_eth_pcs_pma_basekr@2013.03' is unlicensed.
+Generating IP 'ten_gig_eth_pcs_pma_0'...
+Delivering 'Examples' files for IP 'ten_gig_eth_pcs_pma_0'.
+Delivering 'Examples Simulation' files for IP 'ten_gig_eth_pcs_pma_0'.
+Delivering 'Any Language Examples Script' files for IP 'ten_gig_eth_pcs_pma_0'.
+generate_target: Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 3809.348 ; gain = 0.000
+remove_files /root/NetFPGA-10G-VC709/projects/nf10_10g_interface/nf10_10g_interface.srcs/sources_1/ip/ten_gig_eth_pcs_pma_0/ten_gig_eth_pcs_pma_0.xci
+remove_files /root/NetFPGA-10G-VC709/projects/nf10_10g_interface/nf10_10g_interface.srcs/sources_1/ip/ten_gig_eth_mac_0/ten_gig_eth_mac_0.xci
+create_ip -name ten_gig_eth_mac -version 12.0 -vendor xilinx.com -library ip -module_name ten_gig_eth_mac_0 -dir /root/NetFPGA-10G-VC709/projects/nf10_10g_interface/nf10_10g_interface.srcs/ip
+generate_target instantiation_template [get_files  /root/NetFPGA-10G-VC709/projects/nf10_10g_interface/nf10_10g_interface.srcs/ip/ten_gig_eth_mac_0/ten_gig_eth_mac_0.xci] -force
+Generating IP 'ten_gig_eth_mac_0'...
+Delivering 'Verilog Instantiation Template' file for IP 'ten_gig_eth_mac_0'.
+generate_target all [get_files  /root/NetFPGA-10G-VC709/projects/nf10_10g_interface/nf10_10g_interface.srcs/ip/ten_gig_eth_mac_0/ten_gig_eth_mac_0.xci]
+Generating IP 'ten_gig_eth_mac_0'...
+INFO: [IP_Flow 19-1706] Not generating up to date 'Instantiation Template' target for IP 'ten_gig_eth_mac_0'.
+INFO: [IP_Flow 19-120] Not generating up to date IP 'ten_gig_eth_mac_0'
+Generating IP 'ten_gig_eth_mac_0'...
+Delivering 'Synthesis' files for IP 'ten_gig_eth_mac_0'.
+WARNING: [IP_Flow 19-650] IP license key 'ten_gig_eth_mac@2013.03' is enabled with a Hardware_Evaluation license.
+WARNING: [IP_Flow 19-650] IP license key 'ten_gig_eth_mac@2013.03' is enabled with a Hardware_Evaluation license.
+Generating IP 'ten_gig_eth_mac_0'...
+Delivering 'Simulation' files for IP 'ten_gig_eth_mac_0'.
+WARNING: [IP_Flow 19-650] IP license key 'ten_gig_eth_mac@2013.03' is enabled with a Hardware_Evaluation license.
+WARNING: [IP_Flow 19-650] IP license key 'ten_gig_eth_mac@2013.03' is enabled with a Hardware_Evaluation license.
+Generating IP 'ten_gig_eth_mac_0'...
+Delivering 'Examples' files for IP 'ten_gig_eth_mac_0'.
+Delivering 'Examples Simulation' files for IP 'ten_gig_eth_mac_0'.
+Delivering 'Any Language Examples Script' files for IP 'ten_gig_eth_mac_0'.
+generate_target: Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 3809.348 ; gain = 0.000
+update_compile_order -fileset sources_1
+create_ip -name ten_gig_eth_pcs_pma -version 3.0 -vendor xilinx.com -library ip -module_name ten_gig_eth_pcs_pma_0 -dir /root/NetFPGA-10G-VC709/projects/nf10_10g_interface/nf10_10g_interface.srcs/ip
+set_property -dict [list CONFIG.base_kr {BASE-R}] [get_ips ten_gig_eth_pcs_pma_0]
+generate_target instantiation_template [get_files  /root/NetFPGA-10G-VC709/projects/nf10_10g_interface/nf10_10g_interface.srcs/ip/ten_gig_eth_pcs_pma_0/ten_gig_eth_pcs_pma_0.xci] -force
+Generating IP 'ten_gig_eth_pcs_pma_0'...
+Delivering 'Verilog Instantiation Template' file for IP 'ten_gig_eth_pcs_pma_0'.
+generate_target all [get_files  /root/NetFPGA-10G-VC709/projects/nf10_10g_interface/nf10_10g_interface.srcs/ip/ten_gig_eth_pcs_pma_0/ten_gig_eth_pcs_pma_0.xci]
+Generating IP 'ten_gig_eth_pcs_pma_0'...
+INFO: [IP_Flow 19-1706] Not generating up to date 'Instantiation Template' target for IP 'ten_gig_eth_pcs_pma_0'.
+INFO: [IP_Flow 19-120] Not generating up to date IP 'ten_gig_eth_pcs_pma_0'
+Generating IP 'ten_gig_eth_pcs_pma_0'...
+Delivering 'Synthesis' files for IP 'ten_gig_eth_pcs_pma_0'.
+CRITICAL WARNING: [IP_Flow 19-651] IP license key 'ten_gig_eth_pcs_pma_basekr@2013.03' is unlicensed.
+CRITICAL WARNING: [IP_Flow 19-651] IP license key 'ten_gig_eth_pcs_pma_basekr@2013.03' is unlicensed.
+CRITICAL WARNING: [IP_Flow 19-651] IP license key 'ten_gig_eth_pcs_pma_basekr@2013.03' is unlicensed.
+CRITICAL WARNING: [IP_Flow 19-651] IP license key 'ten_gig_eth_pcs_pma_basekr@2013.03' is unlicensed.
+Generating IP 'ten_gig_eth_pcs_pma_0'...
+Delivering 'Simulation' files for IP 'ten_gig_eth_pcs_pma_0'.
+CRITICAL WARNING: [IP_Flow 19-651] IP license key 'ten_gig_eth_pcs_pma_basekr@2013.03' is unlicensed.
+CRITICAL WARNING: [IP_Flow 19-651] IP license key 'ten_gig_eth_pcs_pma_basekr@2013.03' is unlicensed.
+CRITICAL WARNING: [IP_Flow 19-651] IP license key 'ten_gig_eth_pcs_pma_basekr@2013.03' is unlicensed.
+CRITICAL WARNING: [IP_Flow 19-651] IP license key 'ten_gig_eth_pcs_pma_basekr@2013.03' is unlicensed.
+Generating IP 'ten_gig_eth_pcs_pma_0'...
+Delivering 'Examples' files for IP 'ten_gig_eth_pcs_pma_0'.
+Delivering 'Examples Simulation' files for IP 'ten_gig_eth_pcs_pma_0'.
+Delivering 'Any Language Examples Script' files for IP 'ten_gig_eth_pcs_pma_0'.
+generate_target: Time (s): cpu = 00:00:25 ; elapsed = 00:00:24 . Memory (MB): peak = 3809.348 ; gain = 0.000
+update_compile_order -fileset sources_1
+close_project
+open_project /root/Downloads/v7_xt_conn_trd/vivado/project_1/xt_connectivity_trd.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado repository '/opt/Xilinx/Vivado/2013.2/data/ip'.
+open_project: Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 3863.316 ; gain = 28.438
+close_project
+open_project /root/NetFPGA-10G-VC709/projects/nf10_10g_interface/nf10_10g_interface.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado repository '/opt/Xilinx/Vivado/2013.2/data/ip'.
+update_compile_order -fileset sources_1
+close_project
+open_project /root/Downloads/v7_xt_conn_trd/vivado/project_1/xt_connectivity_trd.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado repository '/opt/Xilinx/Vivado/2013.2/data/ip'.
+open_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 3937.254 ; gain = 0.000
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Aug 20 14:15:34 2013...

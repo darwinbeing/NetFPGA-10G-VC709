@@ -1,0 +1,628 @@
+#-----------------------------------------------------------
+# Vivado v2013.2 (64-bit)
+# Build 272601 by xbuild on Sat Jun 15 11:11:11 MDT 2013
+# Start of session at: Mon Sep 30 14:08:07 2013
+# Process ID: 4948
+# Log file: /root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.runs/impl_1/vc709_reference_nic.rdi
+# Journal file: /root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: Implementation
+INFO: [Common 17-81] Feature available: Implementation
+INFO: [Common 17-78] Attempting to get a license: Synthesis
+INFO: [Common 17-81] Feature available: Synthesis
+INFO: [Device 21-36] Loading parts and site information from /opt/Xilinx/Vivado/2013.2/data/parts/arch.xml
+Parsing RTL primitives file [/opt/Xilinx/Vivado/2013.2/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [/opt/Xilinx/Vivado/2013.2/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+INFO: [Common 17-362] Using Tcl App repository from '/opt/Xilinx/Vivado/2013.2/data/XilinxTclStore'.
+INFO: [Common 17-364] Updating Tcl app persistent manifest '/root/.Xilinx/Vivado/tclapp/manifest.tcl'
+source vc709_reference_nic.tcl -notrace
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Netlist 29-17] Analyzing 851 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2013.2
+Loading clock regions from /opt/Xilinx/Vivado/2013.2/data/parts/xilinx/virtex7/virtex7/xc7vx690t/ClockRegion.xml
+Loading clock buffers from /opt/Xilinx/Vivado/2013.2/data/parts/xilinx/virtex7/virtex7/xc7vx690t/ClockBuffers.xml
+Loading clock placement rules from /opt/Xilinx/Vivado/2013.2/data/parts/xilinx/virtex7/ClockPlacerRules.xml
+Loading package pin functions from /opt/Xilinx/Vivado/2013.2/data/parts/xilinx/virtex7/PinFunctions.xml...
+Loading package from /opt/Xilinx/Vivado/2013.2/data/parts/xilinx/virtex7/virtex7/xc7vx690t/ffg1761/Package.xml
+Loading io standards from /opt/Xilinx/Vivado/2013.2/data/./parts/xilinx/virtex7/IOStandards.xml
+Loading device configuration modes from /opt/Xilinx/Vivado/2013.2/data/parts/xilinx/virtex7/ConfigModes.xml
+INFO: [Opt 31-138] Pushed 0 inverter(s).
+INFO: [Common 17-78] Attempting to get a license: Internal_bitstream
+WARNING: [Common 17-301] Failed to get a license: Internal_bitstream
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif.xdc] for cell 'network_inst_3/rx_interface_i/cmd_fifo_inst/U0'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif.xdc] for cell 'network_inst_3/rx_interface_i/cmd_fifo_inst/U0'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif.xdc] for cell 'network_inst_2/rx_interface_i/cmd_fifo_inst/U0'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif.xdc] for cell 'network_inst_2/rx_interface_i/cmd_fifo_inst/U0'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif.xdc] for cell 'network_inst_1/rx_interface_i/cmd_fifo_inst/U0'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif.xdc] for cell 'network_inst_1/rx_interface_i/cmd_fifo_inst/U0'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif.xdc] for cell 'network_inst_0/rx_interface_i/cmd_fifo_inst/U0'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif.xdc] for cell 'network_inst_0/rx_interface_i/cmd_fifo_inst/U0'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo.xdc] for cell 'network_inst_3/tx_interface_i/axis_fifo_inst1/U0'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo.xdc] for cell 'network_inst_3/tx_interface_i/axis_fifo_inst1/U0'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo.xdc] for cell 'network_inst_3/rx_interface_i/axis_fifo_inst1/U0'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo.xdc] for cell 'network_inst_3/rx_interface_i/axis_fifo_inst1/U0'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo.xdc] for cell 'network_inst_2/tx_interface_i/axis_fifo_inst1/U0'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo.xdc] for cell 'network_inst_2/tx_interface_i/axis_fifo_inst1/U0'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo.xdc] for cell 'network_inst_2/rx_interface_i/axis_fifo_inst1/U0'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo.xdc] for cell 'network_inst_2/rx_interface_i/axis_fifo_inst1/U0'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo.xdc] for cell 'network_inst_1/tx_interface_i/axis_fifo_inst1/U0'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo.xdc] for cell 'network_inst_1/tx_interface_i/axis_fifo_inst1/U0'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo.xdc] for cell 'network_inst_1/rx_interface_i/axis_fifo_inst1/U0'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo.xdc] for cell 'network_inst_1/rx_interface_i/axis_fifo_inst1/U0'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo.xdc] for cell 'network_inst_0/tx_interface_i/axis_fifo_inst1/U0'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo.xdc] for cell 'network_inst_0/tx_interface_i/axis_fifo_inst1/U0'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo.xdc] for cell 'network_inst_0/rx_interface_i/axis_fifo_inst1/U0'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo.xdc] for cell 'network_inst_0/rx_interface_i/axis_fifo_inst1/U0'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip.xdc] for cell 'network_inst_3/ten_gig_eth_pcs_pma_inst/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip.xdc:48]
+get_clocks: Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 1324.258 ; gain = 109.223
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip.xdc] for cell 'network_inst_3/ten_gig_eth_pcs_pma_inst/inst'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip.xdc] for cell 'network_inst_2/ten_gig_eth_pcs_pma_inst/inst'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip.xdc] for cell 'network_inst_2/ten_gig_eth_pcs_pma_inst/inst'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip.xdc] for cell 'network_inst_1/ten_gig_eth_pcs_pma_inst/inst'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip.xdc] for cell 'network_inst_1/ten_gig_eth_pcs_pma_inst/inst'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip.xdc] for cell 'network_inst_0/ten_gig_eth_pcs_pma_inst/inst'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip.xdc] for cell 'network_inst_0/ten_gig_eth_pcs_pma_inst/inst'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/synth/ten_gig_eth_mac_ip.xdc] for cell 'network_inst_3/ten_gig_eth_mac_inst/inst'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/synth/ten_gig_eth_mac_ip.xdc] for cell 'network_inst_3/ten_gig_eth_mac_inst/inst'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/synth/ten_gig_eth_mac_ip.xdc] for cell 'network_inst_2/ten_gig_eth_mac_inst/inst'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/synth/ten_gig_eth_mac_ip.xdc] for cell 'network_inst_2/ten_gig_eth_mac_inst/inst'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/synth/ten_gig_eth_mac_ip.xdc] for cell 'network_inst_1/ten_gig_eth_mac_inst/inst'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/synth/ten_gig_eth_mac_ip.xdc] for cell 'network_inst_1/ten_gig_eth_mac_inst/inst'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/synth/ten_gig_eth_mac_ip.xdc] for cell 'network_inst_0/ten_gig_eth_mac_inst/inst'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/synth/ten_gig_eth_mac_ip.xdc] for cell 'network_inst_0/ten_gig_eth_mac_inst/inst'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/vc709_pcie_x8_gen3/vc709_pcie_x8_gen3/source/vc709_pcie_x8_gen3-PCIE_X0Y1.xdc] for cell 'vc709_pcie_x8_gen3_i/inst'
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'vc709_pcie_x8_gen3_i/inst', returning the pins matched for query '[get_ports pipe_txoutclk_out]' of cell 'vc709_pcie_x8_gen3_i/inst'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/vc709_pcie_x8_gen3/vc709_pcie_x8_gen3/source/vc709_pcie_x8_gen3-PCIE_X0Y1.xdc:121]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'vc709_pcie_x8_gen3_i/inst', returning the pins matched for query '[get_ports {pipe_rxoutclk_out[0]}]' of cell 'vc709_pcie_x8_gen3_i/inst'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/vc709_pcie_x8_gen3/vc709_pcie_x8_gen3/source/vc709_pcie_x8_gen3-PCIE_X0Y1.xdc:122]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'vc709_pcie_x8_gen3_i/inst', returning the pins matched for query '[get_ports user_clk]' of cell 'vc709_pcie_x8_gen3_i/inst'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/vc709_pcie_x8_gen3/vc709_pcie_x8_gen3/source/vc709_pcie_x8_gen3-PCIE_X0Y1.xdc:123]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/vc709_pcie_x8_gen3/vc709_pcie_x8_gen3/source/vc709_pcie_x8_gen3-PCIE_X0Y1.xdc] for cell 'vc709_pcie_x8_gen3_i/inst'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axi_dma_0/axi_dma_0.xdc] for cell 'axi_dma_0/U0'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axi_dma_0/axi_dma_0.xdc] for cell 'axi_dma_0/U0'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/constrs_1/imports/Downloads/vc709_10g_interface/vc709_10g_interface.srcs/constrs_1/new/vc709_10g_interface.xdc]
+INFO: [Vivado 12-2286] Implicit search of objects for pattern 'clk_divide_reg[1]_i_1/O' matched to 'pin' objects. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/constrs_1/imports/Downloads/vc709_10g_interface/vc709_10g_interface.srcs/constrs_1/new/vc709_10g_interface.xdc:22]
+Resolution: To avoid ambiguous patterns, provide proper objects using get commands e.g. [get_nets xyz].
+INFO: [Timing 38-2] Deriving generated clocks [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/constrs_1/imports/Downloads/vc709_10g_interface/vc709_10g_interface.srcs/constrs_1/new/vc709_10g_interface.xdc:174]
+WARNING: [Vivado 12-584] No ports matched 'emcclk'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/constrs_1/imports/Downloads/vc709_10g_interface/vc709_10g_interface.srcs/constrs_1/new/vc709_10g_interface.xdc:193]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/constrs_1/imports/Downloads/vc709_10g_interface/vc709_10g_interface.srcs/constrs_1/new/vc709_10g_interface.xdc:193]
+WARNING: [Vivado 12-584] No ports matched 'emcclk'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/constrs_1/imports/Downloads/vc709_10g_interface/vc709_10g_interface.srcs/constrs_1/new/vc709_10g_interface.xdc:194]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/constrs_1/imports/Downloads/vc709_10g_interface/vc709_10g_interface.srcs/constrs_1/new/vc709_10g_interface.xdc:194]
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/constrs_1/imports/Downloads/vc709_10g_interface/vc709_10g_interface.srcs/constrs_1/new/vc709_10g_interface.xdc]
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc] for cell 'network_inst_3/tx_interface_i/axis_fifo_inst1/U0'
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_3/tx_interface_i/axis_fifo_inst1/U0', returning the pins matched for query '[get_ports s_aclk]' of cell 'network_inst_3/tx_interface_i/axis_fifo_inst1/U0'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc:52]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_3/tx_interface_i/axis_fifo_inst1/U0', returning the pins matched for query '[get_ports m_aclk]' of cell 'network_inst_3/tx_interface_i/axis_fifo_inst1/U0'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc:53]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc] for cell 'network_inst_3/tx_interface_i/axis_fifo_inst1/U0'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc] for cell 'network_inst_3/rx_interface_i/axis_fifo_inst1/U0'
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_3/rx_interface_i/axis_fifo_inst1/U0', returning the pins matched for query '[get_ports s_aclk]' of cell 'network_inst_3/rx_interface_i/axis_fifo_inst1/U0'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc:52]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_3/rx_interface_i/axis_fifo_inst1/U0', returning the pins matched for query '[get_ports m_aclk]' of cell 'network_inst_3/rx_interface_i/axis_fifo_inst1/U0'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc:53]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc] for cell 'network_inst_3/rx_interface_i/axis_fifo_inst1/U0'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc] for cell 'network_inst_2/tx_interface_i/axis_fifo_inst1/U0'
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_2/tx_interface_i/axis_fifo_inst1/U0', returning the pins matched for query '[get_ports s_aclk]' of cell 'network_inst_2/tx_interface_i/axis_fifo_inst1/U0'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc:52]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_2/tx_interface_i/axis_fifo_inst1/U0', returning the pins matched for query '[get_ports m_aclk]' of cell 'network_inst_2/tx_interface_i/axis_fifo_inst1/U0'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc:53]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc] for cell 'network_inst_2/tx_interface_i/axis_fifo_inst1/U0'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc] for cell 'network_inst_2/rx_interface_i/axis_fifo_inst1/U0'
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_2/rx_interface_i/axis_fifo_inst1/U0', returning the pins matched for query '[get_ports s_aclk]' of cell 'network_inst_2/rx_interface_i/axis_fifo_inst1/U0'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc:52]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_2/rx_interface_i/axis_fifo_inst1/U0', returning the pins matched for query '[get_ports m_aclk]' of cell 'network_inst_2/rx_interface_i/axis_fifo_inst1/U0'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc:53]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc] for cell 'network_inst_2/rx_interface_i/axis_fifo_inst1/U0'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc] for cell 'network_inst_1/tx_interface_i/axis_fifo_inst1/U0'
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_1/tx_interface_i/axis_fifo_inst1/U0', returning the pins matched for query '[get_ports s_aclk]' of cell 'network_inst_1/tx_interface_i/axis_fifo_inst1/U0'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc:52]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_1/tx_interface_i/axis_fifo_inst1/U0', returning the pins matched for query '[get_ports m_aclk]' of cell 'network_inst_1/tx_interface_i/axis_fifo_inst1/U0'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc:53]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc] for cell 'network_inst_1/tx_interface_i/axis_fifo_inst1/U0'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc] for cell 'network_inst_1/rx_interface_i/axis_fifo_inst1/U0'
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_1/rx_interface_i/axis_fifo_inst1/U0', returning the pins matched for query '[get_ports s_aclk]' of cell 'network_inst_1/rx_interface_i/axis_fifo_inst1/U0'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc:52]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_1/rx_interface_i/axis_fifo_inst1/U0', returning the pins matched for query '[get_ports m_aclk]' of cell 'network_inst_1/rx_interface_i/axis_fifo_inst1/U0'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc:53]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc] for cell 'network_inst_1/rx_interface_i/axis_fifo_inst1/U0'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc] for cell 'network_inst_0/tx_interface_i/axis_fifo_inst1/U0'
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_0/tx_interface_i/axis_fifo_inst1/U0', returning the pins matched for query '[get_ports s_aclk]' of cell 'network_inst_0/tx_interface_i/axis_fifo_inst1/U0'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc:52]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_0/tx_interface_i/axis_fifo_inst1/U0', returning the pins matched for query '[get_ports m_aclk]' of cell 'network_inst_0/tx_interface_i/axis_fifo_inst1/U0'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc:53]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc] for cell 'network_inst_0/tx_interface_i/axis_fifo_inst1/U0'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc] for cell 'network_inst_0/rx_interface_i/axis_fifo_inst1/U0'
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_0/rx_interface_i/axis_fifo_inst1/U0', returning the pins matched for query '[get_ports s_aclk]' of cell 'network_inst_0/rx_interface_i/axis_fifo_inst1/U0'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc:52]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_0/rx_interface_i/axis_fifo_inst1/U0', returning the pins matched for query '[get_ports m_aclk]' of cell 'network_inst_0/rx_interface_i/axis_fifo_inst1/U0'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc:53]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc] for cell 'network_inst_0/rx_interface_i/axis_fifo_inst1/U0'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc] for cell 'network_inst_3/ten_gig_eth_pcs_pma_inst/inst'
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_3/ten_gig_eth_pcs_pma_inst/inst', returning the pins matched for query '[get_ports clk156]' of cell 'network_inst_3/ten_gig_eth_pcs_pma_inst/inst'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc:47]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_3/ten_gig_eth_pcs_pma_inst/inst', returning the pins matched for query '[get_ports dclk]' of cell 'network_inst_3/ten_gig_eth_pcs_pma_inst/inst'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc:48]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_3/ten_gig_eth_pcs_pma_inst/inst', returning the pins matched for query '[get_ports {configuration_vector[110]}]' of cell 'network_inst_3/ten_gig_eth_pcs_pma_inst/inst'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc:50]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_3/ten_gig_eth_pcs_pma_inst/inst', returning the pins matched for query '[get_ports {configuration_vector[110]}]' of cell 'network_inst_3/ten_gig_eth_pcs_pma_inst/inst'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc:51]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc] for cell 'network_inst_3/ten_gig_eth_pcs_pma_inst/inst'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc] for cell 'network_inst_2/ten_gig_eth_pcs_pma_inst/inst'
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_2/ten_gig_eth_pcs_pma_inst/inst', returning the pins matched for query '[get_ports clk156]' of cell 'network_inst_2/ten_gig_eth_pcs_pma_inst/inst'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc:47]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_2/ten_gig_eth_pcs_pma_inst/inst', returning the pins matched for query '[get_ports dclk]' of cell 'network_inst_2/ten_gig_eth_pcs_pma_inst/inst'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc:48]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_2/ten_gig_eth_pcs_pma_inst/inst', returning the pins matched for query '[get_ports {configuration_vector[110]}]' of cell 'network_inst_2/ten_gig_eth_pcs_pma_inst/inst'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc:50]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_2/ten_gig_eth_pcs_pma_inst/inst', returning the pins matched for query '[get_ports {configuration_vector[110]}]' of cell 'network_inst_2/ten_gig_eth_pcs_pma_inst/inst'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc:51]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc] for cell 'network_inst_2/ten_gig_eth_pcs_pma_inst/inst'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc] for cell 'network_inst_1/ten_gig_eth_pcs_pma_inst/inst'
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_1/ten_gig_eth_pcs_pma_inst/inst', returning the pins matched for query '[get_ports clk156]' of cell 'network_inst_1/ten_gig_eth_pcs_pma_inst/inst'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc:47]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_1/ten_gig_eth_pcs_pma_inst/inst', returning the pins matched for query '[get_ports dclk]' of cell 'network_inst_1/ten_gig_eth_pcs_pma_inst/inst'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc:48]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_1/ten_gig_eth_pcs_pma_inst/inst', returning the pins matched for query '[get_ports {configuration_vector[110]}]' of cell 'network_inst_1/ten_gig_eth_pcs_pma_inst/inst'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc:50]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_1/ten_gig_eth_pcs_pma_inst/inst', returning the pins matched for query '[get_ports {configuration_vector[110]}]' of cell 'network_inst_1/ten_gig_eth_pcs_pma_inst/inst'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc:51]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc] for cell 'network_inst_1/ten_gig_eth_pcs_pma_inst/inst'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc] for cell 'network_inst_0/ten_gig_eth_pcs_pma_inst/inst'
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_0/ten_gig_eth_pcs_pma_inst/inst', returning the pins matched for query '[get_ports clk156]' of cell 'network_inst_0/ten_gig_eth_pcs_pma_inst/inst'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc:47]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_0/ten_gig_eth_pcs_pma_inst/inst', returning the pins matched for query '[get_ports dclk]' of cell 'network_inst_0/ten_gig_eth_pcs_pma_inst/inst'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc:48]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_0/ten_gig_eth_pcs_pma_inst/inst', returning the pins matched for query '[get_ports {configuration_vector[110]}]' of cell 'network_inst_0/ten_gig_eth_pcs_pma_inst/inst'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc:50]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Vivado 12-1399] There are no top level ports directly connected to pins of cell 'network_inst_0/ten_gig_eth_pcs_pma_inst/inst', returning the pins matched for query '[get_ports {configuration_vector[110]}]' of cell 'network_inst_0/ten_gig_eth_pcs_pma_inst/inst'. [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc:51]
+Resolution: The get_ports call is being converted to a get_pins call as there is no direct connection to a top level port. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc] for cell 'network_inst_0/ten_gig_eth_pcs_pma_inst/inst'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axi_dma_0/axi_dma_0_clocks.xdc] for cell 'axi_dma_0/U0'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axi_dma_0/axi_dma_0_clocks.xdc] for cell 'axi_dma_0/U0'
+Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.runs/impl_1/.Xil/Vivado-4948-nf-test104.cl.cam.ac.uk/dcp/vc709_reference_nic.xdc]
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.runs/impl_1/.Xil/Vivado-4948-nf-test104.cl.cam.ac.uk/dcp/vc709_reference_nic.xdc]
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 719 instances were transformed.
+  IOBUF => IOBUF (OBUFT, IBUF): 2 instances
+  LUT6_2 => LUT6_2 (LUT6, LUT5): 47 instances
+  RAM16X1D => RAM16X1D (RAMD32, RAMD32, GND): 552 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 116 instances
+  RAM64M => RAM64M (RAMD64E, RAMD64E, RAMD64E, RAMD64E): 2 instances
+
+Phase 0 | Netlist Checksum: 3c5ce7fb
+link_design: Time (s): cpu = 00:01:41 ; elapsed = 00:01:37 . Memory (MB): peak = 1352.445 ; gain = 1200.777
+Command: opt_design
+INFO: [Common 17-347] Attempting to get a license for feature 'Implementation' and/or device 'xc7vx690t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7vx690t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [Drc 23-27] Running DRC with 4 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1353.449 ; gain = 1.004
+
+Starting Logic Optimization Task
+Logic Optimization | Checksum: 4d72af73
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 1 Retarget
+INFO: [Opt 31-138] Pushed 3 inverter(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: 3b0741ae
+
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:13 . Memory (MB): peak = 1361.605 ; gain = 8.156
+
+Phase 2 Constant Propagation
+INFO: [Opt 31-138] Pushed 34 inverter(s).
+INFO: [Opt 31-10] Eliminated 8074 cells.
+Phase 2 Constant Propagation | Checksum: 0c3a43af
+
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:37 . Memory (MB): peak = 1361.605 ; gain = 8.156
+
+Phase 3 Sweep
+INFO: [Opt 31-12] Eliminated 21626 unconnected nets.
+INFO: [Opt 31-11] Eliminated 14730 unconnected cells.
+Phase 3 Sweep | Checksum: b0241269
+
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:49 . Memory (MB): peak = 1361.605 ; gain = 8.156
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Logic Optimization Task | Checksum: b0241269
+
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:55 . Memory (MB): peak = 1361.605 ; gain = 8.156
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 17 BRAM(s) out of a total of 40 was updated to NO_CHANGE to save power.
+    Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
+Number of BRAM Ports augmented: 1 newly gated: 11 Total Ports: 80
+Number of Flops added for Enable Generation: 3
+
+Ending Power Optimization Task | Checksum: e5cfe77e
+
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:18 . Memory (MB): peak = 1557.625 ; gain = 196.020
+61 Infos, 3 Warnings, 2 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:01:32 ; elapsed = 00:01:15 . Memory (MB): peak = 1557.625 ; gain = 205.180
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1557.625 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1557.625 ; gain = 0.000
+Command: place_design
+INFO: [Common 17-347] Attempting to get a license for feature 'Implementation' and/or device 'xc7vx690t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7vx690t'
+Running DRC as a precondition to command place_design
+INFO: [Drc 23-27] Running DRC with 4 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 4 CPUs
+
+Phase 1 Placer Initialization
+Netlist sorting complete. Time (s): cpu = 00:00:00.15 ; elapsed = 00:00:00.15 . Memory (MB): peak = 1557.625 ; gain = 0.000
+
+Phase 1.1 Mandatory Logic Optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s).
+Phase 1.1 Mandatory Logic Optimization | Checksum: 1c0a51168
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1557.625 ; gain = 0.000
+
+Phase 1.2 Build Super Logic Region (SLR) Database
+Phase 1.2 Build Super Logic Region (SLR) Database | Checksum: 1c0a51168
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1557.625 ; gain = 0.000
+
+Phase 1.3 Add Constraints
+Phase 1.3 Add Constraints | Checksum: 1c0a51168
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1557.625 ; gain = 0.000
+
+Phase 1.4 Routing Based Site Exclusion
+Phase 1.4 Routing Based Site Exclusion | Checksum: 1c0a51168
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1557.625 ; gain = 0.000
+
+Phase 1.5 Build Macros
+Phase 1.5 Build Macros | Checksum: 17a9897ff
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1557.625 ; gain = 0.000
+
+Phase 1.6 Implementation Feasibility check
+Phase 1.6 Implementation Feasibility check | Checksum: 17a9897ff
+
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1557.625 ; gain = 0.000
+
+Phase 1.7 Pre-Place Cells
+Phase 1.7 Pre-Place Cells | Checksum: 17a9897ff
+
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1557.625 ; gain = 0.000
+
+Phase 1.8 IO Placement/ Clock Placement/ Build Placer Device
+Phase 1.8 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 17a9897ff
+
+Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 1581.637 ; gain = 24.012
+
+Phase 1.9 Build Placer Netlist Model
+
+Phase 1.9.1 Place Init Design
+
+Phase 1.9.1.1 Build Clock Data
+Phase 1.9.1.1 Build Clock Data | Checksum: 19717bfe5
+
+Time (s): cpu = 00:01:10 ; elapsed = 00:00:54 . Memory (MB): peak = 1581.637 ; gain = 24.012
+Phase 1.9.1 Place Init Design | Checksum: eff01103
+
+Time (s): cpu = 00:01:14 ; elapsed = 00:00:57 . Memory (MB): peak = 1581.637 ; gain = 24.012
+Phase 1.9 Build Placer Netlist Model | Checksum: eff01103
+
+Time (s): cpu = 00:01:14 ; elapsed = 00:00:57 . Memory (MB): peak = 1581.637 ; gain = 24.012
+
+Phase 1.10 Constrain Clocks/Macros
+
+Phase 1.10.1 Constrain Global/Regional Clocks
+Phase 1.10.1 Constrain Global/Regional Clocks | Checksum: aceaf522
+
+Time (s): cpu = 00:01:14 ; elapsed = 00:00:58 . Memory (MB): peak = 1581.637 ; gain = 24.012
+Phase 1.10 Constrain Clocks/Macros | Checksum: aceaf522
+
+Time (s): cpu = 00:01:15 ; elapsed = 00:00:58 . Memory (MB): peak = 1581.637 ; gain = 24.012
+Phase 1 Placer Initialization | Checksum: aceaf522
+
+Time (s): cpu = 00:01:15 ; elapsed = 00:00:58 . Memory (MB): peak = 1581.637 ; gain = 24.012
+
+Phase 2 Global Placement
+Phase 2 Global Placement | Checksum: c06b3d50
+
+Time (s): cpu = 00:04:54 ; elapsed = 00:02:41 . Memory (MB): peak = 1585.609 ; gain = 27.984
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: c06b3d50
+
+Time (s): cpu = 00:04:54 ; elapsed = 00:02:42 . Memory (MB): peak = 1585.609 ; gain = 27.984
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 3829d66c
+
+Time (s): cpu = 00:05:16 ; elapsed = 00:02:55 . Memory (MB): peak = 1585.609 ; gain = 27.984
+
+Phase 3.3 Area Swap Optimization
+Phase 3.3 Area Swap Optimization | Checksum: 2236e192
+
+Time (s): cpu = 00:05:17 ; elapsed = 00:02:57 . Memory (MB): peak = 1585.609 ; gain = 27.984
+
+Phase 3.4 Timing Path Optimizer
+Phase 3.4 Timing Path Optimizer | Checksum: 801a9864
+
+Time (s): cpu = 00:05:50 ; elapsed = 00:03:11 . Memory (MB): peak = 1591.609 ; gain = 33.984
+
+Phase 3.5 Commit Small Macros & Core Logic
+Phase 3.5 Commit Small Macros & Core Logic | Checksum: 4d3b9a70
+
+Time (s): cpu = 00:06:34 ; elapsed = 00:03:41 . Memory (MB): peak = 1657.523 ; gain = 99.898
+
+Phase 3.6 Re-assign LUT pins
+Phase 3.6 Re-assign LUT pins | Checksum: 4d3b9a70
+
+Time (s): cpu = 00:06:38 ; elapsed = 00:03:45 . Memory (MB): peak = 1658.523 ; gain = 100.898
+Phase 3 Detail Placement | Checksum: 4d3b9a70
+
+Time (s): cpu = 00:06:38 ; elapsed = 00:03:45 . Memory (MB): peak = 1658.523 ; gain = 100.898
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Placement Timing Optimization
+Phase 4.1 Post Placement Timing Optimization | Checksum: a3d4e9a0
+
+Time (s): cpu = 00:07:27 ; elapsed = 00:04:20 . Memory (MB): peak = 1685.227 ; gain = 127.602
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: a3d4e9a0
+
+Time (s): cpu = 00:07:27 ; elapsed = 00:04:21 . Memory (MB): peak = 1685.227 ; gain = 127.602
+
+Phase 4.3 Placer Reporting
+INFO: [Place 30-100] Post Placement Timing Summary | WNS=0.126  | TNS=0.000  |
+
+Phase 4.3 Placer Reporting | Checksum: 101944925
+
+Time (s): cpu = 00:07:31 ; elapsed = 00:04:23 . Memory (MB): peak = 1685.227 ; gain = 127.602
+
+Phase 4.4 Final Placement Cleanup
+Phase 4.4 Final Placement Cleanup | Checksum: 1bea84a7a
+
+Time (s): cpu = 00:07:31 ; elapsed = 00:04:23 . Memory (MB): peak = 1685.227 ; gain = 127.602
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 1bea84a7a
+
+Time (s): cpu = 00:07:32 ; elapsed = 00:04:23 . Memory (MB): peak = 1685.227 ; gain = 127.602
+Ending Placer Task | Checksum: 16086bb58
+
+Time (s): cpu = 00:07:32 ; elapsed = 00:04:23 . Memory (MB): peak = 1685.227 ; gain = 127.602
+69 Infos, 3 Warnings, 2 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:07:34 ; elapsed = 00:04:25 . Memory (MB): peak = 1685.227 ; gain = 127.602
+INFO: [Timing 38-163] DEBUG : Generate clock report | CPU: 1.34 secs 
+
+report_utilization: Time (s): cpu = 00:00:00.92 ; elapsed = 00:00:00.99 . Memory (MB): peak = 1685.227 ; gain = 0.000
+INFO: [Designutils 20-134] DEBUG : Generate Control Sets report | CPU: 0.25 secs 
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1685.227 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1685.227 ; gain = 0.000
+Command: route_design
+INFO: [Common 17-347] Attempting to get a license for feature 'Implementation' and/or device 'xc7vx690t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7vx690t'
+Running DRC as a precondition to command route_design
+INFO: [Drc 23-27] Running DRC with 4 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 4 CPUs
+
+Starting Route Task
+
+Phase 1 Build RT Design
+
+Phase 1.1 Build Netlist & NodeGraph (MT)
+Netlist sorting complete. Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.10 . Memory (MB): peak = 1716.480 ; gain = 31.004
+Phase 1.1 Build Netlist & NodeGraph (MT) | Checksum: 0
+
+Time (s): cpu = 00:05:27 ; elapsed = 00:04:16 . Memory (MB): peak = 1968.332 ; gain = 282.855
+Phase 1 Build RT Design | Checksum: 0
+
+Time (s): cpu = 00:05:29 ; elapsed = 00:04:18 . Memory (MB): peak = 1968.332 ; gain = 282.855
+
+Phase 2 Router Initialization
+
+Phase 2.1 Create Timer
+Phase 2.1 Create Timer | Checksum: 0c7efe8e
+
+Time (s): cpu = 00:05:30 ; elapsed = 00:04:19 . Memory (MB): peak = 1968.332 ; gain = 282.855
+INFO: [Route 35-23] Estimated Global Vertical Wire Utilization = 0.65 %
+INFO: [Route 35-22] Estimated Global Horizontal Wire Utilization = 1.13 %
+
+Phase 2.2 Restore Routing
+INFO: [Route 35-249] Design has 41749 routable nets.
+INFO: [Route 35-252] Restored 0 nets from the routeDb.
+INFO: [Route 35-251] Found 0 nets with FIXED_ROUTE property.
+Phase 2.2 Restore Routing | Checksum: 0c7efe8e
+
+Time (s): cpu = 00:05:30 ; elapsed = 00:04:19 . Memory (MB): peak = 1981.238 ; gain = 295.762
+
+Phase 2.3 Special Net Routing
+ Number of Wires with overlaps = 0
+Phase 2.3 Special Net Routing | Checksum: f1ecea49
+
+Time (s): cpu = 00:05:42 ; elapsed = 00:04:31 . Memory (MB): peak = 2003.676 ; gain = 318.199
+
+Phase 2.4 Local Clock Net Routing
+Phase 2.4 Local Clock Net Routing | Checksum: 4c6ec933
+
+Time (s): cpu = 00:05:42 ; elapsed = 00:04:31 . Memory (MB): peak = 2003.676 ; gain = 318.199
+
+Phase 2.5 Update Timing
+
+Phase 2.5.1 Update timing with NCN CRPR
+
+Phase 2.5.1.1 Hold Budgeting
+Phase 2.5.1.1 Hold Budgeting | Checksum: 4c6ec933
+
+Time (s): cpu = 00:06:24 ; elapsed = 00:04:48 . Memory (MB): peak = 2014.078 ; gain = 328.602
+Phase 2.5.1 Update timing with NCN CRPR | Checksum: 4c6ec933
+
+Time (s): cpu = 00:06:24 ; elapsed = 00:04:49 . Memory (MB): peak = 2014.078 ; gain = 328.602
+Phase 2.5 Update Timing | Checksum: 4c6ec933
+
+Time (s): cpu = 00:06:24 ; elapsed = 00:04:49 . Memory (MB): peak = 2014.078 ; gain = 328.602
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.152  | TNS=0      | WHS=-0.414 | THS=-1.82e+03|
+
+
+Phase 2.6 Budgeting
+Phase 2.6 Budgeting | Checksum: 4c6ec933
+
+Time (s): cpu = 00:07:03 ; elapsed = 00:05:14 . Memory (MB): peak = 2023.145 ; gain = 337.668
+Phase 2 Router Initialization | Checksum: 86e355bd
+
+Time (s): cpu = 00:07:03 ; elapsed = 00:05:14 . Memory (MB): peak = 2023.145 ; gain = 337.668
+
+Phase 3 Initial Routing
+Phase 3 Initial Routing | Checksum: ae22c38b
+
+Time (s): cpu = 00:07:19 ; elapsed = 00:05:19 . Memory (MB): peak = 2023.145 ; gain = 337.668
+
+Phase 4 Rip-up And Reroute
+
+Phase 4.1 Global Iteration 0
+
+Phase 4.1.1 Remove Overlaps
+ Number of Wires with overlaps = 4635
+ Number of Wires with overlaps = 338
+ Number of Wires with overlaps = 34
+ Number of Wires with overlaps = 1
+ Number of Wires with overlaps = 1
+ Number of Wires with overlaps = 1
+ Number of Wires with overlaps = 0
+Phase 4.1.1 Remove Overlaps | Checksum: a7300bd6
+
+Time (s): cpu = 00:08:13 ; elapsed = 00:05:44 . Memory (MB): peak = 2023.145 ; gain = 337.668
+
+Phase 4.1.2 Update Timing
+Phase 4.1.2 Update Timing | Checksum: a7300bd6
+
+Time (s): cpu = 00:08:24 ; elapsed = 00:05:48 . Memory (MB): peak = 2023.145 ; gain = 337.668
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.116  | TNS=0      | WHS=N/A    | THS=N/A    |
+
+
+Phase 4.1.3 collectNewHoldAndFix
+Phase 4.1.3 collectNewHoldAndFix | Checksum: 41e14676
+
+Time (s): cpu = 00:08:25 ; elapsed = 00:05:48 . Memory (MB): peak = 2023.145 ; gain = 337.668
+Phase 4.1 Global Iteration 0 | Checksum: 41e14676
+
+Time (s): cpu = 00:08:25 ; elapsed = 00:05:48 . Memory (MB): peak = 2023.145 ; gain = 337.668
+Phase 4 Rip-up And Reroute | Checksum: 41e14676
+
+Time (s): cpu = 00:08:25 ; elapsed = 00:05:49 . Memory (MB): peak = 2023.145 ; gain = 337.668
+
+Phase 5 Delay CleanUp
+
+Phase 5.1 Update Timing
+Phase 5.1 Update Timing | Checksum: 41e14676
+
+Time (s): cpu = 00:08:35 ; elapsed = 00:05:52 . Memory (MB): peak = 2023.145 ; gain = 337.668
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.116  | TNS=0      | WHS=N/A    | THS=N/A    |
+
+Phase 5 Delay CleanUp | Checksum: 41e14676
+
+Time (s): cpu = 00:08:35 ; elapsed = 00:05:52 . Memory (MB): peak = 2023.145 ; gain = 337.668
+
+Phase 6 Post Hold Fix
+
+Phase 6.1 Full Hold Analysis
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 41e14676
+
+Time (s): cpu = 00:08:56 ; elapsed = 00:06:00 . Memory (MB): peak = 2023.145 ; gain = 337.668
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.116  | TNS=0      | WHS=0.017  | THS=0      |
+
+Phase 6.1 Full Hold Analysis | Checksum: 41e14676
+
+Time (s): cpu = 00:08:56 ; elapsed = 00:06:01 . Memory (MB): peak = 2023.145 ; gain = 337.668
+Phase 6 Post Hold Fix | Checksum: 41e14676
+
+Time (s): cpu = 00:08:56 ; elapsed = 00:06:01 . Memory (MB): peak = 2023.145 ; gain = 337.668
+
+Router Utilization Summary
+  Global Vertical Wire Utilization    = 0.981639 %
+  Global Horizontal Wire Utilization  = 1.26171 %
+  Total Num Pips                      = 577766
+  Number of Failed Nets               = 0
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+
+Phase 7 Verifying routed nets
+
+ Verification completed successfully
+Phase 7 Verifying routed nets | Checksum: 41e14676
+
+Time (s): cpu = 00:08:57 ; elapsed = 00:06:02 . Memory (MB): peak = 2023.145 ; gain = 337.668
+
+Phase 8 Depositing Routes
+Phase 8 Depositing Routes | Checksum: 1dfb9ce9
+
+Time (s): cpu = 00:09:06 ; elapsed = 00:06:10 . Memory (MB): peak = 2023.145 ; gain = 337.668
+
+Phase 9 Post Router Timing
+INFO: [Route 35-20] Post Routing Timing Summary | WNS=0.117  | TNS=0.000  | WHS=0.018  | THS=0.000  |
+
+INFO: [Route 35-61] The design met the timing requirement.
+Phase 9 Post Router Timing | Checksum: 0
+
+Time (s): cpu = 00:09:44 ; elapsed = 00:06:25 . Memory (MB): peak = 2023.145 ; gain = 337.668
+INFO: [Route 35-16] Router Completed Successfully
+Ending Route Task | Checksum: 0
+
+Time (s): cpu = 00:09:44 ; elapsed = 00:06:25 . Memory (MB): peak = 2023.145 ; gain = 337.668
+
+Routing Is Done.
+INFO: [Project 1-120] WebTalk data collection is mandatory for users of free Webpack licenses. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
+INFO: [Common 17-185] WebTalk report has not been sent to Xilinx. Please check your network and proxy settings.
+
+Time (s): cpu = 00:09:45 ; elapsed = 00:06:27 . Memory (MB): peak = 2023.145 ; gain = 337.668
+91 Infos, 3 Warnings, 2 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:09:49 ; elapsed = 00:06:31 . Memory (MB): peak = 2023.145 ; gain = 337.918
+INFO: [Drc 23-27] Running DRC with 4 threads
+INFO: [Coretcl 2-168] The results of DRC are in file /root/NetFPGA-10G-VC709/projects/vc709_reference_nic/vc709_reference_nic.runs/impl_1/vc709_reference_nic_drc_routed.rpt.
+report_drc: Time (s): cpu = 00:00:17 ; elapsed = 00:00:07 . Memory (MB): peak = 2023.145 ; gain = 0.000
+WARNING: [Power 33-164]  Setting default frequency of 0.00 MHz on the clock clk_divide[1] . Please specify frequency of this clock for accurate power estimate.
+WARNING: [Power 33-164]  Setting default frequency of 0.00 MHz on the clock vc709_pcie_x8_gen3_i/inst/pipe_rxoutclk_out[0] . Please specify frequency of this clock for accurate power estimate.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+report_power: Time (s): cpu = 00:02:06 ; elapsed = 00:01:18 . Memory (MB): peak = 2023.145 ; gain = 0.000
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: min_max, Constraints type: SDC.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 4 CPUs
+report_timing_summary: Time (s): cpu = 00:00:18 ; elapsed = 00:00:14 . Memory (MB): peak = 2023.145 ; gain = 0.000
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2023.145 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 2023.145 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon Sep 30 14:24:31 2013...

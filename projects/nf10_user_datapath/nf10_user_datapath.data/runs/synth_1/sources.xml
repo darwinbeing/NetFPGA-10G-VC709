@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DARoots Version="1" Minor="30">
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/ip/nf10_nic_output_port_lookup_0/nf10_nic_output_port_lookup_0.xci">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/nf10_nic_output_port_lookup_0/nf10_nic_output_port_lookup_0.xci"/>
+        <Attr Name="ImportTime" Val="1379942822"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/nf10_input_arbiter_0/nf10_input_arbiter_0.xci">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/nf10_input_arbiter_0/nf10_input_arbiter_0.xci"/>
+        <Attr Name="ImportTime" Val="1379942822"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/nf10_bram_output_queues_0_0/nf10_bram_output_queues_0.xci">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/nf10_bram_output_queues_0_0/nf10_bram_output_queues_0.xci"/>
+        <Attr Name="ImportTime" Val="1379942822"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/nf10_datapath.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../vc709_reference_nic/vc709_reference_nic.srcs/sources_1/new/nf10_datapath.v"/>
+        <Attr Name="ImportTime" Val="1379424030"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PDATADIR/sources_1/ports.xml">
+      <FileInfo SFType="PortsDb">
+        <Attr Name="ImportPath" Val="$PPRDIR/../vc709_reference_nic/vc709_reference_nic.data/sources_1/ports.xml"/>
+        <Attr Name="ImportTime" Val="1379667703"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/component.xml">
+      <FileInfo SFType="IPXACT"/>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="nf10_datapath"/>
+    </Config>
+  </FileSet>
+</DARoots>

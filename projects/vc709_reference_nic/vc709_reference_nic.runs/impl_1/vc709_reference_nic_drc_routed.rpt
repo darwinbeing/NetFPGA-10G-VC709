@@ -1,0 +1,263 @@
+Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------
+| Tool Version : Vivado v.2013.2 (lin64) Build 272601 Sat Jun 15 11:11:11 MDT 2013
+| Date         : Mon Sep 30 15:52:38 2013
+| Host         : nf-test104.cl.cam.ac.uk running 64-bit Fedora release 16 (Verne)
+| Command      : report_drc
+-----------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+
+REPORT SUMMARY
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Checks: defined_DATA_RATE
+                     DSP48E1_AregAcascreg
+                     Bank IO standard internal Vref conflict
+                     Bank IO standard limits
+                     Bank IO standard Support
+                     Bank IO standard Vcc
+                     Bank IO standard Vref utilization
+                     Bank IO standard Vref
+                     Bank IO standard Termination
+                     Input Buffer Connections
+                     Missing CFGBVS and CONFIG_VOLTAGE Design Properties
+                     Configuration Mode
+                     Design Rule Check Disabled
+                     DCI Cascade IO standard
+                     DCI Cascade with part compatibility
+                     DCI Cascade Checks
+                     Bank IO standard VRN/VRP Occupied
+                     Inconsistent Diff pair IOStandards
+                     Inconsistent Diff pair IOStandards
+                     Inconsistent Diff pair IOStandards
+                     DSP48 Buffering
+                     DSP48 Cascade
+                     DSP input pipelining
+                     DSP input registers
+                     DSP output pipelining
+                     DSP output registers
+                     DSP48E1_PregOpmodeZmuxP
+                     Cascade input routing
+                     Area group tile alignment
+                     Pblock overlap
+                     Pblock partition
+                     FIFO_SynSameClk
+                     Reconfigurable cells must have a pblock defined
+                     RESET_AFTER_RECONFIG only supported on reconfigurable pblocks
+                     Black Box Instances
+                     IN_TERM / OUT_TERM requirements
+                     IO Bus SLR Crossings
+                     Number of IOs
+                     IOB clock sharing
+                     IOs crosstalk to MGT
+                     Directionless IOs
+                     Differential IO pads
+                     Part compatibility for differing bank types.
+                     Incompatible BUFGs among compatible parts.
+                     MGT not allowed for part compatibility
+                     Part compatibility implied prohibits not respected
+                     Part compatibility between monolithic and multi-die devices.
+                     IOs placed on disallowed sites
+                     IOB set reset sharing
+                     IOStandard Type
+                     INTERNAL_VREF
+                     Longest carry chain height
+                     HLUTNM on instances assigned to non-overlapping pblocks
+                     LOC Excursion
+                     LUTNM on instances assigned to non-overlapping pblocks
+                     Combinatorial Loop
+                     Bidirection LVDS IOs
+                     Multiple Driver Nets
+                     No MIG instance
+                     Driverless Nets
+                     Unspecified I/O Standard
+                     defined_IBUF_LOW_PWR
+                     connects_TDO
+                     Invalid Site Configuration
+                     BSCAN_JtagChain
+                     Non-Optimal connections to BUFG
+                     Unroutable connections to BUFG
+                     DRC check of BUFIO loads
+                     Clock Placer Checks
+                     Placement Constraints Check for Clock Region(s)
+                     Design Connectivity Checks
+                     Placement Constraints Check for Design Lock
+                     DSP Connectivity Checks
+                     Unroutable connections to GTH instance
+                     Non-Optimal connections which could lead to hold violations
+                     IDELAYCTRL DRC Checks
+                     IDELAY DRC Checks
+                     Dangling IBUFDS output inside IOBUFDS_DIFF_OUT macro 
+                     Unroutable connection between IOB and IDDR
+                     DRC check between IO and buffer(IBUF/OBUF)
+                     IOSTANDARD violations
+                     Placement Constraints Check for IO constraints
+                     ODELAY Check for 3.3 V standard
+                     Inconsistent port properties
+                     RAMB output registers
+                     connects_I0_connects_I1
+                     Unrouted net
+                     Missing Site Driver
+                     OSERDES driving OBUF
+                     Unconstrained Logical Port
+                     Resource utilization
+                     VCCAUX_IO unsupported with I/O Standard
+                     VCCAUX
+                     Vccaux voltage requirement for LVCMOS25
+                     VCCOSENSEMODE not supported
+           Max violations: <unlimited>
+         Violations found: 28
+
+2. REPORT DETAILS
+-----------------
+BUFC-1#1 Warning
+Input Buffer Connections  
+Input buffer IBUF has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+CFGBVS-1#1 Warning
+Missing CFGBVS and CONFIG_VOLTAGE Design Properties  
+Neither the CFGBVS nor CONFIG_VOLTAGE voltage property is set in the current_design.  Configuration bank voltage select (CFGBVS) must be set to VCCO or GND, and CONFIG_VOLTAGE must be set to the correct configuration voltage, in order to determine the I/O voltage support for the pins in bank 0.  Refer to the device configuration user guide for more information.
+Related violations: <none>
+
+PDCN-1569#1 Warning
+Physical Design Connection Required  
+Used LUT pin 'A1' of cell cc_inst/processor/middle_zero_lut/LUT5 is not included in the LUT equation: 'O5=0'. The connectivity to the pin should be removed or the equation changed.
+Related violations: <none>
+
+PDCN-1569#2 Warning
+Physical Design Connection Required  
+Used LUT pin 'A2' of cell cc_inst/processor/middle_zero_lut/LUT5 is not included in the LUT equation: 'O5=0'. The connectivity to the pin should be removed or the equation changed.
+Related violations: <none>
+
+PDCN-1569#3 Warning
+Physical Design Connection Required  
+Used LUT pin 'A3' of cell cc_inst/processor/middle_zero_lut/LUT5 is not included in the LUT equation: 'O5=0'. The connectivity to the pin should be removed or the equation changed.
+Related violations: <none>
+
+PDCN-1569#4 Warning
+Physical Design Connection Required  
+Used LUT pin 'A4' of cell cc_inst/processor/middle_zero_lut/LUT5 is not included in the LUT equation: 'O5=0'. The connectivity to the pin should be removed or the equation changed.
+Related violations: <none>
+
+PDCN-1569#5 Warning
+Physical Design Connection Required  
+Used LUT pin 'A5' of cell cc_inst/processor/middle_zero_lut/LUT5 is not included in the LUT equation: 'O5=0'. The connectivity to the pin should be removed or the equation changed.
+Related violations: <none>
+
+PDRC-61#1 Warning
+SLICEM_5lutO5_C5  
+Dangling output pin O5 on site SLICE_X54Y74:C5LUT. For this programming the O5 output pin should have a signal.
+Related violations: <none>
+
+PDRC-61#2 Warning
+SLICEM_5lutO5_C5  
+Dangling output pin O5 on site SLICE_X58Y68:C5LUT. For this programming the O5 output pin should have a signal.
+Related violations: <none>
+
+PDRC-61#3 Warning
+SLICEM_5lutO5_C5  
+Dangling output pin O5 on site SLICE_X72Y70:C5LUT. For this programming the O5 output pin should have a signal.
+Related violations: <none>
+
+PDRC-62#1 Warning
+SLICEM_5lutO5_B5  
+Dangling output pin O5 on site SLICE_X54Y74:B5LUT. For this programming the O5 output pin should have a signal.
+Related violations: <none>
+
+PDRC-62#2 Warning
+SLICEM_5lutO5_B5  
+Dangling output pin O5 on site SLICE_X58Y68:B5LUT. For this programming the O5 output pin should have a signal.
+Related violations: <none>
+
+PDRC-62#3 Warning
+SLICEM_5lutO5_B5  
+Dangling output pin O5 on site SLICE_X72Y70:B5LUT. For this programming the O5 output pin should have a signal.
+Related violations: <none>
+
+PDRC-63#1 Warning
+SLICEM_5lutO5_A5  
+Dangling output pin O5 on site SLICE_X54Y74:A5LUT. For this programming the O5 output pin should have a signal.
+Related violations: <none>
+
+PDRC-63#2 Warning
+SLICEM_5lutO5_A5  
+Dangling output pin O5 on site SLICE_X58Y68:A5LUT. For this programming the O5 output pin should have a signal.
+Related violations: <none>
+
+PDRC-63#3 Warning
+SLICEM_5lutO5_A5  
+Dangling output pin O5 on site SLICE_X72Y70:A5LUT. For this programming the O5 output pin should have a signal.
+Related violations: <none>
+
+PDRC-63#4 Warning
+SLICEM_5lutO5_A5  
+Dangling output pin O5 on site SLICE_X8Y430:A5LUT. For this programming the O5 output pin should have a signal.
+Related violations: <none>
+
+PORTPROP-2#1 Warning
+selectio_diff_term  
+The port clk_ref_n has an invalid DIFF_TERM property value. For the target architecture, IOSTANDARD value DIFF_SSTL15 does not support on-chip input differential termination. The DIFF_TERM property value will be ignored.
+Related violations: <none>
+
+PORTPROP-2#2 Warning
+selectio_diff_term  
+The port clk_ref_p has an invalid DIFF_TERM property value. For the target architecture, IOSTANDARD value DIFF_SSTL15 does not support on-chip input differential termination. The DIFF_TERM property value will be ignored.
+Related violations: <none>
+
+RTSTAT-10#1 Warning
+No routable loads  
+11125 net(s) have no routable loads. The first 15 problem net(s) are network_inst_1/rx_interface_i/D[9], network_inst_0/rx_interface_i/D[9], network_inst_2/rx_interface_i/D[9], network_inst_3/rx_interface_i/D[9], network_inst_0/rx_interface_i/D[10], network_inst_1/rx_interface_i/D[10], network_inst_2/rx_interface_i/D[10], network_inst_3/rx_interface_i/D[10], network_inst_0/rx_interface_i/D[11], network_inst_1/rx_interface_i/D[11], network_inst_2/rx_interface_i/D[11], network_inst_3/rx_interface_i/D[11], network_inst_0/rx_interface_i/D[12], network_inst_3/rx_interface_i/D[12], network_inst_1/rx_interface_i/D[12].
+Related violations: <none>
+
+REQP-165#1 Advisory
+writefirst  
+Synchronous clocking for BRAM (vc709_pcie_x8_gen3_i/inst/pcie_top_i/pcie_7vx_i/pcie_bram_7vx_i/cpl_fifo/genblk1.CPL_FIFO_8KB.U0/RAMB18E1[0].u_fifo) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Related violations: <none>
+
+REQP-165#2 Advisory
+writefirst  
+Synchronous clocking for BRAM (vc709_pcie_x8_gen3_i/inst/pcie_top_i/pcie_7vx_i/pcie_bram_7vx_i/cpl_fifo/genblk1.CPL_FIFO_8KB.U0/RAMB18E1[1].u_fifo) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Related violations: <none>
+
+REQP-165#3 Advisory
+writefirst  
+Synchronous clocking for BRAM (vc709_pcie_x8_gen3_i/inst/pcie_top_i/pcie_7vx_i/pcie_bram_7vx_i/cpl_fifo/genblk1.CPL_FIFO_8KB.U0/RAMB18E1[2].u_fifo) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Related violations: <none>
+
+REQP-165#4 Advisory
+writefirst  
+Synchronous clocking for BRAM (vc709_pcie_x8_gen3_i/inst/pcie_top_i/pcie_7vx_i/pcie_bram_7vx_i/cpl_fifo/genblk1.CPL_FIFO_8KB.U0/RAMB18E1[3].u_fifo) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Related violations: <none>
+
+REQP-165#5 Advisory
+writefirst  
+Synchronous clocking for BRAM (vc709_pcie_x8_gen3_i/inst/pcie_top_i/pcie_7vx_i/pcie_bram_7vx_i/req_fifo/U0/RAMB18E1[0].u_fifo) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Related violations: <none>
+
+REQP-165#6 Advisory
+writefirst  
+Synchronous clocking for BRAM (vc709_pcie_x8_gen3_i/inst/pcie_top_i/pcie_7vx_i/pcie_bram_7vx_i/req_fifo/U0/RAMB18E1[1].u_fifo) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Related violations: <none>
+
+REQP-165#7 Advisory
+writefirst  
+Synchronous clocking for BRAM (vc709_pcie_x8_gen3_i/inst/pcie_top_i/pcie_7vx_i/pcie_bram_7vx_i/req_fifo/U0/RAMB18E1[2].u_fifo) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Related violations: <none>
+
+REQP-165#8 Advisory
+writefirst  
+Synchronous clocking for BRAM (vc709_pcie_x8_gen3_i/inst/pcie_top_i/pcie_7vx_i/pcie_bram_7vx_i/req_fifo/U0/RAMB18E1[3].u_fifo) in SDP mode with Write First mode may have address collisions if the same address appears on both read and write ports. It is suggested to use Read First mode to avoid any conditions for address collision. See the FPGA Memory Resources User Guide for additional information.
+Related violations: <none>
+
+

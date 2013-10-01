@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<Interface Version="1" Minor="2">
+	<Ifc Id="ROOT" Top="1">
+		<Bus Id="pci_exp_rxn">
+			<Port Id="7" Dir="IN"/>
+			<Port Id="6" Dir="IN"/>
+			<Port Id="5" Dir="IN"/>
+			<Port Id="4" Dir="IN"/>
+			<Port Id="3" Dir="IN"/>
+			<Port Id="2" Dir="IN"/>
+			<Port Id="1" Dir="IN"/>
+			<Port Id="0" Dir="IN"/>
+		</Bus>
+		<Bus Id="pci_exp_rxp">
+			<Port Id="7" Dir="IN"/>
+			<Port Id="6" Dir="IN"/>
+			<Port Id="5" Dir="IN"/>
+			<Port Id="4" Dir="IN"/>
+			<Port Id="3" Dir="IN"/>
+			<Port Id="2" Dir="IN"/>
+			<Port Id="1" Dir="IN"/>
+			<Port Id="0" Dir="IN"/>
+		</Bus>
+		<Bus Id="pci_exp_txn">
+			<Port Id="7" Dir="OUT"/>
+			<Port Id="6" Dir="OUT"/>
+			<Port Id="5" Dir="OUT"/>
+			<Port Id="4" Dir="OUT"/>
+			<Port Id="3" Dir="OUT"/>
+			<Port Id="2" Dir="OUT"/>
+			<Port Id="1" Dir="OUT"/>
+			<Port Id="0" Dir="OUT"/>
+		</Bus>
+		<Bus Id="pci_exp_txp">
+			<Port Id="7" Dir="OUT"/>
+			<Port Id="6" Dir="OUT"/>
+			<Port Id="5" Dir="OUT"/>
+			<Port Id="4" Dir="OUT"/>
+			<Port Id="3" Dir="OUT"/>
+			<Port Id="2" Dir="OUT"/>
+			<Port Id="1" Dir="OUT"/>
+			<Port Id="0" Dir="OUT"/>
+		</Bus>
+		<Bus Id="sfp_tx_disable">
+			<Port Id="3" Dir="OUT"/>
+			<Port Id="2" Dir="OUT"/>
+			<Port Id="1" Dir="OUT"/>
+			<Port Id="0" Dir="OUT"/>
+		</Bus>
+		<Port Id="button_east" Dir="IN"/>
+		<Port Id="emcclk" Dir="IN"/>
+		<Port Id="i2c_clk" Dir="INOUT"/>
+		<Port Id="i2c_data" Dir="INOUT"/>
+		<Port Id="i2c_mux_rst_n" Dir="OUT"/>
+		<Port Id="led_0" Dir="OUT"/>
+		<Port Id="led_1" Dir="OUT"/>
+		<Port Id="led_2" Dir="OUT"/>
+		<Port Id="led_3" Dir="OUT"/>
+		<Port Id="led_4" Dir="OUT"/>
+		<Port Id="led_5" Dir="OUT"/>
+		<Port Id="led_6" Dir="OUT"/>
+		<Port Id="led_7" Dir="OUT"/>
+		<Port Id="si5324_rst_n" Dir="OUT"/>
+		<Port Id="sys_clk_n" Dir="IN"/>
+		<Port Id="sys_clk_p" Dir="IN"/>
+		<Port Id="sys_rst_n" Dir="IN"/>
+		<Port Id="xphy0_rxn" Dir="IN"/>
+		<Port Id="xphy0_rxp" Dir="IN"/>
+		<Port Id="xphy0_txn" Dir="OUT"/>
+		<Port Id="xphy0_txp" Dir="OUT"/>
+		<Port Id="xphy1_rxn" Dir="IN"/>
+		<Port Id="xphy1_rxp" Dir="IN"/>
+		<Port Id="xphy1_txn" Dir="OUT"/>
+		<Port Id="xphy1_txp" Dir="OUT"/>
+		<Port Id="xphy2_rxn" Dir="IN"/>
+		<Port Id="xphy2_rxp" Dir="IN"/>
+		<Port Id="xphy2_txn" Dir="OUT"/>
+		<Port Id="xphy2_txp" Dir="OUT"/>
+		<Port Id="xphy3_rxn" Dir="IN"/>
+		<Port Id="xphy3_rxp" Dir="IN"/>
+		<Port Id="xphy3_txn" Dir="OUT"/>
+		<Port Id="xphy3_txp" Dir="OUT"/>
+		<Port Id="xphy_refclk_n" Dir="IN"/>
+		<Port Id="xphy_refclk_p" Dir="IN"/>
+	</Ifc>
+</Interface>
+

@@ -1,0 +1,9 @@
+#-----------------------------------------------------------
+# Vivado v2013.2 (64-bit)
+# Build 272601 by xbuild on Sat Jun 15 11:11:11 MDT 2013
+# Start of session at: Mon Sep 23 16:28:23 2013
+# Process ID: 11527
+# Log file: /root/NetFPGA-10G-VC709/projects/nf10_user_datapath/nf10_user_datapath.runs/synth_1/nf10_datapath.rds
+# Journal file: /root/NetFPGA-10G-VC709/projects/nf10_user_datapath/nf10_user_datapath.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source nf10_datapath.tcl

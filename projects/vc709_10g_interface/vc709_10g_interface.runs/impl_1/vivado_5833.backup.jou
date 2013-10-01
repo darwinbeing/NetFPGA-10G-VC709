@@ -1,0 +1,9 @@
+#-----------------------------------------------------------
+# Vivado v2013.2 (64-bit)
+# Build 272601 by xbuild on Sat Jun 15 11:11:11 MDT 2013
+# Start of session at: Mon Sep  2 12:00:49 2013
+# Process ID: 3576
+# Log file: /root/Downloads/vc709_10g_interface/vc709_10g_interface.runs/impl_1/vc709_10g_interface.rdi
+# Journal file: /root/Downloads/vc709_10g_interface/vc709_10g_interface.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source vc709_10g_interface.tcl -notrace

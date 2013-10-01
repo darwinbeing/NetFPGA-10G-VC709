@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--Product Version: Vivado v2013.2 (64-bit)-->
+<Project Version="6" Minor="11" Path="/root/NetFPGA-10G-VC709/lib/ip/empty_name.xpr">
+	<FileSet Dir="sources_1" File="fileset.xml"/>
+	<FileSet Dir="constrs_1" File="fileset.xml"/>
+	<FileSet Dir="sim_1" File="fileset.xml"/>
+	<DefaultLaunch Dir="$PRUNDIR"/>
+	<Config>
+		<Option Name="Id" Val="ba56c8bc94ec4b848dbd4c0bc8a3cbdb"/>
+		<Option Name="Part" Val="xc7vx690tffg1761-2"/>
+		<Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
+		<Option Name="Board" Val="xilinx.com:virtex7:vc709:1.0"/>
+		<Option Name="SourceMgmtMode" Val="None"/>
+		<Option Name="ActiveSimSet" Val="sim_1"/>
+		<Option Name="ManageIP" Val="TRUE"/>
+	</Config>
+</Project>
+

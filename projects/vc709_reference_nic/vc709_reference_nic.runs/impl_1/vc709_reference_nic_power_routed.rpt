@@ -1,0 +1,879 @@
+Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version     : Vivado v.2013.2 (lin64) Build 272601 Sat Jun 15 11:11:11 MDT 2013
+| Date             : Mon Sep 30 15:53:37 2013
+| Host             : nf-test104.cl.cam.ac.uk running 64-bit Fedora release 16 (Verne)
+| Command          : report_power -file vc709_reference_nic_power_routed.rpt -pb vc709_reference_nic_power_summary_routed.pb
+| Design           : vc709_reference_nic
+| Device           : xc7vx690tffg1761-2
+| Design State     : Routed
+| Grade            : Commercial
+| Process          : Typical
+| Characterization : Production
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Power Report
+
+Table of Contents
+-----------------
+1. Summary
+1.1 On-Chip Components
+1.2 Power Supply Summary
+1.3 Confidence Level
+2. Settings
+2.1 Environment
+2.2 Initial Settings
+2.3 Clock Constraints
+3. Detailed Reports
+3.1 By Hierarchy
+
+1. Summary
+----------
+
++--------------------------+-------+
+| Total On-Chip Power (W)  | 4.716 |
+| Dynamic (W)              | 4.325 |
+| Device Static (W)        | 0.391 |
+| Total Off-Chip Power (W) | 0.000 |
+| Effective TJA (C/W)      | 1.1   |
+| Max Ambient (C)          | 79.6  |
+| Junction Temperature (C) | 30.4  |
+| Confidence Level         | Low   |
+| Setting File             | ---   |
+| Simulation Activity File | ---   |
+| Design Nets Matched      | NA    |
++--------------------------+-------+
+
+
+1.1 On-Chip Components
+----------------------
+
++--------------------------+-----------+----------+-----------+-----------------+
+| On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
++--------------------------+-----------+----------+-----------+-----------------+
+| Clocks                   |     0.284 |        5 |       --- |             --- |
+| Slice Logic              |     0.166 |    52239 |       --- |             --- |
+|   LUT as Logic           |     0.148 |    21403 |    432368 |             5.0 |
+|   Register               |     0.008 |    23319 |    864736 |             2.7 |
+|   LUT as Distributed RAM |     0.007 |      576 |    173992 |             0.3 |
+|   LUT as Shift Register  |     0.002 |      298 |    173992 |             0.2 |
+|   CARRY4                 |     0.001 |      489 |    108092 |             0.5 |
+|   F7/F8 Muxes            |     0.000 |      278 |    432368 |             0.1 |
+|   Others                 |     0.000 |     1662 |       --- |             --- |
+| Signals                  |     0.238 |    40818 |       --- |             --- |
+| Block RAM                |     0.182 |       30 |      1470 |             2.0 |
+| MMCM                     |     0.239 |        2 |        20 |            10.0 |
+| PCIE                     |     0.169 |        1 |       --- |             --- |
+| I/O                      |     0.010 |       72 |       850 |             8.5 |
+| GTH                      |     3.038 |       12 |       --- |             --- |
+| Static Power             |     0.391 |          |           |                 |
+| Total                    |     4.716 |          |           |                 |
++--------------------------+-----------+----------+-----------+-----------------+
+
+
+1.2 Power Supply Summary
+------------------------
+
++-----------+-------------+-----------+-------------+------------+
+| Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
++-----------+-------------+-----------+-------------+------------+
+| Vccint    |       1.000 |     1.740 |       1.507 |      0.234 |
+| Vccaux    |       1.800 |     0.189 |       0.134 |      0.054 |
+| Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |
+| Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
+| Vcco18    |       1.800 |     0.002 |       0.001 |      0.001 |
+| Vcco15    |       1.500 |     0.001 |       0.000 |      0.001 |
+| Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
+| Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
+| Vccaux_io |       2.000 |     0.000 |       0.000 |      0.000 |
+| Vccbram   |       1.000 |     0.017 |       0.011 |      0.006 |
+| MGTAVcc   |       1.000 |     1.555 |       1.550 |      0.005 |
+| MGTAVtt   |       1.200 |     0.806 |       0.798 |      0.008 |
+| MGTVccaux |       1.800 |     0.031 |       0.031 |      0.000 |
+| MGTZVccl  |       1.075 |     0.000 |       0.000 |      0.000 |
+| MGTZAVcc  |       1.075 |     0.000 |       0.000 |      0.000 |
+| MGTZVcch  |       1.800 |     0.000 |       0.000 |      0.000 |
+| Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
++-----------+-------------+-----------+-------------+------------+
+
+
+1.3 Confidence Level
+--------------------
+
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+| User Input Data             | Confidence | Details                                                | Action                                                                                                             |
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+| Design implementation state | High       | Design is completely routed                            |                                                                                                                    |
+| Clock nodes activity        | Medium     | More than 5% of clocks are missing user specification  | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
+| I/O nodes activity          | Low        | More than 75% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view           |
+| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views         |
+| Device models               | High       | Device models are Production                           |                                                                                                                    |
+|                             |            |                                                        |                                                                                                                    |
+| Overall confidence level    | Low        |                                                        |                                                                                                                    |
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+
+
+2. Settings
+-----------
+
+2.1 Environment
+---------------
+
++-----------------------+------------------+
+| Ambient Temp (C)      | 25.0             |
+| ThetaJA (C/W)         | 1.1              |
+| Airflow (LFM)         | 250              |
+| Heat Sink             | Medium Profile   |
+| ThetaSA (C/W)         | 2.2              |
+| Board Selection       | Medium (10"x10") |
+| # of Board Layers     | 12 to 15         |
+| Board Temperature (C) | 30.4             |
++-----------------------+------------------+
+
+
+2.2 Initial Settings
+--------------------
+
++-------------------------------------+-------+
+| Register Toggle Rate (%)            |  12.5 |
+| IO Toggle Rate (%)                  |  12.5 |
+| Output Load (pF)                    |   5.0 |
+| IO Enable Probabilty                |   1.0 |
+| BRAM Write Probability              |   0.5 |
+| BRAM Enable Probability             |   0.5 |
+| DSP Toggle Rate (%)                 |  12.5 |
+| Set Signal Probability              |  0.01 |
+| Reset Signal Probability            |  0.01 |
+| Enable Signal Probability           |  0.99 |
+| Unconstrained Clock Frequency (MHz) |   0.0 |
++-------------------------------------+-------+
+
+
+2.3 Clock Constraints
+---------------------
+
++-------------------------------------------------------+---------------+-----------------+
+| Clock                                                 | Domain        | Constraint (ns) |
++-------------------------------------------------------+---------------+-----------------+
+| clk_ref_p                                             | clk_ref_p     |             5.0 |
+| sys_clk                                               | sys_clk_p     |            10.0 |
+| vc709_pcie_x8_gen3_i/inst/pipe_txoutclk_out           | sys_clk_p     |            10.0 |
+| ext_clk.pipe_clock_i/PIPE_USERCLK2_IN                 | sys_clk_p     |             4.0 |
+| xphy_refclk_p                                         | xphy_refclk_p |             6.4 |
+| xphyrefclk_i                                          | xphy_refclk_p |             6.4 |
+| xgbaser_gt_wrapper_inst/clk156_25                     | xphy_refclk_p |             6.4 |
+| xgbaser_gt_wrapper_inst/dclk_i                        | xphy_refclk_p |            12.8 |
+| network_inst_0/ten_gig_eth_pcs_pma_inst/inst/rxclk322 | xphy_refclk_p |             0.2 |
+| network_inst_0/ten_gig_eth_pcs_pma_inst/inst/txclk322 | xphy_refclk_p |             0.2 |
+| network_inst_1/ten_gig_eth_pcs_pma_inst/inst/rxclk322 | xphy_refclk_p |             0.2 |
+| network_inst_1/ten_gig_eth_pcs_pma_inst/inst/txclk322 | xphy_refclk_p |             0.2 |
+| network_inst_2/ten_gig_eth_pcs_pma_inst/inst/rxclk322 | xphy_refclk_p |             0.2 |
+| network_inst_2/ten_gig_eth_pcs_pma_inst/inst/txclk322 | xphy_refclk_p |             0.2 |
+| network_inst_3/ten_gig_eth_pcs_pma_inst/inst/rxclk322 | xphy_refclk_p |             0.2 |
+| network_inst_3/ten_gig_eth_pcs_pma_inst/inst/txclk322 | xphy_refclk_p |             0.2 |
++-------------------------------------------------------+---------------+-----------------+
+
+
+3. Detailed Reports
+-------------------
+
+3.1 By Hierarchy
+----------------
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+
+| Name                                                                                                                                                                                 | Power (W) |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+
+| vc709_reference_nic                                                                                                                                                                  |     4.325 |
+|   axi_dma_0                                                                                                                                                                          |     0.000 |
+|     U0                                                                                                                                                                               |     0.000 |
+|   cc_inst                                                                                                                                                                            |     0.003 |
+|     processor                                                                                                                                                                        |     0.001 |
+|       active_interrupt_lut                                                                                                                                                           |     0.000 |
+|       address_loop[0].output_data.pc_vector_mux_lut                                                                                                                                  |     0.000 |
+|       address_loop[10].output_data.pc_vector_mux_lut                                                                                                                                 |     0.000 |
+|       address_loop[2].output_data.pc_vector_mux_lut                                                                                                                                  |     0.000 |
+|       address_loop[4].output_data.pc_vector_mux_lut                                                                                                                                  |     0.000 |
+|       address_loop[6].output_data.pc_vector_mux_lut                                                                                                                                  |     0.000 |
+|       address_loop[8].output_data.pc_vector_mux_lut                                                                                                                                  |     0.000 |
+|       alu_decode0_lut                                                                                                                                                                |     0.000 |
+|       alu_decode1_lut                                                                                                                                                                |     0.000 |
+|       alu_decode2_lut                                                                                                                                                                |     0.000 |
+|       carry_flag_lut                                                                                                                                                                 |     0.000 |
+|       data_path_loop[0].arith_logical_lut                                                                                                                                            |     0.000 |
+|       data_path_loop[0].lsb_shift_rotate.shift_rotate_lut                                                                                                                            |     0.000 |
+|       data_path_loop[0].output_data.sy_kk_mux_lut                                                                                                                                    |     0.000 |
+|       data_path_loop[0].second_operand.out_port_lut                                                                                                                                  |     0.000 |
+|       data_path_loop[0].small_spm.small_spm_ram.spm_ram                                                                                                                              |     0.000 |
+|       data_path_loop[1].arith_logical_lut                                                                                                                                            |     0.000 |
+|       data_path_loop[2].arith_logical_lut                                                                                                                                            |     0.000 |
+|       data_path_loop[2].mid_shift_rotate.shift_rotate_lut                                                                                                                            |     0.000 |
+|       data_path_loop[2].output_data.sy_kk_mux_lut                                                                                                                                    |     0.000 |
+|       data_path_loop[3].arith_logical_lut                                                                                                                                            |     0.000 |
+|       data_path_loop[4].arith_logical_lut                                                                                                                                            |     0.000 |
+|       data_path_loop[4].mid_shift_rotate.shift_rotate_lut                                                                                                                            |     0.000 |
+|       data_path_loop[4].output_data.sy_kk_mux_lut                                                                                                                                    |     0.000 |
+|       data_path_loop[4].small_spm.small_spm_ram.spm_ram                                                                                                                              |     0.000 |
+|       data_path_loop[5].arith_logical_lut                                                                                                                                            |     0.000 |
+|       data_path_loop[6].arith_logical_lut                                                                                                                                            |     0.000 |
+|       data_path_loop[6].msb_shift_rotate.shift_rotate_lut                                                                                                                            |     0.000 |
+|       data_path_loop[6].output_data.sy_kk_mux_lut                                                                                                                                    |     0.000 |
+|       data_path_loop[7].arith_logical_lut                                                                                                                                            |     0.000 |
+|       int_enable_type_lut                                                                                                                                                            |     0.000 |
+|       lower_parity_lut                                                                                                                                                               |     0.000 |
+|       lower_reg_banks                                                                                                                                                                |     0.000 |
+|       lower_zero_lut                                                                                                                                                                 |     0.000 |
+|       middle_zero_lut                                                                                                                                                                |     0.000 |
+|       move_type_lut                                                                                                                                                                  |     0.000 |
+|       pc_mode1_lut                                                                                                                                                                   |     0.000 |
+|       push_pop_lut                                                                                                                                                                   |     0.000 |
+|       register_enable_lut                                                                                                                                                            |     0.000 |
+|       register_enable_type_lut                                                                                                                                                       |     0.000 |
+|       reset_lut                                                                                                                                                                      |     0.000 |
+|       stack_loop[0].lsb_stack.stack_pointer_lut                                                                                                                                      |     0.000 |
+|       stack_loop[1].upper_stack.stack_pointer_lut                                                                                                                                    |     0.000 |
+|       stack_loop[2].upper_stack.stack_pointer_lut                                                                                                                                    |     0.000 |
+|       stack_loop[3].upper_stack.stack_pointer_lut                                                                                                                                    |     0.000 |
+|       stack_loop[4].upper_stack.stack_pointer_lut                                                                                                                                    |     0.000 |
+|       stack_ram_high                                                                                                                                                                 |     0.000 |
+|       stack_ram_low                                                                                                                                                                  |     0.000 |
+|       t_state_lut                                                                                                                                                                    |     0.000 |
+|       upper_reg_banks                                                                                                                                                                |     0.000 |
+|       use_zero_flag_lut                                                                                                                                                              |     0.000 |
+|     program_rom                                                                                                                                                                      |     0.002 |
+|   ext_clk.pipe_clock_i                                                                                                                                                               |     0.114 |
+|   in_port_reg[0]_i_2                                                                                                                                                                 |     0.000 |
+|   in_port_reg[1]_i_2                                                                                                                                                                 |     0.000 |
+|   network_inst_0                                                                                                                                                                     |     0.434 |
+|     rx_interface_i                                                                                                                                                                   |     0.005 |
+|       axis_fifo_inst1                                                                                                                                                                |     0.004 |
+|         U0                                                                                                                                                                           |     0.004 |
+|       cmd_fifo_inst                                                                                                                                                                  |     0.001 |
+|         U0                                                                                                                                                                           |     0.001 |
+|     ten_gig_eth_mac_inst                                                                                                                                                             |     0.064 |
+|       inst                                                                                                                                                                           |     0.064 |
+|         ten_gig_eth_mac_ip_core/xgmac_inst                                                                                                                                           |     0.064 |
+|     ten_gig_eth_pcs_pma_inst                                                                                                                                                         |     0.348 |
+|       inst                                                                                                                                                                           |     0.348 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[0].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[10].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[11].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[12].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[13].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[14].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[15].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[16].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[17].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[18].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[19].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[1].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[20].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[21].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[22].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[23].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[24].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[25].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[26].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[27].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[28].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[29].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[2].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[30].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[31].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[32].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[33].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[34].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[35].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[36].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[37].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[38].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[39].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[3].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[40].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[41].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[42].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[43].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[44].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[45].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[46].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[47].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[48].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[49].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[4].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[50].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[51].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[52].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[53].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[54].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[55].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[56].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[57].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[58].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[59].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[5].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[60].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[61].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[62].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[63].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[64].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[65].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[66].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[67].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[68].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[69].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[6].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[70].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[71].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[7].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[8].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[9].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[0].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[10].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[11].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[12].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[13].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[14].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[15].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[16].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[17].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[18].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[19].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[1].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[20].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[21].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[22].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[23].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[24].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[25].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[26].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[27].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[28].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[29].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[2].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[30].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[31].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[32].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[33].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[34].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[35].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[36].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[37].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[38].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[39].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[3].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[40].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[41].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[42].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[43].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[44].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[45].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[46].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[47].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[48].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[49].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[4].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[50].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[51].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[52].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[53].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[54].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[55].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[56].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[57].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[58].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[59].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[5].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[60].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[61].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[62].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[63].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[64].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[65].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[6].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[7].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[8].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[9].ram_i         |     0.000 |
+|     tx_interface_i                                                                                                                                                                   |     0.016 |
+|       axis_fifo_inst1                                                                                                                                                                |     0.016 |
+|         U0                                                                                                                                                                           |     0.016 |
+|   network_inst_1                                                                                                                                                                     |     0.437 |
+|     rx_interface_i                                                                                                                                                                   |     0.005 |
+|       axis_fifo_inst1                                                                                                                                                                |     0.004 |
+|         U0                                                                                                                                                                           |     0.004 |
+|       cmd_fifo_inst                                                                                                                                                                  |     0.001 |
+|         U0                                                                                                                                                                           |     0.001 |
+|     ten_gig_eth_mac_inst                                                                                                                                                             |     0.064 |
+|       inst                                                                                                                                                                           |     0.064 |
+|         ten_gig_eth_mac_ip_core/xgmac_inst                                                                                                                                           |     0.064 |
+|     ten_gig_eth_pcs_pma_inst                                                                                                                                                         |     0.351 |
+|       inst                                                                                                                                                                           |     0.351 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[0].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[10].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[11].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[12].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[13].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[14].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[15].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[16].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[17].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[18].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[19].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[1].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[20].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[21].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[22].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[23].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[24].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[25].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[26].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[27].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[28].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[29].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[2].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[30].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[31].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[32].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[33].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[34].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[35].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[36].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[37].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[38].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[39].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[3].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[40].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[41].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[42].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[43].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[44].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[45].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[46].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[47].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[48].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[49].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[4].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[50].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[51].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[52].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[53].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[54].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[55].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[56].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[57].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[58].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[59].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[5].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[60].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[61].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[62].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[63].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[64].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[65].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[66].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[67].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[68].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[69].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[6].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[70].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[71].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[7].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[8].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[9].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[0].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[10].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[11].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[12].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[13].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[14].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[15].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[16].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[17].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[18].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[19].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[1].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[20].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[21].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[22].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[23].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[24].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[25].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[26].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[27].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[28].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[29].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[2].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[30].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[31].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[32].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[33].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[34].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[35].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[36].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[37].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[38].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[39].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[3].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[40].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[41].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[42].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[43].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[44].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[45].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[46].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[47].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[48].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[49].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[4].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[50].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[51].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[52].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[53].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[54].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[55].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[56].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[57].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[58].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[59].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[5].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[60].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[61].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[62].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[63].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[64].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[65].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[6].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[7].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[8].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[9].ram_i         |     0.000 |
+|     tx_interface_i                                                                                                                                                                   |     0.016 |
+|       axis_fifo_inst1                                                                                                                                                                |     0.016 |
+|         U0                                                                                                                                                                           |     0.016 |
+|   network_inst_2                                                                                                                                                                     |     0.441 |
+|     rx_interface_i                                                                                                                                                                   |     0.005 |
+|       axis_fifo_inst1                                                                                                                                                                |     0.004 |
+|         U0                                                                                                                                                                           |     0.004 |
+|       cmd_fifo_inst                                                                                                                                                                  |     0.001 |
+|         U0                                                                                                                                                                           |     0.001 |
+|     ten_gig_eth_mac_inst                                                                                                                                                             |     0.063 |
+|       inst                                                                                                                                                                           |     0.063 |
+|         ten_gig_eth_mac_ip_core/xgmac_inst                                                                                                                                           |     0.063 |
+|     ten_gig_eth_pcs_pma_inst                                                                                                                                                         |     0.356 |
+|       inst                                                                                                                                                                           |     0.356 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[0].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[10].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[11].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[12].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[13].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[14].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[15].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[16].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[17].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[18].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[19].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[1].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[20].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[21].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[22].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[23].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[24].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[25].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[26].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[27].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[28].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[29].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[2].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[30].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[31].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[32].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[33].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[34].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[35].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[36].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[37].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[38].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[39].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[3].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[40].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[41].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[42].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[43].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[44].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[45].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[46].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[47].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[48].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[49].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[4].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[50].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[51].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[52].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[53].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[54].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[55].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[56].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[57].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[58].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[59].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[5].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[60].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[61].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[62].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[63].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[64].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[65].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[66].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[67].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[68].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[69].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[6].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[70].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[71].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[7].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[8].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[9].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[0].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[10].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[11].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[12].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[13].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[14].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[15].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[16].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[17].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[18].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[19].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[1].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[20].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[21].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[22].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[23].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[24].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[25].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[26].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[27].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[28].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[29].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[2].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[30].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[31].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[32].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[33].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[34].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[35].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[36].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[37].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[38].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[39].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[3].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[40].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[41].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[42].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[43].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[44].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[45].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[46].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[47].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[48].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[49].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[4].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[50].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[51].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[52].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[53].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[54].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[55].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[56].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[57].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[58].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[59].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[5].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[60].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[61].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[62].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[63].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[64].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[65].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[6].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[7].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[8].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[9].ram_i         |     0.000 |
+|     tx_interface_i                                                                                                                                                                   |     0.016 |
+|       axis_fifo_inst1                                                                                                                                                                |     0.016 |
+|         U0                                                                                                                                                                           |     0.016 |
+|   network_inst_3                                                                                                                                                                     |     0.435 |
+|     rx_interface_i                                                                                                                                                                   |     0.005 |
+|       axis_fifo_inst1                                                                                                                                                                |     0.004 |
+|         U0                                                                                                                                                                           |     0.004 |
+|       cmd_fifo_inst                                                                                                                                                                  |     0.001 |
+|         U0                                                                                                                                                                           |     0.001 |
+|     ten_gig_eth_mac_inst                                                                                                                                                             |     0.063 |
+|       inst                                                                                                                                                                           |     0.063 |
+|         ten_gig_eth_mac_ip_core/xgmac_inst                                                                                                                                           |     0.063 |
+|     ten_gig_eth_pcs_pma_inst                                                                                                                                                         |     0.350 |
+|       inst                                                                                                                                                                           |     0.350 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[0].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[10].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[11].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[12].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[13].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[14].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[15].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[16].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[17].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[18].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[19].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[1].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[20].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[21].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[22].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[23].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[24].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[25].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[26].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[27].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[28].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[29].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[2].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[30].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[31].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[32].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[33].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[34].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[35].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[36].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[37].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[38].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[39].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[3].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[40].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[41].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[42].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[43].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[44].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[45].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[46].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[47].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[48].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[49].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[4].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[50].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[51].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[52].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[53].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[54].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[55].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[56].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[57].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[58].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[59].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[5].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[60].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[61].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[62].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[63].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[64].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[65].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[66].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[67].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[68].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[69].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[6].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[70].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[71].ram_i |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[7].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[8].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/rx_elastic_buffer_i/asynch_fifo_i/dp_ram_i/GLOOP[9].ram_i  |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[0].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[10].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[11].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[12].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[13].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[14].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[15].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[16].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[17].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[18].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[19].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[1].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[20].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[21].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[22].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[23].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[24].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[25].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[26].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[27].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[28].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[29].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[2].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[30].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[31].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[32].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[33].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[34].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[35].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[36].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[37].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[38].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[39].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[3].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[40].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[41].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[42].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[43].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[44].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[45].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[46].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[47].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[48].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[49].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[4].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[50].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[51].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[52].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[53].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[54].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[55].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[56].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[57].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[58].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[59].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[5].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[60].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[61].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[62].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[63].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[64].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[65].ram_i        |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[6].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[7].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[8].ram_i         |     0.000 |
+|         ten_gig_eth_pcs_pma_ip_core/ten_gig_eth_pcs_pma_inst/G_IS_V7GTH.ten_gig_eth_pcs_pma_inst/ten_gig_eth_pcs_pma_inst/txratefifo_i/asynch_fifo_i/dp_ram_i/GLOOP[9].ram_i         |     0.000 |
+|     tx_interface_i                                                                                                                                                                   |     0.016 |
+|       axis_fifo_inst1                                                                                                                                                                |     0.016 |
+|         U0                                                                                                                                                                           |     0.016 |
+|   nf10_datapath_0                                                                                                                                                                    |     0.030 |
+|     nf10_bram_output_queues_0                                                                                                                                                        |     0.030 |
+|       inst                                                                                                                                                                           |     0.030 |
+|         output_queues[0].output_fifo                                                                                                                                                 |     0.007 |
+|           fifo                                                                                                                                                                       |     0.007 |
+|         output_queues[1].output_fifo                                                                                                                                                 |     0.008 |
+|           fifo                                                                                                                                                                       |     0.008 |
+|         output_queues[2].output_fifo                                                                                                                                                 |     0.007 |
+|           fifo                                                                                                                                                                       |     0.007 |
+|         output_queues[4].output_fifo                                                                                                                                                 |     0.008 |
+|           fifo                                                                                                                                                                       |     0.008 |
+|   pcie_app_7vx_i                                                                                                                                                                     |     0.024 |
+|     PIO_i                                                                                                                                                                            |     0.023 |
+|       PIO_EP                                                                                                                                                                         |     0.023 |
+|         EP_INTR_CTRL                                                                                                                                                                 |     0.000 |
+|         EP_MEM                                                                                                                                                                       |     0.013 |
+|           EP_MEM                                                                                                                                                                     |     0.011 |
+|         EP_RX                                                                                                                                                                        |     0.007 |
+|         EP_TX                                                                                                                                                                        |     0.003 |
+|   vc709_pcie_x8_gen3_i                                                                                                                                                               |     2.262 |
+|     inst                                                                                                                                                                             |     2.262 |
+|   xgbaser_gt_wrapper_inst                                                                                                                                                            |     0.133 |
+|     ten_gig_eth_pcs_pma_gt_common_block                                                                                                                                              |     0.000 |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+
+
+
