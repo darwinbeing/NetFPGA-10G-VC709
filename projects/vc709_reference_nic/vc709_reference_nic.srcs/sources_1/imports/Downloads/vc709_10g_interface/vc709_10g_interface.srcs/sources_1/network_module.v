@@ -48,18 +48,18 @@ module network_module(
     input   rxn,
     
     //Axi Stream Interface
-    input[63:0]     tx_axis_tdata,
+    input[256:0]     tx_axis_tdata,
     input           tx_axis_tvalid,
     input           tx_axis_tlast,
     input           tx_axis_tuser,
-    input[7:0]      tx_axis_tkeep,
+    input[31:0]      tx_axis_tkeep,
     output          tx_axis_tready,
     
-    output[63:0]    rx_axis_tdata,
+    output[256:0]    rx_axis_tdata,
     output          rx_axis_tvalid,
     output          rx_axis_tlast,
     output          rx_axis_tuser,
-    output[7:0]     rx_axis_tkeep,
+    output[31:0]     rx_axis_tkeep,
     input           rx_axis_tready,
     
     input           core_reset, //TODO
@@ -91,6 +91,21 @@ wire[7:0]       axi_str_rd_tkeep_to_fifo;
 wire[0:0]       axi_str_rd_tuser_to_fifo;
 wire            axi_str_rd_tvalid_to_fifo;
 wire            axi_str_rd_tlast_to_fifo;
+
+    //Internal Axi Stream Interface
+    input[63:0]     tx_axis_tdata_internal,
+    input           tx_axis_tvalid_internal,
+    input           tx_axis_tlast_internal,
+    input           tx_axis_tuser_internal,
+    input[7:0]      tx_axis_tkeep_internal,
+    output          tx_axis_tready_internal,
+    
+    output[63:0]    rx_axis_tdata_internal,
+    output          rx_axis_tvalid_internal,
+    output          rx_axis_tlast_internal,
+    output          rx_axis_tuser_internal,
+    output[7:0]     rx_axis_tkeep_internal,
+    input           rx_axis_tready_internal,
 
 //wire resetdone;
 
@@ -190,11 +205,11 @@ rx_interface_i (
 .rx_statistics_vector       (         ),
 .rx_statistics_valid        (          ),
 .promiscuous_mode_en        (1'b0          ),
-.axi_str_tready_from_fifo   (rx_axis_tready          ),
-.axi_str_tdata_to_fifo      (rx_axis_tdata           ),
-.axi_str_tkeep_to_fifo      (rx_axis_tkeep           ),
-.axi_str_tvalid_to_fifo     (rx_axis_tvalid          ),
-.axi_str_tlast_to_fifo      (rx_axis_tlast           ),
+.axi_str_tready_from_fifo   (rx_axis_tready_internal          ),
+.axi_str_tdata_to_fifo      (rx_axis_tdata_internal           ),
+.axi_str_tkeep_to_fifo      (rx_axis_tkeep_internal           ),
+.axi_str_tvalid_to_fifo     (rx_axis_tvalid_internal          ),
+.axi_str_tlast_to_fifo      (rx_axis_tlast_internal           ),
 .rd_data_count              (          ), //TODO
 .rd_pkt_len                 (                   ),
 .rx_fifo_overflow           (             ), //TODO
@@ -212,17 +227,70 @@ tx_interface tx_interface_i (
 .axi_str_tuser_to_xgmac   (axi_str_tuser_to_xgmac     ),
 .axi_str_tready_from_xgmac(axi_str_tready_from_xgmac     ),
 
-.axi_str_tready_to_fifo   (tx_axis_tready          ),
-.axi_str_tdata_from_fifo      (tx_axis_tdata           ),
-.axi_str_tkeep_from_fifo      (tx_axis_tkeep           ),
-.axi_str_tvalid_from_fifo     (tx_axis_tvalid          ),
-.axi_str_tlast_from_fifo      (tx_axis_tlast           ),
+.axi_str_tready_to_fifo   (tx_axis_tready_internal          ),
+.axi_str_tdata_from_fifo      (tx_axis_tdata_internal          ),
+.axi_str_tkeep_from_fifo      (tx_axis_tkeep_internal           ),
+.axi_str_tvalid_from_fifo     (tx_axis_tvalid_internal          ),
+.axi_str_tlast_from_fifo      (tx_axis_tlast_internal           ),
 
 .user_clk                   (clk156                       ),
 .reset                      (reset                   )
 );
 
 
+    nf10_axis_converter
+    #(.C_M_AXIS_DATA_WIDTH(256),
+      .C_S_AXIS_DATA_WIDTH(64),
+      .C_DEFAULT_VALUE_ENABLE(0),
+      .C_DEFAULT_SRC_PORT(0),
+      .C_DEFAULT_DST_PORT(0)
+     ) converter_master
+    (
+    // Global Ports
+    .axi_aclk(axi_aclk),
+    .axi_resetn(axi_resetn),
 
+    // Master Stream Ports
+    .m_axis_tdata(m_axis_tdata),
+    .m_axis_tstrb(m_axis_tstrb),
+    .m_axis_tvalid(m_axis_tvalid),
+    .m_axis_tready(m_axis_tready),
+    .m_axis_tlast(m_axis_tlast),
+	.m_axis_tuser(m_axis_tuser),
+
+    // Slave Stream Ports
+    .s_axis_tdata(tx_axis_tdata_internal),
+    .s_axis_tstrb(tx_axis_tstrb_internal),
+    .s_axis_tvalid(tx_axis_tvalid_internal),
+    .s_axis_tready(tx_axis_tready_internal),
+    .s_axis_tlast(tx_axis_tlast_internal),
+	.s_axis_tuser(tx_axis_tuser_internal)
+   );
+
+    nf10_axis_converter
+    #(.C_M_AXIS_DATA_WIDTH(64),
+      .C_S_AXIS_DATA_WIDTH(256)
+     ) converter_slave
+    (
+    // Global Ports
+    .axi_aclk(axi_aclk),
+    .axi_resetn(axi_resetn),
+
+    // Master Stream Ports
+    .m_axis_tdata(rx_axis_tdata_internal),
+    .m_axis_tstrb(rx_axis_tstrb_internal),
+    .m_axis_tvalid(rx_axis_tvalid_internal),
+    .m_axis_tready(rx_axis_tready_internal),
+    .m_axis_tlast(rx_axis_tlast_internal),
+	 .m_axis_tuser(rx_axis_tuser_internal),
+
+    // Slave Stream Ports
+    .s_axis_tdata(s_axis_tdata),
+    .s_axis_tstrb(s_axis_tstrb),
+    .s_axis_tvalid(s_axis_tvalid),
+    .s_axis_tready(s_axis_tready),
+    .s_axis_tlast(s_axis_tlast),
+	.s_axis_tuser(s_axis_tuser)
+   );
 
 endmodule

@@ -9,7 +9,8 @@
  module vc709_reference_nic # (
   parameter          PL_SIM_FAST_LINK_TRAINING           = "FALSE",      // Simulation Speedup
   parameter          PCIE_EXT_CLK                        = "TRUE", // Use External Clocking Module
-  parameter          C_DATA_WIDTH                        = 256,         // RX/TX interface data width
+ // parameter          C_DATA_WIDTH                        = 256,         // RX/TX interface data width
+  parameter          C_DATA_WIDTH                        = 64,         // RX/TX interface data width
   parameter          KEEP_WIDTH                          = C_DATA_WIDTH / 32,
   parameter          PL_LINK_CAP_MAX_LINK_SPEED          = 4,  // 1- GEN1, 2 - GEN2, 4 - GEN3
   parameter          PL_LINK_CAP_MAX_LINK_WIDTH          = 8,  // 1- X1, 2 - X2, 4 - X4, 8 - X8
@@ -81,7 +82,7 @@
     
 
 // Clocks
-  input                                           emcclk,
+  //input                                           emcclk,
 
   input                                           clk_ref_p,
   input                                           clk_ref_n,
@@ -439,9 +440,9 @@
 
     // LED's enabled for Reference Board design
     OBUF   led_0_obuf (  .O(led_0),   .I(sys_rst_n_c));
-   //OBUF   led_1_obuf (  .O(led_1),   .I(!user_reset));
-    //OBUF   led_2_obuf (  .O(led_2),   .I(user_lnk_up));
-    OBUF   led_1_obuf (  .O(led_1),   .I(user_clk_heartbeat[25]));
+    OBUF   led_1_obuf (  .O(led_1),   .I(!user_reset));
+    OBUF   led_2_obuf (  .O(led_2),   .I(user_lnk_up));
+    OBUF   led_3_obuf (  .O(led_3),   .I(user_clk_heartbeat[25]));
 
   // Create a Clock Heartbeat
    
@@ -1507,12 +1508,10 @@ nf10_datapath_0
     );
 
 assign sfp_tx_disable = 4'b0000;
-assign led_2 = core0_status[0];
-assign led_3 = core3_status[0];
-assign led_4 = axis_i_0_tready;
-assign led_5 = axis_i_0_tvalid;
-assign led_6 = axis_i_3_tvalid;
-assign led_7 = axis_o_3_tvalid;
+assign led_4 = core0_status[0];
+assign led_5 = core1_status[0];
+assign led_6 = core2_status[0];
+assign led_7 = core3_status[0];
 
 endmodule
 
