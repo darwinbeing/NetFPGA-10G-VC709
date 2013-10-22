@@ -1,0 +1,31 @@
+{
+   guistr: "# # String gsaved with Nlview version 6.2.12  2013-02-15 bk=1.2829 VDI=32 GEI=33
+#  -string -flagsOSRD
+preplace port ILMB -pg 1 -y 190 -defaultsOSRD
+preplace port LMB_Clk -pg 1 -y 60 -defaultsOSRD
+preplace port DLMB -pg 1 -y 40 -defaultsOSRD
+preplace portBus LMB_Rst -pg 1 -y 80 -defaultsOSRD
+preplace inst dlmb_bram_if_cntlr -pg 1 -lvl 2 -y 80 -defaultsOSRD
+preplace inst ilmb_v10 -pg 1 -lvl 1 -y 210 -defaultsOSRD
+preplace inst lmb_bram -pg 1 -lvl 3 -y 90 -defaultsOSRD
+preplace inst ilmb_bram_if_cntlr -pg 1 -lvl 2 -y 200 -defaultsOSRD
+preplace inst dlmb_v10 -pg 1 -lvl 1 -y 60 -defaultsOSRD
+preplace inst dlmb_v10 -pg 1 -lvl 1 -y 60 -defaultsOSRD
+preplace netloc microblaze_1_ilmb_bus 1 1 1 400
+preplace netloc microblaze_1_ilmb_bus 1 1 1 400
+preplace netloc proc_sys_reset_1_bus_struct_reset 1 0 2 150 140 390
+preplace netloc proc_sys_reset_1_bus_struct_reset 1 0 2 150 140 390
+preplace netloc microblaze_1_dlmb 1 0 1 N
+preplace netloc microblaze_1_dlmb 1 0 1 N
+preplace netloc microblaze_1_ilmb 1 0 1 N
+preplace netloc microblaze_1_ilmb 1 0 1 N
+preplace netloc microblaze_1_dlmb_cntlr 1 2 1 N
+preplace netloc microblaze_1_dlmb_cntlr 1 2 1 N
+preplace netloc microblaze_1_ilmb_cntlr 1 2 1 620
+preplace netloc microblaze_1_ilmb_cntlr 1 2 1 620
+preplace netloc microblaze_1_dlmb_bus 1 1 1 N
+preplace netloc microblaze_1_dlmb_bus 1 1 1 N
+preplace netloc microblaze_1_Clk 1 0 2 160 130 380
+levelinfo -pg 1 130 270 510 730 860
+",
+}

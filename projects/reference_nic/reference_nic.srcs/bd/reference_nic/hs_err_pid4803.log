@@ -1,0 +1,16 @@
+#
+# An unexpected error has occurred (11)
+#
+Stack:
+/opt/Xilinx/Vivado/2013.2/tps/lnx64/jre/lib/amd64/server/libjvm.so(+0x744749) [0x7f9fb4208749]
+/opt/Xilinx/Vivado/2013.2/tps/lnx64/jre/lib/amd64/server/libjvm.so(JVM_handle_linux_signal+0xa7) [0x7f9fb420cfb7]
+/lib64/libpthread.so.0() [0x312000f500]
+/opt/Xilinx/Vivado/2013.2/lib/lnx64.o/librdi_filemgmt.so(HSTFwdSTLIter<stlp_std::priv::_List_iterator<HDDASrcFile*, stlp_std::_Const_traits<HDDASrcFile*> >, HDDASrcFile*>::next()+0x4) [0x7f9fc5ad1a24]
+/opt/Xilinx/Vivado/2013.2/lib/lnx64.o/librdi_filemgmt.so(HSTMultiFwdIter<HDDASrcFile*>::next()+0x10) [0x7f9fc5a5c400]
+/opt/Xilinx/Vivado/2013.2/lib/lnx64.o/librdi_filemgmt.so(HDDAFilteredSrcIter::getNext_()+0x72) [0x7f9fc5a87512]
+/opt/Xilinx/Vivado/2013.2/lib/lnx64.o/librdi_filemgmt.so(HDDAFilteredSrcIter::HDDAFilteredSrcIter(HDDASrcFilter const*, HSTFwdIter<HDDASrcFile*>*, bool)+0x66) [0x7f9fc5a87646]
+/opt/Xilinx/Vivado/2013.2/lib/lnx64.o/librdi_filemgmt.so(HADAFileSet::createSrcFileIter(HDDASrcFilter*) const+0x105) [0x7f9fc5ac3f55]
+/opt/Xilinx/Vivado/2013.2/lib/lnx64.o/librdi_filemgmt.so(HADAFileSet::srcFileCount(HDDASrcFilter*) const+0xe) [0x7f9fc5ac4b3e]
+/opt/Xilinx/Vivado/2013.2/lib/lnx64.o/librdi_filemgmt.so(HADAUtils::containsEmbeddedSources(HADAFileSet*)+0x7d) [0x7f9fc5aea58d]
+/opt/Xilinx/Vivado/2013.2/lib/lnx64.o/librdi_filemgmt.so(Java_ui_data_design_dai_HADAUtils_1containsEmbeddedSources+0x21) [0x7f9fc5b10131]
+[0x7f9fae1e38d1]
