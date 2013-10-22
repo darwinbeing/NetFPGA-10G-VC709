@@ -1,2 +1,0 @@
-set_max_delay 6.4000 -datapath_only -from [get_cells -filter {is_sequential} ten_gig_eth_mac_0_core/xgmac_inst/G_MANAGEMENT.managen/G_STATS.stat/rx_data_reclock_*] -to [get_clocks -of_objects [get_ports s_axi_aclk]]
-set_max_delay 6.4000 -datapath_only -from [get_cells -filter {is_sequential} ten_gig_eth_mac_0_core/xgmac_inst/G_MANAGEMENT.managen/G_STATS.stat/tx_data_reclock_*] -to [get_clocks -of_objects [get_ports s_axi_aclk]]
