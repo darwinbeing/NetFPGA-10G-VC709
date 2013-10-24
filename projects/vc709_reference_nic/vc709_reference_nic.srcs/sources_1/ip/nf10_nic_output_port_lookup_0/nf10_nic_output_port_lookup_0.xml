@@ -564,7 +564,7 @@
       <xilinx:vendorDisplayName>NetFPGA</xilinx:vendorDisplayName>
       <xilinx:vendorURL>http://www.netfpga.org</xilinx:vendorURL>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2013-09-17T10:59:26</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2013-10-24T12:51:18</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2013.2</xilinx:xilinxVersion>

@@ -1,7 +1,7 @@
 Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2013.2 (lin64) Build 272601 Sat Jun 15 11:11:11 MDT 2013
-| Date         : Mon Sep 30 15:38:32 2013
+| Date         : Thu Oct 24 12:14:21 2013
 | Host         : nf-test104.cl.cam.ac.uk running 64-bit Fedora release 16 (Verne)
 | Command      : report_utilization -file vc709_reference_nic_utilization_synth.rpt -pb vc709_reference_nic_utilization_synth.pb
 | Design       : vc709_reference_nic
@@ -29,13 +29,13 @@ Table of Contents
 +----------------------------+-------+-------+-----------+-------+
 |          Site Type         |  Used | Loced | Available | Util% |
 +----------------------------+-------+-------+-----------+-------+
-| Slice LUTs*                | 31767 |     0 |    433200 |  7.33 |
-|   LUT as Logic             | 29270 |     0 |    433200 |  6.75 |
+| Slice LUTs*                | 32080 |     0 |    433200 |  7.40 |
+|   LUT as Logic             | 29583 |     0 |    433200 |  6.82 |
 |   LUT as Memory            |  2497 |     0 |    174200 |  1.43 |
 |     LUT as Distributed RAM |  1576 |     0 |           |       |
 |     LUT as Shift Register  |   921 |     0 |           |       |
-| Slice Registers            | 32423 |     0 |    866400 |  3.74 |
-|   Register as Flip Flop    | 32423 |     0 |    866400 |  3.74 |
+| Slice Registers            | 30933 |     0 |    866400 |  3.57 |
+|   Register as Flip Flop    | 30933 |     0 |    866400 |  3.57 |
 |   Register as Latch        |     0 |     0 |    866400 |  0.00 |
 | F7 Muxes                   |   279 |     0 |    216600 |  0.12 |
 | F8 Muxes                   |     8 |     0 |    108300 |  0.01 |
@@ -49,11 +49,11 @@ Table of Contents
 +-------------------+------+-------+-----------+-------+
 |     Site Type     | Used | Loced | Available | Util% |
 +-------------------+------+-------+-----------+-------+
-| Block RAM Tile    | 72.5 |     0 |      1470 |  4.93 |
-|   RAMB36/FIFO*    |   60 |     0 |      1470 |  4.08 |
-|     RAMB36E1 only |   60 |       |           |       |
-|   RAMB18          |   25 |     0 |      2940 |  0.85 |
-|     RAMB18E1 only |   25 |       |           |       |
+| Block RAM Tile    | 74.5 |     0 |      1470 |  5.06 |
+|   RAMB36/FIFO*    |   66 |     0 |      1470 |  4.48 |
+|     RAMB36E1 only |   66 |       |           |       |
+|   RAMB18          |   17 |     0 |      2940 |  0.57 |
+|     RAMB18E1 only |   17 |       |           |       |
 +-------------------+------+-------+-----------+-------+
 * Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E1 or one FIFO18E1. However, if a FIFO18E1 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E1
 
@@ -135,25 +135,25 @@ Table of Contents
 +---------------+-------+
 |    Ref Name   |  Used |
 +---------------+-------+
-| FDRE          | 28434 |
-| LUT6          | 13414 |
-| LUT5          |  5924 |
-| LUT3          |  4469 |
-| LUT2          |  3973 |
-| LUT4          |  3728 |
-| LUT1          |  2463 |
-| FDCE          |  2352 |
+| FDRE          | 27871 |
+| LUT6          | 13439 |
+| LUT5          |  6371 |
+| LUT3          |  4834 |
+| LUT4          |  3673 |
+| LUT2          |  3469 |
+| LUT1          |  2331 |
 | RAMD32        |  1800 |
-| FDSE          |  1310 |
+| FDCE          |  1584 |
+| FDSE          |  1279 |
 | SRL16E        |   921 |
-| CARRY4        |   834 |
-| FDPE          |   327 |
+| CARRY4        |   746 |
 | MUXF7         |   279 |
 | RAMS32        |   232 |
-| RAMB36E1      |    60 |
+| FDPE          |   199 |
+| RAMB36E1      |    66 |
 | OBUF          |    38 |
 | IBUF          |    31 |
-| RAMB18E1      |    25 |
+| RAMB18E1      |    17 |
 | GTHE2_CHANNEL |    12 |
 | BUFG          |     9 |
 | RAMD64E       |     8 |

@@ -9,6 +9,24 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==reference_nic |
 # IP: bd/reference_nic/ip/reference_nic_nf10_datapath_1_0/reference_nic_nf10_datapath_1_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==reference_nic_nf10_datapath_1_0 || ORIG_REF_NAME==reference_nic_nf10_datapath_1_0}]
 
+# IP: bd/reference_nic/ip/reference_nic_nf10_datapath_1_0/work/nf10_user_datapath.srcs/sources_1/ip/nf10_bram_output_queues_0_0/nf10_bram_output_queues_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==nf10_bram_output_queues_0 || ORIG_REF_NAME==nf10_bram_output_queues_0}]
+
+# IP: bd/reference_nic/ip/reference_nic_nf10_datapath_1_0/work/nf10_user_datapath.srcs/sources_1/ip/nf10_input_arbiter_0/nf10_input_arbiter_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==nf10_input_arbiter_0 || ORIG_REF_NAME==nf10_input_arbiter_0}]
+
+# IP: bd/reference_nic/ip/reference_nic_nf10_datapath_1_0/work/nf10_user_datapath.srcs/sources_1/ip/nf10_nic_output_port_lookup_0/nf10_nic_output_port_lookup_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==nf10_nic_output_port_lookup_0 || ORIG_REF_NAME==nf10_nic_output_port_lookup_0}]
+
+# IP: bd/reference_nic/ip/reference_nic_nf10_datapath_1_0/work/nf10_user_datapath.srcs/sources_1/ip/nf10_bram_output_queues_0_0/nf10_bram_output_queues_0.xci
+#dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==nf10_bram_output_queues_0 || ORIG_REF_NAME==nf10_bram_output_queues_0}]
+
+# IP: bd/reference_nic/ip/reference_nic_nf10_datapath_1_0/work/nf10_user_datapath.srcs/sources_1/ip/nf10_input_arbiter_0/nf10_input_arbiter_0.xci
+#dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==nf10_input_arbiter_0 || ORIG_REF_NAME==nf10_input_arbiter_0}]
+
+# IP: bd/reference_nic/ip/reference_nic_nf10_datapath_1_0/work/nf10_user_datapath.srcs/sources_1/ip/nf10_nic_output_port_lookup_0/nf10_nic_output_port_lookup_0.xci
+#dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==nf10_nic_output_port_lookup_0 || ORIG_REF_NAME==nf10_nic_output_port_lookup_0}]
+
 # IP: bd/reference_nic/ip/reference_nic_vc709_10g_interface_1_0/reference_nic_vc709_10g_interface_1_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==reference_nic_vc709_10g_interface_1_0 || ORIG_REF_NAME==reference_nic_vc709_10g_interface_1_0}]
 
@@ -36,8 +54,8 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==cmd_fifo_xgemac
 # IP: bd/reference_nic/ip/reference_nic_vc709_10g_interface_1_0/work/vc709_10g_interface.srcs/sources_1/ip/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif.xci
 #dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==cmd_fifo_xgemac_rxif || ORIG_REF_NAME==cmd_fifo_xgemac_rxif}]
 
-# IP: bd/reference_nic/ip/reference_nic_auto_pc_2/reference_nic_auto_pc_2.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==reference_nic_auto_pc_2 || ORIG_REF_NAME==reference_nic_auto_pc_2}]
+# IP: bd/reference_nic/ip/reference_nic_proc_sys_reset_1_0/reference_nic_proc_sys_reset_1_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==reference_nic_proc_sys_reset_1_0 || ORIG_REF_NAME==reference_nic_proc_sys_reset_1_0}]
 
 # IP: bd/reference_nic/ip/reference_nic_clk_wiz_1_0/reference_nic_clk_wiz_1_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==reference_nic_clk_wiz_1_0 || ORIG_REF_NAME==reference_nic_clk_wiz_1_0}]
@@ -69,11 +87,32 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==reference_nic_x
 # IP: bd/reference_nic/ip/reference_nic_mdm_1_0/reference_nic_mdm_1_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==reference_nic_mdm_1_0 || ORIG_REF_NAME==reference_nic_mdm_1_0}]
 
-# IP: bd/reference_nic/ip/reference_nic_proc_sys_reset_1_0/reference_nic_proc_sys_reset_1_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==reference_nic_proc_sys_reset_1_0 || ORIG_REF_NAME==reference_nic_proc_sys_reset_1_0}]
-
 # XDC: bd/reference_nic/ip/reference_nic_vc709_10g_interface_1_0/vc709_10g_interface.srcs/constrs_1/new/vc709_10g_interface.xdc
 set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==reference_nic_vc709_10g_interface_1_0 || ORIG_REF_NAME==reference_nic_vc709_10g_interface_1_0}] {/inst }]/inst ]]
+
+# XDC: bd/reference_nic/ip/reference_nic_vc709_10g_interface_1_0/work/vc709_10g_interface.srcs/sources_1/ip/ten_gig_eth_mac_ip/synth/ten_gig_eth_mac_ip.xdc
+set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==ten_gig_eth_mac_ip || ORIG_REF_NAME==ten_gig_eth_mac_ip}] {/inst }]/inst ]]
+
+# XDC: bd/reference_nic/ip/reference_nic_vc709_10g_interface_1_0/work/vc709_10g_interface.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc
+set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==ten_gig_eth_pcs_pma_ip || ORIG_REF_NAME==ten_gig_eth_pcs_pma_ip}] {/inst }]/inst ]]
+
+# XDC: bd/reference_nic/ip/reference_nic_vc709_10g_interface_1_0/work/vc709_10g_interface.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip.xdc
+#dup# set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==ten_gig_eth_pcs_pma_ip || ORIG_REF_NAME==ten_gig_eth_pcs_pma_ip}] {/inst }]/inst ]]
+
+# XDC: bd/reference_nic/ip/reference_nic_vc709_10g_interface_1_0/work/vc709_10g_interface.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc
+set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==axis_async_fifo || ORIG_REF_NAME==axis_async_fifo}] {/U0 }]/U0 ]]
+
+# XDC: bd/reference_nic/ip/reference_nic_vc709_10g_interface_1_0/work/vc709_10g_interface.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo.xdc
+#dup# set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==axis_async_fifo || ORIG_REF_NAME==axis_async_fifo}] {/U0 }]/U0 ]]
+
+# XDC: bd/reference_nic/ip/reference_nic_vc709_10g_interface_1_0/work/vc709_10g_interface.srcs/sources_1/ip/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif.xdc
+set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==cmd_fifo_xgemac_rxif || ORIG_REF_NAME==cmd_fifo_xgemac_rxif}] {/U0 }]/U0 ]]
+
+# XDC: bd/reference_nic/ip/reference_nic_proc_sys_reset_1_0/reference_nic_proc_sys_reset_1_0_board.xdc
+set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==reference_nic_proc_sys_reset_1_0 || ORIG_REF_NAME==reference_nic_proc_sys_reset_1_0}] {/U0 }]/U0 ]]
+
+# XDC: bd/reference_nic/ip/reference_nic_proc_sys_reset_1_0/reference_nic_proc_sys_reset_1_0.xdc
+#dup# set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==reference_nic_proc_sys_reset_1_0 || ORIG_REF_NAME==reference_nic_proc_sys_reset_1_0}] {/U0 }]/U0 ]]
 
 # XDC: bd/reference_nic/ip/reference_nic_clk_wiz_1_0/reference_nic_clk_wiz_1_0_board.xdc
 set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==reference_nic_clk_wiz_1_0 || ORIG_REF_NAME==reference_nic_clk_wiz_1_0}] {/inst }]/inst ]]
@@ -89,9 +128,3 @@ set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {R
 
 # XDC: bd/reference_nic/ip/reference_nic_ilmb_v10_1/reference_nic_ilmb_v10_1.xdc
 set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==reference_nic_ilmb_v10_1 || ORIG_REF_NAME==reference_nic_ilmb_v10_1}] {/U0 }]/U0 ]]
-
-# XDC: bd/reference_nic/ip/reference_nic_proc_sys_reset_1_0/reference_nic_proc_sys_reset_1_0_board.xdc
-set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==reference_nic_proc_sys_reset_1_0 || ORIG_REF_NAME==reference_nic_proc_sys_reset_1_0}] {/U0 }]/U0 ]]
-
-# XDC: bd/reference_nic/ip/reference_nic_proc_sys_reset_1_0/reference_nic_proc_sys_reset_1_0.xdc
-#dup# set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==reference_nic_proc_sys_reset_1_0 || ORIG_REF_NAME==reference_nic_proc_sys_reset_1_0}] {/U0 }]/U0 ]]

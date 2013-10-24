@@ -1,9 +1,9 @@
 #-----------------------------------------------------------
 # Vivado v2013.2 (64-bit)
 # Build 272601 by xbuild on Sat Jun 15 11:11:11 MDT 2013
-# Start of session at: Thu Sep 26 14:30:53 2013
-# Process ID: 3413
-# Log file: /root/NetFPGA-10G-VC709/projects/reference_nic/reference_nic.runs/synth_1/reference_nic_wrapper.rds
-# Journal file: /root/NetFPGA-10G-VC709/projects/reference_nic/reference_nic.runs/synth_1/vivado.jou
+# Start of session at: Thu Oct 24 12:55:00 2013
+# Process ID: 20902
+# Log file: /root/NetFPGA-10G-VC709-bkup/projects/reference_nic/reference_nic.runs/synth_1/reference_nic_wrapper.rds
+# Journal file: /root/NetFPGA-10G-VC709-bkup/projects/reference_nic/reference_nic.runs/synth_1/vivado.jou
 #-----------------------------------------------------------
 source reference_nic_wrapper.tcl

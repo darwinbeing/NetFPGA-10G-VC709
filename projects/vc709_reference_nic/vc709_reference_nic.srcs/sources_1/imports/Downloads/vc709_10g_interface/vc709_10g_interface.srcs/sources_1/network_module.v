@@ -93,19 +93,19 @@ wire            axi_str_rd_tvalid_to_fifo;
 wire            axi_str_rd_tlast_to_fifo;
 
     //Internal Axi Stream Interface
-    input[63:0]     tx_axis_tdata_internal,
-    input           tx_axis_tvalid_internal,
-    input           tx_axis_tlast_internal,
-    input           tx_axis_tuser_internal,
-    input[7:0]      tx_axis_tkeep_internal,
-    output          tx_axis_tready_internal,
+    wire [63:0]     tx_axis_tdata_internal;
+    wire           tx_axis_tvalid_internal;
+    wire           tx_axis_tlast_internal;
+    wire           tx_axis_tuser_internal;
+    wire[7:0]      tx_axis_tkeep_internal;
+    wire          tx_axis_tready_internal;
     
-    output[63:0]    rx_axis_tdata_internal,
-    output          rx_axis_tvalid_internal,
-    output          rx_axis_tlast_internal,
-    output          rx_axis_tuser_internal,
-    output[7:0]     rx_axis_tkeep_internal,
-    input           rx_axis_tready_internal,
+    wire[63:0]    rx_axis_tdata_internal;
+    wire          rx_axis_tvalid_internal;
+    wire          rx_axis_tlast_internal;
+    wire          rx_axis_tuser_internal;
+    wire[7:0]     rx_axis_tkeep_internal;
+    wire           rx_axis_tready_internal;
 
 //wire resetdone;
 

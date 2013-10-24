@@ -10234,7 +10234,7 @@
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>xilinx.com:ip:mdm:2.10.a</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2013-09-23T12:23:53</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2013-10-24T12:54:58</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2013.2</xilinx:xilinxVersion>

@@ -7,22 +7,23 @@
     <Generation Name="SIMULATION" State="STALE"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/reference_nic_nf10_datapath_1_0/reference_nic_nf10_datapath_1_0.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1380200951" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1382615668" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/reference_nic_vc709_10g_interface_1_0/reference_nic_vc709_10g_interface_1_0.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1379935434" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1382615669" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="reference_nic.bmm" Type="BMM">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false"/>
+      <File Name="ip/reference_nic_proc_sys_reset_1_0/reference_nic_proc_sys_reset_1_0.xci" Type="IP">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1382615695" IsTrackable="true"/>
         <Library Name="work"/>
+        <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
@@ -34,79 +35,78 @@
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/reference_nic_clk_wiz_1_0/reference_nic_clk_wiz_1_0.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1379935428" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1382615695" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/reference_nic_microblaze_1_0/reference_nic_microblaze_1_0.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1379935429" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1382615695" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/reference_nic_dlmb_v10_0/reference_nic_dlmb_v10_0.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1379935430" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1382615695" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/reference_nic_ilmb_v10_1/reference_nic_ilmb_v10_1.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1379935430" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1382615695" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/reference_nic_dlmb_bram_if_cntlr_0/reference_nic_dlmb_bram_if_cntlr_0.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1379935430" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1382615695" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/reference_nic_ilmb_bram_if_cntlr_1/reference_nic_ilmb_bram_if_cntlr_1.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1379935430" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1382615696" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/reference_nic_lmb_bram_0/reference_nic_lmb_bram_0.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1379935431" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1382615696" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/reference_nic_microblaze_1_axi_periph_1/reference_nic_microblaze_1_axi_periph_1.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="false" Timestamp="1379930389" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="false" Timestamp="1382610189" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/reference_nic_xbar_0/reference_nic_xbar_0.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1379935432" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1382615698" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/reference_nic_mdm_1_0/reference_nic_mdm_1_0.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1379935433" IsTrackable="true"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="1382615698" IsTrackable="true"/>
         <Library Name="work"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip/reference_nic_proc_sys_reset_1_0/reference_nic_proc_sys_reset_1_0.xci" Type="IP">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="1379935434" IsTrackable="true"/>
+      <File Name="reference_nic.bmm" Type="BMM">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false"/>
         <Library Name="work"/>
-        <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>

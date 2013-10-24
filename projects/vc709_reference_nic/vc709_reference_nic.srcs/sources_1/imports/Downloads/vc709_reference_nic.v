@@ -322,7 +322,6 @@
   wire                                       sys_clk;
   wire                                       clk_200_i;
   wire                                       clk_200;
-  wire                                       clk_200;
   wire                                       sys_rst_n_c;
 
   // User Clock LED Heartbeat
@@ -461,18 +460,18 @@
   ) diff_clk_200 (
     .I    (clk_ref_p  ),
     .IB   (clk_ref_n  ),
-    .O    (clk_ref_200_i )  
+    .O    (clk_200_i )  
   );
   
   BUFG u_bufg_clk_ref
   (
-    .O (clk_ref_200),
-    .I (clk_ref_200_i)
+    .O (clk_200),
+    .I (clk_200_i)
   );
   
  
   //-SI 5324 programming
-  always @(posedge clk_ref_200)
+  always @(posedge clk_200)
         clk_divide  <= clk_divide + 1'b1;
 
   BUFG buffer_clk50 (

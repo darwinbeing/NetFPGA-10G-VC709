@@ -9689,7 +9689,7 @@
         <xilinx:canUpgradeFrom>xilinx.com:ip:fifo_generator:9.2</xilinx:canUpgradeFrom>
         <xilinx:canUpgradeFrom>xilinx.com:ip:fifo_generator:9.3</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2013-09-17T10:49:39</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2013-10-24T12:51:18</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2013.2.0</xilinx:xilinxVersion>

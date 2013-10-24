@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Mon Sep 30 15:54:14 2013">
+<application name="pa" timeStamp="Thu Oct 24 13:18:51 2013">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="7e5c3636054241a7b1e68d0b73868412" type="ProjectID"/>
 <property name="ProjectIteration" value="21" type="ProjectIteration"/>
@@ -17,38 +17,44 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
 </item>
 <item name="Java Command Handlers">
-<property name="AddSrc" value="17" type="JavaHandler"/>
-<property name="CloseProject" value="1" type="JavaHandler"/>
+<property name="AddSrc" value="22" type="JavaHandler"/>
+<property name="CloseProject" value="2" type="JavaHandler"/>
 <property name="CoreView" value="6" type="JavaHandler"/>
 <property name="CustomizeCore" value="4" type="JavaHandler"/>
-<property name="EditDelete" value="5" type="JavaHandler"/>
+<property name="EditDelete" value="6" type="JavaHandler"/>
 <property name="EditFind" value="5" type="JavaHandler"/>
-<property name="EditProperties" value="6" type="JavaHandler"/>
-<property name="FileExit" value="3" type="JavaHandler"/>
+<property name="EditProperties" value="8" type="JavaHandler"/>
+<property name="FileExit" value="4" type="JavaHandler"/>
 <property name="Generate Target" value="1" type="JavaHandler"/>
 <property name="LaunchImpact" value="2" type="JavaHandler"/>
 <property name="NewFile" value="1" type="JavaHandler"/>
 <property name="NewProject" value="2" type="JavaHandler"/>
 <property name="OpenFile" value="3" type="JavaHandler"/>
-<property name="OpenProject" value="5" type="JavaHandler"/>
+<property name="OpenProject" value="6" type="JavaHandler"/>
 <property name="ProjectSettings" value="11" type="JavaHandler"/>
 <property name="RecustomizeCore" value="6" type="JavaHandler"/>
 <property name="ReportIPStatus" value="3" type="JavaHandler"/>
 <property name="RunBitgen" value="13" type="JavaHandler"/>
 <property name="RunImplementation" value="18" type="JavaHandler"/>
-<property name="RunSynthesis" value="22" type="JavaHandler"/>
+<property name="RunSynthesis" value="25" type="JavaHandler"/>
 <property name="SetSourceEnabled" value="1" type="JavaHandler"/>
 <property name="SetTargetConstrFile" value="1" type="JavaHandler"/>
 <property name="ShowProductGuide" value="2" type="JavaHandler"/>
 <property name="ShowSource" value="1" type="JavaHandler"/>
 <property name="ShowVersionInfo" value="1" type="JavaHandler"/>
-<property name="ShowView" value="9" type="JavaHandler"/>
+<property name="ShowView" value="10" type="JavaHandler"/>
 <property name="ToolsOptions" value="1" type="JavaHandler"/>
 <property name="UpdateRegId" value="7" type="JavaHandler"/>
 <property name="ViewLayoutCmd" value="1" type="JavaHandler"/>
 <property name="ViewTaskImplementation" value="2" type="JavaHandler"/>
 <property name="ViewTaskProjectManager" value="2" type="JavaHandler"/>
 <property name="ui.views.b.f.f" value="2" type="JavaHandler"/>
+</item>
+<item name="Other">
+<property name="GuiMode" value="43" type="GuiMode"/>
+<property name="BatchMode" value="0" type="BatchMode"/>
+<property name="TclMode" value="23" type="TclMode"/>
+<property name="ISEMode" value="0" type="ISEMode"/>
 </item>
 </section>
 </application>

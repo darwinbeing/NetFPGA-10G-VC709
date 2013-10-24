@@ -3050,7 +3050,7 @@
         <xilinx:canUpgradeFrom>xilinx.com:ip:lmb_bram_if_cntlr:3.10.b</xilinx:canUpgradeFrom>
         <xilinx:canUpgradeFrom>xilinx.com:ip:lmb_bram_if_cntlr:3.10.c</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2013-09-23T12:23:50</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2013-10-24T12:54:56</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2013.2</xilinx:xilinxVersion>
