@@ -607,16 +607,17 @@ module xilinx_pcie_3_0_7vx_ep # (
     .cfg_interrupt_msi_pending_status               ( cfg_interrupt_msi_pending_status ),
     .cfg_interrupt_msi_sent                         ( cfg_interrupt_msi_sent ),
     .cfg_interrupt_msi_fail                         ( cfg_interrupt_msi_fail ),
-
-    .cfg_interrupt_msix_enable                      ( cfg_interrupt_msix_enable ),
-    .cfg_interrupt_msix_mask                        ( cfg_interrupt_msix_mask ),
-    .cfg_interrupt_msix_vf_enable                   ( cfg_interrupt_msix_vf_enable ),
-    .cfg_interrupt_msix_vf_mask                     ( cfg_interrupt_msix_vf_mask ),
-    .cfg_interrupt_msix_data                        ( cfg_interrupt_msix_data ),
-    .cfg_interrupt_msix_address                     ( cfg_interrupt_msix_address ),
-    .cfg_interrupt_msix_int                         ( cfg_interrupt_msix_int ),
-    .cfg_interrupt_msix_sent                        ( cfg_interrupt_msix_sent ),
-    .cfg_interrupt_msix_fail                        ( cfg_interrupt_msix_fail ),
+//Changes for 2013.3
+ //   .cfg_interrupt_msix_enable                      ( cfg_interrupt_msix_enable ),
+ //   .cfg_interrupt_msix_mask                        ( cfg_interrupt_msix_mask ),
+ //   .cfg_interrupt_msix_vf_enable                   ( cfg_interrupt_msix_vf_enable ),
+ //   .cfg_interrupt_msix_vf_mask                     ( cfg_interrupt_msix_vf_mask ),
+ //   .cfg_interrupt_msix_data                        ( cfg_interrupt_msix_data ),
+ //   .cfg_interrupt_msix_address                     ( cfg_interrupt_msix_address ),
+ //   .cfg_interrupt_msix_int                         ( cfg_interrupt_msix_int ),
+ //   .cfg_interrupt_msix_sent                        ( cfg_interrupt_msix_sent ),
+ //   .cfg_interrupt_msix_fail                        ( cfg_interrupt_msix_fail ),
+//end of changes
 
     .cfg_interrupt_msi_attr                         ( cfg_interrupt_msi_attr ),
     .cfg_interrupt_msi_tph_present                  ( cfg_interrupt_msi_tph_present ),
@@ -637,11 +638,13 @@ module xilinx_pcie_3_0_7vx_ep # (
     .cfg_ds_function_number                         ( cfg_ds_function_number ),
     .cfg_ds_port_number                             ( cfg_ds_port_number ),
 
-    .user_tph_stt_address                           ( user_tph_stt_address ),
-    .user_tph_function_num                          ( user_tph_function_num ),
-    .user_tph_stt_read_data                         ( user_tph_stt_read_data ),
-    .user_tph_stt_read_data_valid                   ( user_tph_stt_read_data_valid ),
-    .user_tph_stt_read_enable                       ( user_tph_stt_read_enable ),
+//Changes for 2013.3
+ //   .user_tph_stt_address                           ( user_tph_stt_address ),
+ //   .user_tph_function_num                          ( user_tph_function_num ),
+ //   .user_tph_stt_read_data                         ( user_tph_stt_read_data ),
+ //   .user_tph_stt_read_data_valid                   ( user_tph_stt_read_data_valid ),
+ //   .user_tph_stt_read_enable                       ( user_tph_stt_read_enable ),
+//end of changes
 
     // PCIe Fast Config: Startup Interface - Can only be used in Tandem Mode                                          //
     .startup_cfgclk( ),         // 1-bit output: Configuration main clock output

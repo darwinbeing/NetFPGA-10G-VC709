@@ -54,10 +54,12 @@
 // PART OF THIS FILE AT ALL TIMES. 
 // ------------------------------------------------------------------------------
 
+(* CORE_GENERATION_INFO = "ten_gig_eth_mac_ip,ten_gig_eth_mac_v13_0,{x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=ten_gig_eth_mac,x_ipVersion=13.0,x_ipLanguage=VHDL,c_family=virtex7,c_component_name=ten_gig_eth_mac_ip,c_has_xgmii=false,c_has_management=false,c_has_stats=false,c_has_wan_support=false,c_1588=0,c_supportlevel=0}" *)
 module ten_gig_eth_mac_ip
   (
    // Port declarations
-   input           reset,
+   input                tx_clk0,
+   input                reset,
    input  wire          tx_axis_aresetn,
    input  wire [63 : 0] tx_axis_tdata,
    input  wire          tx_axis_tvalid,
@@ -81,8 +83,7 @@ module ten_gig_eth_mac_ip
    input  [79 : 0] tx_configuration_vector,
    input  [79 : 0] rx_configuration_vector,
    output  [1 : 0] status_vector,
-   input  wire          tx_clk0,
-   input  wire          tx_dcm_locked,
+   input                tx_dcm_locked,
    output [63 : 0] xgmii_txd,
    output [7 : 0]  xgmii_txc,
    input                rx_clk0,
@@ -90,16 +91,9 @@ module ten_gig_eth_mac_ip
    input [63 : 0]  xgmii_rxd,
    input [7 : 0]   xgmii_rxc);
 
-(* CORE_GENERATION_INFO = "ten_gig_eth_mac_ip,ten_gig_eth_mac_v12_0,{x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=ten_gig_eth_mac,x_ipVersion=12.0,x_ipLanguage=VHDL,c_family=virtex7,c_component_name=ten_gig_eth_mac_ip,c_has_xgmii=false,c_has_management=false,c_has_stats=false,c_has_wan_support=false,c_1588=0}" *)
 
-ten_gig_eth_mac_ip_block #(
-  .C_FAMILY("virtex7"),
-  .C_HAS_XGMII(1'b0),
-  .C_HAS_MANAGEMENT(1'b0),
-  .C_HAS_STATS(1'b0),
-  .C_HAS_WAN_SUPPORT(1'b0),
-  .C_1588(0)
-  ) inst (
+ten_gig_eth_mac_ip_block inst (
+   .tx_clk0(tx_clk0),
    .reset(reset),
    .tx_axis_aresetn(tx_axis_aresetn),
    .tx_axis_tdata(tx_axis_tdata),
@@ -124,7 +118,6 @@ ten_gig_eth_mac_ip_block #(
    .tx_configuration_vector(tx_configuration_vector),
    .rx_configuration_vector(rx_configuration_vector),
    .status_vector(status_vector),
-   .tx_clk0(tx_clk0),
    .tx_dcm_locked(tx_dcm_locked),
    .xgmii_txd(xgmii_txd),
    .xgmii_txc(xgmii_txc),

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DARoots Version="1" Minor="30">
+  <FileSet Name="ten_gig_eth_mac_ip" Type="BlockSrcs" RelSrcDir="$PSRCDIR/ten_gig_eth_mac_ip">
+    <File Path="$PSRCDIR/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_ip.xci">
+      <FileInfo>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="ten_gig_eth_mac_ip"/>
+      <Option Name="IPRepoPath" Val="$PPRDIR/../nf10_input_arbiter"/>
+      <Option Name="IPRepoPath" Val="$PPRDIR/../nf10_bram_output_queues"/>
+      <Option Name="IPRepoPath" Val="$PPRDIR/../nf10_nic_output_port_lookup"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+</DARoots>

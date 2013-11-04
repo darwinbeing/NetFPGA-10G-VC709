@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Mon Sep 23 12:08:41 2013">
+<application name="pa" timeStamp="Thu Oct 24 17:01:08 2013">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="5cc47ec72e1d4e639a41efb4bf678787" type="ProjectID"/>
 <property name="ProjectIteration" value="19" type="ProjectIteration"/>
@@ -22,13 +22,13 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="CustomizeCore" value="8" type="JavaHandler"/>
 <property name="EditDelete" value="6" type="JavaHandler"/>
 <property name="EditRedo" value="1" type="JavaHandler"/>
-<property name="FileExit" value="1" type="JavaHandler"/>
+<property name="FileExit" value="2" type="JavaHandler"/>
 <property name="IPPackagerHandler" value="3" type="JavaHandler"/>
 <property name="IPPackagerWizardHandler" value="2" type="JavaHandler"/>
 <property name="LaunchProgramFpga" value="11" type="JavaHandler"/>
 <property name="NewProject" value="1" type="JavaHandler"/>
 <property name="OpenHardwareSession" value="7" type="JavaHandler"/>
-<property name="OpenProject" value="3" type="JavaHandler"/>
+<property name="OpenProject" value="2" type="JavaHandler"/>
 <property name="ProjectSettings" value="2" type="JavaHandler"/>
 <property name="ProjectSummary" value="1" type="JavaHandler"/>
 <property name="RecustomizeCore" value="6" type="JavaHandler"/>
@@ -46,9 +46,9 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ViewTaskProjectManager" value="6" type="JavaHandler"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="31" type="GuiMode"/>
+<property name="GuiMode" value="44" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="18" type="TclMode"/>
+<property name="TclMode" value="24" type="TclMode"/>
 <property name="ISEMode" value="0" type="ISEMode"/>
 </item>
 </section>

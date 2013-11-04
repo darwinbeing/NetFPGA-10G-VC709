@@ -6,19 +6,11 @@
   <spirit:version>1.0</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
-      <spirit:name>AXIStream_MASTER_rx_axis</spirit:name>
+      <spirit:name>m_axis_rx</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis_rtl" spirit:version="1.0"/>
       <spirit:master/>
       <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>TVALID</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>rx_axis_tvalid</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
             <spirit:name>TDATA</spirit:name>
@@ -51,30 +43,126 @@
             <spirit:name>rx_axis_tuser</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>rx_axis_tvalid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
       </spirit:portMaps>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>AXIStream_MASTER_tx_axis</spirit:name>
+      <spirit:name>m_axis_rx_ts</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis_rtl" spirit:version="1.0"/>
       <spirit:master/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>TVALID</spirit:name>
+            <spirit:name>TDATA</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>tx_axis_tvalid</spirit:name>
+            <spirit:name>rx_ts_axis_tdata</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>TREADY</spirit:name>
+            <spirit:name>TVALID</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>tx_axis_tready</spirit:name>
+            <spirit:name>rx_ts_axis_tvalid</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:presence>optional</xilinx:presence>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_1588&apos;)) != 0)">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>rx_clk0</spirit:name>
+      <spirit:displayName>rx_clk0</spirit:displayName>
+      <spirit:description>156.25MHz input clock for receive-side logic</spirit:description>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>rx_clk0</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RX_CLK0.ASSOCIATED_BUSIF">m_axis_rx:m_axis_rx_ts</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>FREQ_HZ</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RX_CLK0.FREQ_HZ">156250000</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:presence>optional</xilinx:presence>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_HAS_XGMII&apos;)) = false())">true</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>rx_clk_out</spirit:name>
+      <spirit:displayName>rx_clk_out</spirit:displayName>
+      <spirit:description>156.25MHz output clock used for receive-side logic</spirit:description>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>rx_clk_out</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RX_CLK_OUT.ASSOCIATED_BUSIF">m_axis_rx</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>FREQ_HZ</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RX_CLK_OUT.FREQ_HZ">156250000</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:presence>optional</xilinx:presence>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_HAS_XGMII&apos;)) = true())">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>s_axis_tx</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
             <spirit:name>TDATA</spirit:name>
@@ -101,13 +189,133 @@
         </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
+            <spirit:name>TREADY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>tx_axis_tready</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
             <spirit:name>TUSER</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
             <spirit:name>tx_axis_tuser</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>tx_axis_tvalid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
       </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>m_axis_tx_ts</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TDATA</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>tx_ts_axis_tdata</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>tx_ts_axis_tvalid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:presence>optional</xilinx:presence>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_1588&apos;)) != 0)">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>tx_clk0</spirit:name>
+      <spirit:displayName>tx_clk0</spirit:displayName>
+      <spirit:description>156.25MHz input clock for transmit-side logic</spirit:description>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>tx_clk0</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.TX_CLK0.ASSOCIATED_BUSIF">s_axis_tx:m_axis_tx_ts:s_axis_pause</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>FREQ_HZ</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.TX_CLK0.FREQ_HZ">156250000</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:presence>optional</xilinx:presence>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(id(&apos;PARAM_VALUE.SupportLevel&apos;) = &apos;0&apos;) or (id(&apos;MODELPARAM_VALUE.C_HAS_XGMII&apos;) = false()())">true</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>tx_clk0_out</spirit:name>
+      <spirit:displayName>tx_clk0_out</spirit:displayName>
+      <spirit:description>156.25MHz output clock used for transmit-side logic</spirit:description>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>tx_clk0_out</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.TX_CLK0_OUT.ASSOCIATED_BUSIF">tx_axis:tx_axis_ts:axis_pause</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>FREQ_HZ</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.TX_CLK0_OUT.FREQ_HZ">156250000</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:presence>optional</xilinx:presence>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(id(&apos;PARAM_VALUE.SupportLevel&apos;) = &apos;1&apos;) and (id(&apos;MODELPARAM_VALUE.C_HAS_XGMII&apos;) = true()())">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>xgmii_xgmac</spirit:name>
@@ -151,36 +359,12 @@
       </spirit:portMaps>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>axi4lite_mac</spirit:name>
-      <spirit:displayName>axi4lite_mac</spirit:displayName>
+      <spirit:name>s_axi</spirit:name>
+      <spirit:displayName>s_axi</spirit:displayName>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="aximm" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="aximm_rtl" spirit:version="1.0"/>
       <spirit:slave/>
       <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>ARREADY</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>s_axi_arready</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>RDATA</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>s_axi_rdata</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>AWREADY</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>s_axi_awready</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
             <spirit:name>ARADDR</spirit:name>
@@ -191,74 +375,10 @@
         </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>AWADDR</spirit:name>
+            <spirit:name>ARREADY</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>s_axi_awaddr</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>RRESP</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>s_axi_rresp</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>WDATA</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>s_axi_wdata</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>AWVALID</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>s_axi_awvalid</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>RREADY</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>s_axi_rready</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>BREADY</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>s_axi_bready</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>BVALID</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>s_axi_bvalid</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>BRESP</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>s_axi_bresp</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>WVALID</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>s_axi_wvalid</spirit:name>
+            <spirit:name>s_axi_arready</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -271,10 +391,90 @@
         </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
+            <spirit:name>AWADDR</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_awaddr</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>AWREADY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_awready</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>AWVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_awvalid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>BREADY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_bready</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>BRESP</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_bresp</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>BVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_bvalid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RDATA</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_rdata</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RREADY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_rready</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RRESP</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_rresp</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
             <spirit:name>RVALID</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
             <spirit:name>s_axi_rvalid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>WDATA</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_wdata</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -285,7 +485,85 @@
             <spirit:name>s_axi_wready</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>WVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_wvalid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
       </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:presence>optional</xilinx:presence>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_HAS_MANAGEMENT&apos;)) = true())">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>s_axi_aclk</spirit:name>
+      <spirit:displayName>s_axi_aclk</spirit:displayName>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_aclk</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.S_AXI_ACLK.ASSOCIATED_BUSIF">s_axi</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.S_AXI_ACLK.ASSOCIATED_RESET">s_axi_resetn</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:presence>optional</xilinx:presence>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_HAS_MANAGEMENT&apos;)) = true())">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>s_axi_resetn</spirit:name>
+      <spirit:displayName>s_axi_resetn</spirit:displayName>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_resetn</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.S_AXI_RESETN.ASSOCIATED_BUSIF">s_axi</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.S_AXI_RESETN.POLARITY">ACTIVE_LOW</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
           <xilinx:enablement>
@@ -304,22 +582,6 @@
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>MDIO_T</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>mdio_tri</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>MDIO_O</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>mdio_out</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
             <spirit:name>MDC</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
@@ -334,6 +596,22 @@
             <spirit:name>mdio_in</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>MDIO_O</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>mdio_out</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>MDIO_T</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>mdio_tri</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
       </spirit:portMaps>
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
@@ -343,6 +621,137 @@
           </xilinx:enablement>
         </xilinx:busInterfaceInfo>
       </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>reset</spirit:name>
+      <spirit:displayName>reset</spirit:displayName>
+      <spirit:description>Asynchronous Reset</spirit:description>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>reset</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESET.POLARITY">ACTIVE_HIGH</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>mac_irq</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="interrupt" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="interrupt_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>INTERRUPT</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>xgmacint</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>SENSITIVITY</spirit:name>
+          <spirit:value spirit:resolve="immediate" spirit:id="BUSIFPARAM_VALUE.MAC_IRQ.SENSITIVITY">EDGE_RISING</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:presence>optional</xilinx:presence>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_HAS_MANAGEMENT&apos;)) = true())">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>s_axis_pause</spirit:name>
+      <spirit:description>TX link-level flow control interface</spirit:description>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TDATA</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pause_val</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pause_req</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>tx_statistics</spirit:name>
+      <spirit:displayName>tx_statistics</spirit:displayName>
+      <spirit:description>TX Statistics</spirit:description>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="display_ten_gig_eth_mac" spirit:name="statistics" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="display_ten_gig_eth_mac" spirit:name="statistics_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>statistics_data</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>tx_statistics_vector</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>statistics_valid</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>tx_statistics_valid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>rx_statistics</spirit:name>
+      <spirit:displayName>rx_statistics</spirit:displayName>
+      <spirit:description>RX Statistics</spirit:description>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="display_ten_gig_eth_mac" spirit:name="statistics" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="display_ten_gig_eth_mac" spirit:name="statistics_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>statistics_data</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>rx_statistics_vector</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>statistics_valid</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>rx_statistics_valid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
     </spirit:busInterface>
   </spirit:busInterfaces>
   <spirit:model>
@@ -358,11 +767,19 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>4007704219</spirit:value>
+            <spirit:value>3065217745</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
-            <spirit:value>2</spirit:value>
+            <spirit:value>3</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>GENtimestamp</spirit:name>
+            <spirit:value>Thu Oct 24 12:28:26 UTC 2013</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>StaleAtRelink</spirit:name>
+            <spirit:value>false</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -376,11 +793,19 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>4007704219</spirit:value>
+            <spirit:value>3065217745</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
-            <spirit:value>2</spirit:value>
+            <spirit:value>3</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>GENtimestamp</spirit:name>
+            <spirit:value>Thu Oct 24 12:36:45 UTC 2013</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>StaleAtRelink</spirit:name>
+            <spirit:value>false</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -395,107 +820,156 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>4007704219</spirit:value>
+            <spirit:value>3065217745</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
-            <spirit:value>2</spirit:value>
+            <spirit:value>3</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>GENtimestamp</spirit:name>
+            <spirit:value>Thu Oct 24 12:36:45 UTC 2013</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>StaleAtRelink</spirit:name>
+            <spirit:value>false</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
       <spirit:view>
-        <spirit:name>xilinx_anylanguagebehavioralsimulation</spirit:name>
-        <spirit:displayName>Simulation</spirit:displayName>
-        <spirit:envIdentifier>:vivado.xilinx.com:simulation</spirit:envIdentifier>
+        <spirit:name>xilinx_externalfiles</spirit:name>
+        <spirit:displayName>External Files</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:external.files</spirit:envIdentifier>
         <spirit:fileSetRef>
-          <spirit:localName>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:localName>
+          <spirit:localName>xilinx_externalfiles_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>4007704219</spirit:value>
+            <spirit:value>3065217745</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
-            <spirit:value>2</spirit:value>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:view>
-      <spirit:view>
-        <spirit:name>xilinx_verilogsimulationwrapper</spirit:name>
-        <spirit:displayName>Verilog Simulation Wrapper</spirit:displayName>
-        <spirit:envIdentifier>verilogSource:vivado.xilinx.com:simulation.wrapper</spirit:envIdentifier>
-        <spirit:language>verilog</spirit:language>
-        <spirit:fileSetRef>
-          <spirit:localName>xilinx_verilogsimulationwrapper_view_fileset</spirit:localName>
-        </spirit:fileSetRef>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>4007704219</spirit:value>
+            <spirit:value>3</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
-            <spirit:name>customizationCRCversion</spirit:name>
-            <spirit:value>2</spirit:value>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:view>
-      <spirit:view>
-        <spirit:name>xilinx_examples</spirit:name>
-        <spirit:displayName>Examples</spirit:displayName>
-        <spirit:envIdentifier>:vivado.xilinx.com:examples</spirit:envIdentifier>
-        <spirit:fileSetRef>
-          <spirit:localName>xilinx_examples_view_fileset</spirit:localName>
-        </spirit:fileSetRef>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>4007704219</spirit:value>
+            <spirit:name>GENtimestamp</spirit:name>
+            <spirit:value>Thu Jan 01 00:00:00 UTC 1970</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
-            <spirit:name>customizationCRCversion</spirit:name>
-            <spirit:value>2</spirit:value>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:view>
-      <spirit:view>
-        <spirit:name>xilinx_examplessimulation</spirit:name>
-        <spirit:displayName>Examples Simulation</spirit:displayName>
-        <spirit:envIdentifier>:vivado.xilinx.com:examples.simulation</spirit:envIdentifier>
-        <spirit:fileSetRef>
-          <spirit:localName>xilinx_examplessimulation_view_fileset</spirit:localName>
-        </spirit:fileSetRef>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>4007704219</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
-            <spirit:name>customizationCRCversion</spirit:name>
-            <spirit:value>2</spirit:value>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:view>
-      <spirit:view>
-        <spirit:name>xilinx_examplesscript</spirit:name>
-        <spirit:displayName>Examples Script</spirit:displayName>
-        <spirit:envIdentifier>:vivado.xilinx.com:examples.script</spirit:envIdentifier>
-        <spirit:fileSetRef>
-          <spirit:localName>xilinx_examplesscript_view_fileset</spirit:localName>
-        </spirit:fileSetRef>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>4007704219</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
-            <spirit:name>customizationCRCversion</spirit:name>
-            <spirit:value>2</spirit:value>
+            <spirit:name>StaleAtRelink</spirit:name>
+            <spirit:value>false</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
     </spirit:views>
     <spirit:ports>
+      <spirit:port>
+        <spirit:name>tx_clk0</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:presence>optional</xilinx:presence>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(id(&apos;PARAM_VALUE.SupportLevel&apos;) = &apos;0&apos;) or (id(&apos;MODELPARAM_VALUE.C_HAS_XGMII&apos;) = false()())">true</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>tx_clk90</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:presence>optional</xilinx:presence>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(id(&apos;PARAM_VALUE.SupportLevel&apos;) = &apos;0&apos;) and (id(&apos;MODELPARAM_VALUE.C_HAS_XGMII&apos;) = true()())">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtx_clk</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:presence>optional</xilinx:presence>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(id(&apos;PARAM_VALUE.SupportLevel&apos;) = &apos;1&apos;) and (id(&apos;MODELPARAM_VALUE.C_HAS_XGMII&apos;) = true()())">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>tx_clk0_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:presence>optional</xilinx:presence>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(id(&apos;PARAM_VALUE.SupportLevel&apos;) = &apos;1&apos;) and (id(&apos;MODELPARAM_VALUE.C_HAS_XGMII&apos;) = true()())">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>tx_clk90_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:presence>optional</xilinx:presence>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(id(&apos;PARAM_VALUE.SupportLevel&apos;) = &apos;1&apos;) and (id(&apos;MODELPARAM_VALUE.C_HAS_XGMII&apos;) = true()())">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
+      </spirit:port>
       <spirit:port>
         <spirit:name>reset</spirit:name>
         <spirit:wire>
@@ -504,10 +978,16 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:isEnabled>true</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
         <spirit:name>tx_axis_aresetn</spirit:name>
@@ -517,39 +997,28 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
-              <xilinx:isEnabled>true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
         <spirit:name>tx_axis_tdata</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">63</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>63</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
               <xilinx:isEnabled>true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
@@ -563,14 +1032,12 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
               <xilinx:isEnabled>true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
@@ -584,14 +1051,12 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
               <xilinx:isEnabled>true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
@@ -602,21 +1067,19 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_TX_TUSER_WIDTH&apos;))-1)">0</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_TX_TUSER_WIDTH&apos;))-1)">0</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
               <xilinx:isEnabled>true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
@@ -627,46 +1090,35 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">7</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>7</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
-              <xilinx:isEnabled>true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
         <spirit:name>tx_axis_tkeep</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">7</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>7</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
               <xilinx:isEnabled>true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
@@ -680,14 +1132,12 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
               <xilinx:isEnabled>true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
@@ -698,14 +1148,13 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">127</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>127</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -726,7 +1175,6 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -744,21 +1192,19 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">25</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>25</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
               <xilinx:isEnabled>true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
@@ -772,14 +1218,12 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
               <xilinx:isEnabled>true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
@@ -793,39 +1237,28 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
-              <xilinx:isEnabled>true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
         <spirit:name>rx_axis_tdata</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">63</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>63</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
               <xilinx:isEnabled>true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
@@ -839,14 +1272,12 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
               <xilinx:isEnabled>true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
@@ -860,14 +1291,12 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
               <xilinx:isEnabled>true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
@@ -881,14 +1310,12 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
               <xilinx:isEnabled>true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
@@ -899,21 +1326,19 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">7</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>7</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
               <xilinx:isEnabled>true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
@@ -924,14 +1349,13 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">127</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>127</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -952,7 +1376,6 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -970,21 +1393,19 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">29</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>29</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
               <xilinx:isEnabled>true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
@@ -998,14 +1419,12 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
               <xilinx:isEnabled>true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
@@ -1016,21 +1435,19 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">15</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>15</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
               <xilinx:isEnabled>true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
@@ -1044,14 +1461,12 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
               <xilinx:isEnabled>true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
@@ -1065,7 +1480,29 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:presence>optional</xilinx:presence>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_HAS_MANAGEMENT&apos;)) = true())">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_aclk_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -1073,7 +1510,7 @@
           <xilinx:portInfo>
             <xilinx:enablement>
               <xilinx:presence>optional</xilinx:presence>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_HAS_MANAGEMENT&apos;)) = true())">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(id(&apos;MODELPARAM_VALUE.C_HAS_MANAGEMENT&apos;) = true()()) and (id(&apos;PARAM_VALUE.SupportLevel&apos;) = &apos;1&apos;) and (id(&apos;MODELPARAM_VALUE.C_HAS_XGMII&apos;) = true()())">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -1086,9 +1523,11 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
@@ -1104,16 +1543,18 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">31</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>10</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
@@ -1132,9 +1573,11 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
@@ -1153,7 +1596,6 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -1171,16 +1613,18 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">31</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>31</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
@@ -1199,9 +1643,11 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
@@ -1220,7 +1666,6 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -1238,14 +1683,13 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">1</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>1</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -1266,7 +1710,6 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -1287,9 +1730,11 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
@@ -1305,16 +1750,18 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">31</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>10</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
@@ -1333,9 +1780,11 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
@@ -1354,7 +1803,6 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -1372,14 +1820,13 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">31</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>31</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -1397,14 +1844,13 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">1</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>1</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -1425,7 +1871,6 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -1446,9 +1891,11 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
@@ -1467,7 +1914,6 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -1485,16 +1931,18 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">79</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>79</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
@@ -1510,16 +1958,18 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">79</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>79</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
@@ -1535,14 +1985,13 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">1</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>1</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -1560,16 +2009,18 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">47</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>47</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
@@ -1585,43 +2036,24 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">31</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>31</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
               <xilinx:presence>optional</xilinx:presence>
               <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_1588&apos;)) != 0)">false</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>tx_clk0</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
-              <xilinx:isEnabled>true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -1634,7 +2066,29 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:presence>optional</xilinx:presence>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(id(&apos;PARAM_VALUE.SupportLevel&apos;) = &apos;0&apos;) or (id(&apos;MODELPARAM_VALUE.C_HAS_XGMII&apos;) = false()())">true</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>tx_dcm_locked_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -1642,7 +2096,7 @@
           <xilinx:portInfo>
             <xilinx:enablement>
               <xilinx:presence>optional</xilinx:presence>
-              <xilinx:isEnabled>true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(id(&apos;PARAM_VALUE.SupportLevel&apos;) = &apos;1&apos;) and (id(&apos;MODELPARAM_VALUE.C_HAS_XGMII&apos;) = true()())">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -1655,7 +2109,6 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -1673,21 +2126,19 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">63</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>63</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
               <xilinx:isEnabled>true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
@@ -1698,21 +2149,19 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">7</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>7</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
               <xilinx:isEnabled>true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
@@ -1726,7 +2175,6 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -1747,7 +2195,6 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -1768,7 +2215,6 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -1789,9 +2235,11 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
@@ -1810,9 +2258,11 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
@@ -1828,21 +2278,19 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">63</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>63</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
               <xilinx:isEnabled>true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
@@ -1853,21 +2301,19 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">7</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>7</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:presence>optional</xilinx:presence>
               <xilinx:isEnabled>true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
@@ -1878,16 +2324,18 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">47</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>47</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
@@ -1903,16 +2351,18 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">35</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
+            <spirit:left>35</spirit:left>
+            <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
@@ -1931,7 +2381,6 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -1952,9 +2401,11 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue>0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
@@ -1973,7 +2424,6 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -1994,7 +2444,6 @@
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -2011,49 +2460,54 @@
     <spirit:modelParameters>
       <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="string">
         <spirit:name>c_family</spirit:name>
-        <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_FAMILY">virtex7</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.c_family">virtex7</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="string">
         <spirit:name>c_component_name</spirit:name>
-        <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_COMPONENT_NAME">ten_gig_eth_mac_ip</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.c_component_name">ten_gig_eth_mac_ip</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="boolean">
         <spirit:name>c_has_stats</spirit:name>
-        <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_HAS_STATS">false</spirit:value>
+        <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.c_has_stats">false</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="boolean">
         <spirit:name>c_has_xgmii</spirit:name>
-        <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_HAS_XGMII">false</spirit:value>
+        <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.c_has_xgmii">false</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="boolean">
         <spirit:name>c_has_management</spirit:name>
-        <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_HAS_MANAGEMENT">false</spirit:value>
+        <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.c_has_management">false</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="boolean">
         <spirit:name>c_has_wan_support</spirit:name>
-        <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_HAS_WAN_SUPPORT">false</spirit:value>
+        <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.c_has_wan_support">false</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>c_1588</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_1588">0</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.c_1588">0</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>c_tx_tuser_width</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_TX_TUSER_WIDTH">1</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.c_tx_tuser_width">1</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
   <spirit:choices>
     <spirit:choice>
-      <spirit:name>xippack_UserParameter_choiceref_Physical_Interface</spirit:name>
+      <spirit:name>choices_0</spirit:name>
       <spirit:enumeration spirit:text="Internal">Internal</spirit:enumeration>
       <spirit:enumeration spirit:text="XGMII">XGMII</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
-      <spirit:name>xippack_UserParameter_choiceref_IEEE_1588</spirit:name>
+      <spirit:name>choices_1</spirit:name>
       <spirit:enumeration spirit:text="None">None</spirit:enumeration>
       <spirit:enumeration spirit:text="1-Step">1-Step</spirit:enumeration>
       <spirit:enumeration spirit:text="2-Step">2-Step</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
+      <spirit:name>choices_2</spirit:name>
+      <spirit:enumeration spirit:text="Include Shared Logic in core">1</spirit:enumeration>
+      <spirit:enumeration spirit:text="Include Shared Logic in example design">0</spirit:enumeration>
     </spirit:choice>
   </spirit:choices>
   <spirit:fileSets>
@@ -2067,304 +2521,364 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/xgmac_util.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/common/xgmac_util.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>xgmac_util</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/rx_crc32_64.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/common/rx_crc32_64.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>rx_crc32_64</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/tx_crc32_64.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/common/tx_crc32_64.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>tx_crc32_64</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/cc8ce.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/common/cc8ce.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>cc8ce</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/cc2ce.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/common/cc2ce.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>cc2ce</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/crc_64_32.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/common/crc_64_32.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>crc_64_32</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/sync_reset.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/common/sync_reset.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>sync_reset</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/sync_reset_1.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/common/synchronizer.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>synchronizer</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/synchronizer.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/common/synchronizer_5.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>synchronizer_5</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/synchronizer_e.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/common/synchronizer_e.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>synchronizer_e</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/timestamp_rounding.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/common/timestamp_rounding.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>timestamp_rounding</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/timestamp_normalize.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/common/timestamp_normalize.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>timestamp_normalize</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/rx_pack.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/rx/rx_pack.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>rx_pack</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/decode_frame.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/rx/decode_frame.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>decode_frame</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/rx_control.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/rx/rx_control.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>rx_control</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/error_check.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/rx/error_check.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>error_check</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/ddr_synchronise.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/rx/ddr_synchronise.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>ddr_synchronise</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/add_recognition.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/rx/add_recognition.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>add_recognition</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/rx_timestamp.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/rx/rx_timestamp.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>rx_timestamp</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/rx_timestamp_axis.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/rx/rx_timestamp_axis.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>rx_timestamp_axis</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/rx.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/rx/rx.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>rx</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_pack.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/tx/tx_pack.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>tx_pack</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/axi_tx_xgmac.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/tx/axi_tx_xgmac.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>axi_tx_xgmac</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_state.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/tx/tx_state.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>tx_state</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_framing.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/tx/tx_framing.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>tx_framing</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_ifg_counter.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/tx/tx_ifg_counter.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>tx_ifg_counter</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_ifg_calc.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/tx/tx_ifg_calc.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>tx_ifg_calc</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_addr_decode.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/tx/tx_addr_decode.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>tx_addr_decode</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_ifg_control.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/tx/tx_ifg_control.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>tx_ifg_control</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_start_align.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/tx/tx_start_align.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>tx_start_align</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_crc.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/tx/tx_crc.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>tx_crc</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_crc_insert.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/tx/tx_crc_insert.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>tx_crc_insert</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_pipeline.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/tx/tx_pipeline.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>tx_pipeline</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_crc_pipeline.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/tx/tx_crc_pipeline.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>tx_crc_pipeline</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_controller.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/tx/tx_controller.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>tx_controller</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_timestamp.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/tx/tx_checksum_update.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>tx_checksum_update</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/tx/tx_timestamp.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>tx_timestamp</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_pause_control.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/tx/tx.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>tx</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/rx_pause_control.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/tx/tx_pause_control.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>tx_pause_control</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/management/config_block.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/rx/rx_pause_control.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>rx_pause_control</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/management/intr_block.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/management/config_block.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>config_block</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/management/management_pack.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/management/intr_block.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>intr_block</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_config_sync.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/management/management_pack.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>management_pack</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/rx_config_sync.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/tx/tx_config_sync.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>tx_config_sync</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/management/carry_reg.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/rx/rx_config_sync.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>rx_config_sync</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/management/carry_reg_reg.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/management/carry_reg.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>carry_reg</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/management/low_adder.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/management/carry_reg_reg.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>carry_reg_reg</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/management/elastic_buffer.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/management/low_adder.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>low_adder</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/management/statistics_addition.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/management/elastic_buffer.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>elastic_buffer</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/management/statistics.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/management/statistics_addition.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>statistics_addition</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/management/mdio_master.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/management/statistics.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>statistics</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/management/management.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/management/mdio_master.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>mdio_master</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rs/rs_pack.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/management/management.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>management</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rs/ff_pair.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/rs/rs_pack.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>rs_pack</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/axi_rx_xgmac.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/rx/axi_rx_xgmac.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>axi_rx_xgmac</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rs/link_fail_tx.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/rs/link_fail_tx.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>link_fail_tx</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rs/link_fail_rx.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/rs/link_fail_rx.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>link_fail_rx</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rs/rs.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/rs/rs.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>rs</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/xgmac_gen.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/xgmac_gen.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>xgmac_gen</spirit:exportedName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/ten_gig_eth_mac_v12_0.vhd</spirit:name>
+        <spirit:name>ten_gig_eth_mac_v13_0/hdl/ten_gig_eth_mac_v13_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:logicalName>ten_gig_eth_mac_v13_0</spirit:logicalName>
+        <spirit:exportedName>ten_gig_eth_mac_v13_0</spirit:exportedName>
       </spirit:file>
       <spirit:file>
         <spirit:name>synth/ten_gig_eth_mac_ip_block.v</spirit:name>
@@ -2394,374 +2908,33 @@
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
-      <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
+      <spirit:name>xilinx_externalfiles_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/xgmac_util.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
+        <spirit:name>ten_gig_eth_mac_ip.dcp</spirit:name>
+        <spirit:userFileType>dcp</spirit:userFileType>
+        <spirit:userFileType>USED_IN_synthesis</spirit:userFileType>
+        <spirit:userFileType>USED_IN_implementation</spirit:userFileType>
+        <spirit:logicalName>work</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/rx_crc32_64.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/tx_crc32_64.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/cc8ce.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/cc2ce.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/crc_64_32.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/sync_reset.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/sync_reset_1.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/synchronizer.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/synchronizer_e.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/timestamp_rounding.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/common/timestamp_normalize.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/rx_pack.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/decode_frame.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/rx_control.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/error_check.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/ddr_synchronise.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/add_recognition.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/rx_timestamp.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/rx_timestamp_axis.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/rx.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_pack.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/axi_tx_xgmac.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_state.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_framing.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_ifg_counter.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_ifg_calc.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_addr_decode.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_ifg_control.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_start_align.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_crc.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_crc_insert.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_pipeline.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_crc_pipeline.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_controller.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_timestamp.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_pause_control.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/rx_pause_control.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/management/config_block.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/management/intr_block.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/management/management_pack.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/tx/tx_config_sync.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/rx_config_sync.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/management/carry_reg.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/management/carry_reg_reg.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/management/low_adder.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/management/elastic_buffer.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/management/statistics_addition.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/management/statistics.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/management/mdio_master.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/management/management.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rs/rs_pack.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rs/ff_pair.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rx/axi_rx_xgmac.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rs/link_fail_tx.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rs/link_fail_rx.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/rs/rs.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/xgmac_gen.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_v12_0/ten_gig_eth_mac_v12_0.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>ten_gig_eth_mac_v12_0</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>synth/ten_gig_eth_mac_ip_block.v</spirit:name>
+        <spirit:name>ten_gig_eth_mac_ip_stub.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
+        <spirit:logicalName>work</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>synth/ten_gig_eth_mac_ip.v</spirit:name>
+        <spirit:name>ten_gig_eth_mac_ip_funcsim.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-    </spirit:fileSet>
-    <spirit:fileSet>
-      <spirit:name>xilinx_verilogsimulationwrapper_view_fileset</spirit:name>
-      <spirit:file>
-        <spirit:name>synth/ten_gig_eth_mac_ip.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-    </spirit:fileSet>
-    <spirit:fileSet>
-      <spirit:name>xilinx_examples_view_fileset</spirit:name>
-      <spirit:file>
-        <spirit:name>example_design/fifo/ten_gig_eth_mac_ip_axi_fifo.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
+        <spirit:logicalName>work</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>example_design/fifo/ten_gig_eth_mac_ip_fifo_ram.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>example_design/fifo/ten_gig_eth_mac_ip_xgmac_fifo.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>example_design/ten_gig_eth_mac_ip_address_swap.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>example_design/ten_gig_eth_mac_ip_physical_if.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>example_design/ten_gig_eth_mac_ip_example_design.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>example_design/ten_gig_eth_mac_ip_example_design.xdc</spirit:name>
-        <spirit:userFileType>xdc</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>example_design/ten_gig_eth_mac_ip_fifo_block.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-    </spirit:fileSet>
-    <spirit:fileSet>
-      <spirit:name>xilinx_examplessimulation_view_fileset</spirit:name>
-      <spirit:file>
-        <spirit:name>axi_mmr_ver.txt</spirit:name>
-        <spirit:userFileType>text</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>simulation/ten_gig_eth_mac_ip_demo_tb.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-    </spirit:fileSet>
-    <spirit:fileSet>
-      <spirit:name>xilinx_examplesscript_view_fileset</spirit:name>
-      <spirit:file>
-        <spirit:name>ten_gig_eth_mac_ip_ex.tcl</spirit:name>
-        <spirit:fileType>tclSource</spirit:fileType>
+        <spirit:name>ten_gig_eth_mac_ip_funcsim.vhdl</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
+        <spirit:logicalName>work</spirit:logicalName>
       </spirit:file>
     </spirit:fileSet>
   </spirit:fileSets>
@@ -2769,36 +2942,40 @@
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
-      <spirit:value spirit:format="string" spirit:resolve="user" spirit:id="PARAM_VALUE.COMPONENT_NAME" spirit:order="1">ten_gig_eth_mac_ip</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">ten_gig_eth_mac_ip</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Management_Interface</spirit:name>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.MANAGEMENT_INTERFACE" spirit:order="20">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.Management_Interface" spirit:order="20">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Statistics_Gathering</spirit:name>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.STATISTICS_GATHERING" spirit:order="30">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.Statistics_Gathering" spirit:order="30">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Physical_Interface</spirit:name>
-      <spirit:value spirit:format="string" spirit:resolve="user" spirit:id="PARAM_VALUE.PHYSICAL_INTERFACE" spirit:choiceRef="xippack_UserParameter_choiceref_Physical_Interface" spirit:order="10">Internal</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Physical_Interface" spirit:choiceRef="choices_0" spirit:order="10">Internal</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>WAN_Support</spirit:name>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.WAN_SUPPORT" spirit:order="35">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.WAN_Support" spirit:order="35">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>IEEE_1588</spirit:name>
-      <spirit:value spirit:format="string" spirit:resolve="user" spirit:id="PARAM_VALUE.IEEE_1588" spirit:choiceRef="xippack_UserParameter_choiceref_IEEE_1588" spirit:order="40">None</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.IEEE_1588" spirit:choiceRef="choices_1" spirit:order="40">None</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>SupportLevel</spirit:name>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.SupportLevel" spirit:choiceRef="choices_2" spirit:order="50">0</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
     <xilinx:coreExtensions>
       <xilinx:supportedFamilies>
-        <xilinx:family xilinx:lifeCycle="Production">virtex7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">artix7{xc7a.*-(2|3)}</xilinx:family>
         <xilinx:family xilinx:lifeCycle="Production">kintex7</xilinx:family>
-        <xilinx:family xilinx:lifeCycle="Pre-Production">artix7{xc7a.*-(2|3)}</xilinx:family>
-        <xilinx:family xilinx:lifeCycle="Production">Zynq{xc7z((030)|(045)|(100)).*}</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">virtex7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">zynq{xc7z((030)|(045)|(100)).*}</xilinx:family>
       </xilinx:supportedFamilies>
       <xilinx:taxonomies>
         <xilinx:taxonomy>/Communication_&amp;_Networking/Ethernet</xilinx:taxonomy>
@@ -2806,16 +2983,15 @@
         <xilinx:taxonomy>/Communication_&amp;_Networking/Telecommunications</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>Ten Gigabit Ethernet MAC</xilinx:displayName>
-      <xilinx:hideInCatalogGUI>false</xilinx:hideInCatalogGUI>
-      <xilinx:coreRevision>1</xilinx:coreRevision>
+      <xilinx:coreRevision>0</xilinx:coreRevision>
       <xilinx:licenseKeys>
-        <xilinx:licenseKey>ten_gig_eth_mac@2013.03</xilinx:licenseKey>
+        <xilinx:licenseKey>ten_gig_eth_mac@2013.09</xilinx:licenseKey>
       </xilinx:licenseKeys>
       <xilinx:paymentRequired>true</xilinx:paymentRequired>
-      <xilinx:coreCreationDateTime>2013-10-24T12:51:18</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2013-10-16T14:38:10Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2013.2.0</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2013.3</xilinx:xilinxVersion>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

@@ -139,6 +139,7 @@ entity basic_sfifo_fg is
     C_USE_FWFT_DATA_COUNT         : integer := 0; 
       -- 0 = normal            
       -- 1 for FWFT
+    C_SYNCHRONIZER_STAGE          : integer := 2;   -- valid values are 0 to 8;
  
     C_FAMILY                      : string  := "virtex6"
   
@@ -193,7 +194,7 @@ begin --(architecture implementation)
   -- BRAM implementations of a basic Sync FIFO
   --
   -------------------------------------------------------------------------------
-  I_BASIC_SFIFO : fifo_generator_v10_0 
+  I_BASIC_SFIFO : fifo_generator_v11_0 
     generic map(
       C_COMMON_CLOCK                 =>  1,                                           
       C_COUNT_TYPE                   =>  0,                                           
@@ -254,6 +255,7 @@ begin --(architecture implementation)
       C_FULL_FLAGS_RST_VAL           =>  0,
       C_ENABLE_RST_SYNC              =>  1,
       C_ERROR_INJECTION_TYPE         =>  0,
+      C_SYNCHRONIZER_STAGE           =>  C_SYNCHRONIZER_STAGE,
       C_HAS_INT_CLK                  =>  0,
       C_MSGON_VAL                    =>  1,
       
@@ -274,6 +276,9 @@ begin --(architecture implementation)
       C_AXI_ID_WIDTH                 =>  4 ,    --           : integer := 0;
       C_AXI_ADDR_WIDTH               =>  32,    --           : integer := 0;
       C_AXI_DATA_WIDTH               =>  64,    --           : integer := 0;
+      C_AXI_LEN_WIDTH                =>  8,     --           : integer := 8;
+      C_AXI_LOCK_WIDTH               =>  2,     --           : integer := 2;
+      C_HAS_AXI_ID                   =>  0,     --           : integer := 0;
       C_HAS_AXI_AWUSER               =>  0 ,    --           : integer := 0;
       C_HAS_AXI_WUSER                =>  0 ,    --           : integer := 0;
       C_HAS_AXI_BUSER                =>  0 ,    --           : integer := 0;

@@ -50,6 +50,7 @@
 #                             AXI FIFO Constraints                             #
 #------------------------------------------------------------------------------#
 # Set false path on the reset synchronizers
+set_false_path -through [get_ports s_aresetn] -to [get_pins inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/*/PRE]  
 set_false_path -from [get_cells inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg_reg[*]]
 set_false_path -from [get_cells inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_reg[*]]
 

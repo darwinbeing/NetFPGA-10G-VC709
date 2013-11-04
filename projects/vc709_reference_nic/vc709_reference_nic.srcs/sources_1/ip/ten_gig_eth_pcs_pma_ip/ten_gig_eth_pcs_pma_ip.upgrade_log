@@ -1,0 +1,56 @@
+Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------
+| Tool Version : Vivado v.2013.3 (lin64) Build 329390 Wed Oct 16 18:26:55 MDT 2013
+| Date         : Thu Oct 24 13:28:48 2013
+| Host         : nf-test104.cl.cam.ac.uk running 64-bit Fedora release 16 (Verne)
+| Command      : upgrade_ip
+| Device       : xc7vx690tffg1761-2
+-----------------------------------------------------------------------------------
+
+Upgrade Log for IP 'ten_gig_eth_pcs_pma_ip'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of ten_gig_eth_pcs_pma_ip from xilinx.com:ip:ten_gig_eth_pcs_pma:3.0 (Rev. 1) to xilinx.com:ip:ten_gig_eth_pcs_pma:4.0
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Warnings
+-----------
+
+WARNING: Version 4.0 is a major revision and requires that the core instantiation is updated.
+Please consult the core Product Guide.
+
+
+3. Connection Warnings
+----------------------
+
+WARNING: Detected external port differences while upgrading IP 'ten_gig_eth_pcs_pma_ip'. These changes may impact your design.
+
+-upgrade has removed port 'areset_refclk_bufh'
+-upgrade has removed port 'mmcm_locked_clk156'
+-upgrade has removed port 'gttxreset_txusrclk2'
+-upgrade has added port 'txuserrdy'
+-upgrade has added port 'drp_req'
+-upgrade has added port 'drp_gnt'
+-upgrade has added port 'drp_den_o'
+-upgrade has added port 'drp_dwe_o'
+-upgrade has added port 'drp_daddr_o'
+-upgrade has added port 'drp_di_o'
+-upgrade has added port 'drp_drdy_o'
+-upgrade has added port 'drp_drpdo_o'
+-upgrade has added port 'drp_den_i'
+-upgrade has added port 'drp_dwe_i'
+-upgrade has added port 'drp_daddr_i'
+-upgrade has added port 'drp_di_i'
+-upgrade has added port 'drp_drdy_i'
+-upgrade has added port 'drp_drpdo_i'
+
+4. Upgrade messages
+-------------------
+
+Set parameter IEEE_1588 to value None
+WARNING: upgrade cannot set value of parameter SupportLevel to 0 : there is no parameter called SupportLevel
+WARNING: upgrade cannot set value of parameter TransceiverControl to false : there is no parameter called TransceiverControl
+

@@ -48,7 +48,6 @@
 # This XDC is used only for OOC mode of synthesis, implementation
 # User should update the correct clock period before proceeding further
 
-
  create_clock -name all_clock -period 10 [get_ports {s_axi_lite_aclk m_axi_mm2s_aclk m_axi_s2mm_aclk m_axi_sg_aclk}]
  set_property HD.CLK_SRC BUFGCTRL_X0Y0 [get_ports s_axi_lite_aclk]
 # create_clock -name m_axi_mm2s_aclk -period 10 [get_ports m_axi_mm2s_aclk]

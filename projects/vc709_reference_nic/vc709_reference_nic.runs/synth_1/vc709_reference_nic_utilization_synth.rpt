@@ -1,7 +1,7 @@
 Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2013.2 (lin64) Build 272601 Sat Jun 15 11:11:11 MDT 2013
-| Date         : Thu Oct 24 12:14:21 2013
+| Tool Version : Vivado v.2013.3 (lin64) Build 329390 Wed Oct 16 18:26:55 MDT 2013
+| Date         : Thu Oct 24 15:24:00 2013
 | Host         : nf-test104.cl.cam.ac.uk running 64-bit Fedora release 16 (Verne)
 | Command      : report_utilization -file vc709_reference_nic_utilization_synth.rpt -pb vc709_reference_nic_utilization_synth.pb
 | Design       : vc709_reference_nic
@@ -26,20 +26,20 @@ Table of Contents
 1. Slice Logic
 --------------
 
-+----------------------------+-------+-------+-----------+-------+
-|          Site Type         |  Used | Loced | Available | Util% |
-+----------------------------+-------+-------+-----------+-------+
-| Slice LUTs*                | 32080 |     0 |    433200 |  7.40 |
-|   LUT as Logic             | 29583 |     0 |    433200 |  6.82 |
-|   LUT as Memory            |  2497 |     0 |    174200 |  1.43 |
-|     LUT as Distributed RAM |  1576 |     0 |           |       |
-|     LUT as Shift Register  |   921 |     0 |           |       |
-| Slice Registers            | 30933 |     0 |    866400 |  3.57 |
-|   Register as Flip Flop    | 30933 |     0 |    866400 |  3.57 |
-|   Register as Latch        |     0 |     0 |    866400 |  0.00 |
-| F7 Muxes                   |   279 |     0 |    216600 |  0.12 |
-| F8 Muxes                   |     8 |     0 |    108300 |  0.01 |
-+----------------------------+-------+-------+-----------+-------+
++----------------------------+------+-------+-----------+-------+
+|          Site Type         | Used | Loced | Available | Util% |
++----------------------------+------+-------+-----------+-------+
+| Slice LUTs*                | 3219 |     0 |    433200 |  0.74 |
+|   LUT as Logic             | 3195 |     0 |    433200 |  0.73 |
+|   LUT as Memory            |   24 |     0 |    174200 |  0.01 |
+|     LUT as Distributed RAM |   24 |     0 |           |       |
+|     LUT as Shift Register  |    0 |     0 |           |       |
+| Slice Registers            | 5249 |     0 |    866400 |  0.60 |
+|   Register as Flip Flop    | 5249 |     0 |    866400 |  0.60 |
+|   Register as Latch        |    0 |     0 |    866400 |  0.00 |
+| F7 Muxes                   |    0 |     0 |    216600 |  0.00 |
+| F8 Muxes                   |    0 |     0 |    108300 |  0.00 |
++----------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis for a more realistic count.
 
 
@@ -49,11 +49,10 @@ Table of Contents
 +-------------------+------+-------+-----------+-------+
 |     Site Type     | Used | Loced | Available | Util% |
 +-------------------+------+-------+-----------+-------+
-| Block RAM Tile    | 74.5 |     0 |      1470 |  5.06 |
-|   RAMB36/FIFO*    |   66 |     0 |      1470 |  4.48 |
-|     RAMB36E1 only |   66 |       |           |       |
-|   RAMB18          |   17 |     0 |      2940 |  0.57 |
-|     RAMB18E1 only |   17 |       |           |       |
+| Block RAM Tile    |   33 |     0 |      1470 |  2.24 |
+|   RAMB36/FIFO*    |   33 |     0 |      1470 |  2.24 |
+|     RAMB36E1 only |   33 |       |           |       |
+|   RAMB18          |    0 |     0 |      2940 |  0.00 |
 +-------------------+------+-------+-----------+-------+
 * Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E1 or one FIFO18E1. However, if a FIFO18E1 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E1
 
@@ -74,11 +73,11 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Loced | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   19 |     0 |       850 |  2.23 |
-| Bonded IPADs                |   28 |     0 |       110 | 25.45 |
-| Bonded OPADs                |   24 |     0 |        72 | 33.33 |
-| GTHE2_CHANNEL               |   12 |     0 |        36 | 33.33 |
-| GTHE2_COMMON                |    3 |     0 |         9 | 33.33 |
+| Bonded IOB                  |   10 |     0 |       850 |  1.17 |
+| Bonded IPADs                |    4 |     0 |       110 |  3.63 |
+| Bonded OPADs                |    0 |     0 |        72 |  0.00 |
+| GTHE2_CHANNEL               |    0 |     0 |        36 |  0.00 |
+| GTHE2_COMMON                |    1 |     0 |         9 | 11.11 |
 | IBUFGDS                     |    0 |     0 |       816 |  0.00 |
 | IDELAYCTRL                  |    0 |     0 |        20 |  0.00 |
 | IN_FIFO                     |    0 |     0 |        80 |  0.00 |
@@ -106,7 +105,7 @@ Table of Contents
 | MMCME2_ADV |    2 |     0 |        20 | 10.00 |
 | PLLE2_ADV  |    0 |     0 |        20 |  0.00 |
 | BUFMRCE    |    0 |     0 |        40 |  0.00 |
-| BUFHCE     |    5 |     0 |       240 |  2.08 |
+| BUFHCE     |    1 |     0 |       240 |  0.41 |
 | BUFR       |    0 |     0 |        80 |  0.00 |
 +------------+------+-------+-----------+-------+
 
@@ -123,7 +122,7 @@ Table of Contents
 | EFUSE_USR   |    0 |     0 |         1 |  0.00 |
 | FRAME_ECCE2 |    0 |     0 |         1 |  0.00 |
 | ICAPE2      |    0 |     0 |         2 |  0.00 |
-| PCIE_3_0    |    1 |     0 |         3 | 33.33 |
+| PCIE_3_0    |    0 |     0 |         3 |  0.00 |
 | STARTUPE2   |    0 |     0 |         1 |  0.00 |
 | XADC        |    0 |     0 |         1 |  0.00 |
 +-------------+------+-------+-----------+-------+
@@ -132,50 +131,51 @@ Table of Contents
 7. Primitives
 -------------
 
-+---------------+-------+
-|    Ref Name   |  Used |
-+---------------+-------+
-| FDRE          | 27871 |
-| LUT6          | 13439 |
-| LUT5          |  6371 |
-| LUT3          |  4834 |
-| LUT4          |  3673 |
-| LUT2          |  3469 |
-| LUT1          |  2331 |
-| RAMD32        |  1800 |
-| FDCE          |  1584 |
-| FDSE          |  1279 |
-| SRL16E        |   921 |
-| CARRY4        |   746 |
-| MUXF7         |   279 |
-| RAMS32        |   232 |
-| FDPE          |   199 |
-| RAMB36E1      |    66 |
-| OBUF          |    38 |
-| IBUF          |    31 |
-| RAMB18E1      |    17 |
-| GTHE2_CHANNEL |    12 |
-| BUFG          |     9 |
-| RAMD64E       |     8 |
-| MUXF8         |     8 |
-| BUFH          |     4 |
-| GTHE2_COMMON  |     3 |
-| OBUFT         |     2 |
-| MMCME2_ADV    |     2 |
-| IBUFDS_GTE2   |     2 |
-| PCIE_3_0      |     1 |
-| IBUFDS        |     1 |
-| BUFHCE        |     1 |
-| BUFGCTRL      |     1 |
-+---------------+-------+
++--------------+------+
+|   Ref Name   | Used |
++--------------+------+
+| FDRE         | 5218 |
+| LUT3         | 2313 |
+| LUT6         |  736 |
+| LUT4         |  294 |
+| LUT5         |  237 |
+| LUT2         |  231 |
+| LUT1         |   78 |
+| RAMB36E1     |   33 |
+| CARRY4       |   33 |
+| RAMD32       |   24 |
+| FDCE         |   13 |
+| FDSE         |   12 |
+| BUFG         |    9 |
+| RAMS32       |    8 |
+| RAMD64E      |    8 |
+| IBUF         |    7 |
+| FDPE         |    6 |
+| OBUF         |    5 |
+| OBUFT        |    2 |
+| MMCME2_ADV   |    2 |
+| IBUFDS_GTE2  |    2 |
+| IBUFDS       |    1 |
+| GTHE2_COMMON |    1 |
+| BUFHCE       |    1 |
+| BUFGCTRL     |    1 |
++--------------+------+
 
 
 8. Black Boxes
 --------------
 
-+----------+------+
-| Ref Name | Used |
-+----------+------+
++---------------------------+------+
+|          Ref Name         | Used |
++---------------------------+------+
+| axis_async_fifo           |    8 |
+| ten_gig_eth_pcs_pma_ip    |    4 |
+| ten_gig_eth_mac_ip        |    4 |
+| cmd_fifo_xgemac_rxif      |    4 |
+| vc709_pcie_x8_gen3        |    1 |
+| nf10_bram_output_queues_0 |    1 |
+| axi_dma_0                 |    1 |
++---------------------------+------+
 
 
 9. Instantiated Netlists

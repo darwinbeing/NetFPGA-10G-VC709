@@ -1,0 +1,28 @@
+Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------
+| Tool Version : Vivado v.2013.3 (lin64) Build 329390 Wed Oct 16 18:26:55 MDT 2013
+| Date         : Thu Oct 24 13:28:24 2013
+| Host         : nf-test104.cl.cam.ac.uk running 64-bit Fedora release 16 (Verne)
+| Command      : upgrade_ip
+| Device       : xc7vx690tffg1761-2
+-----------------------------------------------------------------------------------
+
+Upgrade Log for IP 'ten_gig_eth_mac_ip'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of ten_gig_eth_mac_ip from xilinx.com:ip:ten_gig_eth_mac:12.0 (Rev. 1) to xilinx.com:ip:ten_gig_eth_mac:13.0
+
+2. Warnings
+-----------
+
+WARNING: Version 8.0 is a major revision and requires that the core instantiation is updated.
+Please consult the Tri-Mode Ethernet MAC Product Guide.
+
+
+3. Upgrade messages
+-------------------
+
+Added parameter SupportLevel with value 0
+

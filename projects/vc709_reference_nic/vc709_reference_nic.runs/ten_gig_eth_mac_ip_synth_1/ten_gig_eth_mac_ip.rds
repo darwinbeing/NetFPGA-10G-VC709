@@ -1,0 +1,549 @@
+#-----------------------------------------------------------
+# Vivado v2013.3 (64-bit)
+# SW Build 329390 on Wed Oct 16 18:26:55 MDT 2013
+# IP Build 192953 on Wed Oct 16 08:44:02 MDT 2013
+# Start of session at: Thu Oct 24 13:46:31 2013
+# Process ID: 23734
+# Log file: /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/ten_gig_eth_mac_ip_synth_1/ten_gig_eth_mac_ip.rds
+# Journal file: /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/ten_gig_eth_mac_ip_synth_1/vivado.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: Implementation
+INFO: [Common 17-81] Feature available: Implementation
+INFO: [Device 21-36] Loading parts and site information from /opt/Xilinx/Vivado/2013.3/data/parts/arch.xml
+Parsing RTL primitives file [/opt/Xilinx/Vivado/2013.3/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [/opt/Xilinx/Vivado/2013.3/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+source ten_gig_eth_mac_ip.tcl
+# set_param gui.test TreeTableDev
+# set_msg_config -id {HDL 9-1061} -limit 100000
+# set_msg_config -id {HDL 9-1654} -limit 100000
+# create_project -in_memory -part xc7vx690tffg1761-2
+# set_property target_language Verilog [current_project]
+# set_property board xilinx.com:virtex7:vc709:1.0 [current_project]
+# set_param project.compositeFile.enableAutoGeneration 0
+# set_property ip_repo_paths {
+#   /root/NetFPGA-10G-VC709-2013.3/projects/nf10_input_arbiter
+#   /root/NetFPGA-10G-VC709-2013.3/projects/nf10_bram_output_queues
+#   /root/NetFPGA-10G-VC709-2013.3/projects/nf10_nic_output_port_lookup
+# } [current_fileset]
+# read_ip /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_ip.xci
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user repository '/root/NetFPGA-10G-VC709-2013.3/projects/nf10_input_arbiter'.
+INFO: [IP_Flow 19-1700] Loaded user repository '/root/NetFPGA-10G-VC709-2013.3/projects/nf10_bram_output_queues'.
+INFO: [IP_Flow 19-1700] Loaded user repository '/root/NetFPGA-10G-VC709-2013.3/projects/nf10_nic_output_port_lookup'.
+INFO: [IP_Flow 19-2313] Loaded Vivado repository '/opt/Xilinx/Vivado/2013.3/data/ip'.
+# set_msg_config -id {IP_Flow 19-2162} -severity warning -new_severity info
+# set_property is_locked true [get_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_ip.xci]
+# read_xdc dont_touch.xdc
+# set_property used_in_implementation false [get_files dont_touch.xdc]
+# set_param synth.vivado.isSynthRun true
+# set_property webtalk.parent_dir /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.data/wt [current_project]
+# set_property parent.project_dir /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic [current_project]
+# synth_design -top ten_gig_eth_mac_ip -part xc7vx690tffg1761-2 -mode out_of_context
+Command: synth_design -top ten_gig_eth_mac_ip -part xc7vx690tffg1761-2 -mode out_of_context
+
+Starting synthesis...
+
+INFO: [IP_Flow 19-2162] IP 'ten_gig_eth_mac_ip' is locked. Locked reason: Property 'IS_LOCKED' is set to true by the system or user
+INFO: [Common 17-347] Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx690t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx690t'
+Starting RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 873.266 ; gain = 159.000
+INFO: [Synth 8-638] synthesizing module 'ten_gig_eth_mac_ip' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/synth/ten_gig_eth_mac_ip.v:58]
+INFO: [Synth 8-638] synthesizing module 'ten_gig_eth_mac_ip_block' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/synth/ten_gig_eth_mac_ip_block.v:64]
+INFO: [Synth 8-638] synthesizing module 'ten_gig_eth_mac_v13_0' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/ten_gig_eth_mac_v13_0.vhd:181]
+INFO: [Synth 8-638] synthesizing module 'xgmac_gen' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/xgmac_gen.vhd:282]
+INFO: [Synth 8-3491] module 'sync_reset' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/sync_reset.vhd:122' bound to instance 'sync_tx_reset_i' of component 'sync_reset' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/xgmac_gen.vhd:423]
+INFO: [Synth 8-638] synthesizing module 'sync_reset' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/sync_reset.vhd:133]
+INFO: [Synth 8-4472] Detected and applied attribute async_reg = true [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/sync_reset.vhd:127]
+INFO: [Synth 8-4472] Detected and applied attribute async_reg = true [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/sync_reset.vhd:134]
+INFO: [Synth 8-4472] Detected and applied attribute async_reg = true [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/sync_reset.vhd:134]
+INFO: [Synth 8-4472] Detected and applied attribute async_reg = true [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/sync_reset.vhd:134]
+INFO: [Synth 8-256] done synthesizing module 'sync_reset' (1#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/sync_reset.vhd:133]
+INFO: [Synth 8-3491] module 'sync_reset' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/sync_reset.vhd:122' bound to instance 'sync_rx_reset_i' of component 'sync_reset' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/xgmac_gen.vhd:430]
+INFO: [Synth 8-3491] module 'tx' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx.vhd:118' bound to instance 'txgen' of component 'tx' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/xgmac_gen.vhd:473]
+INFO: [Synth 8-638] synthesizing module 'tx' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx.vhd:203]
+INFO: [Synth 8-3491] module 'tx_config_sync' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_config_sync.vhd:118' bound to instance 'config_sync_i' of component 'tx_config_sync' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx.vhd:279]
+INFO: [Synth 8-638] synthesizing module 'tx_config_sync' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_config_sync.vhd:169]
+INFO: [Synth 8-256] done synthesizing module 'tx_config_sync' (2#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_config_sync.vhd:169]
+INFO: [Synth 8-3491] module 'axi_tx_xgmac' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/axi_tx_xgmac.vhd:117' bound to instance 'axi_tx_xgmac_i' of component 'axi_tx_xgmac' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx.vhd:384]
+INFO: [Synth 8-638] synthesizing module 'axi_tx_xgmac' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/axi_tx_xgmac.vhd:155]
+INFO: [Synth 8-226] default block is never used [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/axi_tx_xgmac.vhd:281]
+INFO: [Synth 8-256] done synthesizing module 'axi_tx_xgmac' (3#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/axi_tx_xgmac.vhd:155]
+INFO: [Synth 8-3491] module 'tx_pause_control' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_pause_control.vhd:127' bound to instance 'tx_pause_control_i' of component 'tx_pause_control' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx.vhd:418]
+INFO: [Synth 8-638] synthesizing module 'tx_pause_control' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_pause_control.vhd:147]
+INFO: [Synth 8-3491] module 'synchronizer_5' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/synchronizer_5.vhd:121' bound to instance 'sync_i' of component 'synchronizer_5' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_pause_control.vhd:168]
+INFO: [Synth 8-638] synthesizing module 'synchronizer_5' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/synchronizer_5.vhd:132]
+INFO: [Synth 8-4472] Detected and applied attribute shreg_extract = NO [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/synchronizer_5.vhd:128]
+INFO: [Synth 8-4472] Detected and applied attribute async_reg = TRUE [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/synchronizer_5.vhd:128]
+INFO: [Synth 8-4472] Detected and applied attribute async_reg = TRUE [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/synchronizer_5.vhd:134]
+INFO: [Synth 8-4472] Detected and applied attribute async_reg = TRUE [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/synchronizer_5.vhd:135]
+INFO: [Synth 8-4472] Detected and applied attribute async_reg = TRUE [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/synchronizer_5.vhd:136]
+INFO: [Synth 8-4472] Detected and applied attribute async_reg = TRUE [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/synchronizer_5.vhd:137]
+INFO: [Synth 8-256] done synthesizing module 'synchronizer_5' (4#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/synchronizer_5.vhd:132]
+INFO: [Synth 8-256] done synthesizing module 'tx_pause_control' (5#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_pause_control.vhd:147]
+INFO: [Synth 8-3491] module 'tx_framing' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_framing.vhd:123' bound to instance 'txframer' of component 'tx_framing' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx.vhd:433]
+INFO: [Synth 8-638] synthesizing module 'tx_framing' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_framing.vhd:191]
+INFO: [Synth 8-226] default block is never used [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_framing.vhd:306]
+INFO: [Synth 8-256] done synthesizing module 'tx_framing' (6#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_framing.vhd:191]
+INFO: [Synth 8-3491] module 'tx_addr_decode' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_addr_decode.vhd:117' bound to instance 'decode_frame' of component 'tx_addr_decode' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx.vhd:474]
+INFO: [Synth 8-638] synthesizing module 'tx_addr_decode' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_addr_decode.vhd:128]
+INFO: [Synth 8-256] done synthesizing module 'tx_addr_decode' (7#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_addr_decode.vhd:128]
+INFO: [Synth 8-3491] module 'tx_crc_pipeline' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_crc_pipeline.vhd:118' bound to instance 'crc_pipeline_inst' of component 'tx_crc_pipeline' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx.vhd:483]
+INFO: [Synth 8-638] synthesizing module 'tx_crc_pipeline' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_crc_pipeline.vhd:137]
+INFO: [Synth 8-3491] module 'tx_pipeline' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_pipeline.vhd:118' bound to instance 'pipeline_inst' of component 'tx_pipeline' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_crc_pipeline.vhd:143]
+INFO: [Synth 8-638] synthesizing module 'tx_pipeline' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_pipeline.vhd:139]
+INFO: [Synth 8-256] done synthesizing module 'tx_pipeline' (8#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_pipeline.vhd:139]
+INFO: [Synth 8-3491] module 'tx_crc' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_crc.vhd:119' bound to instance 'txcrc_inst' of component 'tx_crc' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_crc_pipeline.vhd:159]
+INFO: [Synth 8-638] synthesizing module 'tx_crc' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_crc.vhd:136]
+INFO: [Synth 8-3491] module 'tx_crc32_64' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/tx_crc32_64.vhd:144' bound to instance 'crc_inst' of component 'tx_crc32_64' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_crc.vhd:145]
+INFO: [Synth 8-638] synthesizing module 'tx_crc32_64' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/tx_crc32_64.vhd:155]
+INFO: [Synth 8-256] done synthesizing module 'tx_crc32_64' (9#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/tx_crc32_64.vhd:155]
+INFO: [Synth 8-226] default block is never used [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_crc.vhd:168]
+INFO: [Synth 8-256] done synthesizing module 'tx_crc' (10#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_crc.vhd:136]
+INFO: [Synth 8-3491] module 'tx_crc_insert' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_crc_insert.vhd:121' bound to instance 'insertcrc_inst' of component 'tx_crc_insert' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_crc_pipeline.vhd:169]
+INFO: [Synth 8-638] synthesizing module 'tx_crc_insert' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_crc_insert.vhd:137]
+INFO: [Synth 8-226] default block is never used [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_crc_insert.vhd:152]
+INFO: [Synth 8-226] default block is never used [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_crc_insert.vhd:173]
+INFO: [Synth 8-256] done synthesizing module 'tx_crc_insert' (11#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_crc_insert.vhd:137]
+INFO: [Synth 8-256] done synthesizing module 'tx_crc_pipeline' (12#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_crc_pipeline.vhd:137]
+INFO: [Synth 8-3491] module 'tx_start_align' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_start_align.vhd:118' bound to instance 'startalignment' of component 'tx_start_align' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx.vhd:498]
+INFO: [Synth 8-638] synthesizing module 'tx_start_align' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_start_align.vhd:132]
+INFO: [Synth 8-256] done synthesizing module 'tx_start_align' (13#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_start_align.vhd:132]
+INFO: [Synth 8-3491] module 'tx_controller' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_controller.vhd:118' bound to instance 'tx_controller_inst' of component 'tx_controller' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx.vhd:508]
+INFO: [Synth 8-638] synthesizing module 'tx_controller' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_controller.vhd:181]
+INFO: [Synth 8-3491] module 'tx_state' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_state.vhd:119' bound to instance 'state_inst' of component 'tx_state' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_controller.vhd:218]
+INFO: [Synth 8-638] synthesizing module 'tx_state' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_state.vhd:187]
+INFO: [Synth 8-226] default block is never used [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_state.vhd:347]
+INFO: [Synth 8-226] default block is never used [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_state.vhd:1078]
+INFO: [Synth 8-226] default block is never used [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_state.vhd:1237]
+INFO: [Synth 8-4471] merging register 'data_avail_reg_reg[7:0]' into 'data_avail_direct_reg[7:0]' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_state.vhd:1493]
+INFO: [Synth 8-256] done synthesizing module 'tx_state' (14#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_state.vhd:187]
+INFO: [Synth 8-3491] module 'tx_ifg_control' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_ifg_control.vhd:121' bound to instance 'ifg_control_inst' of component 'tx_ifg_control' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_controller.vhd:271]
+INFO: [Synth 8-638] synthesizing module 'tx_ifg_control' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_ifg_control.vhd:156]
+INFO: [Synth 8-226] default block is never used [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_ifg_control.vhd:270]
+INFO: [Synth 8-3491] module 'tx_ifg_calc' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_ifg_calc.vhd:121' bound to instance 'ifg_calc' of component 'tx_ifg_calc' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_ifg_control.vhd:586]
+INFO: [Synth 8-638] synthesizing module 'tx_ifg_calc' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_ifg_calc.vhd:151]
+INFO: [Synth 8-256] done synthesizing module 'tx_ifg_calc' (15#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_ifg_calc.vhd:151]
+INFO: [Synth 8-3491] module 'tx_ifg_counter' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_ifg_counter.vhd:116' bound to instance 'ifg_counter' of component 'tx_ifg_counter' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_ifg_control.vhd:681]
+INFO: [Synth 8-638] synthesizing module 'tx_ifg_counter' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_ifg_counter.vhd:130]
+INFO: [Synth 8-256] done synthesizing module 'tx_ifg_counter' (16#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_ifg_counter.vhd:130]
+INFO: [Synth 8-256] done synthesizing module 'tx_ifg_control' (17#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_ifg_control.vhd:156]
+INFO: [Synth 8-256] done synthesizing module 'tx_controller' (18#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_controller.vhd:181]
+INFO: [Synth 8-256] done synthesizing module 'tx' (19#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx.vhd:203]
+INFO: [Synth 8-3491] module 'rx' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx.vhd:140' bound to instance 'rxgen' of component 'rx' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/xgmac_gen.vhd:533]
+INFO: [Synth 8-638] synthesizing module 'rx' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx.vhd:212]
+INFO: [Synth 8-3491] module 'axi_rx_xgmac' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/axi_rx_xgmac.vhd:116' bound to instance 'axi_rx_xgmac_i' of component 'axi_rx_xgmac' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx.vhd:435]
+INFO: [Synth 8-638] synthesizing module 'axi_rx_xgmac' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/axi_rx_xgmac.vhd:137]
+INFO: [Synth 8-226] default block is never used [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/axi_rx_xgmac.vhd:182]
+INFO: [Synth 8-256] done synthesizing module 'axi_rx_xgmac' (20#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/axi_rx_xgmac.vhd:137]
+INFO: [Synth 8-3491] module 'rx_config_sync' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx_config_sync.vhd:119' bound to instance 'config_sync_i' of component 'rx_config_sync' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx.vhd:455]
+INFO: [Synth 8-638] synthesizing module 'rx_config_sync' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx_config_sync.vhd:171]
+INFO: [Synth 8-256] done synthesizing module 'rx_config_sync' (21#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx_config_sync.vhd:171]
+INFO: [Synth 8-3491] module 'ddr_synchronise' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/ddr_synchronise.vhd:142' bound to instance 'synchronise' of component 'ddr_synchronise' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx.vhd:537]
+INFO: [Synth 8-638] synthesizing module 'ddr_synchronise' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/ddr_synchronise.vhd:163]
+INFO: [Synth 8-256] done synthesizing module 'ddr_synchronise' (22#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/ddr_synchronise.vhd:163]
+INFO: [Synth 8-3491] module 'decode_frame' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/decode_frame.vhd:137' bound to instance 'decode' of component 'decode_frame' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx.vhd:593]
+INFO: [Synth 8-638] synthesizing module 'decode_frame' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/decode_frame.vhd:202]
+INFO: [Synth 8-256] done synthesizing module 'decode_frame' (23#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/decode_frame.vhd:202]
+INFO: [Synth 8-3491] module 'rx_crc32_64' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/rx_crc32_64.vhd:134' bound to instance 'calculate_crc' of component 'rx_crc32_64' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx.vhd:629]
+INFO: [Synth 8-638] synthesizing module 'rx_crc32_64' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/rx_crc32_64.vhd:144]
+INFO: [Synth 8-256] done synthesizing module 'rx_crc32_64' (24#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/rx_crc32_64.vhd:144]
+INFO: [Synth 8-3491] module 'error_check' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/error_check.vhd:146' bound to instance 'error_detection' of component 'error_check' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx.vhd:652]
+INFO: [Synth 8-638] synthesizing module 'error_check' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/error_check.vhd:213]
+INFO: [Synth 8-4471] merging register 'statistics_valid_reg' into 'reset_errors_reg' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/error_check.vhd:658]
+INFO: [Synth 8-256] done synthesizing module 'error_check' (25#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/error_check.vhd:213]
+INFO: [Synth 8-3491] module 'add_recognition' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/add_recognition.vhd:142' bound to instance 'address_decoding' of component 'add_recognition' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx.vhd:695]
+INFO: [Synth 8-638] synthesizing module 'add_recognition' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/add_recognition.vhd:174]
+INFO: [Synth 8-256] done synthesizing module 'add_recognition' (26#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/add_recognition.vhd:174]
+INFO: [Synth 8-3491] module 'rx_control' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx_control.vhd:122' bound to instance 'rx' of component 'rx_control' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx.vhd:717]
+INFO: [Synth 8-638] synthesizing module 'rx_control' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx_control.vhd:160]
+INFO: [Synth 8-256] done synthesizing module 'rx_control' (27#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx_control.vhd:160]
+INFO: [Synth 8-3491] module 'rx_pause_control' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx_pause_control.vhd:121' bound to instance 'rx_pause_control_i' of component 'rx_pause_control' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx.vhd:756]
+INFO: [Synth 8-638] synthesizing module 'rx_pause_control' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx_pause_control.vhd:135]
+INFO: [Synth 8-256] done synthesizing module 'rx_pause_control' (28#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx_pause_control.vhd:135]
+INFO: [Synth 8-256] done synthesizing module 'rx' (29#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx.vhd:212]
+INFO: [Synth 8-3491] module 'rs' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rs/rs.vhd:131' bound to instance 'rsgen' of component 'rs' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/xgmac_gen.vhd:583]
+INFO: [Synth 8-638] synthesizing module 'rs' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rs/rs.vhd:163]
+INFO: [Synth 8-3491] module 'synchronizer_5' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/synchronizer_5.vhd:121' bound to instance 'rs_disable_sync' of component 'synchronizer_5' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rs/rs.vhd:183]
+INFO: [Synth 8-3491] module 'link_fail_tx' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rs/link_fail_tx.vhd:136' bound to instance 'transmit_link_fail' of component 'link_fail_tx' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rs/rs.vhd:191]
+INFO: [Synth 8-638] synthesizing module 'link_fail_tx' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rs/link_fail_tx.vhd:159]
+INFO: [Synth 8-256] done synthesizing module 'link_fail_tx' (30#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rs/link_fail_tx.vhd:159]
+INFO: [Synth 8-3491] module 'link_fail_rx' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rs/link_fail_rx.vhd:131' bound to instance 'detect_link_fail' of component 'link_fail_rx' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rs/rs.vhd:210]
+INFO: [Synth 8-638] synthesizing module 'link_fail_rx' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rs/link_fail_rx.vhd:150]
+INFO: [Synth 8-256] done synthesizing module 'link_fail_rx' (31#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rs/link_fail_rx.vhd:150]
+INFO: [Synth 8-3491] module 'synchronizer_5' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/synchronizer_5.vhd:121' bound to instance 'sync_lf_i' of component 'synchronizer_5' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rs/rs.vhd:220]
+INFO: [Synth 8-3491] module 'synchronizer_5' declared at '/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/common/synchronizer_5.vhd:121' bound to instance 'sync_rf_i' of component 'synchronizer_5' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rs/rs.vhd:226]
+INFO: [Synth 8-256] done synthesizing module 'rs' (32#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rs/rs.vhd:163]
+INFO: [Synth 8-256] done synthesizing module 'xgmac_gen' (33#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/xgmac_gen.vhd:282]
+INFO: [Synth 8-256] done synthesizing module 'ten_gig_eth_mac_v13_0' (34#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/ten_gig_eth_mac_v13_0.vhd:181]
+INFO: [Synth 8-256] done synthesizing module 'ten_gig_eth_mac_ip_block' (35#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/synth/ten_gig_eth_mac_ip_block.v:64]
+INFO: [Synth 8-256] done synthesizing module 'ten_gig_eth_mac_ip' (36#1) [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/synth/ten_gig_eth_mac_ip.v:58]
+Finished RTL Elaboration : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 952.082 ; gain = 237.816
+Start RTL Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 952.082 ; gain = 237.816
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+Loading clock regions from /opt/Xilinx/Vivado/2013.3/data/parts/xilinx/virtex7/virtex7/xc7vx690t/ClockRegion.xml
+Loading clock buffers from /opt/Xilinx/Vivado/2013.3/data/parts/xilinx/virtex7/virtex7/xc7vx690t/ClockBuffers.xml
+Loading clock placement rules from /opt/Xilinx/Vivado/2013.3/data/parts/xilinx/virtex7/ClockPlacerRules.xml
+Loading package pin functions from /opt/Xilinx/Vivado/2013.3/data/parts/xilinx/virtex7/PinFunctions.xml...
+Loading package from /opt/Xilinx/Vivado/2013.3/data/parts/xilinx/virtex7/virtex7/xc7vx690t/ffg1761/Package.xml
+Loading io standards from /opt/Xilinx/Vivado/2013.3/data/./parts/xilinx/virtex7/IOStandards.xml
+Loading device configuration modes from /opt/Xilinx/Vivado/2013.3/data/parts/xilinx/virtex7/ConfigModes.xml
+INFO: [Common 17-78] Attempting to get a license: Internal_bitstream
+WARNING: [Common 17-301] Failed to get a license: Internal_bitstream
+
+Processing XDC Constraints
+Parsing XDC File [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_ip_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_ip_ooc.xdc] for cell 'inst'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_ip_ooc.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/ten_gig_eth_mac_ip_synth_1/.Xil/ten_gig_eth_mac_ip_propImpl.xdc].
+Resolution: To avoid this warning, exclude constraints listed in [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/ten_gig_eth_mac_ip_synth_1/.Xil/ten_gig_eth_mac_ip_propImpl.xdc] from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/synth/ten_gig_eth_mac_ip.xdc] for cell 'inst'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/synth/ten_gig_eth_mac_ip.xdc] for cell 'inst'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/synth/ten_gig_eth_mac_ip.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/ten_gig_eth_mac_ip_synth_1/.Xil/ten_gig_eth_mac_ip_propImpl.xdc].
+Resolution: To avoid this warning, exclude constraints listed in [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/ten_gig_eth_mac_ip_synth_1/.Xil/ten_gig_eth_mac_ip_propImpl.xdc] from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/ten_gig_eth_mac_ip_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/ten_gig_eth_mac_ip_synth_1/dont_touch.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/ten_gig_eth_mac_ip_synth_1/dont_touch.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/ten_gig_eth_mac_ip_synth_1/.Xil/ten_gig_eth_mac_ip_propImpl.xdc].
+Resolution: To avoid this warning, exclude constraints listed in [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/ten_gig_eth_mac_ip_synth_1/.Xil/ten_gig_eth_mac_ip_propImpl.xdc] from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Start RTL Optimization : Time (s): cpu = 00:00:56 ; elapsed = 00:00:57 . Memory (MB): peak = 1426.465 ; gain = 712.199
+
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true. (constraint file  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/ten_gig_eth_mac_ip_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:56 ; elapsed = 00:00:57 . Memory (MB): peak = 1426.465 ; gain = 712.199
+---------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------
+Finished RTL Optimization : Time (s): cpu = 00:00:56 ; elapsed = 00:00:57 . Memory (MB): peak = 1426.465 ; gain = 712.199
+---------------------------------------------------------------------------------
+
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/axi_tx_xgmac.vhd:309]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/axi_tx_xgmac.vhd:301]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/axi_tx_xgmac.vhd:309]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/axi_tx_xgmac.vhd:301]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/axi_tx_xgmac.vhd:309]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/axi_tx_xgmac.vhd:301]
+INFO: [Synth 8-802] inferred FSM for state register 'axi_tx_state_reg' in module 'axi_tx_xgmac'
+INFO: [Synth 8-4471] merging register 'underrun_reg_reg' into 'is_underrun_reg' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_state.vhd:924]
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'tx_state'
+INFO: [Synth 8-3354] encoded FSM with state register 'axi_tx_state_reg' using encoding 'one-hot' in module 'axi_tx_xgmac'
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'tx_state'
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7vx690tffg1761-2
+Part Resources:
+DSPs: 3600 (col length:200)
+BRAMs: 2940 (col length: RAMB8 0 RAMB16 0 RAMB18 200 RAMB36 100)
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:21 ; elapsed = 00:01:22 . Memory (MB): peak = 1439.461 ; gain = 725.195
+---------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------
+Start Cross Boundary Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3332] Sequential element (\state_inst/data_avail_direct_reg[5] ) is unused and will be removed from module tx_controller.
+INFO: [Synth 8-3332] Sequential element (\state_inst/data_avail_direct_reg[4] ) is unused and will be removed from module tx_controller.
+INFO: [Synth 8-3332] Sequential element (\state_inst/data_avail_direct_reg[3] ) is unused and will be removed from module tx_controller.
+INFO: [Synth 8-3332] Sequential element (\state_inst/data_avail_direct_reg[1] ) is unused and will be removed from module tx_controller.
+INFO: [Synth 8-3332] Sequential element (\state_inst/data_avail_direct_reg[0] ) is unused and will be removed from module tx_controller.
+INFO: [Synth 8-3332] Sequential element (\state_inst/byte_count_reg_reg[12] ) is unused and will be removed from module tx_controller.
+INFO: [Synth 8-4471] merging register 'ifg_control_inst/axi_eof_reg_reg' into 'state_inst/axi_eof_d1_reg' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/tx/tx_ifg_control.vhd:403]
+INFO: [Synth 8-3332] Sequential element (\state_inst/data_avail_direct_reg[5] ) is unused and will be removed from module tx_controller.
+INFO: [Synth 8-3332] Sequential element (\state_inst/data_avail_direct_reg[4] ) is unused and will be removed from module tx_controller.
+INFO: [Synth 8-3332] Sequential element (\state_inst/data_avail_direct_reg[3] ) is unused and will be removed from module tx_controller.
+INFO: [Synth 8-3332] Sequential element (\state_inst/data_avail_direct_reg[1] ) is unused and will be removed from module tx_controller.
+INFO: [Synth 8-3332] Sequential element (\state_inst/data_avail_direct_reg[0] ) is unused and will be removed from module tx_controller.
+INFO: [Synth 8-3332] Sequential element (\state_inst/byte_count_reg_reg[12] ) is unused and will be removed from module tx_controller.
+INFO: [Synth 8-3332] Sequential element (\config_sync_i/G_ASYNC.tx_1588_adj_en_reg ) is unused and will be removed from module tx.
+INFO: [Synth 8-3332] Sequential element (\config_sync_i/tx_1588_adj_value_reg[15] ) is unused and will be removed from module tx.
+INFO: [Synth 8-3332] Sequential element (\config_sync_i/tx_1588_adj_value_reg[14] ) is unused and will be removed from module tx.
+INFO: [Synth 8-3332] Sequential element (\config_sync_i/tx_1588_adj_value_reg[13] ) is unused and will be removed from module tx.
+INFO: [Synth 8-3332] Sequential element (\config_sync_i/tx_1588_adj_value_reg[12] ) is unused and will be removed from module tx.
+INFO: [Synth 8-3332] Sequential element (\config_sync_i/tx_1588_adj_value_reg[11] ) is unused and will be removed from module tx.
+INFO: [Synth 8-3332] Sequential element (\config_sync_i/tx_1588_adj_value_reg[10] ) is unused and will be removed from module tx.
+INFO: [Synth 8-3332] Sequential element (\config_sync_i/tx_1588_adj_value_reg[9] ) is unused and will be removed from module tx.
+INFO: [Synth 8-3332] Sequential element (\config_sync_i/tx_1588_adj_value_reg[8] ) is unused and will be removed from module tx.
+INFO: [Synth 8-3332] Sequential element (\config_sync_i/tx_1588_adj_value_reg[7] ) is unused and will be removed from module tx.
+INFO: [Synth 8-3332] Sequential element (\config_sync_i/tx_1588_adj_value_reg[6] ) is unused and will be removed from module tx.
+INFO: [Synth 8-3332] Sequential element (\config_sync_i/tx_1588_adj_value_reg[5] ) is unused and will be removed from module tx.
+INFO: [Synth 8-3332] Sequential element (\config_sync_i/tx_1588_adj_value_reg[4] ) is unused and will be removed from module tx.
+INFO: [Synth 8-3332] Sequential element (\config_sync_i/tx_1588_adj_value_reg[3] ) is unused and will be removed from module tx.
+INFO: [Synth 8-3332] Sequential element (\config_sync_i/tx_1588_adj_value_reg[2] ) is unused and will be removed from module tx.
+INFO: [Synth 8-3332] Sequential element (\config_sync_i/tx_1588_adj_value_reg[1] ) is unused and will be removed from module tx.
+INFO: [Synth 8-3332] Sequential element (\config_sync_i/tx_1588_adj_value_reg[0] ) is unused and will be removed from module tx.
+INFO: [Synth 8-3332] Sequential element (\error_detection/terminate_reg5_reg[0] ) is unused and will be removed from module rx.
+INFO: [Synth 8-4471] merging register 'error_detection/preserve_preamble_reg_reg' into 'decode/preserve_preamble_reg_reg' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/error_check.vhd:333]
+INFO: [Synth 8-4471] merging register 'address_decoding/frame_start_reg1_reg' into 'decode/start_flag_reg1_reg' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/add_recognition.vhd:224]
+INFO: [Synth 8-4471] merging register 'address_decoding/frame_start_reg2_reg' into 'decode/start_flag_reg2_reg' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/add_recognition.vhd:225]
+INFO: [Synth 8-4471] merging register 'address_decoding/frame_start_reg3_reg' into 'decode/start_flag_reg3_reg' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/add_recognition.vhd:226]
+INFO: [Synth 8-4471] merging register 'address_decoding/end_of_frame_reg_reg' into 'decode/term_flag_reg_reg' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/add_recognition.vhd:261]
+INFO: [Synth 8-4471] merging register 'frame_start_reg1_reg' into 'decode/start_flag_reg1_reg' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx.vhd:517]
+INFO: [Synth 8-4471] merging register 'frame_start_reg2_reg' into 'decode/start_flag_reg2_reg' [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_v13_0/hdl/rx/rx.vhd:518]
+INFO: [Synth 8-3332] Sequential element (\error_detection/terminate_reg5_reg[0] ) is unused and will be removed from module rx.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/col_cnt_reg[7] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[63] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[62] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[61] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[60] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[59] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[58] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[55] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[54] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[53] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[52] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[51] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[50] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[49] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[48] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[47] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[46] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[45] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[44] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[43] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[42] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[41] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[40] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[39] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[38] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[37] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[36] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[35] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[34] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[33] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[32] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[31] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[30] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[29] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[28] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[27] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[26] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[23] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[22] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[21] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[20] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[19] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[18] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[17] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[16] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[15] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[14] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[13] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[12] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[11] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[10] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[9] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[8] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[7] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[6] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[5] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[4] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[3] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[2] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[1] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[0] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/col_cnt_reg[7] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[63] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[62] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[61] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[60] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[59] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[58] ) is unused and will be removed from module rs.
+INFO: [Synth 8-3332] Sequential element (\detect_link_fail/rxd_reg_reg[55] ) is unused and will be removed from module rs.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary Optimization : Time (s): cpu = 00:01:24 ; elapsed = 00:01:25 . Memory (MB): peak = 1449.473 ; gain = 735.207
+---------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------
+Start Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Area Optimization : Time (s): cpu = 00:01:41 ; elapsed = 00:01:43 . Memory (MB): peak = 1550.379 ; gain = 836.113
+---------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:41 ; elapsed = 00:01:43 . Memory (MB): peak = 1550.379 ; gain = 836.113
+---------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:43 ; elapsed = 00:01:45 . Memory (MB): peak = 1550.379 ; gain = 836.113
+---------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:56 ; elapsed = 00:01:58 . Memory (MB): peak = 1615.320 ; gain = 901.055
+---------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3295] tying undriven pin \ten_gig_eth_mac_ip_core/xgmac_inst :tx_configuration_vector[31] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin \ten_gig_eth_mac_ip_core/xgmac_inst :tx_configuration_vector[15] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin \ten_gig_eth_mac_ip_core/xgmac_inst :tx_configuration_vector[13] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin \ten_gig_eth_mac_ip_core/xgmac_inst :tx_configuration_vector[12] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin \ten_gig_eth_mac_ip_core/xgmac_inst :tx_configuration_vector[11] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin \ten_gig_eth_mac_ip_core/xgmac_inst :tx_configuration_vector[6] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin \ten_gig_eth_mac_ip_core/xgmac_inst :rx_configuration_vector[31] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin \ten_gig_eth_mac_ip_core/xgmac_inst :rx_configuration_vector[15] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin \ten_gig_eth_mac_ip_core/xgmac_inst :rx_configuration_vector[13] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin \ten_gig_eth_mac_ip_core/xgmac_inst :rx_configuration_vector[12] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin \ten_gig_eth_mac_ip_core/xgmac_inst :rx_configuration_vector[11] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin \ten_gig_eth_mac_ip_core/xgmac_inst :rx_configuration_vector[6] to constant 0
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:57 ; elapsed = 00:01:59 . Memory (MB): peak = 1615.320 ; gain = 901.055
+---------------------------------------------------------------------------------
+
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:57 ; elapsed = 00:01:59 . Memory (MB): peak = 1615.320 ; gain = 901.055
+---------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:57 ; elapsed = 00:02:00 . Memory (MB): peak = 1615.320 ; gain = 901.055
+---------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY4 |    62|
+|2     |LUT1   |   178|
+|3     |LUT2   |   373|
+|4     |LUT3   |   341|
+|5     |LUT4   |   369|
+|6     |LUT5   |   593|
+|7     |LUT6   |  1330|
+|8     |MUXF7  |     1|
+|9     |SRL16E |   186|
+|10    |FDPE   |     8|
+|11    |FDRE   |  2605|
+|12    |FDSE   |   156|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:58 ; elapsed = 00:02:00 . Memory (MB): peak = 1615.320 ; gain = 901.055
+---------------------------------------------------------------------------------
+
+Synthesis finished with 0 errors, 0 critical warnings and 12 warnings.
+Synthesis Optimization Complete : Time (s): cpu = 00:01:58 ; elapsed = 00:02:00 . Memory (MB): peak = 1615.320 ; gain = 901.055
+WARNING: [Netlist 29-101] Netlist 'ten_gig_eth_mac_ip' is not ideal for floorplanning, since the cellview 'xgmac_gen' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Opt 31-138] Pushed 0 inverter(s).
+Parsing XDC File [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_ip_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_ip_ooc.xdc] for cell 'inst'
+Parsing XDC File [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/synth/ten_gig_eth_mac_ip.xdc] for cell 'inst'
+Finished Parsing XDC File [/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/synth/ten_gig_eth_mac_ip.xdc] for cell 'inst'
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+260 Infos, 14 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:02:15 ; elapsed = 00:02:18 . Memory (MB): peak = 2070.559 ; gain = 1242.293
+# rename_ref -prefix_all ten_gig_eth_mac_ip
+INFO: [Coretcl 2-1174] Renamed 3 cell refs.
+# write_checkpoint -noxdef ten_gig_eth_mac_ip.dcp
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port "rx_clk0" is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew
+Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design
+WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port "tx_clk0" is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew
+Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design
+# report_utilization -file ten_gig_eth_mac_ip_utilization_synth.rpt -pb ten_gig_eth_mac_ip_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.25 . Memory (MB): peak = 2107.598 ; gain = 0.000
+# if { [catch {
+#   file copy -force /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/ten_gig_eth_mac_ip_synth_1/ten_gig_eth_mac_ip.dcp /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_ip.dcp
+#   write_verilog -force -mode synth_stub /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_ip_stub.v
+#   write_verilog -force -mode funcsim /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_ip_funcsim.v
+#   write_vhdl -force -mode funcsim /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_ip_funcsim.vhdl
+# } _RESULT ] } { 
+#   puts "Critical Warning: Unable to successfully create or copy supporting IP files."
+# }
+INFO: [Common 17-206] Exiting Vivado at Thu Oct 24 13:49:04 2013...

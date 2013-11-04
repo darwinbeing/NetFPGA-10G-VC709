@@ -194,7 +194,7 @@ entity blk_mem_gen_wrapper is
             -- "Virtex5"
             -- "Spartan-3A"
             -- "Spartan-3A DSP"
-
+      c_elaboration_dir        : string := "";
       -- Memory Specific Configurations
       c_mem_type               : integer := 2;
          -- This wrapper only supports the True Dual Port RAM
@@ -434,7 +434,8 @@ begin
         
         -- Device Family
         C_FAMILY                    => FAMILY_TO_USE           ,     
-        C_XDEVICEFAMILY             => c_xdevicefamily         ,     
+        C_XDEVICEFAMILY             => c_xdevicefamily         ,
+        C_ELABORATION_DIR           => c_elaboration_dir       ,     
                                                                                     
         ------------------     
         C_INTERFACE_TYPE            => 0                       ,

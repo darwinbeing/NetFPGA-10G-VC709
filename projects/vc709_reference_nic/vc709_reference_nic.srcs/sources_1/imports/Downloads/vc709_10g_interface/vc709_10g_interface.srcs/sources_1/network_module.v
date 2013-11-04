@@ -111,8 +111,8 @@ wire            axi_str_rd_tlast_to_fifo;
 
 //assign resetdone = tx_resetdone & rx_resetdone;
 
-ten_gig_eth_pcs_pma_ip # (
-  .EXAMPLE_SIM_GTRESET_SPEEDUP("TRUE") ) //Does not affect hardware
+ten_gig_eth_pcs_pma_ip //# (
+  //.EXAMPLE_SIM_GTRESET_SPEEDUP("TRUE") ) //Does not affect hardware //removed as 2013.3 change
 ten_gig_eth_pcs_pma_inst
 (
 .clk156(clk156),
@@ -121,10 +121,10 @@ ten_gig_eth_pcs_pma_inst
 .txusrclk2(txusrclk2),
 .areset(reset),
 .txclk322(txclk322),
-.areset_refclk_bufh(areset_refclk_bufh),
+//.areset_refclk_bufh(areset_refclk_bufh),
 .areset_clk156(areset_clk156),
-.mmcm_locked_clk156(mmcm_locked_clk156),
-.gttxreset_txusrclk2(gttxreset_txusrclk2),
+//.mmcm_locked_clk156(mmcm_locked_clk156),
+//.gttxreset_txusrclk2(gttxreset_txusrclk2),
 .gttxreset(gttxreset),
 .gtrxreset(gtrxreset),
 .txuserrdy(txuserrdy),
@@ -149,7 +149,22 @@ ten_gig_eth_pcs_pma_inst
 .tx_fault(tx_fault),
 .pma_pmd_type(3'b101),
 //.pma_pmd_type(pma_pmd_type),
-.tx_disable(tx_disable)
+.tx_disable(tx_disable),
+//added in 2013.3
+.drp_req(),
+.drp_gnt(),
+.drp_den_o(),
+.drp_dwe_o(),
+.drp_daddr_o(),
+.drp_di_o(),
+.drp_drdy_o(),
+.drp_drpdo_o(),
+.drp_den_i(),
+.drp_dwe_i(),
+.drp_daddr_i(),
+.drp_di_i(),
+.drp_drdy_i(),
+.drp_drpdo_i()
 );
 
 

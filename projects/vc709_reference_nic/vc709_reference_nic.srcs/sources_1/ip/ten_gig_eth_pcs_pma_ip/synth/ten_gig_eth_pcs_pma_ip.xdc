@@ -52,40 +52,32 @@ set TXOUTCLK_OUT [get_clocks -of  [get_pins -of_objects [get_cells * -hierarchic
 
 set_multicycle_path 2 -from [get_cells * -hierarchical -filter {NAME =~ *mcp1_* && PRIMITIVE_SUBGROUP =~ flop}] -to [get_cells * -hierarchical -filter {NAME =~ *mcp1_* && PRIMITIVE_SUBGROUP =~ flop}]
 set_multicycle_path -hold 1 -from [get_cells * -hierarchical -filter {NAME =~ *mcp1_* && PRIMITIVE_SUBGROUP =~ flop}] -to [get_cells * -hierarchical -filter {NAME =~ *mcp1_* && PRIMITIVE_SUBGROUP =~ flop}]
-set_multicycle_path 2 -from [get_cells * -hierarchical -filter {NAME =~ *mcp1_* && PRIMITIVE_SUBGROUP =~ flop}] -to [get_cells -of [filter [all_fanout -flat -endpoints_only -from [get_nets * -hierarchical -filter {NAME =~ *rxusrclk2_en156*}]] {NAME =~ *WE}]]
-set_multicycle_path -hold 1 -from [get_cells * -hierarchical -filter {NAME =~ *mcp1_* && PRIMITIVE_SUBGROUP =~ flop}] -to [get_cells -of [filter [all_fanout -flat -endpoints_only -from [get_nets * -hierarchical -filter {NAME =~ *rxusrclk2_en156*}]] {NAME =~ *WE}]]
+set_multicycle_path 2 -from [get_cells * -hierarchical -filter {NAME =~ *mcp1_* && PRIMITIVE_SUBGROUP =~ flop}] -to [get_cells -of [filter [all_fanout -flat -endpoints_only -from [get_nets * -hierarchical -filter {NAME =~ *rxusrclk2_en156*}]] {NAME =~ *WE*}]]
+set_multicycle_path -hold 1 -from [get_cells * -hierarchical -filter {NAME =~ *mcp1_* && PRIMITIVE_SUBGROUP =~ flop}] -to [get_cells -of [filter [all_fanout -flat -endpoints_only -from [get_nets * -hierarchical -filter {NAME =~ *rxusrclk2_en156*}]] {NAME =~ *WE*}]]
 
-# Set max delays between clock domain crossing data path regs
-set_max_delay -from [get_cells -hierarchical -filter {NAME =~ *rd_truegray_reg* && PRIMITIVE_SUBGROUP =~ flop}] -to [get_cells -hierarchical -filter {NAME =~ *rag_writesync0_reg* && PRIMITIVE_SUBGROUP =~ flop}] -datapath_only 5.800
-set_max_delay -from [get_cells -hierarchical -filter {NAME =~ *wr_gray_reg* && PRIMITIVE_SUBGROUP =~ flop}] -to [get_cells -hierarchical -filter {NAME =~ *wr_gray_rdclk0_reg* && PRIMITIVE_SUBGROUP =~ flop}] -datapath_only 5.800
-set_max_delay -from [get_cells -hierarchical -filter {NAME =~ *rd_lastgray_reg* && PRIMITIVE_SUBGROUP =~ flop}] -to [get_cells -hierarchical -filter {NAME =~ *rd_lastgray_wrclk0_reg* && PRIMITIVE_SUBGROUP =~ flop}] -datapath_only 5.800
+# Set max delays between clock domain crossing data path regs in the rx elastic buffer
+set_max_delay -from [get_cells -hierarchical -filter {NAME =~ *rd_truegray_reg* && PRIMITIVE_SUBGROUP =~ flop}] -to [get_cells -hierarchical -filter {NAME =~ *rag_writesync0_reg* && PRIMITIVE_SUBGROUP =~ flop}] -datapath_only 6.400
+set_max_delay -from [get_cells -hierarchical -filter {NAME =~ *wr_gray_reg* && PRIMITIVE_SUBGROUP =~ flop}] -to [get_cells -hierarchical -filter {NAME =~ *wr_gray_rdclk0_reg* && PRIMITIVE_SUBGROUP =~ flop}] -datapath_only 6.400
+set_max_delay -from [get_cells -hierarchical -filter {NAME =~ *rd_lastgray_reg* && PRIMITIVE_SUBGROUP =~ flop}] -to [get_cells -hierarchical -filter {NAME =~ *rd_lastgray_wrclk0_reg* && PRIMITIVE_SUBGROUP =~ flop}] -datapath_only 6.400
 
 # Set false paths and max delays between clock domain crossing reset regs
-set_false_path -from [get_cells -hierarchical -filter {NAME =~ *local*clk156_reset_tx_* && PRIMITIVE_SUBGROUP =~ flop}] -to [get_pins -of_objects [get_cells -hierarchical -filter {NAME =~ *local*txreset322_tmp_reg}] -filter {NAME =~ *D}] 
-set_false_path -from [get_cells -hierarchical -filter {NAME =~ *local*clk156_reset_rx_* && PRIMITIVE_SUBGROUP =~ flop}] -to [get_pins -of_objects [get_cells -hierarchical -filter {NAME =~ *local*rxreset322_tmp_reg}] -filter {NAME =~ *D}] 
+set_false_path -to [get_pins -of_objects [get_cells -hierarchical -filter {NAME =~ *sync1_r_reg[0]}] -filter {NAME =~ *D}]
+set_false_path -from [get_cells -hierarchical -filter {PRIMITIVE_SUBGROUP =~ gt}] -to [get_pins -hierarchical -filter {NAME =~ *sync1_en_r_reg[0]/D}] 
 
 # False paths for async reset removal synchronizers
-set_false_path -to [get_pins -of_objects [get_cells -hierarchical -filter {NAME =~ *local*_rxusrclk2*}] -filter {NAME =~ *PRE}]
-set_false_path -to [get_pins -of_objects [get_cells -hierarchical -filter {NAME =~ *local*_rxusrclk2*}] -filter {NAME =~ *CLR}]
-set_false_path -to [get_pins -of_objects [get_cells -hierarchical -filter {NAME =~ *local*clk156_reset_tx*}] -filter {NAME =~ *PRE}]
-set_false_path -to [get_pins -of_objects [get_cells -hierarchical -filter {NAME =~ *local*txreset322*}] -filter {NAME =~ *PRE}]
+set_false_path -to [get_pins -of_objects [get_cells -hierarchical -filter {NAME =~ *sync1_r_reg*}] -filter {NAME =~ *PRE}]
+set_false_path -to [get_pins -of_objects [get_cells -hierarchical -filter {NAME =~ *sync1_r_reg*}] -filter {NAME =~ *CLR}]
 
-set_max_delay -from [get_cells -hierarchical -filter {REF_NAME =~ RAMD32}] -to [get_cells -hierarchical -filter {NAME =~ *dp_ram_i*fd_i* && PRIMITIVE_SUBGROUP =~ flop}] -datapath_only 2.400
-set_max_delay -from [get_cells -hierarchical -filter {NAME =~ *can_insert_fdr2}] -to [get_pins -hierarchical -filter {NAME =~ *can_insert_fdr3/D}] -datapath_only 2.400
+#The following path refers to registers in front of the DP RAM in the rx elastic buffer async fifo 
+set_false_path -from $RXOUTCLK_OUT -to [get_cells -hierarchical -filter {NAME =~ *dp_ram_i*fd_i* && PRIMITIVE_SUBGROUP =~ flop}]
 
-set_max_delay -from $RXOUTCLK_OUT -to [get_cells -hierarchical -filter {NAME =~ *synch_*d1_reg}] -datapath_only 2.400
+set_false_path -to [get_pins -hierarchical -filter {NAME =~ *can_insert_fdr3/D}]
 
-set_max_delay -from [get_cells -hierarchical -filter {NAME =~ *rd_addr_reg[*]}] -to [get_cells -hierarchical -filter {NAME =~ *wr_addr1_reg* && PRIMITIVE_SUBGROUP =~ flop}] -datapath_only 2.400
-
-set_false_path -from [get_cells cable_unpull_enable_reg]
+set_false_path -to [get_cells -hierarchical -filter {NAME =~ *synch_*d1_reg}]
 
 set_false_path -to [get_pins -hierarchical -filter {NAME =~ *psynch_*newedge_reg_reg/D}] 
-set_false_path -to [get_pins -hierarchical -filter {NAME =~ *psynch_*q_reg/D}] 
 set_false_path -to [get_pins -hierarchical -filter {NAME =~ *cable_pull_reset_reg_reg/D}] 
 set_false_path -to [get_pins -hierarchical -filter {NAME =~ *cable_unpull_reset_reg_reg/D}] 
 
-set_false_path -from [get_cells -hierarchical -filter {PRIMITIVE_SUBGROUP =~ gt}] -to [get_pins gt0_txresetdone_i_rega_reg/D] 
-set_false_path -from [get_cells -hierarchical -filter {PRIMITIVE_SUBGROUP =~ gt}] -to [get_pins gt0_rxresetdone_i_rega_reg/D] 
 
-set_false_path -through [get_nets * -hierarchical -filter {NAME =~ *elastic_buffer_i?can_insert_wra}]
 

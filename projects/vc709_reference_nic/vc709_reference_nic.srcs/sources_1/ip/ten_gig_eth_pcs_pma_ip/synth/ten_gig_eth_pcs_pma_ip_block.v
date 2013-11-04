@@ -1,11 +1,11 @@
 //-----------------------------------------------------------------------------
-// Title      : Block level                                            
-// Project    : 10GBASE-R                                                      
+// Title      : Block level
+// Project    : 10GBASE-R
 //-----------------------------------------------------------------------------
-// File       : ten_gig_eth_pcs_pma_ip_block.v                                          
+// File       : ten_gig_eth_pcs_pma_ip_block.v
 //-----------------------------------------------------------------------------
-// Description: This file is a wrapper for the 10GBASE-R core. It contains the 
-// 10GBASE-R core, the transceivers and some transceiver logic.                
+// Description: This file is a wrapper for the 10GBASE-R core. It contains the
+// 10GBASE-R core, the transceiver and some transceiver-related logic.
 //-----------------------------------------------------------------------------
 // (c) Copyright 2009 - 2013 Xilinx, Inc. All rights reserved.
 //
@@ -53,34 +53,22 @@
 // THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS
 // PART OF THIS FILE AT ALL TIMES.
 
-module ten_gig_eth_pcs_pma_ip_block #
-  (
-    parameter EXAMPLE_SIM_GTRESET_SPEEDUP = "FALSE",
-    parameter C_ELABORATION_TRANSIENT_DIR = "BlankString",
-    parameter C_COMPONENT_NAME            = "ten_gig_eth_pcs_pma_ip",
-    parameter C_FAMILY                    = "virtex7",
-    parameter C_HAS_MDIO                  = 1'b0,
-    parameter C_HAS_FEC                   = 1'b0,
-    parameter C_HAS_AN                    = 1'b0,
-    parameter C_IS_KR                     = 1'b0,
-    parameter C_IS_V7GTH                  = 1'b1,
-    parameter C_DATA_WIDTH                = 32,
-    parameter C_1588                      = 0
-  )
+`timescale 1ns / 1ps
+
+(* DowngradeIPIdentifiedWarnings="yes" *)
+module ten_gig_eth_pcs_pma_ip_block
   (
   input           clk156,
   input           dclk,
   input           txusrclk,
   input           txusrclk2,
-  input           areset,
   output          txclk322,
-  input           areset_refclk_bufh,
+  input           areset,
   input           areset_clk156,
-  input           mmcm_locked_clk156,
-  input           gttxreset_txusrclk2,
+  input           txuserrdy,
+  
   input           gttxreset,
   input           gtrxreset,
-  input           txuserrdy,
   input           qplllock,
   input           qplloutclk,
   input           qplloutrefclk,
@@ -100,40 +88,37 @@ module ten_gig_eth_pcs_pma_ip_block #
   output          rx_resetdone,
   input           signal_detect,
   input           tx_fault,
+  output          drp_req,
+  input           drp_gnt,
+  output          drp_den_o,
+  output          drp_dwe_o,
+  output [15 : 0] drp_daddr_o,
+  output [15 : 0] drp_di_o,
+  output          drp_drdy_o,
+  output [15 : 0] drp_drpdo_o,
+  input           drp_den_i,
+  input           drp_dwe_i,
+  input  [15 : 0] drp_daddr_i,
+  input  [15 : 0] drp_di_i,
+  input           drp_drdy_i,
+  input  [15 : 0] drp_drpdo_i,
   input [2:0]     pma_pmd_type,
-  output          tx_disable);   
-    
-  //  Static signal Assigments    
-  wire            tied_to_ground_i;
-  wire    [63:0]  tied_to_ground_vec_i;
-  wire            tied_to_vcc_i;
-  wire    [7:0]   tied_to_vcc_vec_i;
-  assign tied_to_ground_i             = 1'b0;
-  assign tied_to_ground_vec_i         = 64'h0000000000000000;
-  assign tied_to_vcc_i                = 1'b1;
-  assign tied_to_vcc_vec_i            = 8'hff;
-  
+  output          tx_disable);
 
   wire [31:0]     gt_txd;
   wire [7:0]      gt_txc;
 
   wire [31:0]     gt_rxd;
   wire [7:0]      gt_rxc;
-  
-  reg [31:0]     gt_rxd_d1;
-  reg [7:0]      gt_rxc_d1;  
 
-  wire [15:0]     gt0_drpdi_i;
-  wire [15:0]     gt0_drpaddr_i;
-  wire [15:0]     gt0_drpdo_i;
-  
+  reg [31:0]     gt_rxd_d1;
+  reg [7:0]      gt_rxc_d1;
+
   wire gt0_rxgearboxslip_i;
-  wire  drp_gnt;
-  wire  drp_req;
-  
+
   wire [2:0] gt0_loopback_i;
   wire gt0_clear_rx_prbs_err_count_i;
-  
+
   wire rxclk322;
   wire gt0_gtrxreset_i;
   wire gt0_gttxreset_i;
@@ -142,25 +127,26 @@ module ten_gig_eth_pcs_pma_ip_block #
   wire pma_resetout_rising;
   reg pcs_resetout_reg;
   wire pcs_resetout_rising;
-  
+
   wire pma_resetout;
   wire pcs_resetout;
-  
+
   wire dclk_reset;
-  
+  wire mmcm_locked_clk156;
+
   // Aid the detection of a cable/board being pulled
-  reg [3:0] rx_sample = 4'b0000; // Used to monitor RX data for a cable pull 
-  reg [3:0] rx_sample_prev = 4'b0000; // Used to monitor RX data for a cable pull 
-  reg [19:0] cable_pull_watchdog = 20'h20000; // 128K cycles 
+  reg [3:0] rx_sample = 4'b0000; // Used to monitor RX data for a cable pull
+  reg [3:0] rx_sample_prev = 4'b0000; // Used to monitor RX data for a cable pull
+  reg [19:0] cable_pull_watchdog = 20'h20000; // 128K cycles
   reg [1:0] cable_pull_watchdog_event = 2'b00; // Count events which suggest no cable pull
   reg cable_pull_reset = 1'b0;  // This is set when the watchdog above gets to 0.
   (* ASYNC_REG = "TRUE" *)
   reg cable_pull_reset_reg = 1'b0;  // This is set when the watchdog above gets to 0.
   (* ASYNC_REG = "TRUE" *)
-  reg cable_pull_reset_reg_reg = 1'b0;  
-  reg cable_pull_reset_rising = 1'b0;  
-  reg cable_pull_reset_rising_reg = 1'b0;  
-  
+  reg cable_pull_reset_reg_reg = 1'b0;
+  reg cable_pull_reset_rising = 1'b0;
+  reg cable_pull_reset_rising_reg = 1'b0;
+
   // Aid the detection of a cable/board being plugged back in
   reg cable_unpull_enable = 1'b0;
   reg [19:0] cable_unpull_watchdog = 20'h20000;
@@ -172,15 +158,25 @@ module ten_gig_eth_pcs_pma_ip_block #
   reg cable_unpull_reset_reg_reg = 1'b0;
   reg cable_unpull_reset_rising = 1'b0;
   reg cable_unpull_reset_rising_reg = 1'b0;
-  
+
+  wire gt0_eyescanreset = 0;
+  wire gt0_eyescantrigger = 0;
+  wire gt0_rxcdrhold = 0;
+  wire gt0_txprbsforceerr = 0;
+  wire gt0_txpolarity = 0;
+  wire gt0_rxpolarity = 0;
+  wire [2:0] gt0_rxrate = 0;
+  wire [4:0] gt0_txprecursor = 0;
+  wire [4:0] gt0_txpostcursor = 0;
+  wire [3:0] gt0_txdiffctrl = 4'b1110;
+  wire gt0_eyescandataerror;
+  wire [1:0] gt0_txbufstatus;
+
   wire signal_detect_comb;
   wire cable_is_pulled;
 
 
-  // If no arbitration is required on the GT DRP ports then connect REQ to GNT...
-  assign drp_gnt = drp_req;
-  
-  
+
   // Local clocking/reset block
   ten_gig_eth_pcs_pma_ip_local_clock_and_reset ten_gig_eth_pcs_pma_ip_local_clock_reset_block
     (
@@ -205,50 +201,61 @@ module ten_gig_eth_pcs_pma_ip_block #
      .cable_pull_reset_rising_rxusrclk2(cable_pull_reset_rising_rxusrclk2),
      .cable_unpull_reset_rising_rxusrclk2(cable_unpull_reset_rising_rxusrclk2),
      .pma_resetout_rising_rxusrclk2(pma_resetout_rising_rxusrclk2),
-     .gtrxreset_rxusrclk2(gtrxreset_rxusrclk2),
      .rxuserrdy(rxuserrdy),
      .rxusrclk(rxusrclk),
      .rxusrclk2(rxusrclk2)
     );
-          
-  ten_gig_eth_pcs_pma_v3_0 #(
-      .C_ELABORATION_TRANSIENT_DIR (C_ELABORATION_TRANSIENT_DIR),
-      .C_COMPONENT_NAME            (C_COMPONENT_NAME),
-      .C_FAMILY                    (C_FAMILY),
-      .C_HAS_MDIO                  (C_HAS_MDIO),
-      .C_HAS_FEC                   (C_HAS_FEC),
-      .C_HAS_AN                    (C_HAS_AN),
-      .C_IS_KR                     (C_IS_KR),
-      .C_IS_V7GTH                  (C_IS_V7GTH),
-      .C_DATA_WIDTH                (C_DATA_WIDTH),
-      .C_1588                      (C_1588)
+
+
+  assign mmcm_locked_clk156 = 1'b1;
+
+
+  ten_gig_eth_pcs_pma_v4_0 #(
+      .C_HAS_MDIO                  (1'b0),
+      .C_HAS_FEC                   (1'b0),
+      .C_HAS_AN                    (1'b0),
+      .C_IS_KR                     (1'b0),
+      .C_GTTYPE                    (1),
+      .C_DATA_WIDTH                (32),
+      .C_1588                      (0)
       ) ten_gig_eth_pcs_pma_ip_core (
-      .reset(clk156_reset_tx), 
+      .reset(clk156_reset_tx),
       .txreset322(txreset322),
       .rxreset322(rxreset322),
       .dclk_reset(dclk_reset),
       .pma_resetout(pma_resetout),
       .pcs_resetout(pcs_resetout),
-      .clk156(clk156), 
+      .clk156(clk156),
       .txusrclk2(txusrclk2),
       .rxusrclk2(rxusrclk2),
-      .dclk(dclk),      
+      .dclk(dclk),
       .xgmii_txd(xgmii_txd),
       .xgmii_txc(xgmii_txc),
       .xgmii_rxd(xgmii_rxd),
       .xgmii_rxc(xgmii_rxc),
+      .mdc(1'b0),
+      .mdio_in(1'b0),
+      .mdio_out(),
+      .mdio_tri(),
+      .prtad(5'b0),
       .configuration_vector(configuration_vector),
       .status_vector(status_vector),
-      .core_status(core_status), 
+      .core_status(core_status),
       .pma_pmd_type(pma_pmd_type),
       .drp_req(drp_req),
-      .drp_gnt(drp_gnt),                            
-      .drp_den(gt0_drpen_i),                                   
-      .drp_dwe(gt0_drpwe_i),
-      .drp_daddr(gt0_drpaddr_i),                 
-      .drp_di(gt0_drpdi_i),                  
-      .drp_drdy(gt0_drprdy_i),               
-      .drp_drpdo(gt0_drpdo_i),
+      .drp_gnt(drp_gnt),
+      .drp_den(drp_den_o),
+      .drp_dwe(drp_dwe_o),
+      .drp_daddr(drp_daddr_o),
+      .drp_di(drp_di_o),
+      .drp_drdy(drp_drdy_i),
+      .drp_drpdo(drp_drpdo_i),
+      .lfreset(1'b0),
+      .systemtimer_s_field(48'b0),
+      .systemtimer_ns_field(32'b0),
+      .rxphy_s_field(),
+      .rxphy_ns_field(),
+      .gt_rxstartofseq(1'b0),
       .resetdone(resetdone),
       .gt_txd(gt_txd),
       .gt_txc(gt_txc),
@@ -261,47 +268,68 @@ module ten_gig_eth_pcs_pma_ip_block #
       .tx_prbs31_en(tx_prbs31_en),
       .rx_prbs31_en(rx_prbs31_en),
       .clear_rx_prbs_err_count(gt0_clear_rx_prbs_err_count_i),
-      .loopback_ctrl(gt0_loopback_i));
-      
+      .loopback_ctrl(gt0_loopback_i),
+      .is_eval(),
+      .an_enable(1'b0),
+      .coeff_minus_1(),
+      .coeff_plus_1(),
+      .coeff_zero(),
+      .txdiffctrl(),
+      .training_enable(1'b0),
+      .training_addr(21'b0),
+      .training_rnw(1'b0),
+      .training_wrdata(16'b0),
+      .training_ipif_cs(1'b0),
+      .training_drp_cs(1'b0),
+      .training_rddata(),
+      .training_rdack(),
+      .training_wrack());
+
   wire gt0_drpclk_i;
-  
+
   assign gt0_drpclk_i = dclk;
-  
+
   wire gt0_txresetdone_i;
   wire gt0_rxresetdone_i;
-  
-  (* ASYNC_REG = "TRUE" *)
-  reg gt0_txresetdone_i_rega = 1'b0;
-  (* ASYNC_REG = "TRUE" *)
-  reg gt0_txresetdone_i_reg = 1'b0;
-  (* ASYNC_REG = "TRUE" *)
-  reg gt0_rxresetdone_i_rega = 1'b0;
-  (* ASYNC_REG = "TRUE" *)
-  reg gt0_rxresetdone_i_reg = 1'b0;
-  
+
+  wire gt0_txresetdone_i_reg;
+  wire gt0_rxresetdone_i_reg;
+
   reg gt0_rxresetdone_i_regrx322 = 1'b0;
-  
-  always @(posedge clk156)
-  begin
-    if(mmcm_locked_clk156 == 1'b1) begin
-      gt0_txresetdone_i_rega <= gt0_txresetdone_i;
-      gt0_txresetdone_i_reg <= gt0_txresetdone_i_rega;
-      gt0_rxresetdone_i_rega <= gt0_rxresetdone_i;
-      gt0_rxresetdone_i_reg <= gt0_rxresetdone_i_rega;
-    end
-  end
-  
+
+  ten_gig_eth_pcs_pma_ip_ff_synchronizer_en
+    #(
+      .C_NUM_SYNC_REGS(4))
+  gt0_txresetdone_i_sync_i
+    (
+     .clk(clk156),
+     .en(mmcm_locked_clk156),
+     .data_in(gt0_txresetdone_i),
+     .data_out(gt0_txresetdone_i_reg)
+    );
+
+  ten_gig_eth_pcs_pma_ip_ff_synchronizer_en
+    #(
+      .C_NUM_SYNC_REGS(4))
+  gt0_rxresetdone_i_sync_i
+    (
+     .clk(clk156),
+     .en(mmcm_locked_clk156),
+     .data_in(gt0_rxresetdone_i),
+     .data_out(gt0_rxresetdone_i_reg)
+    );
+
   assign resetdone = gt0_txresetdone_i_reg && gt0_rxresetdone_i_reg;
   assign tx_resetdone = gt0_txresetdone_i_reg && mmcm_locked_clk156;
   assign rx_resetdone = gt0_rxresetdone_i_reg && mmcm_locked_clk156;
-  
+
   wire [1:0] gt0_txheader_i;
   wire [6:0] gt0_txsequence_i;
   wire [31:0] gt0_txdata_i;
-  
+
   reg gt0_rxbufreset_i = 1'b0;
   wire [2:0] gt0_rxbufstatus_i;
-  
+
   assign gt0_txdata_i[0 ] = gt_txd[31];
   assign gt0_txdata_i[1 ] = gt_txd[30];
   assign gt0_txdata_i[2 ] = gt_txd[29];
@@ -337,12 +365,13 @@ module ten_gig_eth_pcs_pma_ip_block #
   assign gt0_txheader_i[0] = gt_txc[1];
   assign gt0_txheader_i[1] = gt_txc[0];
   assign gt0_txsequence_i = {1'b0, gt_txc[7:2]};
-  
+
   wire [31:0] gt0_rxdata_i;
   wire [1:0] gt0_rxheader_i;
   wire gt0_rxheadervalid_i;
   wire gt0_rxdatavalid_i;
-  
+  wire gt0_rxstartofseq_i;
+
   assign gt_rxd[0 ] = gt0_rxdata_i[31];
   assign gt_rxd[1 ] = gt0_rxdata_i[30];
   assign gt_rxd[2 ] = gt0_rxdata_i[29];
@@ -382,7 +411,7 @@ module ten_gig_eth_pcs_pma_ip_block #
     gt_rxd_d1 <= gt_rxd;
     gt0_rxresetdone_i_regrx322 <= gt0_rxresetdone_i;
   end
-      
+
   // Create a watchdog which samples 4 bits from the gt_rxd vector and checks that it does
   // vary from a 1010 or 0101 or 0000 pattern. If not then there may well have been a cable pull
   // and the gt rx side needs to be reset.
@@ -392,7 +421,7 @@ module ten_gig_eth_pcs_pma_ip_block #
     begin
       cable_pull_watchdog_event <= 2'b00;
       cable_pull_watchdog <= 20'h20000; // reset the watchdog
-      cable_pull_reset <= 1'b0; 
+      cable_pull_reset <= 1'b0;
       rx_sample <= 4'b0;
       rx_sample_prev <= 4'b0;
     end
@@ -401,7 +430,7 @@ module ten_gig_eth_pcs_pma_ip_block #
       // Sample 4 bits of the gt_rxd vector
       rx_sample <= gt_rxd[7:4];
       rx_sample_prev <= rx_sample;
-      
+
       if(!cable_pull_reset && !cable_is_pulled && gt0_rxresetdone_i_regrx322)
       begin
         // If those 4 bits do not look like the cable-pull behaviour, increment the event counter
@@ -409,8 +438,8 @@ module ten_gig_eth_pcs_pma_ip_block #
           cable_pull_watchdog_event <= cable_pull_watchdog_event + 1;
         else // we are seeing what may be a cable pull
           cable_pull_watchdog_event <= 2'b00;
-        
-        
+
+
         if(cable_pull_watchdog_event == 2'b10) // Two consecutive events which look like the cable is attached
         begin
           cable_pull_watchdog <= 20'h20000; // reset the watchdog
@@ -418,23 +447,23 @@ module ten_gig_eth_pcs_pma_ip_block #
         end
         else
           cable_pull_watchdog <= cable_pull_watchdog - 1;
-        
-                        
-        if(~|cable_pull_watchdog) 
-          cable_pull_reset <= 1'b1; // Hit GTRXRESET! 
+
+
+        if(~|cable_pull_watchdog)
+          cable_pull_reset <= 1'b1; // Hit GTRXRESET!
         else
           cable_pull_reset <= 1'b0;
       end
     end
-  end 
+  end
 
   always @(posedge clk156)
   begin
     if(mmcm_locked_clk156 == 1'b1) begin
       cable_pull_reset_reg <= cable_pull_reset;
       cable_pull_reset_reg_reg <= cable_pull_reset_reg;
-      cable_pull_reset_rising <= cable_pull_reset_reg && !cable_pull_reset_reg_reg;  
-      cable_pull_reset_rising_reg <= cable_pull_reset_rising;  
+      cable_pull_reset_rising <= cable_pull_reset_reg && !cable_pull_reset_reg_reg;
+      cable_pull_reset_rising_reg <= cable_pull_reset_rising;
     end
   end
 
@@ -449,14 +478,14 @@ module ten_gig_eth_pcs_pma_ip_block #
     else
       cable_unpull_enable <= cable_unpull_enable;
   end
-  
+
   // Look for data on the line which does NOT look like the cable is still pulled
   // a set of 1024 non-1010 or 0101 or 0000 samples within 128k samples suggests that the cable is in.
   always @(posedge rxusrclk2 or posedge cable_unpull_reset_rising_rxusrclk2)
   begin
     if(cable_unpull_reset_rising_rxusrclk2)
     begin
-      cable_unpull_reset <= 1'b0; 
+      cable_unpull_reset <= 1'b0;
       cable_unpull_watchdog_event <= 11'b0; // reset the event counter
       cable_unpull_watchdog <= 20'h20000; // reset the watchdog window
     end
@@ -467,32 +496,32 @@ module ten_gig_eth_pcs_pma_ip_block #
         // If those 4 bits do not look like the cable-pull behaviour, increment the event counter
         if(!(rx_sample == 4'b1010) && !(rx_sample == 4'b0101) && !(rx_sample == 4'b0000) && !(rx_sample == rx_sample_prev))  // increment the event counter
           cable_unpull_watchdog_event <= cable_unpull_watchdog_event + 1;
-        
-        
+
+
         if(cable_unpull_watchdog_event[10] == 1'b1) // Detected 1k 'valid' rx data words within 128k words
         begin
           cable_unpull_reset <= 1'b1; // Hit GTRXRESET again!
           cable_unpull_watchdog <= 20'h20000; // reset the watchdog window
         end
         else
-          cable_unpull_watchdog <= cable_unpull_watchdog - 1;    
-                            
-        if(~|cable_unpull_watchdog) 
-        begin 
+          cable_unpull_watchdog <= cable_unpull_watchdog - 1;
+
+        if(~|cable_unpull_watchdog)
+        begin
           cable_unpull_watchdog <= 20'h20000; // reset the watchdog window
           cable_unpull_watchdog_event <= 11'b0; // reset the event counter
         end
       end
     end
-  end 
-  
+  end
+
   always @(posedge clk156)
   begin
     if(mmcm_locked_clk156 == 1'b1) begin
       cable_unpull_reset_reg <= cable_unpull_reset;
       cable_unpull_reset_reg_reg <= cable_unpull_reset_reg;
-      cable_unpull_reset_rising <= cable_unpull_reset_reg && !cable_unpull_reset_reg_reg;  
-      cable_unpull_reset_rising_reg <= cable_unpull_reset_rising;  
+      cable_unpull_reset_rising <= cable_unpull_reset_reg && !cable_unpull_reset_reg_reg;
+      cable_unpull_reset_rising_reg <= cable_unpull_reset_rising;
     end
   end
 
@@ -510,9 +539,9 @@ module ten_gig_eth_pcs_pma_ip_block #
     else
       pma_resetout_reg <= pma_resetout;
   end
-  
+
   assign pma_resetout_rising = pma_resetout && !pma_resetout_reg;
-  
+
   always @(posedge areset_clk156 or posedge clk156 or negedge mmcm_locked_clk156)
   begin
     if(areset_clk156 || !mmcm_locked_clk156)
@@ -520,10 +549,9 @@ module ten_gig_eth_pcs_pma_ip_block #
     else
       pcs_resetout_reg <= pcs_resetout;
   end
-  
+
   assign pcs_resetout_rising = pcs_resetout && !pcs_resetout_reg;
-  
-  
+
   // Incorporate the pma_resetout_rising and cable_pull/unpull_reset_rising bits generated in code below.
   assign  gt0_gtrxreset_i = (gtrxreset || !qplllock || pma_resetout_rising ||
                              cable_pull_reset_rising_reg || cable_unpull_reset_rising_reg) && reset_counter_done;
@@ -539,92 +567,102 @@ module ten_gig_eth_pcs_pma_ip_block #
       gt0_rxbufreset_i <= 1'b1;
     else
       gt0_rxbufreset_i <= 1'b0;
-  end    
+  end
 
     ten_gig_eth_pcs_pma_ip_gtwizard_gth_10gbaser_GT #
     (
         // Simulation attributes
-        .GT_SIM_GTRESET_SPEEDUP   (EXAMPLE_SIM_GTRESET_SPEEDUP),
-        .EXAMPLE_SIMULATION       (0),             
+        .GT_SIM_GTRESET_SPEEDUP   ("TRUE"),
+        .EXAMPLE_SIMULATION       (0),
         .TXSYNC_OVRD_IN           (1'b0),
-        .TXSYNC_MULTILANE_IN      (1'b0) 
+        .TXSYNC_MULTILANE_IN      (1'b0)
     )
     gt0_gtwizard_gth_10gbaser_i
-
     (
         //-------------------------------- Channel ---------------------------------
-        .QPLLCLK_IN                     (qplloutclk),
-        .QPLLREFCLK_IN                  (qplloutrefclk),
+        .qpllclk_in                     (qplloutclk),
+        .qpllrefclk_in                  (qplloutrefclk),
         //-------------- Channel - Dynamic Reconfiguration Port (DRP) --------------
-        .DRPADDR_IN                     (gt0_drpaddr_i[8:0]),
-        .DRPCLK_IN                      (gt0_drpclk_i),      
-        .DRPDI_IN                       (gt0_drpdi_i),       
-        .DRPDO_OUT                      (gt0_drpdo_i),       
-        .DRPEN_IN                       (gt0_drpen_i),       
-        .DRPRDY_OUT                     (gt0_drprdy_i),      
-        .DRPWE_IN                       (gt0_drpwe_i),       
-        //----------------------------- Eye Scan Ports -----------------------------
-        .EYESCANDATAERROR_OUT           (),
+        .drpaddr_in                     (drp_daddr_i[8:0]),
+        .drpclk_in                      (gt0_drpclk_i),
+        .drpdi_in                       (drp_di_i),
+        .drpdo_out                      (drp_drpdo_o),
+        .drpen_in                       (drp_den_i),
+        .drprdy_out                     (drp_drdy_o),
+        .drpwe_in                       (drp_dwe_i),
         //---------------------- Loopback and Powerdown Ports ----------------------
-        .LOOPBACK_IN                    (gt0_loopback_i),
+        .loopback_in                    (gt0_loopback_i),
         //----------------------------- Receive Ports ------------------------------
-        .RXUSERRDY_IN                   (rxuserrdy),
+        .rxuserrdy_in                   (rxuserrdy),
         //------------ Receive Ports - 64b66b and 64b67b Gearbox Ports -------------
-        .RXDATAVALID_OUT                (gt0_rxdatavalid_i),
-        .RXGEARBOXSLIP_IN               (gt0_rxgearboxslip_i),
-        .RXHEADER_OUT                   (gt0_rxheader_i),
-        .RXHEADERVALID_OUT              (gt0_rxheadervalid_i),
+        .rxdatavalid_out                (gt0_rxdatavalid_i),
+        .rxgearboxslip_in               (gt0_rxgearboxslip_i),
+        .rxheader_out                   (gt0_rxheader_i),
+        .rxheadervalid_out              (gt0_rxheadervalid_i),
         //--------------------- Receive Ports - PRBS Detection ---------------------
-        .RXPRBSCNTRESET_IN              (gt0_clear_rx_prbs_err_count_i),
-        .RXPRBSERR_OUT                  (),
-        .RXPRBSSEL_IN                   ({rx_prbs31_en,2'b00}),
+        .rxprbscntreset_in              (gt0_clear_rx_prbs_err_count_i),
+        .rxprbserr_out                  (),
+        .rxprbssel_in                   ({rx_prbs31_en,2'b00}),
         //----------------- Receive Ports - RX Data Path interface -----------------
-        .GTRXRESET_IN                   (gt0_gtrxreset_i),
-        .RXDATA_OUT                     (gt0_rxdata_i),
-        .RXDFEAGCHOLD_IN                (1'b0),
-        .RXOUTCLK_OUT                   (rxclk322),
-        .RXPCSRESET_IN                  (gt0_rxpcsreset_i),
-        .RXUSRCLK_IN                    (rxusrclk),
-        .RXUSRCLK2_IN                   (rxusrclk2),
+        .gtrxreset_in                   (gt0_gtrxreset_i),
+        .rxdata_out                     (gt0_rxdata_i),
+        
+        .rxdfeagchold_in                (1'b0),
+        
+        .rxoutclk_out                   (rxclk322),
+        .rxpcsreset_in                  (gt0_rxpcsreset_i),
+        .rxusrclk_in                    (rxusrclk),
+        .rxusrclk2_in                   (rxusrclk2),
         //----- Receive Ports - RX Driver,OOB signalling,Coupling and Eq.,CDR ------
-        .GTHRXN_IN                      (rxn),
-        .GTHRXP_IN                      (rxp),
-        .RXCDRLOCK_OUT                  (),
+        .gthrxn_in                      (rxn),
+        .gthrxp_in                      (rxp),
+        .rxcdrlock_out                  (),
         //------ Receive Ports - RX Elastic Buffer and Phase Alignment Ports -------
-        .RXBUFRESET_IN                  (gt0_rxbufreset_i),
-        .RXBUFSTATUS_OUT                (gt0_rxbufstatus_i),
+        .rxbufreset_in                  (gt0_rxbufreset_i),
+        .rxbufstatus_out                (gt0_rxbufstatus_i),
         //---------------------- Receive Ports - RX Equalizer ----------------------
-        .RXLPMEN_IN                     (1'b0),
+        .rxlpmen_in                     (1'b0),
         //---------------------- Receive Ports - RX PLL Ports ----------------------
-        .RXRESETDONE_OUT                (gt0_rxresetdone_i),
+        .rxresetdone_out                (gt0_rxresetdone_i),
         //----------------------------- Transmit Ports -----------------------------
-        .TXUSERRDY_IN                   (txuserrdy),
+        .txuserrdy_in                   (txuserrdy),
         //------------ Transmit Ports - 64b66b and 64b67b Gearbox Ports ------------
-        .TXHEADER_IN                    (gt0_txheader_i),
-        .TXSEQUENCE_IN                  (gt0_txsequence_i),
+        .txheader_in                    (gt0_txheader_i),
+        .txsequence_in                  (gt0_txsequence_i),
         //---------------- Transmit Ports - TX Data Path interface -----------------
-        .GTTXRESET_IN                   (gt0_gttxreset_i),
-        .TXDATA_IN                      (gt0_txdata_i),
-        .TXOUTCLK_OUT                   (txclk322),
-        .TXOUTCLKFABRIC_OUT             (),
-        .TXOUTCLKPCS_OUT                (),
-        .TXPCSRESET_IN                  (gt0_txpcsreset_i),
-        .TXUSRCLK_IN                    (txusrclk),
-        .TXUSRCLK2_IN                   (txusrclk2),
+        .gttxreset_in                   (gt0_gttxreset_i),
+        .txdata_in                      (gt0_txdata_i),
+        .txoutclk_out                   (txclk322),
+        .txoutclkfabric_out             (),
+        .txoutclkpcs_out                (),
+        .txpcsreset_in                  (gt0_txpcsreset_i),
+        .txusrclk_in                    (txusrclk),
+        .txusrclk2_in                   (txusrclk2),
         //-------------- Transmit Ports - TX Driver and OOB signaling --------------
-        .GTHTXN_OUT                     (txn),
-        .GTHTXP_OUT                     (txp),
-        .TXINHIBIT_IN                   (tx_disable),
-        .TXPRECURSOR_IN                 (5'b0),
-        .TXPOSTCURSOR_IN                (5'b0),
-        .TXMAINCURSOR_IN                (7'b0),
-        .TXDIFFCTRL_IN                  (4'b1110),
+        .gthtxn_out                     (txn),
+        .gthtxp_out                     (txp),
+        .txinhibit_in                   (tx_disable),
+        .txprecursor_in                 (gt0_txprecursor),
+        .txpostcursor_in                (gt0_txpostcursor),
+        .txmaincursor_in                (7'b0),
+        .txdiffctrl_in                  (gt0_txdiffctrl),
         //--------------------- Transmit Ports - TX PLL Ports ----------------------
-        .TXRESETDONE_OUT                (gt0_txresetdone_i),
+        .txresetdone_out                (gt0_txresetdone_i),
+        //------------------- Transceiver Debug Ports ------------------------------
+        .eyescanreset_in                (gt0_eyescanreset),
+        .eyescantrigger_in              (gt0_eyescantrigger),
+        .rxcdrhold_in                   (gt0_rxcdrhold),
+        .txprbsforceerr_in              (gt0_txprbsforceerr),
+        .txpolarity_in                  (gt0_txpolarity),
+        .rxpolarity_in                  (gt0_rxpolarity),
+        .rxrate_in                      (gt0_rxrate),
+        .eyescandataerror_out           (gt0_eyescandataerror),
+        .txbufstatus_out                (gt0_txbufstatus),
         //------------------- Transmit Ports - TX PRBS Generator -------------------
-        .TXPRBSSEL_IN                   ({tx_prbs31_en,2'b00})
+        .txprbssel_in                   ({tx_prbs31_en,2'b00})
 
     );
+
 
 endmodule
 

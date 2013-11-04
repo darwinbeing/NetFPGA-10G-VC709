@@ -3,95 +3,92 @@
 # 
 
   set_param gui.test TreeTableDev
+  set_param project.hsv.suppressChildGraphs 0
+set_msg_config -id {HDL 9-1061} -limit 100000
+set_msg_config -id {HDL 9-1654} -limit 100000
 create_project -in_memory -part xc7vx690tffg1761-2
+set_property target_language Verilog [current_project]
 set_property board xilinx.com:virtex7:vc709:1.0 [current_project]
 set_param project.compositeFile.enableAutoGeneration 0
 set_property ip_repo_paths {
-  /root/NetFPGA-10G-VC709-bkup/projects/nf10_input_arbiter
-  /root/NetFPGA-10G-VC709-bkup/projects/nf10_bram_output_queues
-  /root/NetFPGA-10G-VC709-bkup/projects/nf10_nic_output_port_lookup
+  /root/NetFPGA-10G-VC709-2013.3/projects/nf10_input_arbiter
+  /root/NetFPGA-10G-VC709-2013.3/projects/nf10_bram_output_queues
+  /root/NetFPGA-10G-VC709-2013.3/projects/nf10_nic_output_port_lookup
 } [current_fileset]
+add_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/cmd_fifo_xgemac_rxif_synth_1/cmd_fifo_xgemac_rxif.dcp
+set_property used_in_implementation false [get_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/cmd_fifo_xgemac_rxif_synth_1/cmd_fifo_xgemac_rxif.dcp]
+set_property use_blackbox_stub false [get_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/cmd_fifo_xgemac_rxif_synth_1/cmd_fifo_xgemac_rxif.dcp]
+add_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/axis_async_fifo_synth_1/axis_async_fifo.dcp
+set_property used_in_implementation false [get_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/axis_async_fifo_synth_1/axis_async_fifo.dcp]
+set_property use_blackbox_stub false [get_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/axis_async_fifo_synth_1/axis_async_fifo.dcp]
+add_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/ten_gig_eth_pcs_pma_ip_synth_1/ten_gig_eth_pcs_pma_ip.dcp
+set_property used_in_implementation false [get_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/ten_gig_eth_pcs_pma_ip_synth_1/ten_gig_eth_pcs_pma_ip.dcp]
+set_property use_blackbox_stub false [get_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/ten_gig_eth_pcs_pma_ip_synth_1/ten_gig_eth_pcs_pma_ip.dcp]
+add_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/ten_gig_eth_mac_ip_synth_1/ten_gig_eth_mac_ip.dcp
+set_property used_in_implementation false [get_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/ten_gig_eth_mac_ip_synth_1/ten_gig_eth_mac_ip.dcp]
+set_property use_blackbox_stub false [get_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/ten_gig_eth_mac_ip_synth_1/ten_gig_eth_mac_ip.dcp]
+add_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/vc709_pcie_x8_gen3_synth_1/vc709_pcie_x8_gen3.dcp
+set_property used_in_implementation false [get_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/vc709_pcie_x8_gen3_synth_1/vc709_pcie_x8_gen3.dcp]
+set_property use_blackbox_stub false [get_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/vc709_pcie_x8_gen3_synth_1/vc709_pcie_x8_gen3.dcp]
+add_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/axi_dma_0_synth_1/axi_dma_0.dcp
+set_property used_in_implementation false [get_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/axi_dma_0_synth_1/axi_dma_0.dcp]
+set_property use_blackbox_stub false [get_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/axi_dma_0_synth_1/axi_dma_0.dcp]
+add_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/nf10_bram_output_queues_0_synth_1/nf10_bram_output_queues_0.dcp
+set_property used_in_implementation false [get_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/nf10_bram_output_queues_0_synth_1/nf10_bram_output_queues_0.dcp]
+set_property use_blackbox_stub false [get_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/nf10_bram_output_queues_0_synth_1/nf10_bram_output_queues_0.dcp]
 
-read_ip /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif.xci
-set_property used_in_implementation false [get_files -all /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif/example_design/cmd_fifo_xgemac_rxif_exdes.xdc]
-set_property used_in_implementation false [get_files -all /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif.xdc]
-set_property used_in_implementation false [get_files -all /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif_ooc.xdc]
-set_property is_locked true [get_files /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif.xci]
+read_ip /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/nf10_nic_output_port_lookup_0/nf10_nic_output_port_lookup_0.xci
+set_msg_config -id {IP_Flow 19-2162} -severity warning -new_severity info
+set_property is_locked true [get_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/nf10_nic_output_port_lookup_0/nf10_nic_output_port_lookup_0.xci]
 
-read_ip /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo.xci
-set_property used_in_implementation false [get_files -all /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/example_design/axis_async_fifo_exdes.xdc]
-set_property used_in_implementation false [get_files -all /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_clocks.xdc]
-set_property used_in_implementation false [get_files -all /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo.xdc]
-set_property used_in_implementation false [get_files -all /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo/axis_async_fifo_ooc.xdc]
-set_property is_locked true [get_files /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo.xci]
-
-read_ip /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/ten_gig_eth_pcs_pma_ip.xci
-set_property used_in_implementation false [get_files -all /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/example_design/ten_gig_eth_pcs_pma_ip_example_design.xdc]
-set_property used_in_implementation false [get_files -all /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_clocks.xdc]
-set_property used_in_implementation false [get_files -all /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip_ooc.xdc]
-set_property used_in_implementation false [get_files -all /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/synth/ten_gig_eth_pcs_pma_ip.xdc]
-set_property is_locked true [get_files /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/ten_gig_eth_pcs_pma_ip.xci]
-
-read_ip /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_ip.xci
-set_property used_in_implementation false [get_files -all /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/example_design/ten_gig_eth_mac_ip_example_design.xdc]
-set_property used_in_implementation false [get_files -all /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/synth/ten_gig_eth_mac_ip.xdc]
-set_property used_in_implementation false [get_files -all /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_ip_ooc.xdc]
-set_property is_locked true [get_files /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_ip.xci]
-
-read_ip /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/nf10_nic_output_port_lookup_0/nf10_nic_output_port_lookup_0.xci
-set_property is_locked true [get_files /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/nf10_nic_output_port_lookup_0/nf10_nic_output_port_lookup_0.xci]
-
-read_ip /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/nf10_input_arbiter_0/nf10_input_arbiter_0.xci
-set_property is_locked true [get_files /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/nf10_input_arbiter_0/nf10_input_arbiter_0.xci]
-
-read_ip /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/nf10_bram_output_queues_0_0/nf10_bram_output_queues_0.xci
-set_property is_locked true [get_files /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/nf10_bram_output_queues_0_0/nf10_bram_output_queues_0.xci]
-
-read_ip /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/vc709_pcie_x8_gen3/vc709_pcie_x8_gen3.xci
-set_property used_in_implementation false [get_files -all /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/vc709_pcie_x8_gen3/vc709_pcie_x8_gen3/source/vc709_pcie_x8_gen3-PCIE_X0Y1.xdc]
-set_property used_in_implementation false [get_files -all /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/vc709_pcie_x8_gen3/synth/vc709_pcie_x8_gen3_ooc.xdc]
-set_property is_locked true [get_files /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/vc709_pcie_x8_gen3/vc709_pcie_x8_gen3.xci]
-
-read_ip /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axi_dma_0/axi_dma_0.xci
-set_property used_in_implementation false [get_files -all /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axi_dma_0/axi_dma_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axi_dma_0/axi_dma_0.xdc]
-set_property used_in_implementation false [get_files -all /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axi_dma_0/axi_dma_0_clocks.xdc]
-set_property is_locked true [get_files /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axi_dma_0/axi_dma_0.xci]
+read_ip /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/nf10_input_arbiter_0/nf10_input_arbiter_0.xci
+set_msg_config -id {IP_Flow 19-2162} -severity warning -new_severity info
+set_property is_locked true [get_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/nf10_input_arbiter_0/nf10_input_arbiter_0.xci]
 
 read_verilog {
-  /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_pcie/example_project/vc709_pcie_x8_gen3_example/vc709_pcie_x8_gen3_example.srcs/sources_1/imports/example_design/EP_MEM.v
-  /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_pcie/example_project/vc709_pcie_x8_gen3_example/vc709_pcie_x8_gen3_example.srcs/sources_1/imports/example_design/PIO_TX_ENGINE.v
-  /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_pcie/example_project/vc709_pcie_x8_gen3_example/vc709_pcie_x8_gen3_example.srcs/sources_1/imports/example_design/PIO_RX_ENGINE.v
-  /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_pcie/example_project/vc709_pcie_x8_gen3_example/vc709_pcie_x8_gen3_example.srcs/sources_1/imports/example_design/PIO_INTR_CTRL.v
-  /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_pcie/example_project/vc709_pcie_x8_gen3_example/vc709_pcie_x8_gen3_example.srcs/sources_1/imports/example_design/PIO_EP_MEM_ACCESS.v
-  /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_pcie/example_project/vc709_pcie_x8_gen3_example/vc709_pcie_x8_gen3_example.srcs/sources_1/imports/example_design/PIO_TO_CTRL.v
-  /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_pcie/example_project/vc709_pcie_x8_gen3_example/vc709_pcie_x8_gen3_example.srcs/sources_1/imports/example_design/PIO_EP.v
-  /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/common/synchronizer_simple.v
-  /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/verilog/nf10_axis_converter.v
-  /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_pcie/example_project/vc709_pcie_x8_gen3_example/vc709_pcie_x8_gen3_example.srcs/sources_1/imports/example_design/PIO.v
-  /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_10g_interface/vc709_10g_interface.srcs/sources_1/tx_interface.v
-  /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_10g_interface/vc709_10g_interface.srcs/sources_1/ten_gig_eth_pcs_pma_ip_GT_Common_wrapper.v
-  /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_10g_interface/vc709_10g_interface.srcs/sources_1/rx_interface.v
-  /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/new/nf10_datapath.v
-  /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/source/vc709_pcie_x8_gen3_pipe_clock.v
-  /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_pcie/example_project/vc709_pcie_x8_gen3_example/vc709_pcie_x8_gen3_example.srcs/sources_1/imports/example_design/pcie_app_7vx.v
-  /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_10g_interface/vc709_10g_interface.srcs/sources_1/xgbaser_gt_same_quad_wrapper.v
-  /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_10g_interface/vc709_10g_interface.srcs/sources_1/network_module.v
-  /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_reference_nic.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_pcie/example_project/vc709_pcie_x8_gen3_example/vc709_pcie_x8_gen3_example.srcs/sources_1/imports/example_design/EP_MEM.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_pcie/example_project/vc709_pcie_x8_gen3_example/vc709_pcie_x8_gen3_example.srcs/sources_1/imports/example_design/PIO_TX_ENGINE.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_pcie/example_project/vc709_pcie_x8_gen3_example/vc709_pcie_x8_gen3_example.srcs/sources_1/imports/example_design/PIO_RX_ENGINE.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_pcie/example_project/vc709_pcie_x8_gen3_example/vc709_pcie_x8_gen3_example.srcs/sources_1/imports/example_design/PIO_INTR_CTRL.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_pcie/example_project/vc709_pcie_x8_gen3_example/vc709_pcie_x8_gen3_example.srcs/sources_1/imports/example_design/PIO_EP_MEM_ACCESS.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/nf10_input_arbiter_0/work/nf10_input_arbiter.srcs/hdl/verilog/fallthrough_small_fifo_v2.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_pcie/example_project/vc709_pcie_x8_gen3_example/vc709_pcie_x8_gen3_example.srcs/sources_1/imports/example_design/PIO_TO_CTRL.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_pcie/example_project/vc709_pcie_x8_gen3_example/vc709_pcie_x8_gen3_example.srcs/sources_1/imports/example_design/PIO_EP.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/common/synchronizer_simple.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/verilog/nf10_axis_converter.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_pcie/example_project/vc709_pcie_x8_gen3_example/vc709_pcie_x8_gen3_example.srcs/sources_1/imports/example_design/PIO.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_10g_interface/vc709_10g_interface.srcs/sources_1/tx_interface.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_10g_interface/vc709_10g_interface.srcs/sources_1/ten_gig_eth_pcs_pma_ip_GT_Common_wrapper.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_10g_interface/vc709_10g_interface.srcs/sources_1/rx_interface.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/new/nf10_datapath.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/source/vc709_pcie_x8_gen3_pipe_clock.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_pcie/example_project/vc709_pcie_x8_gen3_example/vc709_pcie_x8_gen3_example.srcs/sources_1/imports/example_design/pcie_app_7vx.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_10g_interface/vc709_10g_interface.srcs/sources_1/xgbaser_gt_same_quad_wrapper.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_10g_interface/vc709_10g_interface.srcs/sources_1/network_module.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/Downloads/vc709_reference_nic.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/cmd_fifo_xgemac_rxif/cmd_fifo_xgemac_rxif_stub.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axis_async_fifo/axis_async_fifo_stub.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_pcs_pma_ip/ten_gig_eth_pcs_pma_ip_stub.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/ten_gig_eth_mac_ip/ten_gig_eth_mac_ip_stub.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/vc709_pcie_x8_gen3/vc709_pcie_x8_gen3_stub.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/axi_dma_0/axi_dma_0_stub.v
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/ip/nf10_bram_output_queues_0_1/nf10_bram_output_queues_0_stub.v
 }
 read_vhdl {
-  /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/clock_control/kcpsm6.vhd
-  /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/clock_control/clock_control_program.vhd
-  /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/clock_control/clock_control.vhd
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/clock_control/kcpsm6.vhd
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/clock_control/clock_control_program.vhd
+  /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/sources_1/imports/clock_control/clock_control.vhd
 }
-read_xdc /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/constrs_1/imports/Downloads/vc709_10g_interface/vc709_10g_interface.srcs/constrs_1/new/vc709_10g_interface.xdc
-set_property used_in_implementation false [get_files /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.srcs/constrs_1/imports/Downloads/vc709_10g_interface/vc709_10g_interface.srcs/constrs_1/new/vc709_10g_interface.xdc]
+read_xdc /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/constrs_1/imports/Downloads/vc709_10g_interface/vc709_10g_interface.srcs/constrs_1/new/vc709_10g_interface.xdc
+set_property used_in_implementation false [get_files /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.srcs/constrs_1/imports/Downloads/vc709_10g_interface/vc709_10g_interface.srcs/constrs_1/new/vc709_10g_interface.xdc]
 
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
+read_xdc dont_buffer.xdc
+set_property used_in_implementation false [get_files dont_buffer.xdc]
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic/vc709_reference_nic.data/wt [current_project]
-set_property parent.project_dir /root/NetFPGA-10G-VC709-bkup/projects/vc709_reference_nic [current_project]
+set_property webtalk.parent_dir /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.data/wt [current_project]
+set_property parent.project_dir /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic [current_project]
 synth_design -top vc709_reference_nic -part xc7vx690tffg1761-2
 write_checkpoint vc709_reference_nic.dcp
 report_utilization -file vc709_reference_nic_utilization_synth.rpt -pb vc709_reference_nic_utilization_synth.pb

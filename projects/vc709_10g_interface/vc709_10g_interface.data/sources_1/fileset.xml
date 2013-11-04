@@ -187,7 +187,7 @@
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
       <Option Name="TopModule" Val="vc709_10g_interface"/>
-      <Option Name="IPRepoPath" Val="/root/NetFPGA-10G-VC709/projects/vc709_10g_interface"/>
+      <Option Name="IPRepoPath" Val="$PPRDIR/../../../NetFPGA-10G-VC709/projects/vc709_10g_interface"/>
     </Config>
   </FileSet>
 </DARoots>

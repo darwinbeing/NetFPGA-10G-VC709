@@ -1,0 +1,21 @@
+Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------
+| Tool Version : Vivado v.2013.3 (lin64) Build 329390 Wed Oct 16 18:26:55 MDT 2013
+| Date         : Thu Oct 24 13:28:28 2013
+| Host         : nf-test104.cl.cam.ac.uk running 64-bit Fedora release 16 (Verne)
+| Command      : upgrade_ip
+| Device       : xc7vx690tffg1761-2
+-----------------------------------------------------------------------------------
+
+Upgrade Log for IP 'axi_dma_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of axi_dma_0 from xilinx.com:ip:axi_dma:7.0 (Rev. 1) to xilinx.com:ip:axi_dma:7.1
+
+2. Upgrade messages
+-------------------
+
+Removed parameter c_sg_include_desc_queue
+

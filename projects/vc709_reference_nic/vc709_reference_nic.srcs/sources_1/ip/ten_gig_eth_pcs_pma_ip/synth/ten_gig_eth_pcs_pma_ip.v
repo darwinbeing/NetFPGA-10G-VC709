@@ -1,11 +1,10 @@
 //-----------------------------------------------------------------------------
-// Title      : Block level wrapper                                             
+// Title      : Core level wrapper                                             
 // Project    : 10GBASE-R                                                      
 //-----------------------------------------------------------------------------
 // File       : ten_gig_eth_pcs_pma_ip.v                                          
 //-----------------------------------------------------------------------------
-// Description: This file is a wrapper for the 10GBASE-R core. It contains the 
-// 10GBASE-R block level.                
+// Description: This file is a wrapper for the 10GBASE-R core. 
 //-----------------------------------------------------------------------------
 // (c) Copyright 2009 - 2013 Xilinx, Inc. All rights reserved.
 //
@@ -53,21 +52,19 @@
 // THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS
 // PART OF THIS FILE AT ALL TIMES.
 
-module ten_gig_eth_pcs_pma_ip #
-  (
-    parameter   EXAMPLE_SIM_GTRESET_SPEEDUP = "FALSE"
-  )
+`timescale 1ns / 1ps
+
+(* CORE_GENERATION_INFO = "ten_gig_eth_pcs_pma_ip,ten_gig_eth_pcs_pma_v4_0,{x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=ten_gig_eth_pcs_pma,x_ipVersion=4.0,x_ipLanguage=VERILOG,c_family=virtex7,c_component_name=ten_gig_eth_pcs_pma_ip,c_has_mdio=false,c_has_fec=false,c_has_an=false,c_is_kr=false,c_gttype=1,c_data_width=32,c_1588=0,c_transceivercontrol=false,c_supportlevel=0}" *)
+(* DowngradeIPIdentifiedWarnings="yes" *)
+module ten_gig_eth_pcs_pma_ip
   (
   input           clk156,
   input           dclk,
   input           txusrclk,
   input           txusrclk2,
-  input           areset,
   output          txclk322,
-  input           areset_refclk_bufh,
+  input           areset,
   input           areset_clk156,
-  input           mmcm_locked_clk156,
-  input           gttxreset_txusrclk2,
   input           gttxreset,
   input           gtrxreset,
   input           txuserrdy,
@@ -90,37 +87,36 @@ module ten_gig_eth_pcs_pma_ip #
   output          rx_resetdone,
   input           signal_detect,
   input           tx_fault,
+  output          drp_req,
+  input           drp_gnt,
+  output          drp_den_o,                                   
+  output          drp_dwe_o,
+  output [15 : 0] drp_daddr_o,                   
+  output [15 : 0] drp_di_o, 
+  output          drp_drdy_o,                
+  output [15 : 0] drp_drpdo_o,
+  input           drp_den_i,                                   
+  input           drp_dwe_i,
+  input  [15 : 0] drp_daddr_i,                   
+  input  [15 : 0] drp_di_i, 
+  input           drp_drdy_i,                
+  input  [15 : 0] drp_drpdo_i,
   input [2:0]     pma_pmd_type,
   output          tx_disable);   
     
 //
 // Instantiate the 10Gig PCS/PMA core
 //
-(* CORE_GENERATION_INFO = "ten_gig_eth_pcs_pma_ip,ten_gig_eth_pcs_pma_v3_0,{x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=ten_gig_eth_pcs_pma,x_ipVersion=3.0,x_ipLanguage=VERILOG,c_family=virtex7,c_component_name=ten_gig_eth_pcs_pma_ip,c_has_mdio=false,c_has_fec=false,c_has_an=false,c_is_kr=false,c_is_v7gth=true,c_data_width=32,c_1588=0}" *)
   
-    ten_gig_eth_pcs_pma_ip_block #(
-      .EXAMPLE_SIM_GTRESET_SPEEDUP (EXAMPLE_SIM_GTRESET_SPEEDUP),
-      .C_ELABORATION_TRANSIENT_DIR ("BlankString"),
-      .C_COMPONENT_NAME            ("ten_gig_eth_pcs_pma_ip"),
-      .C_FAMILY                    ("virtex7"),
-      .C_HAS_MDIO                  (1'b0),
-      .C_HAS_FEC                   (1'b0),
-      .C_HAS_AN                    (1'b0),
-      .C_IS_KR                     (1'b0),
-      .C_IS_V7GTH                  (1'b1),
-      .C_DATA_WIDTH                (32),
-      .C_1588                      (0)
-    ) inst (
+    ten_gig_eth_pcs_pma_ip_block inst (
+    
       .clk156(clk156),
       .dclk(dclk),
       .txusrclk(txusrclk),
       .txusrclk2(txusrclk2),
+      .txclk322(txclk322),      
       .areset(areset),
-      .txclk322(txclk322),
-      .areset_refclk_bufh(areset_refclk_bufh),
       .areset_clk156(areset_clk156),
-      .mmcm_locked_clk156(mmcm_locked_clk156),
-      .gttxreset_txusrclk2(gttxreset_txusrclk2),
       .gttxreset(gttxreset),
       .gtrxreset(gtrxreset),
       .txuserrdy(txuserrdy),
@@ -143,6 +139,20 @@ module ten_gig_eth_pcs_pma_ip #
       .rx_resetdone(rx_resetdone),
       .signal_detect(signal_detect),
       .tx_fault(tx_fault),
+      .drp_req(drp_req),
+      .drp_gnt(drp_gnt),
+      .drp_den_o(drp_den_o),                                   
+      .drp_dwe_o(drp_dwe_o),
+      .drp_daddr_o(drp_daddr_o),                   
+      .drp_di_o(drp_di_o), 
+      .drp_drdy_o(drp_drdy_o),                
+      .drp_drpdo_o(drp_drpdo_o),
+      .drp_den_i(drp_den_i),                                   
+      .drp_dwe_i(drp_dwe_i),
+      .drp_daddr_i(drp_daddr_i),                  
+      .drp_di_i(drp_di_i), 
+      .drp_drdy_i(drp_drdy_i),                
+      .drp_drpdo_i(drp_drpdo_i),
       .pma_pmd_type(pma_pmd_type),
       .tx_disable(tx_disable)
       );    

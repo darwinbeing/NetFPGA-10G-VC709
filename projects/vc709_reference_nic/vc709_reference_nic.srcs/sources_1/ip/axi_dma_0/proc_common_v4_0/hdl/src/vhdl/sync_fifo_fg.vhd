@@ -216,7 +216,8 @@ entity sync_fifo_fg is
     C_PRELOAD_REGS       :    integer := 0 ;  -- 1 = first word fall through
     C_PRELOAD_LATENCY    :    integer := 1 ;  -- 0 = first word fall through
     C_WRITE_DATA_WIDTH   :    integer := 16;
-    C_WRITE_DEPTH        :    integer := 16
+    C_WRITE_DEPTH        :    integer := 16;
+    C_SYNCHRONIZER_STAGE :    integer := 2    -- Valid values are 0 to 8
     );
   port (
     Clk          : in  std_logic;
@@ -488,7 +489,7 @@ begin --(architecture implementation)
     -- BRAM implementations of a legacy Sync FIFO
     --
     -------------------------------------------------------------------------------
-    I_SYNC_FIFO_BRAM : fifo_generator_v10_0 
+    I_SYNC_FIFO_BRAM : fifo_generator_v11_0 
       generic map(
         C_COMMON_CLOCK                 =>  1,                                           
         C_COUNT_TYPE                   =>  0,                                           
@@ -551,6 +552,7 @@ begin --(architecture implementation)
         C_MSGON_VAL                    =>  1,
         C_ENABLE_RST_SYNC              =>  1,  
         C_ERROR_INJECTION_TYPE         =>  0,
+        C_SYNCHRONIZER_STAGE           =>  C_SYNCHRONIZER_STAGE,
         
 
         -- AXI Interface related parameters start here
@@ -569,6 +571,9 @@ begin --(architecture implementation)
         C_AXI_ID_WIDTH                 =>  4 ,    --           : integer := 0;
         C_AXI_ADDR_WIDTH               =>  32,    --           : integer := 0;
         C_AXI_DATA_WIDTH               =>  64,    --           : integer := 0;
+        C_AXI_LEN_WIDTH                =>  8,     --           : integer := 8;
+        C_AXI_LOCK_WIDTH               =>  2,     --           : integer := 2;
+        C_HAS_AXI_ID                   =>  0,     --           : integer := 0;
         C_HAS_AXI_AWUSER               =>  0 ,    --           : integer := 0;
         C_HAS_AXI_WUSER                =>  0 ,    --           : integer := 0;
         C_HAS_AXI_BUSER                =>  0 ,    --           : integer := 0;

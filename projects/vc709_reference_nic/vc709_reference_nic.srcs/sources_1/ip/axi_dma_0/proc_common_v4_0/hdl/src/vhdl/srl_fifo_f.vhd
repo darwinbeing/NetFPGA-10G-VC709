@@ -163,6 +163,11 @@ library proc_common_v4_0;
 use     proc_common_v4_0.proc_common_pkg.clog2;
 --
 architecture imp of srl_fifo_f is
+
+attribute DowngradeIPIdentifiedWarnings: string;
+
+attribute DowngradeIPIdentifiedWarnings of imp : architecture is "yes";
+
     constant ZEROES : std_logic_vector(0 to clog2(C_DEPTH)-1) := (others => '0');
 begin
 

@@ -153,6 +153,9 @@ end entity srl16_fifo;
 
 architecture implementation of srl16_fifo is
 
+attribute DowngradeIPIdentifiedWarnings: string;
+
+attribute DowngradeIPIdentifiedWarnings of implementation : architecture is "yes";
 
    Signal sig_occupancy       : std_logic_vector(0 to C_FIFO_DEPTH_LOG2X);
    Signal sig_occ_load_value  : std_logic_vector(0 to C_FIFO_DEPTH_LOG2X);

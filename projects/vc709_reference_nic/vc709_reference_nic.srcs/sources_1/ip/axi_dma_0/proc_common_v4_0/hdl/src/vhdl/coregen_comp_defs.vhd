@@ -195,8 +195,8 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 
-library fifo_generator_v10_0;
-use fifo_generator_v10_0.all;
+library fifo_generator_v11_0;
+use fifo_generator_v11_0.all;
 
 library blk_mem_gen_v8_0;
 use blk_mem_gen_v8_0.all;
@@ -218,23 +218,23 @@ attribute GENERATOR_DEFAULT: string;
 
 
 -------------------------------------------------------------------------------------
--- Start FIFO Generator Component for fifo_generator_v10_0
--- The Component declaration for fifo_generator_v10_0 pulled from the 
+-- Start FIFO Generator Component for fifo_generator_v11_0
+-- The Component declaration for fifo_generator_v11_0 pulled from the 
 -- Coregen version of 
--- file: fifo_generator_v10_0_comp.vhd. 
+-- file: fifo_generator_v11_0_comp.vhd. 
 --
 -- This component is used for both dual clock (async) and synchronous fifos 
 -- implemented with BRAM or distributed RAM. Hard FIFO simulation support may not
--- be provided in FIFO Generator V8.2 so not supported here.
+-- be provided in FIFO Generator V10.0 so not supported here.
 --
 -- Note: AXI ports and parameters added for this version of FIFO Generator.
 --
 -------------------------------------------------------------------------------------
- COMPONENT fifo_generator_v10_0
+COMPONENT fifo_generator_v11_0 
   GENERIC (
-    --------------------------------------------------------------------------------
-    -- Generic Declarations (verilog model ordering)
-    --------------------------------------------------------------------------------
+    -------------------------------------------------------------------------
+    -- Generic Declarations
+    -------------------------------------------------------------------------
     C_COMMON_CLOCK                          : integer := 0;
     C_COUNT_TYPE                            : integer := 0;
     C_DATA_COUNT_WIDTH                      : integer := 2;
@@ -243,7 +243,7 @@ attribute GENERATOR_DEFAULT: string;
     C_DOUT_RST_VAL                          : string  := "";
     C_DOUT_WIDTH                            : integer := 8;
     C_ENABLE_RLOCS                          : integer := 0;
-    C_FAMILY                                : string  := "";
+    C_FAMILY                                : string  := "virtex6";
     C_FULL_FLAGS_RST_VAL                    : integer := 1;
     C_HAS_ALMOST_EMPTY                      : integer := 0;
     C_HAS_ALMOST_FULL                       : integer := 0;
@@ -299,8 +299,8 @@ attribute GENERATOR_DEFAULT: string;
     C_SYNCHRONIZER_STAGE                    : integer := 2;
 
     -- AXI Interface related parameters start here
-    C_INTERFACE_TYPE                        : integer := 0; -- 0: Native Interface; 1: AXI Interface
-    C_AXI_TYPE                              : integer := 0; -- 0: AXI Stream; 1: AXI Full; 2: AXI Lite
+    C_INTERFACE_TYPE                        : integer := 0; -- 0: Native Interface; 1: AXI4 Stream; 2: AXI4/AXI3
+    C_AXI_TYPE                              : integer := 0; -- 1: AXI4; 2: AXI4 Lite; 3: AXI3
     C_HAS_AXI_WR_CHANNEL                    : integer := 0;
     C_HAS_AXI_RD_CHANNEL                    : integer := 0;
     C_HAS_SLAVE_CE                          : integer := 0;
@@ -311,35 +311,38 @@ attribute GENERATOR_DEFAULT: string;
     C_USE_DEFAULT_SETTINGS                  : integer := 0;
 
     -- AXI Full/Lite
-    C_AXI_ID_WIDTH                          : integer := 0;
-    C_AXI_ADDR_WIDTH                        : integer := 0;
-    C_AXI_DATA_WIDTH                        : integer := 0;
+    C_AXI_ID_WIDTH                          : integer := 4;
+    C_AXI_ADDR_WIDTH                        : integer := 32;
+    C_AXI_DATA_WIDTH                        : integer := 64;
+    C_AXI_LEN_WIDTH                         : integer := 8;
+    C_AXI_LOCK_WIDTH                        : integer := 2;
+    C_HAS_AXI_ID                            : integer := 0;
     C_HAS_AXI_AWUSER                        : integer := 0;
     C_HAS_AXI_WUSER                         : integer := 0;
     C_HAS_AXI_BUSER                         : integer := 0;
     C_HAS_AXI_ARUSER                        : integer := 0;
     C_HAS_AXI_RUSER                         : integer := 0;
-    C_AXI_ARUSER_WIDTH                      : integer := 0;
-    C_AXI_AWUSER_WIDTH                      : integer := 0;
-    C_AXI_WUSER_WIDTH                       : integer := 0;
-    C_AXI_BUSER_WIDTH                       : integer := 0;
-    C_AXI_RUSER_WIDTH                       : integer := 0;
+    C_AXI_ARUSER_WIDTH                      : integer := 1;
+    C_AXI_AWUSER_WIDTH                      : integer := 1;
+    C_AXI_WUSER_WIDTH                       : integer := 1;
+    C_AXI_BUSER_WIDTH                       : integer := 1;
+    C_AXI_RUSER_WIDTH                       : integer := 1;
                                        
     -- AXI Streaming
     C_HAS_AXIS_TDATA                        : integer := 0;
     C_HAS_AXIS_TID                          : integer := 0;
     C_HAS_AXIS_TDEST                        : integer := 0;
     C_HAS_AXIS_TUSER                        : integer := 0;
-    C_HAS_AXIS_TREADY                       : integer := 0;
+    C_HAS_AXIS_TREADY                       : integer := 1;
     C_HAS_AXIS_TLAST                        : integer := 0;
     C_HAS_AXIS_TSTRB                        : integer := 0;
     C_HAS_AXIS_TKEEP                        : integer := 0;
-    C_AXIS_TDATA_WIDTH                      : integer := 1;
-    C_AXIS_TID_WIDTH                        : integer := 1;
-    C_AXIS_TDEST_WIDTH                      : integer := 1;
-    C_AXIS_TUSER_WIDTH                      : integer := 1;
-    C_AXIS_TSTRB_WIDTH                      : integer := 1;
-    C_AXIS_TKEEP_WIDTH                      : integer := 1;
+    C_AXIS_TDATA_WIDTH                      : integer := 64;
+    C_AXIS_TID_WIDTH                        : integer := 8;
+    C_AXIS_TDEST_WIDTH                      : integer := 4;
+    C_AXIS_TUSER_WIDTH                      : integer := 4;
+    C_AXIS_TSTRB_WIDTH                      : integer := 4;
+    C_AXIS_TKEEP_WIDTH                      : integer := 4;
 
     -- AXI Channel Type
     -- WACH --> Write Address Channel
@@ -358,19 +361,21 @@ attribute GENERATOR_DEFAULT: string;
     -- AXI Implementation Type
     -- 1 = Common Clock Block RAM FIFO
     -- 2 = Common Clock Distributed RAM FIFO
+    -- 5 = Common Clock Built-in FIFO
     -- 11 = Independent Clock Block RAM FIFO
     -- 12 = Independent Clock Distributed RAM FIFO
-    C_IMPLEMENTATION_TYPE_WACH              : integer := 0;
-    C_IMPLEMENTATION_TYPE_WDCH              : integer := 0;
-    C_IMPLEMENTATION_TYPE_WRCH              : integer := 0;
-    C_IMPLEMENTATION_TYPE_RACH              : integer := 0;
-    C_IMPLEMENTATION_TYPE_RDCH              : integer := 0;
-    C_IMPLEMENTATION_TYPE_AXIS              : integer := 0;
+    C_IMPLEMENTATION_TYPE_WACH              : integer := 1;
+    C_IMPLEMENTATION_TYPE_WDCH              : integer := 1;
+    C_IMPLEMENTATION_TYPE_WRCH              : integer := 1;
+    C_IMPLEMENTATION_TYPE_RACH              : integer := 1;
+    C_IMPLEMENTATION_TYPE_RDCH              : integer := 1;
+    C_IMPLEMENTATION_TYPE_AXIS              : integer := 1;
 
     -- AXI FIFO Type
     -- 0 = Data FIFO
     -- 1 = Packet FIFO
-    -- 2 = Low Latency Data FIFO
+    -- 2 = Low Latency Sync FIFO
+    -- 3 = Low Latency Async FIFO
     C_APPLICATION_TYPE_WACH                 : integer := 0;
     C_APPLICATION_TYPE_WDCH                 : integer := 0;
     C_APPLICATION_TYPE_WRCH                 : integer := 0;
@@ -402,26 +407,26 @@ attribute GENERATOR_DEFAULT: string;
 
     -- Input Data Width
     -- Accumulation of all AXI input signal's width
-    C_DIN_WIDTH_WACH                        : integer := 1;
-    C_DIN_WIDTH_WDCH                        : integer := 1;
-    C_DIN_WIDTH_WRCH                        : integer := 1;
-    C_DIN_WIDTH_RACH                        : integer := 1;
-    C_DIN_WIDTH_RDCH                        : integer := 1;
+    C_DIN_WIDTH_WACH                        : integer := 32;
+    C_DIN_WIDTH_WDCH                        : integer := 64;
+    C_DIN_WIDTH_WRCH                        : integer := 2;
+    C_DIN_WIDTH_RACH                        : integer := 32;
+    C_DIN_WIDTH_RDCH                        : integer := 64;
     C_DIN_WIDTH_AXIS                        : integer := 1;
 
     C_WR_DEPTH_WACH                         : integer := 16;
-    C_WR_DEPTH_WDCH                         : integer := 16;
+    C_WR_DEPTH_WDCH                         : integer := 1024;
     C_WR_DEPTH_WRCH                         : integer := 16;
     C_WR_DEPTH_RACH                         : integer := 16;
-    C_WR_DEPTH_RDCH                         : integer := 16;
-    C_WR_DEPTH_AXIS                         : integer := 16;
+    C_WR_DEPTH_RDCH                         : integer := 1024;
+    C_WR_DEPTH_AXIS                         : integer := 1024;
 
     C_WR_PNTR_WIDTH_WACH                    : integer := 4;
-    C_WR_PNTR_WIDTH_WDCH                    : integer := 4;
+    C_WR_PNTR_WIDTH_WDCH                    : integer := 10;
     C_WR_PNTR_WIDTH_WRCH                    : integer := 4;
     C_WR_PNTR_WIDTH_RACH                    : integer := 4;
-    C_WR_PNTR_WIDTH_RDCH                    : integer := 4;
-    C_WR_PNTR_WIDTH_AXIS                    : integer := 4;
+    C_WR_PNTR_WIDTH_RDCH                    : integer := 10;
+    C_WR_PNTR_WIDTH_AXIS                    : integer := 10;
 
     C_HAS_DATA_COUNTS_WACH                  : integer := 0;
     C_HAS_DATA_COUNTS_WDCH                  : integer := 0;
@@ -437,31 +442,41 @@ attribute GENERATOR_DEFAULT: string;
     C_HAS_PROG_FLAGS_RDCH                   : integer := 0;
     C_HAS_PROG_FLAGS_AXIS                   : integer := 0;
 
-    C_PROG_FULL_TYPE_WACH                   : integer := 0;
-    C_PROG_FULL_TYPE_WDCH                   : integer := 0;
-    C_PROG_FULL_TYPE_WRCH                   : integer := 0;
-    C_PROG_FULL_TYPE_RACH                   : integer := 0;
-    C_PROG_FULL_TYPE_RDCH                   : integer := 0;
-    C_PROG_FULL_TYPE_AXIS                   : integer := 0;
-    C_PROG_FULL_THRESH_ASSERT_VAL_WACH      : integer := 0;
-    C_PROG_FULL_THRESH_ASSERT_VAL_WDCH      : integer := 0;
-    C_PROG_FULL_THRESH_ASSERT_VAL_WRCH      : integer := 0;
-    C_PROG_FULL_THRESH_ASSERT_VAL_RACH      : integer := 0;
-    C_PROG_FULL_THRESH_ASSERT_VAL_RDCH      : integer := 0;
-    C_PROG_FULL_THRESH_ASSERT_VAL_AXIS      : integer := 0;
+    -- 0: No Programmable FULL
+    -- 1: Single Programmable FULL Threshold Constant
+    -- 3: Single Programmable FULL Threshold Input Port
+    C_PROG_FULL_TYPE_WACH                   : integer := 5;
+    C_PROG_FULL_TYPE_WDCH                   : integer := 5;
+    C_PROG_FULL_TYPE_WRCH                   : integer := 5;
+    C_PROG_FULL_TYPE_RACH                   : integer := 5;
+    C_PROG_FULL_TYPE_RDCH                   : integer := 5;
+    C_PROG_FULL_TYPE_AXIS                   : integer := 5;
 
-    C_PROG_EMPTY_TYPE_WACH                  : integer := 0;
-    C_PROG_EMPTY_TYPE_WDCH                  : integer := 0;
-    C_PROG_EMPTY_TYPE_WRCH                  : integer := 0;
-    C_PROG_EMPTY_TYPE_RACH                  : integer := 0;
-    C_PROG_EMPTY_TYPE_RDCH                  : integer := 0;
-    C_PROG_EMPTY_TYPE_AXIS                  : integer := 0;
-    C_PROG_EMPTY_THRESH_ASSERT_VAL_WACH     : integer := 0;
-    C_PROG_EMPTY_THRESH_ASSERT_VAL_WDCH     : integer := 0;
-    C_PROG_EMPTY_THRESH_ASSERT_VAL_WRCH     : integer := 0;
-    C_PROG_EMPTY_THRESH_ASSERT_VAL_RACH     : integer := 0;
-    C_PROG_EMPTY_THRESH_ASSERT_VAL_RDCH     : integer := 0;
-    C_PROG_EMPTY_THRESH_ASSERT_VAL_AXIS     : integer := 0;
+    -- Single Programmable FULL Threshold Constant Assert Value
+    C_PROG_FULL_THRESH_ASSERT_VAL_WACH      : integer := 1023;
+    C_PROG_FULL_THRESH_ASSERT_VAL_WDCH      : integer := 1023;
+    C_PROG_FULL_THRESH_ASSERT_VAL_WRCH      : integer := 1023;
+    C_PROG_FULL_THRESH_ASSERT_VAL_RACH      : integer := 1023;
+    C_PROG_FULL_THRESH_ASSERT_VAL_RDCH      : integer := 1023;
+    C_PROG_FULL_THRESH_ASSERT_VAL_AXIS      : integer := 1023;
+
+    -- 0: No Programmable EMPTY
+    -- 1: Single Programmable EMPTY Threshold Constant
+    -- 3: Single Programmable EMPTY Threshold Input Port
+    C_PROG_EMPTY_TYPE_WACH                  : integer := 5;
+    C_PROG_EMPTY_TYPE_WDCH                  : integer := 5;
+    C_PROG_EMPTY_TYPE_WRCH                  : integer := 5;
+    C_PROG_EMPTY_TYPE_RACH                  : integer := 5;
+    C_PROG_EMPTY_TYPE_RDCH                  : integer := 5;
+    C_PROG_EMPTY_TYPE_AXIS                  : integer := 5;
+
+    -- Single Programmable EMPTY Threshold Constant Assert Value
+    C_PROG_EMPTY_THRESH_ASSERT_VAL_WACH     : integer := 1022;
+    C_PROG_EMPTY_THRESH_ASSERT_VAL_WDCH     : integer := 1022;
+    C_PROG_EMPTY_THRESH_ASSERT_VAL_WRCH     : integer := 1022;
+    C_PROG_EMPTY_THRESH_ASSERT_VAL_RACH     : integer := 1022;
+    C_PROG_EMPTY_THRESH_ASSERT_VAL_RDCH     : integer := 1022;
+    C_PROG_EMPTY_THRESH_ASSERT_VAL_AXIS     : integer := 1022;
 
     C_REG_SLICE_MODE_WACH                   : integer := 0;
     C_REG_SLICE_MODE_WDCH                   : integer := 0;
@@ -469,7 +484,6 @@ attribute GENERATOR_DEFAULT: string;
     C_REG_SLICE_MODE_RACH                   : integer := 0;
     C_REG_SLICE_MODE_RDCH                   : integer := 0;
     C_REG_SLICE_MODE_AXIS                   : integer := 0
-
     );
 
 
@@ -479,267 +493,278 @@ attribute GENERATOR_DEFAULT: string;
     ------------------------------------------------------------------------------
 
     -- Conventional FIFO Interface Signals
-    BACKUP                         : IN  std_logic := '0';
-    BACKUP_MARKER                  : IN  std_logic := '0';
-    CLK                            : IN  std_logic := '0';
-    RST                            : IN  std_logic := '0';
-    SRST                           : IN  std_logic := '0';
-    WR_CLK                         : IN  std_logic := '0';
-    WR_RST                         : IN  std_logic := '0';
-    RD_CLK                         : IN  std_logic := '0';
-    RD_RST                         : IN  std_logic := '0';
-    DIN                            : IN  std_logic_vector(C_DIN_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    WR_EN                          : IN  std_logic := '0';
-    RD_EN                          : IN  std_logic := '0';
+    backup                         : in  std_logic := '0';
+    backup_marker                  : in  std_logic := '0';
+    clk                            : in  std_logic := '0';
+    rst                            : in  std_logic := '0';
+    srst                           : in  std_logic := '0';
+    wr_clk                         : in  std_logic := '0';
+    wr_rst                         : in  std_logic := '0';
+    rd_clk                         : in  std_logic := '0';
+    rd_rst                         : in  std_logic := '0';
+    din                            : in  std_logic_vector(C_DIN_WIDTH-1 downto 0) := (others => '0');
+    wr_en                          : in  std_logic := '0';
+    rd_en                          : in  std_logic := '0';
 
-    -- Optional inputs
-    PROG_EMPTY_THRESH              : IN  std_logic_vector(C_RD_PNTR_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    PROG_EMPTY_THRESH_ASSERT       : IN  std_logic_vector(C_RD_PNTR_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    PROG_EMPTY_THRESH_NEGATE       : IN  std_logic_vector(C_RD_PNTR_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    PROG_FULL_THRESH               : IN  std_logic_vector(C_WR_PNTR_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    PROG_FULL_THRESH_ASSERT        : IN  std_logic_vector(C_WR_PNTR_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    PROG_FULL_THRESH_NEGATE        : IN  std_logic_vector(C_WR_PNTR_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    INT_CLK                        : IN  std_logic := '0';
-    INJECTDBITERR                  : IN  std_logic := '0';
-    INJECTSBITERR                  : IN  std_logic := '0';
+    -- optional inputs
+    prog_empty_thresh              : in  std_logic_vector(C_RD_PNTR_WIDTH-1 downto 0) := (others => '0');
+    prog_empty_thresh_assert       : in  std_logic_vector(C_RD_PNTR_WIDTH-1 downto 0) := (others => '0');
+    prog_empty_thresh_negate       : in  std_logic_vector(C_RD_PNTR_WIDTH-1 downto 0) := (others => '0');
+    prog_full_thresh               : in  std_logic_vector(C_WR_PNTR_WIDTH-1 downto 0) := (others => '0');
+    prog_full_thresh_assert        : in  std_logic_vector(C_WR_PNTR_WIDTH-1 downto 0) := (others => '0');
+    prog_full_thresh_negate        : in  std_logic_vector(C_WR_PNTR_WIDTH-1 downto 0) := (others => '0');
+    int_clk                        : in  std_logic := '0';
+    injectdbiterr                  : in  std_logic := '0';
+    injectsbiterr                  : in  std_logic := '0';
 
-    DOUT                           : OUT std_logic_vector(C_DOUT_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    FULL                           : OUT std_logic := '0';
-    ALMOST_FULL                    : OUT std_logic := '0';
-    WR_ACK                         : OUT std_logic := '0';
-    OVERFLOW                       : OUT std_logic := '0';
-    EMPTY                          : OUT std_logic := '1';
-    ALMOST_EMPTY                   : OUT std_logic := '1';
-    VALID                          : OUT std_logic := '0';
-    UNDERFLOW                      : OUT std_logic := '0';
-    DATA_COUNT                     : OUT std_logic_vector(C_DATA_COUNT_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    RD_DATA_COUNT                  : OUT std_logic_vector(C_RD_DATA_COUNT_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    WR_DATA_COUNT                  : OUT std_logic_vector(C_WR_DATA_COUNT_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    PROG_FULL                      : OUT std_logic := '0';
-    PROG_EMPTY                     : OUT std_logic := '1';
-    SBITERR                        : OUT std_logic := '0';
-    DBITERR                        : OUT std_logic := '0';
+    dout                           : out std_logic_vector(C_DOUT_WIDTH-1 downto 0) := (others => '0');
+    full                           : out std_logic := '0';
+    almost_full                    : out std_logic := '0';
+    wr_ack                         : out std_logic := '0';
+    overflow                       : out std_logic := '0';
+    empty                          : out std_logic := '1';
+    almost_empty                   : out std_logic := '1';
+    valid                          : out std_logic := '0';
+    underflow                      : out std_logic := '0';
+    data_count                     : out std_logic_vector(C_DATA_COUNT_WIDTH-1 downto 0) := (others => '0');
+    rd_data_count                  : out std_logic_vector(C_RD_DATA_COUNT_WIDTH-1 downto 0) := (others => '0');
+    wr_data_count                  : out std_logic_vector(C_WR_DATA_COUNT_WIDTH-1 downto 0) := (others => '0');
+    prog_full                      : out std_logic := '0';
+    prog_empty                     : out std_logic := '1';
+    sbiterr                        : out std_logic := '0';
+    dbiterr                        : out std_logic := '0';
 
-    -- AXI Global Signal
-    M_ACLK                         : IN  std_logic := '0';
-    S_ACLK                         : IN  std_logic := '0';
-    S_ARESETN                      : IN  std_logic := '1'; -- Active low reset, default value set to 1
-    M_ACLK_EN                      : IN  std_logic := '0';
-    S_ACLK_EN                      : IN  std_logic := '0';
+    -- axi global signal
+    m_aclk                         : in  std_logic := '0';
+    s_aclk                         : in  std_logic := '0';
+    s_aresetn                      : in  std_logic := '1'; -- Active low reset, default value set to 1
+    m_aclk_en                      : in  std_logic := '0';
+    s_aclk_en                      : in  std_logic := '0';
 
-    -- AXI Full/Lite Slave Write Channel (write side)
-    S_AXI_AWID                     : IN  std_logic_vector(C_AXI_ID_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXI_AWADDR                   : IN  std_logic_vector(C_AXI_ADDR_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXI_AWLEN                    : IN  std_logic_vector(8-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXI_AWSIZE                   : IN  std_logic_vector(3-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXI_AWBURST                  : IN  std_logic_vector(2-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXI_AWLOCK                   : IN  std_logic_vector(2-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXI_AWCACHE                  : IN  std_logic_vector(4-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXI_AWPROT                   : IN  std_logic_vector(3-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXI_AWQOS                    : IN  std_logic_vector(4-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXI_AWREGION                 : IN  std_logic_vector(4-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXI_AWUSER                   : IN  std_logic_vector(C_AXI_AWUSER_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXI_AWVALID                  : IN  std_logic := '0';
-    S_AXI_AWREADY                  : OUT std_logic := '0';
-    S_AXI_WID                      : IN  std_logic_vector(C_AXI_ID_WIDTH-1 DOWNTO 0)     := (OTHERS => '0');
-    S_AXI_WDATA                    : IN  std_logic_vector(C_AXI_DATA_WIDTH-1 DOWNTO 0)   := (OTHERS => '0');
-    S_AXI_WSTRB                    : IN  std_logic_vector(C_AXI_DATA_WIDTH/8-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXI_WLAST                    : IN  std_logic := '0';
-    S_AXI_WUSER                    : IN  std_logic_vector(C_AXI_WUSER_WIDTH-1 DOWNTO 0)  := (OTHERS => '0');
-    S_AXI_WVALID                   : IN  std_logic := '0';
-    S_AXI_WREADY                   : OUT std_logic := '0';
-    S_AXI_BID                      : OUT std_logic_vector(C_AXI_ID_WIDTH-1 DOWNTO 0)     := (OTHERS => '0');
-    S_AXI_BRESP                    : OUT std_logic_vector(2-1 DOWNTO 0)                  := (OTHERS => '0');
-    S_AXI_BUSER                    : OUT std_logic_vector(C_AXI_BUSER_WIDTH-1 DOWNTO 0)  := (OTHERS => '0');
-    S_AXI_BVALID                   : OUT std_logic := '0';
-    S_AXI_BREADY                   : IN  std_logic := '0';
+    -- axi full/lite slave write channel (write side)
+    s_axi_awid                     : in  std_logic_vector(C_AXI_ID_WIDTH-1 downto 0) := (others => '0');
+    s_axi_awaddr                   : in  std_logic_vector(C_AXI_ADDR_WIDTH-1 downto 0) := (others => '0');
+    s_axi_awlen                    : in  std_logic_vector(C_AXI_LEN_WIDTH-1 downto 0) := (others => '0');
+    s_axi_awsize                   : in  std_logic_vector(3-1 downto 0) := (others => '0');
+    s_axi_awburst                  : in  std_logic_vector(2-1 downto 0) := (others => '0');
+    s_axi_awlock                   : in  std_logic_vector(C_AXI_LOCK_WIDTH-1 downto 0) := (others => '0');
+    s_axi_awcache                  : in  std_logic_vector(4-1 downto 0) := (others => '0');
+    s_axi_awprot                   : in  std_logic_vector(3-1 downto 0) := (others => '0');
+    s_axi_awqos                    : in  std_logic_vector(4-1 downto 0) := (others => '0');
+    s_axi_awregion                 : in  std_logic_vector(4-1 downto 0) := (others => '0');
+    s_axi_awuser                   : in  std_logic_vector(C_AXI_AWUSER_WIDTH-1 downto 0) := (others => '0');
+    s_axi_awvalid                  : in  std_logic := '0';
+    s_axi_awready                  : out std_logic := '0';
+    s_axi_wid                      : in  std_logic_vector(C_AXI_ID_WIDTH-1 downto 0)     := (others => '0');
+    s_axi_wdata                    : in  std_logic_vector(C_AXI_DATA_WIDTH-1 downto 0)   := (others => '0');
+    s_axi_wstrb                    : in  std_logic_vector(C_AXI_DATA_WIDTH/8-1 downto 0) := (others => '0');
+    s_axi_wlast                    : in  std_logic := '0';
+    s_axi_wuser                    : in  std_logic_vector(C_AXI_WUSER_WIDTH-1 downto 0)  := (others => '0');
+    s_axi_wvalid                   : in  std_logic := '0';
+    s_axi_wready                   : out std_logic := '0';
+    s_axi_bid                      : out std_logic_vector(C_AXI_ID_WIDTH-1 downto 0)     := (others => '0');
+    s_axi_bresp                    : out std_logic_vector(2-1 downto 0)                  := (others => '0');
+    s_axi_buser                    : out std_logic_vector(C_AXI_BUSER_WIDTH-1 downto 0)  := (others => '0');
+    s_axi_bvalid                   : out std_logic := '0';
+    s_axi_bready                   : in  std_logic := '0';
 
-    -- AXI Full/Lite Master Write Channel (Read side)
-    M_AXI_AWID                     : OUT std_logic_vector(C_AXI_ID_WIDTH-1 DOWNTO 0)   := (OTHERS => '0');
-    M_AXI_AWADDR                   : OUT std_logic_vector(C_AXI_ADDR_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_AWLEN                    : OUT std_logic_vector(8-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_AWSIZE                   : OUT std_logic_vector(3-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_AWBURST                  : OUT std_logic_vector(2-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_AWLOCK                   : OUT std_logic_vector(2-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_AWCACHE                  : OUT std_logic_vector(4-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_AWPROT                   : OUT std_logic_vector(3-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_AWQOS                    : OUT std_logic_vector(4-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_AWREGION                 : OUT std_logic_vector(4-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_AWUSER                   : OUT std_logic_vector(C_AXI_AWUSER_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_AWVALID                  : OUT std_logic := '0';
-    M_AXI_AWREADY                  : IN  std_logic := '0';
-    M_AXI_WID                      : OUT std_logic_vector(C_AXI_ID_WIDTH-1 DOWNTO 0)     := (OTHERS => '0');
-    M_AXI_WDATA                    : OUT std_logic_vector(C_AXI_DATA_WIDTH-1 DOWNTO 0)   := (OTHERS => '0');
-    M_AXI_WSTRB                    : OUT std_logic_vector(C_AXI_DATA_WIDTH/8-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_WLAST                    : OUT std_logic := '0';
-    M_AXI_WUSER                    : OUT std_logic_vector(C_AXI_WUSER_WIDTH-1 DOWNTO 0)  := (OTHERS => '0');
-    M_AXI_WVALID                   : OUT std_logic := '0';
-    M_AXI_WREADY                   : IN  std_logic := '0';
-    M_AXI_BID                      : IN  std_logic_vector(C_AXI_ID_WIDTH-1 DOWNTO 0)    := (OTHERS => '0');
-    M_AXI_BRESP                    : IN  std_logic_vector(2-1 DOWNTO 0)                 := (OTHERS => '0');
-    M_AXI_BUSER                    : IN  std_logic_vector(C_AXI_BUSER_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_BVALID                   : IN  std_logic := '0';
-    M_AXI_BREADY                   : OUT std_logic := '0';
+    -- axi full/lite master write channel (read side)
+    m_axi_awid                     : out std_logic_vector(C_AXI_ID_WIDTH-1 downto 0)   := (others => '0');
+    m_axi_awaddr                   : out std_logic_vector(C_AXI_ADDR_WIDTH-1 downto 0) := (others => '0');
+    m_axi_awlen                    : out std_logic_vector(C_AXI_LEN_WIDTH-1 downto 0) := (others => '0');
+    m_axi_awsize                   : out std_logic_vector(3-1 downto 0) := (others => '0');
+    m_axi_awburst                  : out std_logic_vector(2-1 downto 0) := (others => '0');
+    m_axi_awlock                   : out std_logic_vector(C_AXI_LOCK_WIDTH-1 downto 0) := (others => '0');
+    m_axi_awcache                  : out std_logic_vector(4-1 downto 0) := (others => '0');
+    m_axi_awprot                   : out std_logic_vector(3-1 downto 0) := (others => '0');
+    m_axi_awqos                    : out std_logic_vector(4-1 downto 0) := (others => '0');
+    m_axi_awregion                 : out std_logic_vector(4-1 downto 0) := (others => '0');
+    m_axi_awuser                   : out std_logic_vector(C_AXI_AWUSER_WIDTH-1 downto 0) := (others => '0');
+    m_axi_awvalid                  : out std_logic := '0';
+    m_axi_awready                  : in  std_logic := '0';
+    m_axi_wid                      : out std_logic_vector(C_AXI_ID_WIDTH-1 downto 0)     := (others => '0');
+    m_axi_wdata                    : out std_logic_vector(C_AXI_DATA_WIDTH-1 downto 0)   := (others => '0');
+    m_axi_wstrb                    : out std_logic_vector(C_AXI_DATA_WIDTH/8-1 downto 0) := (others => '0');
+    m_axi_wlast                    : out std_logic := '0';
+    m_axi_wuser                    : out std_logic_vector(C_AXI_WUSER_WIDTH-1 downto 0)  := (others => '0');
+    m_axi_wvalid                   : out std_logic := '0';
+    m_axi_wready                   : in  std_logic := '0';
+    m_axi_bid                      : in  std_logic_vector(C_AXI_ID_WIDTH-1 downto 0)    := (others => '0');
+    m_axi_bresp                    : in  std_logic_vector(2-1 downto 0)                 := (others => '0');
+    m_axi_buser                    : in  std_logic_vector(C_AXI_BUSER_WIDTH-1 downto 0) := (others => '0');
+    m_axi_bvalid                   : in  std_logic := '0';
+    m_axi_bready                   : out std_logic := '0';
 
-    -- AXI Full/Lite Slave Read Channel (Write side)
-    S_AXI_ARID                     : IN  std_logic_vector(C_AXI_ID_WIDTH-1 DOWNTO 0)   := (OTHERS => '0');
-    S_AXI_ARADDR                   : IN  std_logic_vector(C_AXI_ADDR_WIDTH-1 DOWNTO 0) := (OTHERS => '0'); 
-    S_AXI_ARLEN                    : IN  std_logic_vector(8-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXI_ARSIZE                   : IN  std_logic_vector(3-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXI_ARBURST                  : IN  std_logic_vector(2-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXI_ARLOCK                   : IN  std_logic_vector(2-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXI_ARCACHE                  : IN  std_logic_vector(4-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXI_ARPROT                   : IN  std_logic_vector(3-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXI_ARQOS                    : IN  std_logic_vector(4-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXI_ARREGION                 : IN  std_logic_vector(4-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXI_ARUSER                   : IN  std_logic_vector(C_AXI_ARUSER_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXI_ARVALID                  : IN  std_logic := '0';
-    S_AXI_ARREADY                  : OUT std_logic := '0';
-    S_AXI_RID                      : OUT std_logic_vector(C_AXI_ID_WIDTH-1 DOWNTO 0)   := (OTHERS => '0');       
-    S_AXI_RDATA                    : OUT std_logic_vector(C_AXI_DATA_WIDTH-1 DOWNTO 0) := (OTHERS => '0'); 
-    S_AXI_RRESP                    : OUT std_logic_vector(2-1 DOWNTO 0)                := (OTHERS => '0');
-    S_AXI_RLAST                    : OUT std_logic := '0';
-    S_AXI_RUSER                    : OUT std_logic_vector(C_AXI_RUSER_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXI_RVALID                   : OUT std_logic := '0';
-    S_AXI_RREADY                   : IN  std_logic := '0';
+    -- axi full/lite slave read channel (write side)
+    s_axi_arid                     : in  std_logic_vector(C_AXI_ID_WIDTH-1 downto 0)   := (others => '0');
+    s_axi_araddr                   : in  std_logic_vector(C_AXI_ADDR_WIDTH-1 downto 0) := (others => '0'); 
+    s_axi_arlen                    : in  std_logic_vector(C_AXI_LEN_WIDTH-1 downto 0) := (others => '0');
+    s_axi_arsize                   : in  std_logic_vector(3-1 downto 0) := (others => '0');
+    s_axi_arburst                  : in  std_logic_vector(2-1 downto 0) := (others => '0');
+    s_axi_arlock                   : in  std_logic_vector(C_AXI_LOCK_WIDTH-1 downto 0) := (others => '0');
+    s_axi_arcache                  : in  std_logic_vector(4-1 downto 0) := (others => '0');
+    s_axi_arprot                   : in  std_logic_vector(3-1 downto 0) := (others => '0');
+    s_axi_arqos                    : in  std_logic_vector(4-1 downto 0) := (others => '0');
+    s_axi_arregion                 : in  std_logic_vector(4-1 downto 0) := (others => '0');
+    s_axi_aruser                   : in  std_logic_vector(C_AXI_ARUSER_WIDTH-1 downto 0) := (others => '0');
+    s_axi_arvalid                  : in  std_logic := '0';
+    s_axi_arready                  : out std_logic := '0';
+    s_axi_rid                      : out std_logic_vector(C_AXI_ID_WIDTH-1 downto 0)   := (others => '0');       
+    s_axi_rdata                    : out std_logic_vector(C_AXI_DATA_WIDTH-1 downto 0) := (others => '0'); 
+    s_axi_rresp                    : out std_logic_vector(2-1 downto 0)                := (others => '0');
+    s_axi_rlast                    : out std_logic := '0';
+    s_axi_ruser                    : out std_logic_vector(C_AXI_RUSER_WIDTH-1 downto 0) := (others => '0');
+    s_axi_rvalid                   : out std_logic := '0';
+    s_axi_rready                   : in  std_logic := '0';
 
-    -- AXI Full/Lite Master Read Channel (Read side)
-    M_AXI_ARID                     : OUT std_logic_vector(C_AXI_ID_WIDTH-1 DOWNTO 0)   := (OTHERS => '0');        
-    M_AXI_ARADDR                   : OUT std_logic_vector(C_AXI_ADDR_WIDTH-1 DOWNTO 0) := (OTHERS => '0');  
-    M_AXI_ARLEN                    : OUT std_logic_vector(8-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_ARSIZE                   : OUT std_logic_vector(3-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_ARBURST                  : OUT std_logic_vector(2-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_ARLOCK                   : OUT std_logic_vector(2-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_ARCACHE                  : OUT std_logic_vector(4-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_ARPROT                   : OUT std_logic_vector(3-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_ARQOS                    : OUT std_logic_vector(4-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_ARREGION                 : OUT std_logic_vector(4-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_ARUSER                   : OUT std_logic_vector(C_AXI_ARUSER_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_ARVALID                  : OUT std_logic := '0';
-    M_AXI_ARREADY                  : IN  std_logic := '0';
-    M_AXI_RID                      : IN  std_logic_vector(C_AXI_ID_WIDTH-1 DOWNTO 0) := (OTHERS => '0');        
-    M_AXI_RDATA                    : IN  std_logic_vector(C_AXI_DATA_WIDTH-1 DOWNTO 0) := (OTHERS => '0');  
-    M_AXI_RRESP                    : IN  std_logic_vector(2-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_RLAST                    : IN  std_logic := '0';
-    M_AXI_RUSER                    : IN  std_logic_vector(C_AXI_RUSER_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXI_RVALID                   : IN  std_logic := '0';
-    M_AXI_RREADY                   : OUT std_logic := '0';
+    -- axi full/lite master read channel (read side)
+    m_axi_arid                     : out std_logic_vector(C_AXI_ID_WIDTH-1 downto 0)   := (others => '0');        
+    m_axi_araddr                   : out std_logic_vector(C_AXI_ADDR_WIDTH-1 downto 0) := (others => '0');  
+    m_axi_arlen                    : out std_logic_vector(C_AXI_LEN_WIDTH-1 downto 0) := (others => '0');
+    m_axi_arsize                   : out std_logic_vector(3-1 downto 0) := (others => '0');
+    m_axi_arburst                  : out std_logic_vector(2-1 downto 0) := (others => '0');
+    m_axi_arlock                   : out std_logic_vector(C_AXI_LOCK_WIDTH-1 downto 0) := (others => '0');
+    m_axi_arcache                  : out std_logic_vector(4-1 downto 0) := (others => '0');
+    m_axi_arprot                   : out std_logic_vector(3-1 downto 0) := (others => '0');
+    m_axi_arqos                    : out std_logic_vector(4-1 downto 0) := (others => '0');
+    m_axi_arregion                 : out std_logic_vector(4-1 downto 0) := (others => '0');
+    m_axi_aruser                   : out std_logic_vector(C_AXI_ARUSER_WIDTH-1 downto 0) := (others => '0');
+    m_axi_arvalid                  : out std_logic := '0';
+    m_axi_arready                  : in  std_logic := '0';
+    m_axi_rid                      : in  std_logic_vector(C_AXI_ID_WIDTH-1 downto 0) := (others => '0');        
+    m_axi_rdata                    : in  std_logic_vector(C_AXI_DATA_WIDTH-1 downto 0) := (others => '0');  
+    m_axi_rresp                    : in  std_logic_vector(2-1 downto 0) := (others => '0');
+    m_axi_rlast                    : in  std_logic := '0';
+    m_axi_ruser                    : in  std_logic_vector(C_AXI_RUSER_WIDTH-1 downto 0) := (others => '0');
+    m_axi_rvalid                   : in  std_logic := '0';
+    m_axi_rready                   : out std_logic := '0';
 
-    -- AXI Streaming Slave Signals (Write side)
-    S_AXIS_TVALID                  : IN  std_logic := '0';
-    S_AXIS_TREADY                  : OUT std_logic := '0';
-    S_AXIS_TDATA                   : IN  std_logic_vector(C_AXIS_TDATA_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXIS_TSTRB                   : IN  std_logic_vector(C_AXIS_TSTRB_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXIS_TKEEP                   : IN  std_logic_vector(C_AXIS_TKEEP_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXIS_TLAST                   : IN  std_logic := '0';
-    S_AXIS_TID                     : IN  std_logic_vector(C_AXIS_TID_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXIS_TDEST                   : IN  std_logic_vector(C_AXIS_TDEST_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    S_AXIS_TUSER                   : IN  std_logic_vector(C_AXIS_TUSER_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
+    -- axi streaming slave signals (write side)
+    s_axis_tvalid                  : in  std_logic := '0';
+    s_axis_tready                  : out std_logic := '0';
+    s_axis_tdata                   : in  std_logic_vector(C_AXIS_TDATA_WIDTH-1 downto 0) := (others => '0');
+    s_axis_tstrb                   : in  std_logic_vector(C_AXIS_TSTRB_WIDTH-1 downto 0) := (others => '0');
+    s_axis_tkeep                   : in  std_logic_vector(C_AXIS_TKEEP_WIDTH-1 downto 0) := (others => '0');
+    s_axis_tlast                   : in  std_logic := '0';
+    s_axis_tid                     : in  std_logic_vector(C_AXIS_TID_WIDTH-1 downto 0) := (others => '0');
+    s_axis_tdest                   : in  std_logic_vector(C_AXIS_TDEST_WIDTH-1 downto 0) := (others => '0');
+    s_axis_tuser                   : in  std_logic_vector(C_AXIS_TUSER_WIDTH-1 downto 0) := (others => '0');
 
-    -- AXI Streaming Master Signals (Read side)
-    M_AXIS_TVALID                  : OUT std_logic := '0';
-    M_AXIS_TREADY                  : IN  std_logic := '0';
-    M_AXIS_TDATA                   : OUT std_logic_vector(C_AXIS_TDATA_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXIS_TSTRB                   : OUT std_logic_vector(C_AXIS_TSTRB_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXIS_TKEEP                   : OUT std_logic_vector(C_AXIS_TKEEP_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXIS_TLAST                   : OUT std_logic := '0';
-    M_AXIS_TID                     : OUT std_logic_vector(C_AXIS_TID_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXIS_TDEST                   : OUT std_logic_vector(C_AXIS_TDEST_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
-    M_AXIS_TUSER                   : OUT std_logic_vector(C_AXIS_TUSER_WIDTH-1 DOWNTO 0) := (OTHERS => '0');
+    -- axi streaming master signals (read side)
+    m_axis_tvalid                  : out std_logic := '0';
+    m_axis_tready                  : in  std_logic := '0';
+    m_axis_tdata                   : out std_logic_vector(C_AXIS_TDATA_WIDTH-1 downto 0) := (others => '0');
+    m_axis_tstrb                   : out std_logic_vector(C_AXIS_TSTRB_WIDTH-1 downto 0) := (others => '0');
+    m_axis_tkeep                   : out std_logic_vector(C_AXIS_TKEEP_WIDTH-1 downto 0) := (others => '0');
+    m_axis_tlast                   : out std_logic := '0';
+    m_axis_tid                     : out std_logic_vector(C_AXIS_TID_WIDTH-1 downto 0) := (others => '0');
+    m_axis_tdest                   : out std_logic_vector(C_AXIS_TDEST_WIDTH-1 downto 0) := (others => '0');
+    m_axis_tuser                   : out std_logic_vector(C_AXIS_TUSER_WIDTH-1 downto 0) := (others => '0');
 
-    -- AXI Full/Lite Write Address Channel Signals
-    AXI_AW_INJECTSBITERR           : IN  std_logic := '0';
-    AXI_AW_INJECTDBITERR           : IN  std_logic := '0';
-    AXI_AW_PROG_FULL_THRESH        : IN  std_logic_vector(C_WR_PNTR_WIDTH_WACH-1 DOWNTO 0) := (OTHERS => '0');
-    AXI_AW_PROG_EMPTY_THRESH       : IN  std_logic_vector(C_WR_PNTR_WIDTH_WACH-1 DOWNTO 0) := (OTHERS => '0');
-    AXI_AW_DATA_COUNT              : OUT std_logic_vector(C_WR_PNTR_WIDTH_WACH DOWNTO 0) := (OTHERS => '0');
-    AXI_AW_WR_DATA_COUNT           : OUT std_logic_vector(C_WR_PNTR_WIDTH_WACH DOWNTO 0) := (OTHERS => '0');
-    AXI_AW_RD_DATA_COUNT           : OUT std_logic_vector(C_WR_PNTR_WIDTH_WACH DOWNTO 0) := (OTHERS => '0');
-    AXI_AW_SBITERR                 : OUT std_logic := '0';
-    AXI_AW_DBITERR                 : OUT std_logic := '0';
-    AXI_AW_OVERFLOW                : OUT std_logic := '0';
-    AXI_AW_UNDERFLOW               : OUT std_logic := '0';
-    AXI_AW_PROG_FULL               : OUT STD_LOGIC := '0';
-    AXI_AW_PROG_EMPTY              : OUT STD_LOGIC := '1';
+    -- axi full/lite write address channel signals
+    axi_aw_injectsbiterr           : in  std_logic := '0';
+    axi_aw_injectdbiterr           : in  std_logic := '0';
+    axi_aw_prog_full_thresh        : in  std_logic_vector(C_WR_PNTR_WIDTH_WACH-1 downto 0) := (others => '0');
+    axi_aw_prog_empty_thresh       : in  std_logic_vector(C_WR_PNTR_WIDTH_WACH-1 downto 0) := (others => '0');
+    axi_aw_data_count              : out std_logic_vector(C_WR_PNTR_WIDTH_WACH downto 0) := (others => '0');
+    axi_aw_wr_data_count           : out std_logic_vector(C_WR_PNTR_WIDTH_WACH downto 0) := (others => '0');
+    axi_aw_rd_data_count           : out std_logic_vector(C_WR_PNTR_WIDTH_WACH downto 0) := (others => '0');
+    axi_aw_sbiterr                 : out std_logic := '0';
+    axi_aw_dbiterr                 : out std_logic := '0';
+    axi_aw_overflow                : out std_logic := '0';
+    axi_aw_underflow               : out std_logic := '0';
+    axi_aw_prog_full               : out std_logic := '0';
+    axi_aw_prog_empty              : out std_logic := '1';
+--    axi_aw_almost_full             : out std_logic := '0';
+--    axi_aw_almost_empty            : out std_logic := '1';
 
-    -- AXI Full/Lite Write Data Channel Signals
-    AXI_W_INJECTSBITERR            : IN  std_logic := '0';
-    AXI_W_INJECTDBITERR            : IN  std_logic := '0';
-    AXI_W_PROG_FULL_THRESH         : IN  std_logic_vector(C_WR_PNTR_WIDTH_WDCH-1 DOWNTO 0) := (OTHERS => '0');
-    AXI_W_PROG_EMPTY_THRESH        : IN  std_logic_vector(C_WR_PNTR_WIDTH_WDCH-1 DOWNTO 0) := (OTHERS => '0');
-    AXI_W_DATA_COUNT               : OUT std_logic_vector(C_WR_PNTR_WIDTH_WDCH DOWNTO 0) := (OTHERS => '0');
-    AXI_W_WR_DATA_COUNT            : OUT std_logic_vector(C_WR_PNTR_WIDTH_WDCH DOWNTO 0) := (OTHERS => '0');
-    AXI_W_RD_DATA_COUNT            : OUT std_logic_vector(C_WR_PNTR_WIDTH_WDCH DOWNTO 0) := (OTHERS => '0');
-    AXI_W_SBITERR                  : OUT std_logic := '0';
-    AXI_W_DBITERR                  : OUT std_logic := '0';
-    AXI_W_OVERFLOW                 : OUT std_logic := '0';
-    AXI_W_UNDERFLOW                : OUT std_logic := '0';
-    AXI_W_PROG_FULL                : OUT STD_LOGIC := '0';
-    AXI_W_PROG_EMPTY               : OUT STD_LOGIC := '1';
+    -- axi full/lite write data channel signals
+    axi_w_injectsbiterr            : in  std_logic := '0';
+    axi_w_injectdbiterr            : in  std_logic := '0';
+    axi_w_prog_full_thresh         : in  std_logic_vector(C_WR_PNTR_WIDTH_WDCH-1 downto 0) := (others => '0');
+    axi_w_prog_empty_thresh        : in  std_logic_vector(C_WR_PNTR_WIDTH_WDCH-1 downto 0) := (others => '0');
+    axi_w_data_count               : out std_logic_vector(C_WR_PNTR_WIDTH_WDCH downto 0) := (others => '0');
+    axi_w_wr_data_count            : out std_logic_vector(C_WR_PNTR_WIDTH_WDCH downto 0) := (others => '0');
+    axi_w_rd_data_count            : out std_logic_vector(C_WR_PNTR_WIDTH_WDCH downto 0) := (others => '0');
+    axi_w_sbiterr                  : out std_logic := '0';
+    axi_w_dbiterr                  : out std_logic := '0';
+    axi_w_overflow                 : out std_logic := '0';
+    axi_w_underflow                : out std_logic := '0';
+    axi_w_prog_full                : out std_logic := '0';
+    axi_w_prog_empty               : out std_logic := '1';
+ --   axi_w_almost_full              : out std_logic := '0';
+ --   axi_w_almost_empty             : out std_logic := '1';
 
-    -- AXI Full/Lite Write Response Channel Signals
-    AXI_B_INJECTSBITERR            : IN  std_logic := '0';
-    AXI_B_INJECTDBITERR            : IN  std_logic := '0';
-    AXI_B_PROG_FULL_THRESH         : IN  std_logic_vector(C_WR_PNTR_WIDTH_WRCH-1 DOWNTO 0) := (OTHERS => '0');
-    AXI_B_PROG_EMPTY_THRESH        : IN  std_logic_vector(C_WR_PNTR_WIDTH_WRCH-1 DOWNTO 0) := (OTHERS => '0');
-    AXI_B_DATA_COUNT               : OUT std_logic_vector(C_WR_PNTR_WIDTH_WRCH DOWNTO 0) := (OTHERS => '0');
-    AXI_B_WR_DATA_COUNT            : OUT std_logic_vector(C_WR_PNTR_WIDTH_WRCH DOWNTO 0) := (OTHERS => '0');
-    AXI_B_RD_DATA_COUNT            : OUT std_logic_vector(C_WR_PNTR_WIDTH_WRCH DOWNTO 0) := (OTHERS => '0');
-    AXI_B_SBITERR                  : OUT std_logic := '0';
-    AXI_B_DBITERR                  : OUT std_logic := '0';
-    AXI_B_OVERFLOW                 : OUT std_logic := '0';
-    AXI_B_UNDERFLOW                : OUT std_logic := '0';
-    AXI_B_PROG_FULL                : OUT STD_LOGIC := '0';
-    AXI_B_PROG_EMPTY               : OUT STD_LOGIC := '1';
+    -- axi full/lite write response channel signals
+    axi_b_injectsbiterr            : in  std_logic := '0';
+    axi_b_injectdbiterr            : in  std_logic := '0';
+    axi_b_prog_full_thresh         : in  std_logic_vector(C_WR_PNTR_WIDTH_WRCH-1 downto 0) := (others => '0');
+    axi_b_prog_empty_thresh        : in  std_logic_vector(C_WR_PNTR_WIDTH_WRCH-1 downto 0) := (others => '0');
+    axi_b_data_count               : out std_logic_vector(C_WR_PNTR_WIDTH_WRCH downto 0) := (others => '0');
+    axi_b_wr_data_count            : out std_logic_vector(C_WR_PNTR_WIDTH_WRCH downto 0) := (others => '0');
+    axi_b_rd_data_count            : out std_logic_vector(C_WR_PNTR_WIDTH_WRCH downto 0) := (others => '0');
+    axi_b_sbiterr                  : out std_logic := '0';
+    axi_b_dbiterr                  : out std_logic := '0';
+    axi_b_overflow                 : out std_logic := '0';
+    axi_b_underflow                : out std_logic := '0';
+    axi_b_prog_full                : out std_logic := '0';
+    axi_b_prog_empty               : out std_logic := '1';
+ --   axi_b_almost_full              : out std_logic := '0';
+ --   axi_b_almost_empty             : out std_logic := '1';
 
-    -- AXI Full/Lite Read Address Channel Signals
-    AXI_AR_INJECTSBITERR           : IN  std_logic := '0';
-    AXI_AR_INJECTDBITERR           : IN  std_logic := '0';
-    AXI_AR_PROG_FULL_THRESH        : IN  std_logic_vector(C_WR_PNTR_WIDTH_RACH-1 DOWNTO 0) := (OTHERS => '0');
-    AXI_AR_PROG_EMPTY_THRESH       : IN  std_logic_vector(C_WR_PNTR_WIDTH_RACH-1 DOWNTO 0) := (OTHERS => '0');
-    AXI_AR_DATA_COUNT              : OUT std_logic_vector(C_WR_PNTR_WIDTH_RACH DOWNTO 0) := (OTHERS => '0');
-    AXI_AR_WR_DATA_COUNT           : OUT std_logic_vector(C_WR_PNTR_WIDTH_RACH DOWNTO 0) := (OTHERS => '0');
-    AXI_AR_RD_DATA_COUNT           : OUT std_logic_vector(C_WR_PNTR_WIDTH_RACH DOWNTO 0) := (OTHERS => '0');
-    AXI_AR_SBITERR                 : OUT std_logic := '0';
-    AXI_AR_DBITERR                 : OUT std_logic := '0';
-    AXI_AR_OVERFLOW                : OUT std_logic := '0';
-    AXI_AR_UNDERFLOW               : OUT std_logic := '0';
-    AXI_AR_PROG_FULL               : OUT STD_LOGIC := '0';
-    AXI_AR_PROG_EMPTY              : OUT STD_LOGIC := '1';
+    -- axi full/lite read address channel signals
+    axi_ar_injectsbiterr           : in  std_logic := '0';
+    axi_ar_injectdbiterr           : in  std_logic := '0';
+    axi_ar_prog_full_thresh        : in  std_logic_vector(C_WR_PNTR_WIDTH_RACH-1 downto 0) := (others => '0');
+    axi_ar_prog_empty_thresh       : in  std_logic_vector(C_WR_PNTR_WIDTH_RACH-1 downto 0) := (others => '0');
+    axi_ar_data_count              : out std_logic_vector(C_WR_PNTR_WIDTH_RACH downto 0) := (others => '0');
+    axi_ar_wr_data_count           : out std_logic_vector(C_WR_PNTR_WIDTH_RACH downto 0) := (others => '0');
+    axi_ar_rd_data_count           : out std_logic_vector(C_WR_PNTR_WIDTH_RACH downto 0) := (others => '0');
+    axi_ar_sbiterr                 : out std_logic := '0';
+    axi_ar_dbiterr                 : out std_logic := '0';
+    axi_ar_overflow                : out std_logic := '0';
+    axi_ar_underflow               : out std_logic := '0';
+    axi_ar_prog_full               : out std_logic := '0';
+    axi_ar_prog_empty              : out std_logic := '1';
+ --   axi_ar_almost_full             : out std_logic := '0';
+ --   axi_ar_almost_empty            : out std_logic := '1';
 
-    -- AXI Full/Lite Read Data Channel Signals
-    AXI_R_INJECTSBITERR            : IN  std_logic := '0';
-    AXI_R_INJECTDBITERR            : IN  std_logic := '0';
-    AXI_R_PROG_FULL_THRESH         : IN  std_logic_vector(C_WR_PNTR_WIDTH_RDCH-1 DOWNTO 0) := (OTHERS => '0');
-    AXI_R_PROG_EMPTY_THRESH        : IN  std_logic_vector(C_WR_PNTR_WIDTH_RDCH-1 DOWNTO 0) := (OTHERS => '0');
-    AXI_R_DATA_COUNT               : OUT std_logic_vector(C_WR_PNTR_WIDTH_RDCH DOWNTO 0) := (OTHERS => '0');
-    AXI_R_WR_DATA_COUNT            : OUT std_logic_vector(C_WR_PNTR_WIDTH_RDCH DOWNTO 0) := (OTHERS => '0');
-    AXI_R_RD_DATA_COUNT            : OUT std_logic_vector(C_WR_PNTR_WIDTH_RDCH DOWNTO 0) := (OTHERS => '0');
-    AXI_R_SBITERR                  : OUT std_logic := '0';
-    AXI_R_DBITERR                  : OUT std_logic := '0';
-    AXI_R_OVERFLOW                 : OUT std_logic := '0';
-    AXI_R_UNDERFLOW                : OUT std_logic := '0';
-    AXI_R_PROG_FULL                : OUT STD_LOGIC := '0';
-    AXI_R_PROG_EMPTY               : OUT STD_LOGIC := '1';
+    -- axi full/lite read data channel signals
+    axi_r_injectsbiterr            : in  std_logic := '0';
+    axi_r_injectdbiterr            : in  std_logic := '0';
+    axi_r_prog_full_thresh         : in  std_logic_vector(C_WR_PNTR_WIDTH_RDCH-1 downto 0) := (others => '0');
+    axi_r_prog_empty_thresh        : in  std_logic_vector(C_WR_PNTR_WIDTH_RDCH-1 downto 0) := (others => '0');
+    axi_r_data_count               : out std_logic_vector(C_WR_PNTR_WIDTH_RDCH downto 0) := (others => '0');
+    axi_r_wr_data_count            : out std_logic_vector(C_WR_PNTR_WIDTH_RDCH downto 0) := (others => '0');
+    axi_r_rd_data_count            : out std_logic_vector(C_WR_PNTR_WIDTH_RDCH downto 0) := (others => '0');
+    axi_r_sbiterr                  : out std_logic := '0';
+    axi_r_dbiterr                  : out std_logic := '0';
+    axi_r_overflow                 : out std_logic := '0';
+    axi_r_underflow                : out std_logic := '0';
+    axi_r_prog_full                : out std_logic := '0';
+    axi_r_prog_empty               : out std_logic := '1';
+ --   axi_r_almost_full              : out std_logic := '0';
+ --   axi_r_almost_empty             : out std_logic := '1';
 
-    -- AXI Streaming FIFO Related Signals
-    AXIS_INJECTSBITERR             : IN  std_logic := '0';
-    AXIS_INJECTDBITERR             : IN  std_logic := '0';
-    AXIS_PROG_FULL_THRESH          : IN  std_logic_vector(C_WR_PNTR_WIDTH_AXIS-1 DOWNTO 0) := (OTHERS => '0');
-    AXIS_PROG_EMPTY_THRESH         : IN  std_logic_vector(C_WR_PNTR_WIDTH_AXIS-1 DOWNTO 0) := (OTHERS => '0');
-    AXIS_DATA_COUNT                : OUT std_logic_vector(C_WR_PNTR_WIDTH_AXIS DOWNTO 0) := (OTHERS => '0');
-    AXIS_WR_DATA_COUNT             : OUT std_logic_vector(C_WR_PNTR_WIDTH_AXIS DOWNTO 0) := (OTHERS => '0');
-    AXIS_RD_DATA_COUNT             : OUT std_logic_vector(C_WR_PNTR_WIDTH_AXIS DOWNTO 0) := (OTHERS => '0');
-    AXIS_SBITERR                   : OUT std_logic := '0';
-    AXIS_DBITERR                   : OUT std_logic := '0';
-    AXIS_OVERFLOW                  : OUT std_logic := '0';
-    AXIS_UNDERFLOW                 : OUT std_logic := '0';
-    AXIS_PROG_FULL                 : OUT STD_LOGIC := '0';
-    AXIS_PROG_EMPTY                : OUT STD_LOGIC := '1'
+    -- axi streaming fifo related signals
+    axis_injectsbiterr             : in  std_logic := '0';
+    axis_injectdbiterr             : in  std_logic := '0';
+    axis_prog_full_thresh          : in  std_logic_vector(C_WR_PNTR_WIDTH_AXIS-1 downto 0) := (others => '0');
+    axis_prog_empty_thresh         : in  std_logic_vector(C_WR_PNTR_WIDTH_AXIS-1 downto 0) := (others => '0');
+    axis_data_count                : out std_logic_vector(C_WR_PNTR_WIDTH_AXIS downto 0) := (others => '0');
+    axis_wr_data_count             : out std_logic_vector(C_WR_PNTR_WIDTH_AXIS downto 0) := (others => '0');
+    axis_rd_data_count             : out std_logic_vector(C_WR_PNTR_WIDTH_AXIS downto 0) := (others => '0');
+    axis_sbiterr                   : out std_logic := '0';
+    axis_dbiterr                   : out std_logic := '0';
+    axis_overflow                  : out std_logic := '0';
+    axis_underflow                 : out std_logic := '0';
+    axis_prog_full                 : out std_logic := '0';
+    axis_prog_empty                : out std_logic := '1'
+ --   axis_almost_full               : out std_logic := '0';
+ --   axis_almost_empty              : out std_logic := '1'
 
     );
- END COMPONENT;
-   
+END COMPONENT;
 
 -- End FIFO Generator Component ---------------------------------------
    
@@ -759,6 +784,7 @@ component blk_mem_gen_v8_0 IS
 GENERIC (
   C_FAMILY                  : STRING  := "virtex6";
   C_XDEVICEFAMILY           : STRING  := "virtex6";
+  C_ELABORATION_DIR         : STRING  := "";
   C_INTERFACE_TYPE          : INTEGER := 0;
   C_USE_BRAM_BLOCK          : INTEGER := 0;
   C_ENABLE_32BIT_ADDRESS    : INTEGER := 0;

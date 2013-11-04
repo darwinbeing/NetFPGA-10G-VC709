@@ -217,7 +217,8 @@ entity async_fifo_fg is
         C_USE_BLOCKMEM     : integer := 1 ;  -- 0 = distributed RAM, 1 = BRAM
         C_WR_ACK_LOW       : integer := 0 ;
         C_WR_COUNT_WIDTH   : integer := 3 ;
-        C_WR_ERR_LOW       : integer := 0   
+        C_WR_ERR_LOW       : integer := 0 ;
+        C_SYNCHRONIZER_STAGE : integer := 2    -- valid values are 0 to 8  
     );
   port (
         Din            : in std_logic_vector(C_DATA_WIDTH-1 downto 0) := (others => '0');
@@ -514,7 +515,7 @@ begin --(architecture implementation)
          -- legacy BRAM implementations of an Async FIFo.
          --
          -------------------------------------------------------------------------------
-         I_ASYNC_FIFO_BRAM : fifo_generator_v10_0
+         I_ASYNC_FIFO_BRAM : fifo_generator_v11_0
             generic map(
               C_COMMON_CLOCK                 =>  0,   
               C_COUNT_TYPE                   =>  0,   
@@ -577,6 +578,7 @@ begin --(architecture implementation)
               C_MSGON_VAL                    =>  1,
               C_ENABLE_RST_SYNC              =>  1,  
               C_ERROR_INJECTION_TYPE         =>  0,
+              C_SYNCHRONIZER_STAGE           =>  C_SYNCHRONIZER_STAGE,
               
 
               -- AXI Interface related parameters start here
@@ -595,6 +597,9 @@ begin --(architecture implementation)
               C_AXI_ID_WIDTH                 =>  4 ,    --           : integer := 0;
               C_AXI_ADDR_WIDTH               =>  32,    --           : integer := 0;
               C_AXI_DATA_WIDTH               =>  64,    --           : integer := 0;
+              C_AXI_LEN_WIDTH                =>  8,     --           : integer := 8;
+              C_AXI_LOCK_WIDTH               =>  2,     --           : integer := 2;
+              C_HAS_AXI_ID                   =>  0,     --           : integer := 0;
               C_HAS_AXI_AWUSER               =>  0 ,    --           : integer := 0;
               C_HAS_AXI_WUSER                =>  0 ,    --           : integer := 0;
               C_HAS_AXI_BUSER                =>  0 ,    --           : integer := 0;
@@ -1112,7 +1117,7 @@ begin --(architecture implementation)
          -- legacy BRAM implementations of an Async FIFo.
          --
          -------------------------------------------------------------------------------
-         I_ASYNC_FIFO_BRAM : fifo_generator_v10_0
+         I_ASYNC_FIFO_BRAM : fifo_generator_v11_0
             generic map(
               C_COMMON_CLOCK                 =>  0,                                              
               C_COUNT_TYPE                   =>  0,                                              

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="cmd_fifo_xgemac_rxif_synth_1" LaunchDir="/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/cmd_fifo_xgemac_rxif_synth_1" FlowId="Vivado Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="axis_async_fifo_synth_1" LaunchDir="/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/axis_async_fifo_synth_1" FlowId="Vivado Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="ten_gig_eth_pcs_pma_ip_synth_1" LaunchDir="/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/ten_gig_eth_pcs_pma_ip_synth_1" FlowId="Vivado Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="ten_gig_eth_mac_ip_synth_1" LaunchDir="/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/ten_gig_eth_mac_ip_synth_1" FlowId="Vivado Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="vc709_pcie_x8_gen3_synth_1" LaunchDir="/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/vc709_pcie_x8_gen3_synth_1" FlowId="Vivado Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="axi_dma_0_synth_1" LaunchDir="/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/axi_dma_0_synth_1" FlowId="Vivado Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="synth_1" LaunchDir="/root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/synth_1" FlowId="Vivado Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="cmd_fifo_xgemac_rxif_synth_1"/>
+		<Parent Id="axis_async_fifo_synth_1"/>
+		<Parent Id="ten_gig_eth_pcs_pma_ip_synth_1"/>
+		<Parent Id="ten_gig_eth_mac_ip_synth_1"/>
+		<Parent Id="vc709_pcie_x8_gen3_synth_1"/>
+		<Parent Id="axi_dma_0_synth_1"/>
+	</Run>
+</Runs>
+

@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# Vivado v2013.3 (64-bit)
+# SW Build 329390 on Wed Oct 16 18:26:55 MDT 2013
+# IP Build 192953 on Wed Oct 16 08:44:02 MDT 2013
+# Start of session at: Thu Oct 24 14:30:33 2013
+# Process ID: 25981
+# Log file: /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/nf10_bram_output_queues_0_synth_1/nf10_bram_output_queues_0.rds
+# Journal file: /root/NetFPGA-10G-VC709-2013.3/projects/vc709_reference_nic/vc709_reference_nic.runs/nf10_bram_output_queues_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source nf10_bram_output_queues_0.tcl

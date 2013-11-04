@@ -45,9 +45,7 @@
 ## PART OF THIS FILE AT ALL TIMES.
 
 set clk156name [get_clocks -of_objects [get_ports clk156]]
-set dclkname [get_clocks -of_objects [get_ports dclk]]
-
+ 
 set_false_path -from $clk156name -through [get_ports configuration_vector[110]]
 set_false_path -through [get_ports configuration_vector[110]] -to $clk156name
-set_max_delay -from $clk156name -to [get_cells -hierarchical -filter {NAME =~ *synch_*d1_reg}] -datapath_only 2.400
-set_max_delay -from $dclkname -to [get_cells -hierarchical -filter {NAME =~ *synch_*d1_reg}] -datapath_only 2.400
+set_false_path -from $clk156name -to [get_cells -hierarchical -filter {NAME =~ *dp_ram_i*fd_i* && PRIMITIVE_SUBGROUP =~ flop}]

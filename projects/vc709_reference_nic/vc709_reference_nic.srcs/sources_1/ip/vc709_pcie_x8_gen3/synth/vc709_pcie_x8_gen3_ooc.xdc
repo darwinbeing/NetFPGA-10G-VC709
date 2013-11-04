@@ -50,13 +50,14 @@
 ##
 ## Project    : Virtex-7 FPGA Gen3 Integrated Block for PCI Express
 ## File       : vc709_pcie_x8_gen3_ooc.xdc
-## Version    : 2.1
+## Version    : 2.2
 #
 # This constraints file contains default clock frequencies to be used during out-of-context flows such as
 # OOC Synthesis and Hierarchical Designs. For best results the frequencies should be modified
 # to match the target frequencies. 
 # This constraints file is not used in normal top-down synthesis (the default flow of Vivado)
 #
+
 create_clock -name vc709_pcie_x8_gen3_sys_clk -period 10 [get_ports sys_clk]
 # 100/125/250 MHz
 create_clock -name vc709_pcie_x8_gen3_pclk -period 4 [get_ports pipe_pclk_in]
@@ -71,6 +72,5 @@ create_clock -name vc709_pcie_x8_gen3_usrclk2 -period 4 [get_ports pipe_userclk2
 # 31.25/62.5/125/250/500 MHz
 create_clock -name vc709_pcie_x8_gen3_oobclk -period 4 [get_ports pipe_oobclk_in]
 # 50 MHz , 125/250 MHz
-#
 #
 

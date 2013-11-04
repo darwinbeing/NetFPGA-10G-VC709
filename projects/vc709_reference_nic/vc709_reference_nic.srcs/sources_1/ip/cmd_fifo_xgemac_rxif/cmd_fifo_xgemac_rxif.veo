@@ -46,8 +46,8 @@
 // 
 // DO NOT MODIFY THIS FILE.
 
-// IP VLNV: xilinx.com:ip:fifo_generator:10.0
-// IP Revision: 1
+// IP VLNV: xilinx.com:ip:fifo_generator:11.0
+// IP Revision: 0
 
 // The following must be inserted into your Verilog file for this
 // core to be instantiated. Change the instance name and port connections
@@ -55,14 +55,14 @@
 
 //----------- Begin Cut here for INSTANTIATION Template ---// INST_TAG
 cmd_fifo_xgemac_rxif your_instance_name (
-  .clk(clk), // input clk
-  .rst(rst), // input rst
-  .din(din), // input [15 : 0] din
-  .wr_en(wr_en), // input wr_en
-  .rd_en(rd_en), // input rd_en
-  .dout(dout), // output [15 : 0] dout
-  .full(full), // output full
-  .empty(empty) // output empty
+  .clk(clk),      // input clk
+  .rst(rst),      // input rst
+  .din(din),      // input [15 : 0] din
+  .wr_en(wr_en),  // input wr_en
+  .rd_en(rd_en),  // input rd_en
+  .dout(dout),    // output [15 : 0] dout
+  .full(full),    // output full
+  .empty(empty)  // output empty
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------
 

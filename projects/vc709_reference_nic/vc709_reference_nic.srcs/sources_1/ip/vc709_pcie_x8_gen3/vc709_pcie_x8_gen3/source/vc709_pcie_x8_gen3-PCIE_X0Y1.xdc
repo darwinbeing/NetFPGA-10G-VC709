@@ -50,7 +50,7 @@
 ##
 ## Project    : Virtex-7 FPGA Gen3 Integrated Block for PCI Express
 ## File       : vc709_pcie_x8_gen3-PCIE_X0Y1.xdc
-## Version    : 2.1
+## Version    : 2.2
 #
 ###############################################################################
 # User Time Names / User Time Groups / Time Specs
@@ -118,9 +118,8 @@ set_property LOC RAMB18_X12Y101 [get_cells {pcie_top_i/pcie_7vx_i/pcie_bram_7vx_
 # Timing Constraints
 ###############################################################################
 #
-create_clock -name vc709_pcie_x8_gen3_txoutclk -period 10  [get_ports pipe_txoutclk_out]
-create_clock -name vc709_pcie_x8_gen3_rxoutclk -period 10  [get_ports pipe_rxoutclk_out[0]]
-create_clock -name vc709_pcie_x8_gen3_userclk -period 4 [get_ports user_clk]
+create_clock -period 10 [get_pins {gt_top.gt_top_i/pipe_wrapper_i/pipe_lane[0].gt_wrapper_i/gth_channel.gthe2_channel_i/TXOUTCLK}]
+
 #
 ###############################################################################
 # Physical Constraints
@@ -132,8 +131,6 @@ create_clock -name vc709_pcie_x8_gen3_userclk -period 4 [get_ports user_clk]
 #
 
 set_property PROHIBIT true [get_sites -range {SLICE_X195Y275 SLICE_X192Y224}]
-
-
 
 ###############################################################################
 # End

@@ -1,0 +1,44 @@
+Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------
+| Tool Version : Vivado v.2013.3 (lin64) Build 329390 Wed Oct 16 18:26:55 MDT 2013
+| Date         : Thu Oct 24 13:28:38 2013
+| Host         : nf-test104.cl.cam.ac.uk running 64-bit Fedora release 16 (Verne)
+| Command      : upgrade_ip
+| Device       : xc7vx690tffg1761-2
+-----------------------------------------------------------------------------------
+
+Upgrade Log for IP 'vc709_pcie_x8_gen3'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of vc709_pcie_x8_gen3 from xilinx.com:ip:pcie3_7x:2.1 to xilinx.com:ip:pcie3_7x:2.2
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+WARNING: Detected external port differences while upgrading IP 'vc709_pcie_x8_gen3'. These changes may impact your design.
+
+-upgrade has removed port 'cfg_interrupt_msix_enable'
+-upgrade has removed port 'cfg_interrupt_msix_mask'
+-upgrade has removed port 'cfg_interrupt_msix_vf_enable'
+-upgrade has removed port 'cfg_interrupt_msix_vf_mask'
+-upgrade has removed port 'cfg_interrupt_msix_data'
+-upgrade has removed port 'cfg_interrupt_msix_address'
+-upgrade has removed port 'cfg_interrupt_msix_int'
+-upgrade has removed port 'cfg_interrupt_msix_sent'
+-upgrade has removed port 'cfg_interrupt_msix_fail'
+-upgrade has removed port 'user_tph_stt_address'
+-upgrade has removed port 'user_tph_function_num'
+-upgrade has removed port 'user_tph_stt_read_data'
+-upgrade has removed port 'user_tph_stt_read_data_valid'
+-upgrade has removed port 'user_tph_stt_read_enable'
+
+3. Upgrade messages
+-------------------
+
+Set parameter axisten_freq to value 250
+Set parameter alignment_mode to value DWORD_aligned
+

@@ -1,0 +1,252 @@
+Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------
+| Tool Version : Vivado v.2013.3 (lin64) Build 329390 Wed Oct 16 18:26:55 MDT 2013
+| Date         : Thu Oct 24 13:28:44 2013
+| Host         : nf-test104.cl.cam.ac.uk running 64-bit Fedora release 16 (Verne)
+| Command      : upgrade_ip
+| Device       : xc7vx690tffg1761-2
+-----------------------------------------------------------------------------------
+
+Upgrade Log for IP 'cmd_fifo_xgemac_rxif'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of cmd_fifo_xgemac_rxif from xilinx.com:ip:fifo_generator:10.0 (Rev. 1) to xilinx.com:ip:fifo_generator:11.0
+
+After upgrade, an IP may have parameter differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality.
+
+2. Upgrade messages
+-------------------
+
+Renamed parameter AXI_Address_Width to ADDRESS_WIDTH
+Renamed parameter Interface_Type to INTERFACE_TYPE
+Added parameter DATA_WIDTH with value 64
+Added parameter PROTOCOL with value AXI3
+Removed parameter AXI_Data_Width
+Removed parameter AXI_Type
+Added parameter READ_WRITE_MODE with value READ_WRITE
+Removed parameter Enable_Read_Channel
+Removed parameter Enable_Write_Channel
+Added parameter TDATA_NUM_BYTES with value 0
+Removed parameter TDATA_Width
+Removed parameter Enable_TDATA
+Renamed parameter TSTRB_Width to TSTRB_WIDTH
+Added parameter HAS_TSTRB with value 0
+Set parameter TSTRB_WIDTH to value 8
+Renamed parameter TKEEP_Width to TKEEP_WIDTH
+Added parameter HAS_TKEEP with value 0
+Set parameter TKEEP_WIDTH to value 8
+Removed parameter Enable_TKEEP
+Added parameter HAS_ACLKEN with value 0
+Removed parameter Use_Clock_Enable
+Renamed parameter TID_Width to TID_WIDTH
+Set parameter TID_WIDTH to value 0
+Removed parameter Enable_TID
+Renamed parameter TDEST_Width to TDEST_WIDTH
+Set parameter TDEST_WIDTH to value 0
+Removed parameter Enable_TDEST
+Renamed parameter TUSER_Width to TUSER_WIDTH
+Set parameter TUSER_WIDTH to value 0
+Removed parameter Enable_TUSER
+Set parameter AWUSER_Width to value 0
+Removed parameter Enable_AWUSER
+Set parameter WUSER_Width to value 0
+Removed parameter Enable_WUSER
+Set parameter BUSER_Width to value 0
+Removed parameter Enable_BUSER
+Set parameter ARUSER_Width to value 0
+Removed parameter Enable_ARUSER
+Set parameter RUSER_Width to value 0
+Removed parameter Enable_RUSER
+
+3. Customization warnings
+-------------------------
+
+WARNING: Attempt to set value '8' on disabled parameter 'TKEEP_WIDTH' is ignored for 'cmd_fifo_xgemac_rxif'
+
+WARNING: Attempt to set value '8' on disabled parameter 'TSTRB_WIDTH' is ignored for 'cmd_fifo_xgemac_rxif'
+
+WARNING: Attempt to set value '0' on disabled parameter 'HAS_TKEEP' is ignored for 'cmd_fifo_xgemac_rxif'
+
+WARNING: Attempt to set value '0' on disabled parameter 'HAS_TSTRB' is ignored for 'cmd_fifo_xgemac_rxif'
+
+WARNING: Attempt to set value '0' on disabled parameter 'TUSER_WIDTH' is ignored for 'cmd_fifo_xgemac_rxif'
+
+WARNING: Attempt to set value '0' on disabled parameter 'HAS_ACLKEN' is ignored for 'cmd_fifo_xgemac_rxif'
+
+WARNING: Attempt to set value 'AXI3' on disabled parameter 'PROTOCOL' is ignored for 'cmd_fifo_xgemac_rxif'
+
+WARNING: Attempt to set value '4' on disabled parameter 'ID_WIDTH' is ignored for 'cmd_fifo_xgemac_rxif'
+
+
+4. Debug Commands
+-----------------
+
+  The following debug information can be passed to Vivado as Tcl commands,
+in order to validate or debug the output of the upgrade flow.
+  Please consult the warnings from the previous sections, and alter or remove
+the configuration parameter(s) which caused the warning; then execute the Tcl
+commands, and use the IP Customization GUI to verify the IP configuration.
+
+create_ip -vlnv xilinx.com:ip:fifo_generator:11.0 -user_name cmd_fifo_xgemac_rxif
+set_property -dict "\
+  CONFIG.Add_NGC_Constraint_AXI false \
+  CONFIG.Programmable_Empty_Type_rach No_Programmable_Empty_Threshold \
+  CONFIG.wrch_type FIFO \
+  CONFIG.Empty_Threshold_Assert_Value_wdch 1022 \
+  CONFIG.WUSER_Width 0 \
+  CONFIG.Full_Flags_Reset_Value 1 \
+  CONFIG.Full_Threshold_Assert_Value_wach 1023 \
+  CONFIG.Input_Depth_wach 16 \
+  CONFIG.Inject_Sbit_Error_rdch false \
+  CONFIG.Write_Clock_Frequency 1 \
+  CONFIG.TID_WIDTH 0 \
+  CONFIG.TKEEP_WIDTH 8 \
+  CONFIG.Empty_Threshold_Assert_Value_rdch 1022 \
+  CONFIG.Inject_Dbit_Error false \
+  CONFIG.Full_Threshold_Assert_Value_rach 1023 \
+  CONFIG.Input_Depth_rach 16 \
+  CONFIG.Fifo_Implementation Common_Clock_Block_RAM \
+  CONFIG.Reset_Pin true \
+  CONFIG.Enable_Reset_Synchronization true \
+  CONFIG.Enable_ECC_wach false \
+  CONFIG.Enable_ECC_rach false \
+  CONFIG.Inject_Sbit_Error false \
+  CONFIG.Enable_Data_Counts_wdch false \
+  CONFIG.DATA_WIDTH 64 \
+  CONFIG.Inject_Sbit_Error_wach false \
+  CONFIG.Output_Data_Width 16 \
+  CONFIG.TUSER_WIDTH 0 \
+  CONFIG.INTERFACE_TYPE Native \
+  CONFIG.Empty_Threshold_Assert_Value_wach 1022 \
+  CONFIG.Use_Dout_Reset true \
+  CONFIG.Disable_Timing_Violations_AXI false \
+  CONFIG.Register_Slice_Mode_wrch Fully_Registered \
+  CONFIG.Enable_Data_Counts_rdch false \
+  CONFIG.Inject_Dbit_Error_wrch false \
+  CONFIG.Almost_Full_Flag false \
+  CONFIG.Register_Slice_Mode_axis Fully_Registered \
+  CONFIG.Inject_Dbit_Error_axis false \
+  CONFIG.Inject_Sbit_Error_rach false \
+  CONFIG.Reset_Type Asynchronous_Reset \
+  CONFIG.Empty_Threshold_Assert_Value_rach 1022 \
+  CONFIG.FIFO_Application_Type_wdch Data_FIFO \
+  CONFIG.Read_Data_Count false \
+  CONFIG.TSTRB_WIDTH 8 \
+  CONFIG.Clock_Type_AXI Common_Clock \
+  CONFIG.Programmable_Full_Type_wrch No_Programmable_Full_Threshold \
+  CONFIG.Programmable_Full_Type_axis No_Programmable_Full_Threshold \
+  CONFIG.FIFO_Application_Type_rdch Data_FIFO \
+  CONFIG.Programmable_Empty_Type No_Programmable_Empty_Threshold \
+  CONFIG.HAS_ACLKEN 0 \
+  CONFIG.Valid_Flag false \
+  CONFIG.Enable_Common_Overflow false \
+  CONFIG.TDATA_NUM_BYTES 0 \
+  CONFIG.FIFO_Implementation_wrch Common_Clock_Block_RAM \
+  CONFIG.ID_WIDTH 4 \
+  CONFIG.Write_Data_Count false \
+  CONFIG.ADDRESS_WIDTH 32 \
+  CONFIG.FIFO_Implementation_axis Common_Clock_Block_RAM \
+  CONFIG.Enable_Data_Counts_wach false \
+  CONFIG.Use_Embedded_Registers false \
+  CONFIG.Enable_Data_Counts_rach false \
+  CONFIG.BUSER_Width 0 \
+  CONFIG.ARUSER_Width 0 \
+  CONFIG.HAS_TSTRB 0 \
+  CONFIG.Overflow_Sense_AXI Active_High \
+  CONFIG.rdch_type FIFO \
+  CONFIG.FIFO_Application_Type_wach Data_FIFO \
+  CONFIG.Empty_Threshold_Negate_Value 3 \
+  CONFIG.Programmable_Empty_Type_wrch No_Programmable_Empty_Threshold \
+  CONFIG.Underflow_Sense_AXI Active_High \
+  CONFIG.Programmable_Empty_Type_axis No_Programmable_Empty_Threshold \
+  CONFIG.Read_Data_Count_Width 10 \
+  CONFIG.Register_Slice_Mode_wdch Fully_Registered \
+  CONFIG.FIFO_Application_Type_rach Data_FIFO \
+  CONFIG.Inject_Dbit_Error_wdch false \
+  CONFIG.Use_Extra_Logic false \
+  CONFIG.Performance_Options Standard_FIFO \
+  CONFIG.Valid_Sense Active_High \
+  CONFIG.Enable_TLAST false \
+  CONFIG.Full_Threshold_Assert_Value_wrch 1023 \
+  CONFIG.Input_Depth_wrch 16 \
+  CONFIG.wdch_type FIFO \
+  CONFIG.Underflow_Flag_AXI false \
+  CONFIG.Register_Slice_Mode_rdch Fully_Registered \
+  CONFIG.Full_Threshold_Assert_Value_axis 1023 \
+  CONFIG.Input_Depth_axis 1024 \
+  CONFIG.Inject_Dbit_Error_rdch false \
+  CONFIG.Empty_Threshold_Assert_Value 2 \
+  CONFIG.Read_Clock_Frequency 1 \
+  CONFIG.Programmable_Full_Type_wdch No_Programmable_Full_Threshold \
+  CONFIG.Data_Count_Width 10 \
+  CONFIG.Overflow_Sense Active_High \
+  CONFIG.Data_Count false \
+  CONFIG.TDEST_WIDTH 0 \
+  CONFIG.Clock_Enable_Type Slave_Interface_Clock_Enable \
+  CONFIG.Underflow_Sense Active_High \
+  CONFIG.Enable_Common_Underflow false \
+  CONFIG.Programmable_Full_Type_rdch No_Programmable_Full_Threshold \
+  CONFIG.Enable_ECC_wrch false \
+  CONFIG.Programmable_Full_Type No_Programmable_Full_Threshold \
+  CONFIG.Enable_ECC_axis false \
+  CONFIG.Output_Depth 1024 \
+  CONFIG.axis_type FIFO \
+  CONFIG.FIFO_Implementation_wdch Common_Clock_Block_RAM \
+  CONFIG.Enable_TREADY true \
+  CONFIG.Underflow_Flag false \
+  CONFIG.RUSER_Width 0 \
+  CONFIG.Use_Embedded_Registers_axis false \
+  CONFIG.FIFO_Implementation_rdch Common_Clock_Block_RAM \
+  CONFIG.READ_WRITE_MODE READ_WRITE \
+  CONFIG.Register_Slice_Mode_wach Fully_Registered \
+  CONFIG.Inject_Sbit_Error_wrch false \
+  CONFIG.Inject_Dbit_Error_wach false \
+  CONFIG.Inject_Sbit_Error_axis false \
+  CONFIG.Empty_Threshold_Assert_Value_wrch 1022 \
+  CONFIG.Component_Name cmd_fifo_xgemac_rxif \
+  CONFIG.HAS_TKEEP 0 \
+  CONFIG.Empty_Threshold_Assert_Value_axis 1022 \
+  CONFIG.Register_Slice_Mode_rach Fully_Registered \
+  CONFIG.Inject_Dbit_Error_rach false \
+  CONFIG.Programmable_Empty_Type_wdch No_Programmable_Empty_Threshold \
+  CONFIG.Overflow_Flag_AXI false \
+  CONFIG.Programmable_Full_Type_wach No_Programmable_Full_Threshold \
+  CONFIG.AWUSER_Width 0 \
+  CONFIG.Full_Threshold_Negate_Value 1021 \
+  CONFIG.rach_type FIFO \
+  CONFIG.Almost_Empty_Flag false \
+  CONFIG.Programmable_Empty_Type_rdch No_Programmable_Empty_Threshold \
+  CONFIG.Input_Data_Width 16 \
+  CONFIG.Programmable_Full_Type_rach No_Programmable_Full_Threshold \
+  CONFIG.Full_Threshold_Assert_Value_wdch 1023 \
+  CONFIG.Input_Depth_wdch 1024 \
+  CONFIG.synchronization_stages_axi 2 \
+  CONFIG.Enable_ECC false \
+  CONFIG.enable_read_pointer_increment_by2 false \
+  CONFIG.Disable_Timing_Violations false \
+  CONFIG.Dout_Reset_Value 0 \
+  CONFIG.FIFO_Implementation_wach Common_Clock_Block_RAM \
+  CONFIG.Write_Data_Count_Width 10 \
+  CONFIG.Write_Acknowledge_Sense Active_High \
+  CONFIG.Full_Threshold_Assert_Value_rdch 1023 \
+  CONFIG.Input_Depth_rdch 1024 \
+  CONFIG.wach_type FIFO \
+  CONFIG.Full_Threshold_Assert_Value 1022 \
+  CONFIG.Input_Depth 1024 \
+  CONFIG.Overflow_Flag false \
+  CONFIG.FIFO_Implementation_rach Common_Clock_Block_RAM \
+  CONFIG.Enable_Data_Counts_wrch false \
+  CONFIG.Enable_ECC_wdch false \
+  CONFIG.Enable_Data_Counts_axis false \
+  CONFIG.Write_Acknowledge_Flag false \
+  CONFIG.synchronization_stages 2 \
+  CONFIG.Enable_ECC_rdch false \
+  CONFIG.PROTOCOL AXI3 \
+  CONFIG.Programmable_Empty_Type_wach No_Programmable_Empty_Threshold \
+  CONFIG.FIFO_Application_Type_wrch Data_FIFO \
+  CONFIG.FIFO_Application_Type_axis Data_FIFO \
+  CONFIG.Inject_Sbit_Error_wdch false " [get_ips cmd_fifo_xgemac_rxif]
+
+

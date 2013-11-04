@@ -6,7 +6,7 @@
 // File       : ten_gig_eth_mac_ip_block.v
 // Author     : Xilinx Inc.
 // Description: This is the block level Verilog code for the
-// Ten Gigabit Etherent MAC, where the MAC core is instanced. This file may also
+// Ten Gigabit Ethernet MAC, where the MAC core is instanced. This file may also
 // contain the physical interface instance for 32bit XGMII 
 // depending on the options selected for generation.
 //-----------------------------------------------------------------------------
@@ -61,14 +61,7 @@
 
 `timescale 1ps / 1ps
 
-module ten_gig_eth_mac_ip_block #(
-  parameter C_FAMILY = "virtex7",
-  parameter C_HAS_XGMII = 1'b0,
-  parameter C_HAS_MANAGEMENT = 1'b0,
-  parameter C_HAS_STATS = 1'b0,
-  parameter C_HAS_WAN_SUPPORT = 1'b0,
-  parameter C_1588 = 0
-  )
+module ten_gig_eth_mac_ip_block 
   (
    // Port declarations
    input           reset,
@@ -135,13 +128,13 @@ module ten_gig_eth_mac_ip_block #(
    //-----------------------
    // Instantiate the MAC
    //-----------------------
-   ten_gig_eth_mac_v12_0 #(
-     .C_FAMILY(C_FAMILY),
-     .C_HAS_XGMII(C_HAS_XGMII),
-     .C_HAS_MANAGEMENT(C_HAS_MANAGEMENT),
-     .C_HAS_STATS(C_HAS_STATS),
-     .C_HAS_WAN_SUPPORT(C_HAS_WAN_SUPPORT),
-     .C_1588(C_1588))
+   ten_gig_eth_mac_v13_0 #(
+     .C_FAMILY("virtex7"),
+     .C_HAS_XGMII(1'b0),
+     .C_HAS_MANAGEMENT(1'b0),
+     .C_HAS_STATS(1'b0),
+     .C_HAS_WAN_SUPPORT(1'b0),
+     .C_1588(0))
      ten_gig_eth_mac_ip_core (
       .reset(reset),
       .tx_axis_aresetn(tx_axis_aresetn),
@@ -172,7 +165,7 @@ module ten_gig_eth_mac_ip_block #(
       .bus2ip_clk(1'b0),
       .bus2ip_reset(1'b0),
       .bus2ip_rnw(1'b0),
-      .bus2ip_addr(32'd0),
+      .bus2ip_addr(11'd0),
       .bus2ip_data(32'd0),
       .ip2bus_data(),
       .bus2ip_cs(1'b0),

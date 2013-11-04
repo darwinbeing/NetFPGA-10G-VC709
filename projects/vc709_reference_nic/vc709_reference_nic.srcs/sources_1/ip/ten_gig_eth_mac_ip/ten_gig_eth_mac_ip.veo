@@ -46,8 +46,8 @@
 // 
 // DO NOT MODIFY THIS FILE.
 
-// IP VLNV: xilinx.com:ip:ten_gig_eth_mac:12.0
-// IP Revision: 1
+// IP VLNV: xilinx.com:ip:ten_gig_eth_mac:13.0
+// IP Revision: 0
 
 // The following must be inserted into your Verilog file for this
 // core to be instantiated. Change the instance name and port connections
@@ -55,38 +55,38 @@
 
 //----------- Begin Cut here for INSTANTIATION Template ---// INST_TAG
 ten_gig_eth_mac_ip your_instance_name (
-  .reset(reset), // input reset
-  .tx_axis_aresetn(tx_axis_aresetn), // input tx_axis_aresetn
-  .tx_axis_tdata(tx_axis_tdata), // input [63 : 0] tx_axis_tdata
-  .tx_axis_tvalid(tx_axis_tvalid), // input tx_axis_tvalid
-  .tx_axis_tlast(tx_axis_tlast), // input tx_axis_tlast
-  .tx_axis_tuser(tx_axis_tuser), // input [0 : 0] tx_axis_tuser
-  .tx_ifg_delay(tx_ifg_delay), // input [7 : 0] tx_ifg_delay
-  .tx_axis_tkeep(tx_axis_tkeep), // input [7 : 0] tx_axis_tkeep
-  .tx_axis_tready(tx_axis_tready), // output tx_axis_tready
-  .tx_statistics_vector(tx_statistics_vector), // output [25 : 0] tx_statistics_vector
-  .tx_statistics_valid(tx_statistics_valid), // output tx_statistics_valid
-  .rx_axis_aresetn(rx_axis_aresetn), // input rx_axis_aresetn
-  .rx_axis_tdata(rx_axis_tdata), // output [63 : 0] rx_axis_tdata
-  .rx_axis_tvalid(rx_axis_tvalid), // output rx_axis_tvalid
-  .rx_axis_tuser(rx_axis_tuser), // output rx_axis_tuser
-  .rx_axis_tlast(rx_axis_tlast), // output rx_axis_tlast
-  .rx_axis_tkeep(rx_axis_tkeep), // output [7 : 0] rx_axis_tkeep
-  .rx_statistics_vector(rx_statistics_vector), // output [29 : 0] rx_statistics_vector
-  .rx_statistics_valid(rx_statistics_valid), // output rx_statistics_valid
-  .pause_val(pause_val), // input [15 : 0] pause_val
-  .pause_req(pause_req), // input pause_req
-  .tx_configuration_vector(tx_configuration_vector), // input [79 : 0] tx_configuration_vector
-  .rx_configuration_vector(rx_configuration_vector), // input [79 : 0] rx_configuration_vector
-  .status_vector(status_vector), // output [1 : 0] status_vector
-  .tx_clk0(tx_clk0), // input tx_clk0
-  .tx_dcm_locked(tx_dcm_locked), // input tx_dcm_locked
-  .xgmii_txd(xgmii_txd), // output [63 : 0] xgmii_txd
-  .xgmii_txc(xgmii_txc), // output [7 : 0] xgmii_txc
-  .rx_clk0(rx_clk0), // input rx_clk0
-  .rx_dcm_locked(rx_dcm_locked), // input rx_dcm_locked
-  .xgmii_rxd(xgmii_rxd), // input [63 : 0] xgmii_rxd
-  .xgmii_rxc(xgmii_rxc) // input [7 : 0] xgmii_rxc
+  .tx_clk0(tx_clk0),                                  // input tx_clk0
+  .reset(reset),                                      // input reset
+  .tx_axis_aresetn(tx_axis_aresetn),                  // input tx_axis_aresetn
+  .tx_axis_tdata(tx_axis_tdata),                      // input [63 : 0] tx_axis_tdata
+  .tx_axis_tvalid(tx_axis_tvalid),                    // input tx_axis_tvalid
+  .tx_axis_tlast(tx_axis_tlast),                      // input tx_axis_tlast
+  .tx_axis_tuser(tx_axis_tuser),                      // input [0 : 0] tx_axis_tuser
+  .tx_ifg_delay(tx_ifg_delay),                        // input [7 : 0] tx_ifg_delay
+  .tx_axis_tkeep(tx_axis_tkeep),                      // input [7 : 0] tx_axis_tkeep
+  .tx_axis_tready(tx_axis_tready),                    // output tx_axis_tready
+  .tx_statistics_vector(tx_statistics_vector),        // output [25 : 0] tx_statistics_vector
+  .tx_statistics_valid(tx_statistics_valid),          // output tx_statistics_valid
+  .rx_axis_aresetn(rx_axis_aresetn),                  // input rx_axis_aresetn
+  .rx_axis_tdata(rx_axis_tdata),                      // output [63 : 0] rx_axis_tdata
+  .rx_axis_tvalid(rx_axis_tvalid),                    // output rx_axis_tvalid
+  .rx_axis_tuser(rx_axis_tuser),                      // output rx_axis_tuser
+  .rx_axis_tlast(rx_axis_tlast),                      // output rx_axis_tlast
+  .rx_axis_tkeep(rx_axis_tkeep),                      // output [7 : 0] rx_axis_tkeep
+  .rx_statistics_vector(rx_statistics_vector),        // output [29 : 0] rx_statistics_vector
+  .rx_statistics_valid(rx_statistics_valid),          // output rx_statistics_valid
+  .pause_val(pause_val),                              // input [15 : 0] pause_val
+  .pause_req(pause_req),                              // input pause_req
+  .tx_configuration_vector(tx_configuration_vector),  // input [79 : 0] tx_configuration_vector
+  .rx_configuration_vector(rx_configuration_vector),  // input [79 : 0] rx_configuration_vector
+  .status_vector(status_vector),                      // output [1 : 0] status_vector
+  .tx_dcm_locked(tx_dcm_locked),                      // input tx_dcm_locked
+  .xgmii_txd(xgmii_txd),                              // output [63 : 0] xgmii_txd
+  .xgmii_txc(xgmii_txc),                              // output [7 : 0] xgmii_txc
+  .rx_clk0(rx_clk0),                                  // input rx_clk0
+  .rx_dcm_locked(rx_dcm_locked),                      // input rx_dcm_locked
+  .xgmii_rxd(xgmii_rxd),                              // input [63 : 0] xgmii_rxd
+  .xgmii_rxc(xgmii_rxc)                              // input [7 : 0] xgmii_rxc
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------
 

@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Thu Oct 24 13:18:51 2013">
+<application name="pa" timeStamp="Thu Oct 24 15:25:30 2013">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="7e5c3636054241a7b1e68d0b73868412" type="ProjectID"/>
 <property name="ProjectIteration" value="21" type="ProjectIteration"/>
@@ -30,7 +30,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="NewFile" value="1" type="JavaHandler"/>
 <property name="NewProject" value="2" type="JavaHandler"/>
 <property name="OpenFile" value="3" type="JavaHandler"/>
-<property name="OpenProject" value="6" type="JavaHandler"/>
+<property name="OpenProject" value="7" type="JavaHandler"/>
 <property name="ProjectSettings" value="11" type="JavaHandler"/>
 <property name="RecustomizeCore" value="6" type="JavaHandler"/>
 <property name="ReportIPStatus" value="3" type="JavaHandler"/>
@@ -51,9 +51,9 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ui.views.b.f.f" value="2" type="JavaHandler"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="43" type="GuiMode"/>
+<property name="GuiMode" value="44" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="23" type="TclMode"/>
+<property name="TclMode" value="24" type="TclMode"/>
 <property name="ISEMode" value="0" type="ISEMode"/>
 </item>
 </section>

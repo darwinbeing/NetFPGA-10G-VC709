@@ -46,8 +46,8 @@
 // 
 // DO NOT MODIFY THIS FILE.
 
-// IP VLNV: xilinx.com:ip:ten_gig_eth_pcs_pma:3.0
-// IP Revision: 1
+// IP VLNV: xilinx.com:ip:ten_gig_eth_pcs_pma:4.0
+// IP Revision: 0
 
 // The following must be inserted into your Verilog file for this
 // core to be instantiated. Change the instance name and port connections
@@ -55,39 +55,51 @@
 
 //----------- Begin Cut here for INSTANTIATION Template ---// INST_TAG
 ten_gig_eth_pcs_pma_ip your_instance_name (
-  .clk156(clk156), // input clk156
-  .dclk(dclk), // input dclk
-  .txusrclk(txusrclk), // input txusrclk
-  .txusrclk2(txusrclk2), // input txusrclk2
-  .areset(areset), // input areset
-  .txclk322(txclk322), // output txclk322
-  .areset_refclk_bufh(areset_refclk_bufh), // input areset_refclk_bufh
-  .areset_clk156(areset_clk156), // input areset_clk156
-  .mmcm_locked_clk156(mmcm_locked_clk156), // input mmcm_locked_clk156
-  .gttxreset_txusrclk2(gttxreset_txusrclk2), // input gttxreset_txusrclk2
-  .gttxreset(gttxreset), // input gttxreset
-  .gtrxreset(gtrxreset), // input gtrxreset
-  .qplllock(qplllock), // input qplllock
-  .qplloutclk(qplloutclk), // input qplloutclk
-  .qplloutrefclk(qplloutrefclk), // input qplloutrefclk
-  .reset_counter_done(reset_counter_done), // input reset_counter_done
-  .txp(txp), // output txp
-  .txn(txn), // output txn
-  .rxp(rxp), // input rxp
-  .rxn(rxn), // input rxn
-  .xgmii_txd(xgmii_txd), // input [63 : 0] xgmii_txd
-  .xgmii_txc(xgmii_txc), // input [7 : 0] xgmii_txc
-  .xgmii_rxd(xgmii_rxd), // output [63 : 0] xgmii_rxd
-  .xgmii_rxc(xgmii_rxc), // output [7 : 0] xgmii_rxc
-  .configuration_vector(configuration_vector), // input [535 : 0] configuration_vector
-  .status_vector(status_vector), // output [447 : 0] status_vector
-  .core_status(core_status), // output [7 : 0] core_status
-  .tx_resetdone(tx_resetdone), // output tx_resetdone
-  .rx_resetdone(rx_resetdone), // output rx_resetdone
-  .signal_detect(signal_detect), // input signal_detect
-  .tx_fault(tx_fault), // input tx_fault
-  .tx_disable(tx_disable), // output tx_disable
-  .pma_pmd_type(pma_pmd_type) // input [2 : 0] pma_pmd_type
+  .clk156(clk156),                              // input clk156
+  .dclk(dclk),                                  // input dclk
+  .txusrclk(txusrclk),                          // input txusrclk
+  .txusrclk2(txusrclk2),                        // input txusrclk2
+  .areset(areset),                              // input areset
+  .txclk322(txclk322),                          // output txclk322
+  .areset_clk156(areset_clk156),                // input areset_clk156
+  .gttxreset(gttxreset),                        // input gttxreset
+  .gtrxreset(gtrxreset),                        // input gtrxreset
+  .txuserrdy(txuserrdy),                        // input txuserrdy
+  .qplllock(qplllock),                          // input qplllock
+  .qplloutclk(qplloutclk),                      // input qplloutclk
+  .qplloutrefclk(qplloutrefclk),                // input qplloutrefclk
+  .reset_counter_done(reset_counter_done),      // input reset_counter_done
+  .txp(txp),                                    // output txp
+  .txn(txn),                                    // output txn
+  .rxp(rxp),                                    // input rxp
+  .rxn(rxn),                                    // input rxn
+  .xgmii_txd(xgmii_txd),                        // input [63 : 0] xgmii_txd
+  .xgmii_txc(xgmii_txc),                        // input [7 : 0] xgmii_txc
+  .xgmii_rxd(xgmii_rxd),                        // output [63 : 0] xgmii_rxd
+  .xgmii_rxc(xgmii_rxc),                        // output [7 : 0] xgmii_rxc
+  .configuration_vector(configuration_vector),  // input [535 : 0] configuration_vector
+  .status_vector(status_vector),                // output [447 : 0] status_vector
+  .core_status(core_status),                    // output [7 : 0] core_status
+  .tx_resetdone(tx_resetdone),                  // output tx_resetdone
+  .rx_resetdone(rx_resetdone),                  // output rx_resetdone
+  .signal_detect(signal_detect),                // input signal_detect
+  .tx_fault(tx_fault),                          // input tx_fault
+  .drp_req(drp_req),                            // output drp_req
+  .drp_gnt(drp_gnt),                            // input drp_gnt
+  .drp_den_o(drp_den_o),                        // output drp_den_o
+  .drp_dwe_o(drp_dwe_o),                        // output drp_dwe_o
+  .drp_daddr_o(drp_daddr_o),                    // output [15 : 0] drp_daddr_o
+  .drp_di_o(drp_di_o),                          // output [15 : 0] drp_di_o
+  .drp_drdy_o(drp_drdy_o),                      // output drp_drdy_o
+  .drp_drpdo_o(drp_drpdo_o),                    // output [15 : 0] drp_drpdo_o
+  .drp_den_i(drp_den_i),                        // input drp_den_i
+  .drp_dwe_i(drp_dwe_i),                        // input drp_dwe_i
+  .drp_daddr_i(drp_daddr_i),                    // input [15 : 0] drp_daddr_i
+  .drp_di_i(drp_di_i),                          // input [15 : 0] drp_di_i
+  .drp_drdy_i(drp_drdy_i),                      // input drp_drdy_i
+  .drp_drpdo_i(drp_drpdo_i),                    // input [15 : 0] drp_drpdo_i
+  .tx_disable(tx_disable),                      // output tx_disable
+  .pma_pmd_type(pma_pmd_type)                  // input [2 : 0] pma_pmd_type
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------
 

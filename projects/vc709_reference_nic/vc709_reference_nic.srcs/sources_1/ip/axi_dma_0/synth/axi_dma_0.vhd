@@ -46,15 +46,15 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: xilinx.com:ip:axi_dma:7.0
--- IP Revision: 1
+-- IP VLNV: xilinx.com:ip:axi_dma:7.1
+-- IP Revision: 0
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-LIBRARY axi_dma_v7_0;
-USE axi_dma_v7_0.axi_dma;
+LIBRARY axi_dma_v7_1;
+USE axi_dma_v7_1.axi_dma;
 
 ENTITY axi_dma_0 IS
   PORT (
@@ -168,6 +168,9 @@ ENTITY axi_dma_0 IS
 END axi_dma_0;
 
 ARCHITECTURE axi_dma_0_arch OF axi_dma_0 IS
+  ATTRIBUTE DowngradeIPIdentifiedWarnings : string;
+  ATTRIBUTE DowngradeIPIdentifiedWarnings OF axi_dma_0_arch: ARCHITECTURE IS "yes";
+
   COMPONENT axi_dma IS
     GENERIC (
       C_S_AXI_LITE_ADDR_WIDTH : INTEGER;
@@ -178,7 +181,6 @@ ARCHITECTURE axi_dma_0_arch OF axi_dma_0 IS
       C_NUM_MM2S_CHANNELS : INTEGER;
       C_NUM_S2MM_CHANNELS : INTEGER;
       C_INCLUDE_SG : INTEGER;
-      C_SG_INCLUDE_DESC_QUEUE : INTEGER;
       C_SG_INCLUDE_STSCNTRL_STRM : INTEGER;
       C_SG_USE_STSAPP_LENGTH : INTEGER;
       C_SG_LENGTH_WIDTH : INTEGER;
@@ -186,6 +188,7 @@ ARCHITECTURE axi_dma_0_arch OF axi_dma_0 IS
       C_M_AXI_SG_DATA_WIDTH : INTEGER;
       C_M_AXIS_MM2S_CNTRL_TDATA_WIDTH : INTEGER;
       C_S_AXIS_S2MM_STS_TDATA_WIDTH : INTEGER;
+      C_MICRO_DMA : INTEGER;
       C_INCLUDE_MM2S : INTEGER;
       C_INCLUDE_MM2S_DRE : INTEGER;
       C_INCLUDE_MM2S_SF : INTEGER;
@@ -322,11 +325,113 @@ ARCHITECTURE axi_dma_0_arch OF axi_dma_0 IS
     );
   END COMPONENT axi_dma;
   ATTRIBUTE X_CORE_INFO : STRING;
-  ATTRIBUTE X_CORE_INFO OF axi_dma_0_arch : ARCHITECTURE IS "axi_dma,Vivado 2013.2";
+  ATTRIBUTE X_CORE_INFO OF axi_dma_0_arch: ARCHITECTURE IS "axi_dma,Vivado 2013.3";
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF axi_dma_0_arch : ARCHITECTURE IS "axi_dma_0,axi_dma,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF axi_dma_0_arch : ARCHITECTURE IS "axi_dma_0,axi_dma,{x_ipProduct=Vivado 2013.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_dma,x_ipVersion=7.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,C_S_AXI_LITE_ADDR_WIDTH=10,C_S_AXI_LITE_DATA_WIDTH=32,C_DLYTMR_RESOLUTION=125,C_PRMRY_IS_ACLK_ASYNC=0,C_ENABLE_MULTI_CHANNEL=0,C_NUM_MM2S_CHANNELS=1,C_NUM_S2MM_CHANNELS=1,C_INCLUDE_SG=1,C_SG_INCLUDE_DESC_QUEUE=1,C_SG_INCLUDE_STSCNTRL_STRM=1,C_SG_USE_STSAPP_LENGTH=0,C_SG_LENGTH_WIDTH=14,C_M_AXI_SG_ADDR_WIDTH=32,C_M_AXI_SG_DATA_WIDTH=32,C_M_AXIS_MM2S_CNTRL_TDATA_WIDTH=32,C_S_AXIS_S2MM_STS_TDATA_WIDTH=32,C_INCLUDE_MM2S=1,C_INCLUDE_MM2S_DRE=0,C_INCLUDE_MM2S_SF=1,C_MM2S_BURST_SIZE=16,C_M_AXI_MM2S_ADDR_WIDTH=32,C_M_AXI_MM2S_DATA_WIDTH=32,C_M_AXIS_MM2S_TDATA_WIDTH=32,C_INCLUDE_S2MM=1,C_INCLUDE_S2MM_DRE=0,C_INCLUDE_S2MM_SF=1,C_S2MM_BURST_SIZE=16,C_M_AXI_S2MM_ADDR_WIDTH=32,C_M_AXI_S2MM_DATA_WIDTH=32,C_S_AXIS_S2MM_TDATA_WIDTH=32,C_FAMILY=virtex7}";
+  ATTRIBUTE CORE_GENERATION_INFO OF axi_dma_0_arch: ARCHITECTURE IS "axi_dma_0,axi_dma,{x_ipProduct=Vivado 2013.3,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_dma,x_ipVersion=7.1,x_ipCoreRevision=0,x_ipLanguage=VERILOG,C_S_AXI_LITE_ADDR_WIDTH=10,C_S_AXI_LITE_DATA_WIDTH=32,C_DLYTMR_RESOLUTION=125,C_PRMRY_IS_ACLK_ASYNC=0,C_ENABLE_MULTI_CHANNEL=0,C_NUM_MM2S_CHANNELS=1,C_NUM_S2MM_CHANNELS=1,C_INCLUDE_SG=1,C_SG_INCLUDE_STSCNTRL_STRM=1,C_SG_USE_STSAPP_LENGTH=0,C_SG_LENGTH_WIDTH=14,C_M_AXI_SG_ADDR_WIDTH=32,C_M_AXI_SG_DATA_WIDTH=32,C_M_AXIS_MM2S_CNTRL_TDATA_WIDTH=32,C_S_AXIS_S2MM_STS_TDATA_WIDTH=32,C_MICRO_DMA=0,C_INCLUDE_MM2S=1,C_INCLUDE_MM2S_DRE=0,C_INCLUDE_MM2S_SF=1,C_MM2S_BURST_SIZE=16,C_M_AXI_MM2S_ADDR_WIDTH=32,C_M_AXI_MM2S_DATA_WIDTH=32,C_M_AXIS_MM2S_TDATA_WIDTH=32,C_INCLUDE_S2MM=1,C_INCLUDE_S2MM_DRE=0,C_INCLUDE_S2MM_SF=1,C_S2MM_BURST_SIZE=16,C_M_AXI_S2MM_ADDR_WIDTH=32,C_M_AXI_S2MM_DATA_WIDTH=32,C_S_AXIS_S2MM_TDATA_WIDTH=32,C_FAMILY=virtex7}";
+  ATTRIBUTE X_INTERFACE_INFO : STRING;
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_lite_aclk: SIGNAL IS "xilinx.com:signal:clock:1.0 S_AXI_LITE_ACLK CLK";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_aclk: SIGNAL IS "xilinx.com:signal:clock:1.0 M_AXI_SG_CLK CLK";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_mm2s_aclk: SIGNAL IS "xilinx.com:signal:clock:1.0 M_AXI_MM2S_CLK CLK";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_s2mm_aclk: SIGNAL IS "xilinx.com:signal:clock:1.0 M_AXI_S2MM_CLK CLK";
+  ATTRIBUTE X_INTERFACE_INFO OF axi_resetn: SIGNAL IS "xilinx.com:signal:reset:1.0 AXI_RESETN RST";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_lite_awvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI_LITE AWVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_lite_awready: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI_LITE AWREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_lite_awaddr: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI_LITE AWADDR";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_lite_wvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI_LITE WVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_lite_wready: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI_LITE WREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_lite_wdata: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI_LITE WDATA";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_lite_bresp: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI_LITE BRESP";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_lite_bvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI_LITE BVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_lite_bready: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI_LITE BREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_lite_arvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI_LITE ARVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_lite_arready: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI_LITE ARREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_lite_araddr: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI_LITE ARADDR";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_lite_rvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI_LITE RVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_lite_rready: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI_LITE RREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_lite_rdata: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI_LITE RDATA";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_lite_rresp: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI_LITE RRESP";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_awaddr: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG AWADDR";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_awlen: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG AWLEN";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_awsize: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG AWSIZE";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_awburst: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG AWBURST";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_awprot: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG AWPROT";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_awcache: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG AWCACHE";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_awvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG AWVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_awready: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG AWREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_wdata: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG WDATA";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_wstrb: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG WSTRB";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_wlast: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG WLAST";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_wvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG WVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_wready: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG WREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_bresp: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG BRESP";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_bvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG BVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_bready: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG BREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_araddr: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG ARADDR";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_arlen: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG ARLEN";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_arsize: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG ARSIZE";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_arburst: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG ARBURST";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_arprot: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG ARPROT";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_arcache: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG ARCACHE";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_arvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG ARVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_arready: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG ARREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_rdata: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG RDATA";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_rresp: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG RRESP";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_rlast: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG RLAST";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_rvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG RVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_rready: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_SG RREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_mm2s_araddr: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARADDR";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_mm2s_arlen: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARLEN";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_mm2s_arsize: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARSIZE";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_mm2s_arburst: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARBURST";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_mm2s_arprot: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARPROT";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_mm2s_arcache: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARCACHE";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_mm2s_arvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_mm2s_arready: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_mm2s_rdata: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_MM2S RDATA";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_mm2s_rresp: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_MM2S RRESP";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_mm2s_rlast: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_MM2S RLAST";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_mm2s_rvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_MM2S RVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_mm2s_rready: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_MM2S RREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axis_mm2s_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_MM2S TDATA";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axis_mm2s_tkeep: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_MM2S TKEEP";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axis_mm2s_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_MM2S TVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axis_mm2s_tready: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_MM2S TREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axis_mm2s_tlast: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_MM2S TLAST";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axis_mm2s_cntrl_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_CNTRL TDATA";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axis_mm2s_cntrl_tkeep: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_CNTRL TKEEP";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axis_mm2s_cntrl_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_CNTRL TVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axis_mm2s_cntrl_tready: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_CNTRL TREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axis_mm2s_cntrl_tlast: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_CNTRL TLAST";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_s2mm_awaddr: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_S2MM AWADDR";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_s2mm_awlen: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_S2MM AWLEN";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_s2mm_awsize: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_S2MM AWSIZE";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_s2mm_awburst: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_S2MM AWBURST";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_s2mm_awprot: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_S2MM AWPROT";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_s2mm_awcache: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_S2MM AWCACHE";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_s2mm_awvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_S2MM AWVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_s2mm_awready: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_S2MM AWREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_s2mm_wdata: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_S2MM WDATA";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_s2mm_wstrb: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_S2MM WSTRB";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_s2mm_wlast: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_S2MM WLAST";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_s2mm_wvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_S2MM WVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_s2mm_wready: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_S2MM WREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_s2mm_bresp: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_S2MM BRESP";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_s2mm_bvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_S2MM BVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axi_s2mm_bready: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_S2MM BREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axis_s2mm_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_S2MM TDATA";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axis_s2mm_tkeep: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_S2MM TKEEP";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axis_s2mm_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_S2MM TVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axis_s2mm_tready: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_S2MM TREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axis_s2mm_tlast: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_S2MM TLAST";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axis_s2mm_sts_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_STS TDATA";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axis_s2mm_sts_tkeep: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_STS TKEEP";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axis_s2mm_sts_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_STS TVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axis_s2mm_sts_tready: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_STS TREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axis_s2mm_sts_tlast: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_STS TLAST";
+  ATTRIBUTE X_INTERFACE_INFO OF mm2s_introut: SIGNAL IS "xilinx.com:signal:interrupt:1.0 MM2S_INTROUT INTERRUPT";
+  ATTRIBUTE X_INTERFACE_INFO OF s2mm_introut: SIGNAL IS "xilinx.com:signal:interrupt:1.0 S2MM_INTROUT INTERRUPT";
 BEGIN
   U0 : axi_dma
     GENERIC MAP (
@@ -338,7 +443,6 @@ BEGIN
       C_NUM_MM2S_CHANNELS => 1,
       C_NUM_S2MM_CHANNELS => 1,
       C_INCLUDE_SG => 1,
-      C_SG_INCLUDE_DESC_QUEUE => 1,
       C_SG_INCLUDE_STSCNTRL_STRM => 1,
       C_SG_USE_STSAPP_LENGTH => 0,
       C_SG_LENGTH_WIDTH => 14,
@@ -346,6 +450,7 @@ BEGIN
       C_M_AXI_SG_DATA_WIDTH => 32,
       C_M_AXIS_MM2S_CNTRL_TDATA_WIDTH => 32,
       C_S_AXIS_S2MM_STS_TDATA_WIDTH => 32,
+      C_MICRO_DMA => 0,
       C_INCLUDE_MM2S => 1,
       C_INCLUDE_MM2S_DRE => 0,
       C_INCLUDE_MM2S_SF => 1,
